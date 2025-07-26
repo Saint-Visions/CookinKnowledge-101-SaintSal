@@ -193,10 +193,12 @@ export function Splash({ className }: SplashProps) {
           <div className={`transition-all duration-2000 delay-2500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
               <Link to="/search">
-                <Button size="lg" className="bg-gradient-to-r from-[hsl(var(--gold))] to-yellow-400 hover:from-yellow-400 hover:to-[hsl(var(--gold))] text-black font-bold text-xl px-12 py-4 rounded-2xl shadow-[0_0_50px_rgba(255,215,0,0.8)] hover:shadow-[0_0_70px_rgba(255,215,0,1)] transition-all duration-500 transform hover:scale-105">
-                  <Rocket className="w-6 h-6 mr-3" />
-                  Experience SaintSal™
-                  <ArrowRight className="w-6 h-6 ml-3" />
+                <Button size="lg" className="bg-gradient-to-r from-[hsl(var(--gold))] to-yellow-400 hover:from-yellow-400 hover:to-[hsl(var(--gold))] text-black font-bold text-2xl px-12 py-4 rounded-2xl shadow-[0_0_50px_rgba(255,215,0,0.8)] hover:shadow-[0_0_70px_rgba(255,215,0,1)] transition-all duration-500 transform hover:scale-105 relative">
+                  <span className="relative">
+                    <span className="tracking-wide">Start Cookin</span>
+                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-black"></div>
+                  </span>
+                  <ArrowRight className="w-6 h-6 ml-4" />
                 </Button>
               </Link>
               <Link to="/why">
