@@ -138,11 +138,72 @@ export function Splash({ className }: SplashProps) {
           </div>
 
           {/* Subtitle */}
-          <div className={`mb-16 transition-all duration-2000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`mb-12 transition-all duration-2000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <p className="text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Revolutionizing industries through <span className="text-[hsl(var(--gold))] font-semibold">patented HACP™ technology</span>, 
+              Revolutionizing industries through <span className="text-[hsl(var(--gold))] font-semibold">patented HACP™ technology</span>,
               faith-guided innovation, and AI solutions that change lives across healthcare, education, and enterprise.
             </p>
+          </div>
+
+          {/* SaintSal™ Character Showcase */}
+          <div className={`mb-16 transition-all duration-2000 delay-1200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="flex items-center justify-center gap-12 max-w-5xl mx-auto">
+              {/* Character Description */}
+              <div className="text-center">
+                <div className="relative inline-block">
+                  {/* Stylized Character Representation */}
+                  <div className="w-32 h-48 mx-auto mb-6 relative">
+                    {/* Silhouette of tall, confident man */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-black rounded-full transform scale-y-150 opacity-80"></div>
+                    {/* Glasses highlight */}
+                    <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-8 h-2 bg-[hsl(var(--gold))] rounded-full opacity-60"></div>
+                    {/* Confident pose indicators */}
+                    <div className="absolute top-12 -left-2 w-6 h-12 bg-gray-700 rounded-lg transform rotate-12 opacity-70"></div>
+                    <div className="absolute top-12 -right-2 w-6 h-12 bg-gray-700 rounded-lg transform -rotate-12 opacity-70"></div>
+                  </div>
+
+                  {/* Welcoming text */}
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold text-[hsl(var(--gold))] mb-2 drop-shadow-[0_0_15px_rgba(255,215,0,0.6)]">
+                      SaintSal™
+                    </h3>
+                    <p className="text-lg text-cyan-400 font-light tracking-wide">
+                      + you
+                    </p>
+                    <p className="text-sm text-muted-foreground mt-3 max-w-xs mx-auto leading-relaxed">
+                      Your tall, sophisticated AI companion. Sharp intellect meets Italian charm
+                      in perfect black attire and modern style.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="h-24 w-px bg-gradient-to-b from-transparent via-[hsl(var(--gold))]/30 to-transparent"></div>
+
+              {/* Companion Features */}
+              <div className="text-left">
+                <h4 className="text-xl font-semibold text-foreground mb-4">Meet Your AI Companion</h4>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full"></div>
+                    <span>Confident & Charming Personality</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                    <span>Sophisticated Italian Style</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                    <span>Sharp Intelligence & Wit</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <span>Always Impeccably Dressed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Feature Cards Grid */}
