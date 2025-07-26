@@ -64,7 +64,7 @@ export default function Pricing() {
         "Priority support",
         "Custom AI memory",
         "API access",
-        "🔥 ALL MAGIC UNLOCKED"
+        "��� ALL MAGIC UNLOCKED"
       ],
       buttonText: "Unlock Magic ✨",
       color: "white",
@@ -221,41 +221,7 @@ export default function Pricing() {
   return (
     <div className="min-h-screen bg-black text-white" style={{ backgroundColor: '#090909' }}>
       {/* Header */}
-      <nav className="fixed top-0 w-full z-50 bg-gray-900/20 backdrop-blur-2xl border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-3">
-              <div className="p-2 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-xl">
-                <Crown className="w-6 h-6 text-black" />
-              </div>
-              <div>
-                <span className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-                  SaintVisionAI™
-                </span>
-                <div className="text-xs text-white/60 uppercase tracking-wider">COOKIN' KNOWLEDGE</div>
-              </div>
-            </Link>
-
-            <div className="hidden md:flex items-center gap-8 text-sm">
-              <Link to="/" className="text-white/80 hover:text-white transition-colors">Home</Link>
-              <Link to="/warroom" className="text-white/80 hover:text-white transition-colors">WarRoom</Link>
-              <Link to="/why" className="text-white/80 hover:text-white transition-colors">Why Us</Link>
-              <Link to="/institute" className="text-white/80 hover:text-white transition-colors">Institute</Link>
-              <Link to="/pricing" className="text-white hover:text-yellow-400 transition-colors font-medium">Pricing</Link>
-              <Link to="/contact" className="text-white/80 hover:text-white transition-colors">Contact</Link>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <Button variant="ghost" className="text-white/80 hover:text-white border-white/20 hover:bg-white/5">
-                Sign In
-              </Button>
-              <Button className="bg-white text-black hover:bg-white/90 font-semibold">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <GlobalHeader />
 
       {/* Hero Section */}
       <div className="text-center py-20 px-6 pt-32">
