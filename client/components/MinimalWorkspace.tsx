@@ -174,10 +174,10 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
                 {/* Quick Access */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
                   <Link to="/saintgpt">
-                    <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 cursor-pointer transition-all duration-300 group">
+                    <div className="p-6 rounded-xl bg-gradient-to-br from-[hsl(var(--gold))]/10 to-[hsl(var(--gold))]/5 border border-[hsl(var(--gold))]/20 hover:border-[hsl(var(--gold))]/40 cursor-pointer transition-all duration-300 group">
                       <div className="flex items-center gap-3 mb-3">
-                        <Sparkles className="w-5 h-5 text-primary" />
-                        <span className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                        <Sparkles className="w-5 h-5 text-[hsl(var(--gold))]" />
+                        <span className="font-semibold text-foreground group-hover:text-[hsl(var(--gold))] transition-colors">
                           SaintGPT 4.1
                         </span>
                       </div>
