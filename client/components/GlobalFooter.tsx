@@ -3,11 +3,15 @@ import { Crown } from 'lucide-react';
 
 export default function GlobalFooter() {
   return (
-    <footer className="relative z-10 bg-black/60 backdrop-blur-sm border-t border-white/10">
+    <footer className="relative z-10 bg-black/60 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Crown className="w-6 h-6 text-yellow-400" />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F7f736971d14847f7bf9416d1184de691?format=webp&width=800"
+              alt="SaintVisionAI Logo"
+              className="w-6 h-6 object-contain"
+            />
             <span className="text-xl font-bold text-white">SaintVisionAI™</span>
           </div>
           <p className="text-white/60 text-sm">
