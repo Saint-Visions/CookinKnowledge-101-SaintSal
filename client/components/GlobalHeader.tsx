@@ -7,13 +7,15 @@ export default function GlobalHeader() {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-gray-900/20 backdrop-blur-2xl border-b border-yellow-400/10">
+    <nav className="fixed top-0 w-full z-50 bg-gray-900/20 backdrop-blur-2xl">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <div className="p-2 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-xl">
-              <Crown className="w-6 h-6 text-black" />
-            </div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F7f736971d14847f7bf9416d1184de691?format=webp&width=800"
+              alt="SaintVisionAI Logo"
+              className="w-10 h-10 object-contain"
+            />
             <div>
               <span className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
                 SaintVisionAI™
