@@ -24,7 +24,7 @@ export default function Pricing() {
         "Web interface only"
       ],
       buttonText: "Start Free",
-      color: "gray",
+      color: "white",
       popular: false
     },
     {
@@ -65,7 +65,7 @@ export default function Pricing() {
         "🔥 ALL MAGIC UNLOCKED"
       ],
       buttonText: "Unlock Magic ✨",
-      color: "gold",
+      color: "white",
       popular: true,
       highlight: "Most businesses choose this plan"
     },
@@ -129,7 +129,7 @@ export default function Pricing() {
         "Full platform customization"
       ],
       buttonText: "Custom Build",
-      color: "rainbow",
+      color: "red",
       popular: false
     }
   ];
