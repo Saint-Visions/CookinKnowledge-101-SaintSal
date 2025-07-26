@@ -238,11 +238,11 @@ export default function Pricing() {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-6xl md:text-7xl font-light tracking-tight mb-6 leading-none">
             <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
-              Choose Your
+              Choose Your SaintVisionAI
             </span>
             <br />
             <span className="bg-gradient-to-r from-white to-white bg-clip-text text-transparent font-semibold">
-              Magic Level
+              Platform Level Access
             </span>
           </h1>
           
