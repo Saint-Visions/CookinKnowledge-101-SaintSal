@@ -1,17 +1,19 @@
 import { cn } from "@/lib/utils";
-import { 
-  Crown, 
-  Building2, 
-  StickyNote, 
-  Wrench, 
-  ImageIcon, 
-  Rocket, 
-  MessageSquare, 
-  Users, 
-  Shield, 
-  TrendingUp, 
+import { Link } from "react-router-dom";
+import {
+  Crown,
+  Building2,
+  StickyNote,
+  Wrench,
+  ImageIcon,
+  Rocket,
+  MessageSquare,
+  Users,
+  Shield,
+  TrendingUp,
   Palette,
-  User
+  User,
+  Sparkles
 } from "lucide-react";
 
 interface SidebarProps {
