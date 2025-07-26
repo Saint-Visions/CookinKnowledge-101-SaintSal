@@ -4,6 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../co
 import { Badge } from '../components/ui/badge';
 import { Check, Crown, Zap, Building2, Shield, Globe, Sparkles, ArrowRight, MessageSquare, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import GlobalHeader from '../components/GlobalHeader';
+import GlobalFooter from '../components/GlobalFooter';
 
 export default function Pricing() {
   const [isYearly, setIsYearly] = useState(false);
