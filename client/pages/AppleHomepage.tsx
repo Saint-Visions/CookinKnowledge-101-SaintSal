@@ -1,0 +1,380 @@
+import React, { useEffect, useState } from 'react';
+import { Button } from '../components/ui/button';
+import { Card, CardContent } from '../components/ui/card';
+import { Badge } from '../components/ui/badge';
+import { 
+  Shield, 
+  Zap, 
+  Crown, 
+  ArrowRight, 
+  CheckCircle,
+  Lock,
+  Award,
+  Building2,
+  Users,
+  Brain,
+  Globe,
+  Cpu,
+  Eye,
+  FileText,
+  TrendingUp,
+  Star,
+  Play
+} from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+export default function AppleHomepage() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const whyUsPoints = [
+    {
+      icon: Award,
+      title: "Patent Protected Technology",
+      description: "HACP™ U.S. Patent No. 10,290,222 - The only legally protected AI collaboration protocol in the industry"
+    },
+    {
+      icon: TrendingUp, 
+      title: "Proven Revenue Generation",
+      description: "$8,947+ generated for clients through our Route Intelligence platform with 47+ satisfied customers"
+    },
+    {
+      icon: Shield,
+      title: "Enterprise Security First",
+      description: "SOC 2 compliant, AES-256 encryption, faith-aligned values with transparent data practices"
+    }
+  ];
+
+  const eliteTech = [
+    {
+      icon: Brain,
+      title: "SaintSal™ AI",
+      description: "HACP™-powered companion with advanced reasoning",
+      status: "Enterprise"
+    },
+    {
+      icon: Cpu,
+      title: "Route Intelligence", 
+      description: "Real-time website monitoring & optimization",
+      status: "+$47 Add-On"
+    },
+    {
+      icon: Users,
+      title: "PartnerTech.ai",
+      description: "Integrated CRM with AI-powered insights",
+      status: "Platform"
+    }
+  ];
+
+  const ecosystemPartners = [
+    {
+      name: "Athena Legacy Care",
+      description: "AI-powered legacy system modernization",
+      icon: "🏛️",
+      color: "from-blue-500 to-purple-600"
+    },
+    {
+      name: "EbyTech Finance", 
+      description: "Advanced financial technology solutions",
+      icon: "💎", 
+      color: "from-green-500 to-emerald-600"
+    },
+    {
+      name: "SVTLegal.ai",
+      description: "Legal technology and compliance automation", 
+      icon: "⚖️",
+      color: "from-red-500 to-rose-600"
+    },
+    {
+      name: "SBVG Institute",
+      description: "Research and development excellence",
+      icon: "🎓",
+      color: "from-yellow-500 to-orange-600"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-black text-white overflow-hidden">
+      {/* Parallax Background */}
+      <div 
+        className="fixed inset-0 z-0"
+        style={{
+          backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F446d6f0fa2c34f478f99f49fc6ba7f85?format=webp&width=800')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          transform: `translateY(${scrollY * 0.5}px)`,
+          filter: 'brightness(0.3)'
+        }}
+      />
+
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full z-50 bg-black/10 backdrop-blur-2xl border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-xl">
+                <Crown className="w-6 h-6 text-black" />
+              </div>
+              <div>
+                <span className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                  SaintVisionAI™
+                </span>
+                <div className="text-xs text-white/60 uppercase tracking-wider">COOKIN' KNOWLEDGE</div>
+              </div>
+            </div>
+            
+            <div className="hidden md:flex items-center gap-8 text-sm">
+              <Link to="/about" className="text-white/80 hover:text-white transition-colors">About</Link>
+              <Link to="/platform" className="text-white/80 hover:text-white transition-colors">Platform</Link>
+              <Link to="/legal" className="text-white/80 hover:text-white transition-colors">Legal</Link>
+              <Link to="/institute" className="text-white/80 hover:text-white transition-colors">Institute</Link>
+              <Link to="/pricing" className="text-white/80 hover:text-white transition-colors">Pricing</Link>
+              <Link to="/contact" className="text-white/80 hover:text-white transition-colors">Contact</Link>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <Button variant="ghost" className="text-white/80 hover:text-white border-white/20 hover:bg-white/5">
+                Sign In
+              </Button>
+              <Button className="bg-white text-black hover:bg-white/90 font-semibold">
+                Get Started
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative z-10 min-h-screen flex items-center justify-center">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          {/* Patent Badge */}
+          <div className="mb-8">
+            <Badge className="bg-white/10 text-white border-white/20 backdrop-blur-sm px-6 py-2">
+              🛡️ Protected by U.S. Patent No. 10,290,222
+            </Badge>
+          </div>
+
+          {/* Main Headline */}
+          <h1 className="text-7xl md:text-8xl font-light tracking-tight mb-8 leading-none">
+            <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+              The Future of
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-semibold">
+              Enterprise AI
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
+            HACP™ technology powers the world's most advanced AI collaboration platform. 
+            <span className="text-white"> Patent-protected. Enterprise-proven. Faith-aligned.</span>
+          </p>
+
+          {/* Stats Bar */}
+          <div className="flex justify-center items-center gap-8 mb-12 text-sm">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="text-white/60">47+ Enterprise Clients</span>
+            </div>
+            <div className="w-px h-4 bg-white/20"></div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+              <span className="text-white/60">$8,947+ Revenue Generated</span>
+            </div>
+            <div className="w-px h-4 bg-white/20"></div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-white/60">99.9% Uptime</span>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-white text-black hover:bg-white/90 px-8 py-4 text-lg font-semibold">
+              Experience the Platform
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+            <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/5 px-8 py-4 text-lg backdrop-blur-sm">
+              <Play className="w-5 h-5 mr-2" />
+              Watch Demo
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Us Section */}
+      <section className="relative z-10 py-32 bg-black/40 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-light mb-6">Why SaintVisionAI</h2>
+            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+              The only platform combining patent-protected technology, proven results, and enterprise-grade security
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {whyUsPoints.map((point, index) => (
+              <Card key={index} className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+                <CardContent className="p-8 text-center">
+                  <div className="flex justify-center mb-6">
+                    <div className="p-4 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-2xl">
+                      <point.icon className="w-8 h-8 text-yellow-400" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4 text-white">{point.title}</h3>
+                  <p className="text-white/70 leading-relaxed">{point.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/why">
+              <Button variant="outline" className="border-white/30 text-white hover:bg-white/5 backdrop-blur-sm">
+                Learn More About Our Approach
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Elite Technology */}
+      <section className="relative z-10 py-32">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-light mb-6">Elite Technology Stack</h2>
+            <p className="text-xl text-white/70">HACP™-powered solutions for enterprise excellence</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {eliteTech.map((tech, index) => (
+              <Card key={index} className="bg-white/5 border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all duration-500">
+                <CardContent className="p-8">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="p-3 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                      <tech.icon className="w-6 h-6 text-yellow-400" />
+                    </div>
+                    <Badge className="bg-white/10 text-white border-white/20">
+                      {tech.status}
+                    </Badge>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3 text-white">{tech.title}</h3>
+                  <p className="text-white/70">{tech.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Security & Trust */}
+      <section className="relative z-10 py-32 bg-black/40 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-5xl font-light mb-12">Security & Trust</h2>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            <div className="p-6">
+              <Lock className="w-8 h-8 text-yellow-400 mx-auto mb-4" />
+              <div className="text-sm font-semibold text-white mb-2">AES-256</div>
+              <div className="text-xs text-white/60">Military Grade</div>
+            </div>
+            <div className="p-6">
+              <Shield className="w-8 h-8 text-green-400 mx-auto mb-4" />
+              <div className="text-sm font-semibold text-white mb-2">SOC 2</div>
+              <div className="text-xs text-white/60">Compliant</div>
+            </div>
+            <div className="p-6">
+              <Award className="w-8 h-8 text-blue-400 mx-auto mb-4" />
+              <div className="text-sm font-semibold text-white mb-2">Patent</div>
+              <div className="text-xs text-white/60">Protected</div>
+            </div>
+            <div className="p-6">
+              <Building2 className="w-8 h-8 text-purple-400 mx-auto mb-4" />
+              <div className="text-sm font-semibold text-white mb-2">Delaware</div>
+              <div className="text-xs text-white/60">LLC Structure</div>
+            </div>
+          </div>
+
+          <p className="text-white/70 max-w-3xl mx-auto">
+            Built on faith-aligned principles with complete transparency. 
+            We protect your data, respect your time, and serve your purpose.
+          </p>
+        </div>
+      </section>
+
+      {/* Ecosystem Partners */}
+      <section className="relative z-10 py-32">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-light mb-6">Partner Ecosystem</h2>
+            <p className="text-xl text-white/70">Integrated solutions across industries</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {ecosystemPartners.map((partner, index) => (
+              <Card key={index} className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 group">
+                <CardContent className="p-6 text-center">
+                  <div className="text-3xl mb-4">{partner.icon}</div>
+                  <h3 className="font-semibold text-white mb-2">{partner.name}</h3>
+                  <p className="text-sm text-white/60">{partner.description}</p>
+                  <div className={`mt-4 h-1 bg-gradient-to-r ${partner.color} rounded-full`}></div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Movement */}
+      <section className="relative z-10 py-32 bg-gradient-to-r from-yellow-400/10 to-yellow-600/10 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-5xl font-light mb-8">Join The Movement</h2>
+          <p className="text-xl text-white/80 mb-12 leading-relaxed">
+            We're building the future of human-AI collaboration. 
+            Patent-protected technology, faith-aligned values, and enterprise-proven results.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/pricing">
+              <Button size="lg" className="bg-white text-black hover:bg-white/90 px-8 py-4 text-lg font-semibold">
+                View Platform Pricing
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/5 px-8 py-4 text-lg backdrop-blur-sm">
+                Schedule Enterprise Demo
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="relative z-10 bg-black/60 backdrop-blur-sm border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Crown className="w-6 h-6 text-yellow-400" />
+              <span className="text-xl font-bold text-white">SaintVisionAI™</span>
+            </div>
+            <p className="text-white/60 text-sm">
+              © 2025 Saint Vision Group LLC. Protected by U.S. Patent No. 10,290,222
+            </p>
+            <p className="text-white/40 text-xs mt-2">
+              We protect your data. We respect your time. We serve your purpose.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
