@@ -27,7 +27,7 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className={`min-h-screen bg-background relative ${className}`}>
+    <div className={`min-h-screen relative ${className}`} style={{ backgroundColor: '#000000' }}>
       {/* Fixed Background Logo */}
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-40 overflow-hidden">
         <div className="relative">
