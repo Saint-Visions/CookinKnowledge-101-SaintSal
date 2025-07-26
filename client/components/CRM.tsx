@@ -41,15 +41,17 @@ export function CRM({ className }: CRMProps) {
         {/* Sidebar Content */}
         <div className="relative h-full flex flex-col">
           {/* Header */}
-          <div className="p-4 border-b border-white/10">
+          <div className="p-6 border-b border-blue-400/20">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-[hsl(var(--gold))] to-yellow-400 flex items-center justify-center">
-                  <Monitor className="w-5 h-5 text-black font-bold" />
-                </div>
-                <div>
-                  <h1 className="text-sm font-bold text-white">CRM WorkCenter</h1>
-                  <p className="text-xs text-gray-300">GHL Integration</p>
+              <div className="flex items-center gap-6">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F88335b4853ee4a66a62fe88e75199bfd?format=webp&width=800"
+                  alt="Sv. Logo"
+                  className="w-12 h-12 object-contain opacity-80"
+                />
+                <div className="h-8 w-px bg-border/20"></div>
+                <div className="text-[hsl(var(--gold))] font-light text-sm tracking-[0.3em] uppercase opacity-60">
+                  COOKIN' KNOWLEDGE
                 </div>
               </div>
               <Button
