@@ -101,7 +101,7 @@ export default function AppleHomepage() {
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-hidden">
       {/* Parallax Background */}
-      <div 
+      <div
         className="fixed inset-0 z-0"
         style={{
           backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F446d6f0fa2c34f478f99f49fc6ba7f85?format=webp&width=800')`,
@@ -112,6 +112,9 @@ export default function AppleHomepage() {
           filter: 'brightness(0.2) sepia(10%) saturate(0.8)'
         }}
       />
+
+      {/* Charcoal Overlay */}
+      <div className="fixed inset-0 z-0 bg-gray-900/60 backdrop-blur-[1px]" />
 
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-black/10 backdrop-blur-2xl border-b border-white/5">
