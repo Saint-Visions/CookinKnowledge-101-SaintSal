@@ -145,60 +145,26 @@ export function Splash({ className }: SplashProps) {
             </p>
           </div>
 
-          {/* SaintSal™ Character */}
-          <div className={`mb-16 transition-all duration-2000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto gap-12">
-              {/* Character Image */}
-              <div className="flex-1 text-center lg:text-left">
-                <div className="relative">
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F1578d022320148cdb4bb929a7dcf02e6?format=webp&width=800"
-                    alt="SaintSal™ - Leading AI Innovation"
-                    className="w-80 h-80 object-cover mx-auto lg:mx-0 rounded-2xl border border-[hsl(var(--gold))]/30 drop-shadow-[0_0_30px_rgba(255,215,0,0.3)]"
-                    style={{
-                      filter: 'brightness(1.1) contrast(1.05)',
-                      animation: 'character-glow 6s ease-in-out infinite alternate'
-                    }}
-                  />
-                  <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-[hsl(var(--gold))] to-yellow-400 text-black px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                    Live AI Session
-                  </div>
+          {/* SaintSal™ Preview */}
+          <div className={`mb-12 transition-all duration-2000 delay-1200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="text-center max-w-4xl mx-auto">
+              <div className="relative inline-block mb-8">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F1578d022320148cdb4bb929a7dcf02e6?format=webp&width=800"
+                  alt="SaintSal™ - Leading AI Innovation"
+                  className="w-48 h-32 object-cover mx-auto rounded-xl border border-[hsl(var(--gold))]/30 drop-shadow-[0_0_20px_rgba(255,215,0,0.2)]"
+                  style={{
+                    filter: 'brightness(1.1) contrast(1.05)'
+                  }}
+                />
+                <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-[hsl(var(--gold))] to-yellow-400 text-black px-2 py-1 rounded-full text-xs font-bold shadow-lg">
+                  Live
                 </div>
               </div>
-
-              {/* Welcome Message */}
-              <div className="flex-1 text-center lg:text-left">
-                <h3 className="text-4xl font-bold text-[hsl(var(--gold))] mb-4 drop-shadow-[0_0_25px_rgba(255,215,0,0.9)]">
-                  SaintSal™ + You
-                </h3>
-                <p className="text-xl text-cyan-400 font-light tracking-wide mb-6">
-                  Your Sophisticated AI Companion
-                </p>
-                <p className="text-base text-muted-foreground leading-relaxed mb-8">
-                  Meet your intelligent companion who combines cutting-edge AI with genuine personality.
-                  SaintSal™ adapts to your needs, learns your preferences, and delivers results with style and sophistication.
-                </p>
-
-                {/* Companion Features */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div className="flex items-center gap-3 text-sm">
-                    <div className="w-3 h-3 bg-[hsl(var(--gold))] rounded-full drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]"></div>
-                    <span className="text-muted-foreground">Adaptive Intelligence</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
-                    <span className="text-muted-foreground">Personalized Responses</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
-                    <span className="text-muted-foreground">Enterprise Ready</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                    <span className="text-muted-foreground">Always Learning</span>
-                  </div>
-                </div>
-              </div>
+              <p className="text-lg text-cyan-400 font-light mb-2">Meet SaintSal™</p>
+              <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+                Your AI companion leading the next generation of intelligent technology
+              </p>
             </div>
           </div>
 
