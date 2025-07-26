@@ -511,14 +511,16 @@ export function WarRoom({ className }: WarRoomProps) {
       {companionOpen && (
         <div className="fixed bottom-4 right-4 w-96 h-[500px] bg-black/95 border-2 border-[hsl(var(--gold))]/60 rounded-2xl shadow-[0_0_40px_rgba(255,215,0,0.4)] backdrop-blur-sm z-[60] flex flex-col">
           {/* Companion Header */}
-          <div className="flex items-center justify-between p-4 border-b border-cyan-400/30">
+          <div className="flex items-center justify-between p-4 border-b border-[hsl(var(--gold))]/30">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
-                <Users className="w-4 h-4 text-black" />
-              </div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F8c7c9578e6324915bda191428ef80ec9?format=webp&width=800"
+                alt="Supersal AI"
+                className="w-10 h-10 rounded-xl object-cover shadow-[0_0_20px_rgba(255,215,0,0.5)]"
+              />
               <div>
-                <h3 className="text-sm font-bold text-white">Supersal™ AI</h3>
-                <p className="text-xs text-cyan-400">Help Desk Companion</p>
+                <h3 className="text-sm font-bold text-[hsl(var(--gold))]">Supersal™ AI</h3>
+                <p className="text-xs text-[hsl(var(--gold))]/70">Help Desk Companion</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
