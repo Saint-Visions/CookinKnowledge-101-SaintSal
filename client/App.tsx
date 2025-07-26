@@ -39,7 +39,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Enterprise />} />
+          <Route path="/" element={<AppleHomepage />} />
           <Route path="/home" element={<Index />} />
           <Route path="/saintgpt" element={<SaintGPT />} />
           <Route path="/search" element={<SimpleSearch />} />
