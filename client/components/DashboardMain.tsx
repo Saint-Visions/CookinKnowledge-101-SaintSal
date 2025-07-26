@@ -116,12 +116,7 @@ export function DashboardMain({ className }: DashboardMainProps) {
                 </div>
               </div>
 
-              <div className="text-center py-8">
-                <div className="inline-block">
-                  <div className="text-6xl font-bold text-primary mb-2">SAINTSAUL</div>
-                  <div className="text-sm text-muted-foreground uppercase tracking-wider">COSMIC KNOWLEDGE</div>
-                </div>
-              </div>
+
             </CardContent>
           </Card>
         </div>
