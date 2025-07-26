@@ -60,37 +60,37 @@ export function Splash({ className }: SplashProps) {
         </div>
       </div>
 
-      {/* Animated Background Particles - Light-Touched Gold Dust */}
+      {/* Animated Background Particles - Ultra Fine Cinematic Dust */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(120)].map((_, i) => (
+        {[...Array(200)].map((_, i) => (
           <div
             key={i}
-            className="absolute bg-[hsl(var(--gold))] rounded-full opacity-10"
+            className="absolute bg-[hsl(var(--gold))] rounded-full opacity-5"
             style={{
-              width: `${Math.random() * 2 + 0.5}px`,
-              height: `${Math.random() * 2 + 0.5}px`,
+              width: `${Math.random() * 1 + 0.2}px`,
+              height: `${Math.random() * 1 + 0.2}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animation: `gentle-drift ${25 + Math.random() * 35}s infinite ease-in-out`,
-              animationDelay: `${Math.random() * 40}s`,
-              filter: 'blur(0.8px)',
-              boxShadow: '0 0 8px rgba(255, 215, 0, 0.2)'
+              animation: `ultra-fine-drift ${40 + Math.random() * 60}s infinite ease-in-out`,
+              animationDelay: `${Math.random() * 80}s`,
+              filter: 'blur(1px)',
+              boxShadow: '0 0 4px rgba(255, 215, 0, 0.1)'
             }}
           />
         ))}
-        {[...Array(60)].map((_, i) => (
+        {[...Array(100)].map((_, i) => (
           <div
-            key={`light-${i}`}
-            className="absolute bg-[hsl(var(--gold))] rounded-full opacity-15"
+            key={`micro-${i}`}
+            className="absolute bg-[hsl(var(--gold))] rounded-full opacity-3"
             style={{
-              width: '0.5px',
-              height: '0.5px',
+              width: '0.3px',
+              height: '0.3px',
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animation: `soft-glow ${12 + Math.random() * 18}s infinite ease-in-out`,
-              animationDelay: `${Math.random() * 25}s`,
-              filter: 'blur(0.4px)',
-              boxShadow: '0 0 12px rgba(255, 215, 0, 0.3)'
+              animation: `micro-float ${60 + Math.random() * 40}s infinite linear`,
+              animationDelay: `${Math.random() * 50}s`,
+              filter: 'blur(0.8px)',
+              boxShadow: '0 0 2px rgba(255, 215, 0, 0.15)'
             }}
           />
         ))}
