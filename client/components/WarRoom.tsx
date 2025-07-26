@@ -219,6 +219,7 @@ export function WarRoom({ className }: WarRoomProps) {
                     ? "bg-primary/10 text-primary border border-primary/20"
                     : "hover:bg-sidebar-accent/50 text-sidebar-foreground/70 hover:text-sidebar-foreground"
                 }`}
+                onClick={(item as any).onClick || undefined}
               >
                 <Icon className={`w-5 h-5 flex-shrink-0 ${item.color}`} />
                 {leftPanelOpen && (
