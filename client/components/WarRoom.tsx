@@ -689,9 +689,13 @@ export function WarRoom({ className }: WarRoomProps) {
       {!companionOpen && (
         <Button
           onClick={() => setCompanionOpen(true)}
-          className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 shadow-[0_0_25px_rgba(34,211,238,0.4)] hover:shadow-[0_0_35px_rgba(34,211,238,0.6)] transition-all duration-300 z-50 group"
+          className="fixed bottom-6 right-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-[hsl(var(--gold))] to-yellow-600 hover:from-[hsl(var(--gold))]/90 hover:to-yellow-500 shadow-[0_0_30px_rgba(255,215,0,0.5)] hover:shadow-[0_0_40px_rgba(255,215,0,0.7)] transition-all duration-300 z-50 group border border-[hsl(var(--gold))]/30"
         >
-          <Users className="w-6 h-6 text-black group-hover:scale-110 transition-transform" />
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F8c7c9578e6324915bda191428ef80ec9?format=webp&width=800"
+            alt="Supersal AI"
+            className="w-10 h-10 rounded-xl object-cover group-hover:scale-110 transition-transform"
+          />
         </Button>
       )}
     </div>
