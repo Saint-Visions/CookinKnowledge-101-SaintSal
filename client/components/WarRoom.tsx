@@ -172,7 +172,7 @@ export function WarRoom({ className }: WarRoomProps) {
     },
     {
       icon: Shield,
-      label: "Route Audit Service",
+      label: "Route Intelligence",
       active: false,
       color: "text-yellow-400",
       onClick: () => navigate("/audit-service"),
