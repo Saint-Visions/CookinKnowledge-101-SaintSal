@@ -131,13 +131,13 @@ export default function Pricing() {
 
       {/* Pricing Cards */}
       <div className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {plans.map((plan, index) => (
-            <Card key={index} className={`bg-gray-900 border-gray-800 relative ${plan.popular ? 'ring-2 ring-yellow-400 scale-105' : ''}`}>
+            <Card key={index} className={`bg-gray-900 border-gray-800 relative ${plan.popular ? 'ring-2 ring-yellow-400 scale-105' : ''} ${plan.special ? 'bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border-yellow-400' : ''}`}>
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-yellow-400 text-black font-bold">
-                    MOST POPULAR
+                  <Badge className={`font-bold ${plan.special ? 'bg-red-500 text-white animate-pulse' : 'bg-yellow-400 text-black'}`}>
+                    {plan.special ? '🔥 LIMITED TIME' : 'MOST POPULAR'}
                   </Badge>
                 </div>
               )}
