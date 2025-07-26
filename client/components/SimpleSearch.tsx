@@ -61,6 +61,8 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isListening, setIsListening] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
+  const [selectedModel, setSelectedModel] = useState("GPT-4 Turbo");
 
   const handleSend = () => {
     if (searchQuery.trim()) {
