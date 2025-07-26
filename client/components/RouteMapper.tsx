@@ -17,6 +17,7 @@ export const ROUTE_MAP = {
   partnertech: { path: "/partnertech", label: "PartnerTech.ai CRM" },
   crm: { path: "/crm", label: "CRM WorkCenter" },
   tools: { path: "/tools", label: "AI Tools" },
+  auditservice: { path: "/audit-service", label: "Route Audit Service" },
 
   // Company Pages
   institute: { path: "/institute", label: "SVT Institute of AI" },
