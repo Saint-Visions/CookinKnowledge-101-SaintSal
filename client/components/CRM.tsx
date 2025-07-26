@@ -202,7 +202,14 @@ export function CRM({ className }: CRMProps) {
           {/* Loading Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-black/90 to-cyan-400/10 flex items-center justify-center z-20">
             <div className="text-center">
-              <div className="w-16 h-16 border-4 border-[hsl(var(--gold))] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F88335b4853ee4a66a62fe88e75199bfd?format=webp&width=800"
+                alt="SaintVision Logo"
+                className="w-16 h-16 object-contain mx-auto mb-4 animate-spin drop-shadow-[0_0_30px_rgba(255,215,0,0.8)]"
+                style={{
+                  filter: 'brightness(1.2) drop-shadow(0 0 20px rgba(255,215,0,0.6))'
+                }}
+              />
               <h3 className="text-lg font-bold text-white mb-2">Loading LIVE GHL CRM</h3>
               <p className="text-sm text-gray-400">Connecting to your workspace...</p>
               <p className="text-xs text-gray-500 mt-2">Location ID: oRA8vL3OSiCPjpwmEC0V</p>
