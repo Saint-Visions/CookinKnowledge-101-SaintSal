@@ -24,5 +24,8 @@ export function createServer() {
   // GoHighLevel API routes
   app.use("/api/ghl", ghlRoutes);
 
+  // Dual AI System routes
+  app.use("/api/ai", aiRoutes);
+
   return app;
 }
