@@ -89,19 +89,21 @@ export function DashboardMain({ className }: DashboardMainProps) {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-secondary/50 hover:bg-secondary/70 transition-colors cursor-pointer">
-                  <CardContent className="p-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                        <Users className="w-5 h-5 text-purple-400" />
+                <Link to="/saintgpt">
+                  <Card className="bg-secondary/50 hover:bg-secondary/70 transition-colors cursor-pointer">
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/70 rounded-lg flex items-center justify-center">
+                          <Sparkles className="w-5 h-5 text-primary-foreground" />
+                        </div>
+                        <div>
+                          <h3 className="font-medium">SaintGPT 4.1</h3>
+                          <p className="text-sm text-muted-foreground">AI Assistant</p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-medium">AI Companion</h3>
-                        <p className="text-sm text-muted-foreground">Smart assistant</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </Link>
               </div>
 
               <div className="bg-muted/30 p-4 rounded-lg">
