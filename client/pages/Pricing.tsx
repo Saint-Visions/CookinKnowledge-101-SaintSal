@@ -391,9 +391,9 @@ export default function Pricing() {
                   <Calendar className="w-4 h-4 mr-2" />
                   Schedule a Call
                 </Button>
-                <Button 
-                  variant="outline" 
-                  className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8"
+                <Button
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-black px-8"
                   onClick={() => window.location.href = 'mailto:sales@saintvision.ai'}
                 >
                   <MessageSquare className="w-4 h-4 mr-2" />
@@ -406,7 +406,7 @@ export default function Pricing() {
       </div>
 
       {/* Why SaintSal Section */}
-      <div className="py-20 bg-gradient-to-r from-yellow-400/10 to-yellow-600/10 border-y border-yellow-400/20">
+      <div className="py-20 bg-gradient-to-r from-white/5 to-white/10 border-y border-white/20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-light text-white mb-4">Why SaintSal™?</h2>
@@ -414,24 +414,24 @@ export default function Pricing() {
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="p-4 bg-yellow-400/20 rounded-xl mb-4 w-16 h-16 mx-auto flex items-center justify-center">
-                <Shield className="w-8 h-8 text-yellow-400" />
+              <div className="p-4 bg-white/20 rounded-xl mb-4 w-16 h-16 mx-auto flex items-center justify-center">
+                <Shield className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-semibold text-white mb-2">HACP™ Technology</h3>
               <p className="text-sm text-white/60">Patented Human-AI Connection Protocol</p>
             </div>
             
             <div className="text-center">
-              <div className="p-4 bg-blue-400/20 rounded-xl mb-4 w-16 h-16 mx-auto flex items-center justify-center">
-                <Building2 className="w-8 h-8 text-blue-400" />
+              <div className="p-4 bg-white/20 rounded-xl mb-4 w-16 h-16 mx-auto flex items-center justify-center">
+                <Building2 className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-semibold text-white mb-2">Enterprise Security</h3>
               <p className="text-sm text-white/60">Azure-backed with SOC 2 compliance</p>
             </div>
             
             <div className="text-center">
-              <div className="p-4 bg-purple-400/20 rounded-xl mb-4 w-16 h-16 mx-auto flex items-center justify-center">
-                <Zap className="w-8 h-8 text-purple-400" />
+              <div className="p-4 bg-white/20 rounded-xl mb-4 w-16 h-16 mx-auto flex items-center justify-center">
+                <Zap className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-semibold text-white mb-2">Real Integrations</h3>
               <p className="text-sm text-white/60">CRM, billing, voice, and SMS ready</p>
