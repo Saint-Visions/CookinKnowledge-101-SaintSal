@@ -130,7 +130,7 @@ export function Why({ className }: WhyProps) {
             </div>
 
             <div className="flex items-center justify-center gap-4">
-              <Button size="lg" className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-semibold text-lg px-8 py-3">
+              <Button size="lg" className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-semibold text-lg px-8 py-3 shadow-[0_0_30px_rgba(255,215,0,0.6)] hover:shadow-[0_0_40px_rgba(255,215,0,0.8)] transition-all">
                 <Rocket className="w-5 h-5 mr-2" />
                 Experience the Difference
               </Button>
