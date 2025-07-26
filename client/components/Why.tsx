@@ -123,8 +123,8 @@ export function Why({ className }: WhyProps) {
                 Faith-Guided Innovation
               </div>
               <div className="text-muted-foreground">•</div>
-              <div className="flex items-center gap-2 text-lg text-[hsl(var(--gold))]">
-                <Crown className="w-6 h-6" />
+              <div className="flex items-center gap-2 text-lg text-[hsl(var(--gold))] drop-shadow-[0_0_15px_rgba(255,215,0,0.8)]">
+                <Crown className="w-6 h-6 drop-shadow-[0_0_10px_rgba(255,215,0,0.9)]" />
                 Enterprise-Grade Solutions
               </div>
             </div>
