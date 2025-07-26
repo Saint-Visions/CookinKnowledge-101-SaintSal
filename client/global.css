@@ -150,3 +150,70 @@
     transform: scale(1.2);
   }
 }
+
+@keyframes gentle-drift {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.08;
+  }
+  25% {
+    transform: translateY(-8px) translateX(4px) rotate(45deg);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateY(-4px) translateX(-6px) rotate(90deg);
+    opacity: 0.12;
+  }
+  75% {
+    transform: translateY(-12px) translateX(2px) rotate(135deg);
+    opacity: 0.18;
+  }
+  100% {
+    transform: translateY(-16px) translateX(-3px) rotate(180deg);
+    opacity: 0.06;
+  }
+}
+
+@keyframes soft-glow {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(0.8);
+    filter: blur(0.4px);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.4);
+    filter: blur(0.2px);
+  }
+}
+
+@keyframes orbital-1 {
+  0% { transform: rotate(0deg) translateX(80px) rotate(0deg); opacity: 0.4; }
+  100% { transform: rotate(360deg) translateX(80px) rotate(-360deg); opacity: 0.8; }
+}
+
+@keyframes orbital-2 {
+  0% { transform: rotate(0deg) translateX(95px) rotate(0deg); opacity: 0.3; }
+  100% { transform: rotate(-360deg) translateX(95px) rotate(360deg); opacity: 0.6; }
+}
+
+@keyframes orbital-3 {
+  0% { transform: rotate(0deg) translateX(110px) rotate(0deg); opacity: 0.5; }
+  100% { transform: rotate(360deg) translateX(110px) rotate(-360deg); opacity: 0.9; }
+}
+
+@keyframes orbital-4 {
+  0% { transform: rotate(0deg) translateX(65px) rotate(0deg); opacity: 0.2; }
+  100% { transform: rotate(-360deg) translateX(65px) rotate(360deg); opacity: 0.5; }
+}
+
+@keyframes orbital-5 {
+  0% { transform: rotate(0deg) translateX(125px) rotate(0deg); opacity: 0.6; }
+  100% { transform: rotate(360deg) translateX(125px) rotate(-360deg); opacity: 0.3; }
+}
+
+.animate-orbital-1 { animation: orbital-1 20s infinite linear; }
+.animate-orbital-2 { animation: orbital-2 25s infinite linear reverse; }
+.animate-orbital-3 { animation: orbital-3 18s infinite linear; }
+.animate-orbital-4 { animation: orbital-4 30s infinite linear reverse; }
+.animate-orbital-5 { animation: orbital-5 22s infinite linear; }
