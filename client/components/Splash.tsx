@@ -105,7 +105,11 @@ export function Splash({ className }: SplashProps) {
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F62f2dc3414ab48ea8b95074999a49f4e?format=webp&width=800"
                 alt="SaintSal™"
-                className="w-32 h-32 object-contain mx-auto mb-8 drop-shadow-[0_0_50px_rgba(255,215,0,0.8)] animate-pulse relative z-10"
+                className="w-48 h-48 object-contain mx-auto mb-8 drop-shadow-[0_0_80px_rgba(255,215,0,1)] animate-pulse relative z-10"
+                style={{
+                  filter: 'drop-shadow(0 0 120px rgba(255,215,0,0.9)) drop-shadow(0 0 40px rgba(255,215,0,1)) brightness(1.2) contrast(1.1)',
+                  animation: 'hero-glow 4s ease-in-out infinite alternate'
+                }}
               />
               {/* Floating Orbital Elements */}
               <div className="absolute inset-0 w-48 h-48 -m-8">
