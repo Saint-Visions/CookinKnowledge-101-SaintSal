@@ -197,6 +197,93 @@ export function Splash({ className }: SplashProps) {
             </div>
           </div>
 
+          {/* Meet the Team Section */}
+          <div className={`mb-20 transition-all duration-2000 delay-1200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-foreground mb-4">
+                Meet the <span className="text-[hsl(var(--gold))] drop-shadow-[0_0_25px_rgba(255,215,0,0.8)]">SaintSal™ Family</span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                From the first designs to today - the evolution of our AI companions
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+              {/* Original Character Designs */}
+              <div className="text-center">
+                <div className="relative mb-8">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F84af5f2695af4e7f9a04ecf7ea17b87c?format=webp&width=800"
+                    alt="Original SaintSal Character Designs"
+                    className="w-full max-w-md mx-auto rounded-2xl border border-[hsl(var(--gold))]/30 drop-shadow-[0_0_30px_rgba(255,215,0,0.3)]"
+                    style={{
+                      filter: 'brightness(1.1) contrast(1.05)',
+                    }}
+                  />
+                  <div className="absolute -top-4 -right-4 bg-[hsl(var(--gold))] text-black px-3 py-1 rounded-full text-sm font-bold">
+                    Original Designs
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-3">Where It All Began</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  The first sketches of Athena, Baby Sal, and Big Sal - capturing the essence
+                  of what would become our revolutionary AI family. From legal expertise to tech innovation,
+                  each character brought unique talents to life.
+                </p>
+              </div>
+
+              {/* Current SaintSal */}
+              <div className="text-center">
+                <div className="relative mb-8">
+                  <img
+                    src="https://cdn.builder.io/o/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F1306a54abf0649c5b8fb0ecac571503c?alt=media&token=b8d34ce4-0ad0-43cd-865d-e2bd8bf977db&apiKey=2c553a9d8cf24e6eae81a4a63962c5a4"
+                    alt="Modern SaintSal™ Interface"
+                    className="w-full max-w-md mx-auto rounded-2xl border border-cyan-400/30 drop-shadow-[0_0_30px_rgba(34,211,238,0.3)]"
+                    style={{
+                      filter: 'brightness(1.1) contrast(1.05)',
+                    }}
+                  />
+                  <div className="absolute -top-4 -left-4 bg-cyan-400 text-black px-3 py-1 rounded-full text-sm font-bold">
+                    Today
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-3">SaintSal™ Evolved</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  From those early concepts to today's sophisticated AI companion.
+                  SaintSal™ now combines the wisdom of Athena, the innovation of Big Sal,
+                  and the heart of the original vision into one powerful, adaptive AI experience.
+                </p>
+              </div>
+            </div>
+
+            {/* Character Traits */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto">
+              <div className="text-center p-6 rounded-xl bg-gradient-to-br from-purple-400/10 to-pink-400/10 border border-purple-400/20">
+                <div className="w-12 h-12 bg-purple-400/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Crown className="w-6 h-6 text-purple-400" />
+                </div>
+                <h4 className="font-bold text-foreground mb-2">Athena's Wisdom</h4>
+                <p className="text-sm text-muted-foreground">Strategic thinking and divine intelligence</p>
+              </div>
+
+              <div className="text-center p-6 rounded-xl bg-gradient-to-br from-[hsl(var(--gold))]/10 to-yellow-400/10 border border-[hsl(var(--gold))]/20">
+                <div className="w-12 h-12 bg-[hsl(var(--gold))]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Brain className="w-6 h-6 text-[hsl(var(--gold))]" />
+                </div>
+                <h4 className="font-bold text-foreground mb-2">Big Sal's Innovation</h4>
+                <p className="text-sm text-muted-foreground">Legal expertise meets cutting-edge tech</p>
+              </div>
+
+              <div className="text-center p-6 rounded-xl bg-gradient-to-br from-cyan-400/10 to-blue-400/10 border border-cyan-400/20">
+                <div className="w-12 h-12 bg-cyan-400/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="w-6 h-6 text-cyan-400" />
+                </div>
+                <h4 className="font-bold text-foreground mb-2">The Original Heart</h4>
+                <p className="text-sm text-muted-foreground">Purpose-driven AI with genuine care</p>
+              </div>
+            </div>
+          </div>
+
           {/* Feature Cards Grid */}
           <div className={`grid grid-cols-1 md:grid-cols-4 gap-6 mb-16 transition-all duration-2000 delay-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="group p-6 rounded-2xl bg-gradient-to-br from-[hsl(var(--gold))]/20 to-yellow-400/10 border border-[hsl(var(--gold))]/30 hover:border-[hsl(var(--gold))]/60 transition-all duration-500 hover:scale-105 cursor-pointer">
