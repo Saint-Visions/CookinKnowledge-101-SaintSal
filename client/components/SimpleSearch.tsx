@@ -114,8 +114,12 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
             </div>
 
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-[hsl(var(--gold))]/20 to-[hsl(var(--gold))]/10 rounded-xl flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-[hsl(var(--gold))]" />
+              <div className="w-10 h-10 flex items-center justify-center">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fc88eaa91ad364821b51a4fc6c47320ab?format=webp&width=80"
+                  alt="Sv."
+                  className="w-10 h-10 object-contain"
+                />
               </div>
               <div>
                 <h1 className="text-lg font-bold text-sidebar-foreground">SaintGPT</h1>
