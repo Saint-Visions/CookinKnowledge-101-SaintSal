@@ -129,12 +129,12 @@ export function WarRoom({ className }: WarRoomProps) {
               <div
                 key={index}
                 className={`flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-colors ${
-                  item.active 
-                    ? 'bg-primary/10 text-primary border border-primary/20' 
+                  item.active
+                    ? 'bg-primary/10 text-primary border border-primary/20'
                     : 'hover:bg-sidebar-accent/50 text-sidebar-foreground/70 hover:text-sidebar-foreground'
                 }`}
               >
-                <Icon className="w-5 h-5 flex-shrink-0" />
+                <Icon className={`w-5 h-5 flex-shrink-0 ${item.color}`} />
                 {leftPanelOpen && (
                   <span className="text-sm font-medium">{item.label}</span>
                 )}
