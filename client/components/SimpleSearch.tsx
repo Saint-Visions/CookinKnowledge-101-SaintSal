@@ -212,13 +212,11 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
               </p>
             </div>
 
-            {/* Bottom Logo */}
+            {/* Gold Sparkles */}
             <div className="flex justify-center">
-              <img 
-                src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fdbc34a0fdf4849459b0ed2678312de82?format=webp&width=80" 
-                alt="Sv. Second"
-                className="w-12 h-12 object-contain"
-              />
+              <div className="w-10 h-10 bg-gradient-to-br from-[hsl(var(--gold))]/20 to-[hsl(var(--gold))]/10 rounded-xl flex items-center justify-center">
+                <Sparkles className="w-6 h-6 text-[hsl(var(--gold))]" />
+              </div>
             </div>
           </div>
         </div>
