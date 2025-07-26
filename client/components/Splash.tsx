@@ -103,8 +103,8 @@ export function Splash({ className }: SplashProps) {
           <div className={`mb-12 transition-all duration-2000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="relative inline-block">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F88335b4853ee4a66a62fe88e75199bfd?format=webp&width=800"
-                alt="Sv. Logo"
+                src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F62f2dc3414ab48ea8b95074999a49f4e?format=webp&width=800"
+                alt="SaintSal™"
                 className="w-32 h-32 object-contain mx-auto mb-8 drop-shadow-[0_0_50px_rgba(255,215,0,0.8)] animate-pulse"
               />
               <div className="absolute inset-0 w-32 h-32 mx-auto animate-spin-slow">
