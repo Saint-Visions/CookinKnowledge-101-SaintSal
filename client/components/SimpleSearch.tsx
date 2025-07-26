@@ -255,7 +255,7 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
           <div className="border-t border-border/30 p-4 lg:p-6">
             <div className="max-w-4xl mx-auto">
               <div className="relative">
-                <div className="flex items-end gap-2 lg:gap-3 p-4 border border-border/30 rounded-2xl bg-muted/5 focus-within:border-[hsl(var(--gold))]/50 transition-all">
+                <div className="flex items-end gap-2 lg:gap-3 p-4 border-2 border-cyan-400/60 rounded-2xl bg-muted/5 focus-within:border-cyan-400 transition-all shadow-[0_0_10px_rgba(34,211,238,0.1)]">
                   <Button
                     variant="ghost"
                     size="sm"
