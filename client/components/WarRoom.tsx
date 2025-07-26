@@ -186,9 +186,54 @@ export function WarRoom({ className }: WarRoomProps) {
           })}
         </div>
 
+        {/* GHL CRM Widget */}
+        {rightPanelOpen && (
+          <div className="p-4 border-t border-sidebar-border/30">
+            <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+              <Target className="w-4 h-4 text-[hsl(var(--gold))]" />
+              GHL CRM
+            </h3>
+            <div className="h-80 bg-muted/10 rounded-xl border border-border/30 overflow-hidden">
+              <iframe
+                src="about:blank"
+                className="w-full h-full border-0"
+                title="GHL CRM"
+                style={{ backgroundColor: '#1a1a1a' }}
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-muted/20 to-muted/10 pointer-events-none">
+                <div className="text-center">
+                  <div className="text-lg font-bold text-[hsl(var(--gold))] mb-1">$89.2k</div>
+                  <div className="text-xs text-muted-foreground">Pipeline</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Quick Actions */}
         {rightPanelOpen && (
-          <div className="p-4 border-t border-sidebar-border/30 mt-auto">
+          <div className="p-4 border-t border-sidebar-border/30">
+            <h3 className="text-sm font-semibold text-foreground mb-3">⚡ Quick Actions</h3>
+            <div className="grid grid-cols-2 gap-2">
+              {quickActions.map((action, index) => {
+                const Icon = action.icon;
+                return (
+                  <div
+                    key={index}
+                    className="p-3 rounded-xl bg-muted/20 hover:bg-muted/40 cursor-pointer transition-colors text-center"
+                  >
+                    <Icon className={`w-5 h-5 mx-auto mb-1 ${action.color}`} />
+                    <div className="text-xs font-medium text-foreground">{action.label}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Additional Tools */}
+        {rightPanelOpen && (
+          <div className="p-4 border-t border-sidebar-border/30">
             <div className="space-y-2">
               <Button variant="outline" size="sm" className="w-full justify-start">
                 <Plus className="w-4 h-4 mr-2" />
