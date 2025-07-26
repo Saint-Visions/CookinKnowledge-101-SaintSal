@@ -289,7 +289,7 @@ export default function AppleHomepage() {
       </section>
 
       {/* Security & Trust */}
-      <section className="relative z-10 py-32 bg-black/40 backdrop-blur-sm">
+      <section className="relative z-10 py-32 bg-gray-900/40 backdrop-blur-sm border-y border-yellow-400/10">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-5xl font-light mb-12">Security & Trust</h2>
           
