@@ -40,7 +40,27 @@ export function Splash({ className }: SplashProps) {
 
   return (
     <div className={`min-h-screen relative overflow-hidden ${className}`} style={{ backgroundColor: '#000000' }}>
-      {/* Animated Background Particles */}
+      {/* Subtle Header */}
+      <div className="absolute top-0 left-0 right-0 z-20 p-6">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-6">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F88335b4853ee4a66a62fe88e75199bfd?format=webp&width=800"
+              alt="Sv. Logo"
+              className="w-12 h-12 object-contain opacity-80"
+            />
+            <div className="h-8 w-px bg-border/20"></div>
+            <div className="text-[hsl(var(--gold))] font-light text-sm tracking-[0.3em] uppercase opacity-60">
+              COOKIN' KNOWLEDGE
+            </div>
+          </div>
+          <div className="text-xs text-muted-foreground/40 font-light tracking-wider">
+            EST. 2023
+          </div>
+        </div>
+      </div>
+
+      {/* Animated Background Particles - Cinematic Gold Dust */}
       <div className="absolute inset-0">
         {[...Array(50)].map((_, i) => (
           <div
