@@ -23,29 +23,31 @@ export function DashboardMain({ className }: DashboardMainProps) {
   return (
     <div className={`flex-1 p-6 overflow-auto ${className}`}>
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-8 gap-4">
         <div className="flex items-center gap-4">
-          <h1 className="text-2xl font-bold text-foreground">Enterprise Command Center</h1>
+          <h1 className="text-xl lg:text-2xl font-bold text-foreground">Enterprise Command Center</h1>
           <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded uppercase tracking-wider font-medium">
             GET BUSY
           </span>
         </div>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div className="hidden lg:flex items-center gap-2 text-sm text-muted-foreground">
             <span>Home</span>
             <span>Profile</span>
             <span>Support</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="hidden lg:flex items-center gap-2 text-sm text-muted-foreground">
             <span className="text-primary">★ Waiting Lists</span>
             <span className="text-primary">★ Partnerships 📈</span>
           </div>
-          <Button variant="ghost" size="sm">
-            <Bell className="w-4 h-4" />
-          </Button>
-          <Button variant="ghost" size="sm">
-            Account
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" size="sm">
+              <Bell className="w-4 h-4" />
+            </Button>
+            <Button variant="ghost" size="sm">
+              Account
+            </Button>
+          </div>
         </div>
       </div>
 
