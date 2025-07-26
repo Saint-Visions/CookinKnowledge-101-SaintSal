@@ -60,6 +60,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/enterprise" element={<Enterprise />} />
           <Route path="/about/hacp" element={<HACP />} />
+          <Route path="/dashboard" element={<GeneralDashboard />} />
           <Route path="/auth" element={<Auth />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
