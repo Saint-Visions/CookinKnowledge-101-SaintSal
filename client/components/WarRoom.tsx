@@ -68,8 +68,16 @@ export function WarRoom({ className }: WarRoomProps) {
     <div className={`min-h-screen relative ${className}`} style={{ backgroundColor: '#000000' }}>
       {/* Left Sidebar */}
       <div className={`fixed left-0 top-0 h-full border-r border-border/30 bg-sidebar-background transition-all duration-300 z-40 ${
-        leftPanelOpen ? 'w-80' : 'w-16'
+        leftPanelOpen ? 'w-64' : 'w-16'
       }`}>
+        {/* Fixed Background Logo */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.06] overflow-hidden">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F6a4a7caae7d14837b20112e2ce9e5015?format=webp&width=300"
+            alt="Cookin' Knowledge Background"
+            className="w-[180px] h-auto object-contain"
+          />
+        </div>
         {/* Header */}
         <div className="p-4 border-b border-sidebar-border/30">
           <div className="flex items-center justify-between">
