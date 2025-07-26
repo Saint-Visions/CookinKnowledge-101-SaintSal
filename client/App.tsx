@@ -22,6 +22,7 @@ import Contact from "./pages/Contact";
 import Enterprise from "./pages/Enterprise";
 import HACP from "./pages/HACP";
 import AppleHomepage from "./pages/AppleHomepage";
+import GeneralDashboard from "./pages/GeneralDashboard";
 import Institute from "./pages/Institute";
 import Broker from "./pages/Broker";
 import Splash from "./pages/Splash";
