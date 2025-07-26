@@ -322,14 +322,15 @@ export function WarRoom({ className }: WarRoomProps) {
       </div>
 
       {/* Fixed Bottom Search Interface */}
-      <div className="fixed bottom-0 left-0 right-0 border-t border-border/30 p-3 z-50" style={{ backgroundColor: '#000000' }}>
-        <div
-          className="w-full max-w-2xl mx-auto"
-          style={{
-            marginLeft: leftPanelOpen ? '240px' : '80px',
-            marginRight: rightPanelOpen ? '304px' : '80px'
-          }}
-        >
+      <div
+        className="fixed bottom-0 border-t border-border/30 p-3 z-50"
+        style={{
+          backgroundColor: '#000000',
+          left: leftPanelOpen ? '192px' : '64px',
+          right: rightPanelOpen ? '288px' : '64px'
+        }}
+      >
+        <div className="w-full max-w-2xl mx-auto">
           {/* Compact Search Bar */}
           <div className="flex items-center gap-2 p-3 border-2 border-cyan-400 rounded-lg bg-muted/5 focus-within:border-blue-400 focus-within:shadow-[0_0_20px_rgba(34,211,238,0.3)] transition-all">
             <Button variant="ghost" size="sm" className="flex-shrink-0">
