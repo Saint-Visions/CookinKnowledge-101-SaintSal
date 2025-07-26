@@ -357,19 +357,11 @@ export function WarRoom({ className }: WarRoomProps) {
           </div>
         </div>
 
-        {/* Bottom Status Bar */}
-        <div className="border-t border-border/30 p-4">
-          <div className="flex items-center justify-between text-sm text-muted-foreground">
-            <div className="flex items-center gap-4">
-              <span>Last updated: 2 minutes ago</span>
-              <span>•</span>
-              <span className="text-[hsl(var(--neon))]">Real-time sync active</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span>Powered by</span>
-              <span className="text-[hsl(var(--gold))] font-medium">SAINTSAL GOTTA GUY</span>
-              <Sparkles className="w-4 h-4 text-[hsl(var(--gold))]" />
-            </div>
+        {/* Minimal Bottom Status */}
+        <div className="border-t border-border/30 p-2">
+          <div className="flex items-center justify-center text-xs text-muted-foreground/60">
+            <span className="text-[hsl(var(--gold))] font-medium">SAINTSAL GOTTA GUY</span>
+            <Sparkles className="w-3 h-3 text-[hsl(var(--gold))] ml-1" />
           </div>
         </div>
       </div>
