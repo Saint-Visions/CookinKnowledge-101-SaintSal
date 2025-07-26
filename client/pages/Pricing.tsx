@@ -181,10 +181,11 @@ export default function Pricing() {
 
   const getIconColor = (color: string) => {
     switch (color) {
+      case 'white': return 'text-white';
       case 'blue': return 'text-cyan-400';
-      case 'gold': return 'text-white';
       case 'purple': return 'text-purple-400';
       case 'green': return 'text-green-400';
+      case 'red': return 'text-red-400';
       case 'audit': return 'text-pink-400';
       default: return 'text-gray-400';
     }
