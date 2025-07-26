@@ -104,7 +104,7 @@ export function Why({ className }: WhyProps) {
               <h1 className="text-7xl font-bold text-foreground mb-6 leading-tight">
                 What Separates
                 <br />
-                <span className="text-[hsl(var(--gold))]">Saint Vision AI</span>
+                <span className="text-[hsl(var(--gold))] drop-shadow-[0_0_25px_rgba(255,215,0,0.5)]">SaintVision AI™</span>
               </h1>
               <p className="text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
                 We're not just building AI. We're building the future of human potential, 
