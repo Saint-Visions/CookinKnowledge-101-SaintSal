@@ -61,16 +61,36 @@ export function Splash({ className }: SplashProps) {
       </div>
 
       {/* Animated Background Particles - Cinematic Gold Dust */}
-      <div className="absolute inset-0">
-        {[...Array(50)].map((_, i) => (
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(80)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-[hsl(var(--gold))] rounded-full animate-pulse"
+            className="absolute bg-[hsl(var(--gold))] rounded-full opacity-30"
             style={{
+              width: `${Math.random() * 3 + 1}px`,
+              height: `${Math.random() * 3 + 1}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
+              animation: `float-dust ${15 + Math.random() * 20}s infinite linear`,
+              animationDelay: `${Math.random() * 30}s`,
+              filter: 'blur(0.5px)',
+              boxShadow: '0 0 6px rgba(255, 215, 0, 0.4)'
+            }}
+          />
+        ))}
+        {[...Array(40)].map((_, i) => (
+          <div
+            key={`sparkle-${i}`}
+            className="absolute bg-[hsl(var(--gold))] rounded-full opacity-60"
+            style={{
+              width: '1px',
+              height: '1px',
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animation: `twinkle ${8 + Math.random() * 12}s infinite ease-in-out`,
+              animationDelay: `${Math.random() * 20}s`,
+              filter: 'blur(0.3px)',
+              boxShadow: '0 0 4px rgba(255, 215, 0, 0.8)'
             }}
           />
         ))}
