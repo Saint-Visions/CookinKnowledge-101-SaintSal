@@ -347,7 +347,7 @@ export default function AppleHomepage() {
       </section>
 
       {/* The Movement */}
-      <section className="relative z-10 py-32 bg-gradient-to-r from-yellow-400/10 to-yellow-600/10 backdrop-blur-sm">
+      <section className="relative z-10 py-32 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 backdrop-blur-sm border-y border-yellow-400/30">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-5xl font-light mb-8">Join The Movement</h2>
           <p className="text-xl text-white/80 mb-12 leading-relaxed">
