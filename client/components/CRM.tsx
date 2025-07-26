@@ -29,7 +29,7 @@ interface CRMProps {
 }
 
 export function CRM({ className }: CRMProps) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true); // Default open on desktop
 
   return (
     <div className={`min-h-screen ${className}`} style={{ backgroundColor: '#000000' }}>
