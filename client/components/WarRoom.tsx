@@ -315,7 +315,8 @@ export function WarRoom({ className }: WarRoomProps) {
 
         {/* Main Workspace Area */}
         <div className="flex-1 p-8 pb-24">
-          <div className="text-center text-muted-foreground/50 mt-20">
+          {/* Productivity Workspace Text - Fades when typing */}
+          <div className={`text-center text-muted-foreground/50 mt-20 transition-all duration-500 ${workspaceInput.trim() ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
             <h2 className="text-xl font-light mb-4">Productivity Workspace</h2>
             <p>Your collaborative workspace is ready for action</p>
           </div>
