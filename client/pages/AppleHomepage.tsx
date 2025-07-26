@@ -188,7 +188,7 @@ export default function AppleHomepage() {
       </section>
 
       {/* Why Us Section */}
-      <section className="relative z-10 py-32 bg-gray-900/50 backdrop-blur-sm border-y border-yellow-400/10">
+      <section className="relative z-10 py-32 bg-gray-900/50 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-light mb-6">Why SaintVisionAI</h2>
