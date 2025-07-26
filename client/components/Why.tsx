@@ -148,7 +148,7 @@ export function Why({ className }: WhyProps) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold text-foreground mb-6">
-              We're Doing <span className="text-[hsl(var(--gold))]">Great Things</span>
+              We're Doing <span className="text-[hsl(var(--gold))] drop-shadow-[0_0_25px_rgba(255,215,0,0.8)]">Great Things</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               To Change Lives. Every breakthrough, every innovation, every line of code is written 
