@@ -68,7 +68,7 @@ export function WarRoom({ className }: WarRoomProps) {
     <div className={`min-h-screen relative ${className}`} style={{ backgroundColor: '#000000' }}>
       {/* Left Sidebar */}
       <div className={`fixed left-0 top-0 h-full border-r border-border/30 bg-sidebar-background transition-all duration-300 z-40 ${
-        leftPanelOpen ? 'w-64' : 'w-16'
+        leftPanelOpen ? 'w-48' : 'w-16'
       }`}>
         {/* Fixed Background Logo */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.06] overflow-hidden">
