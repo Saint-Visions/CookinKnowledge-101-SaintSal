@@ -162,7 +162,7 @@ export default function Pricing() {
     const baseStyles = "relative transition-all duration-300 hover:scale-105";
     
     if (popular) {
-      return `${baseStyles} ring-2 ring-yellow-400 scale-105 bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border-yellow-400 shadow-[0_0_30px_rgba(255,215,0,0.4)]`;
+      return `${baseStyles} scale-105 bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 shadow-[0_0_30px_rgba(255,215,0,0.6)] border-0`;
     }
 
     switch (color) {
