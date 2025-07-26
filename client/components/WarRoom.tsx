@@ -50,75 +50,85 @@ interface CompanionMessage {
 }
 
 const leftPanelItems = [
-  { icon: User, label: "My Account", active: false, color: "text-blue-300" },
+  { icon: User, label: "My Account", active: false, color: "text-blue-300", onClick: () => navigate('/auth') },
   {
     icon: LogOut,
     label: "Login/Logout",
     active: false,
     color: "text-rose-400",
+    onClick: () => navigate('/auth')
   },
-  { icon: Settings, label: "Settings", active: false, color: "text-slate-400" },
+  { icon: Settings, label: "Settings", active: false, color: "text-slate-400", onClick: () => navigate('/tools') },
   {
     icon: Home,
     label: "Dashboard",
     active: true,
-    link: "/",
     color: "text-blue-400",
+    onClick: () => navigate('/')
   },
   {
     icon: TrendingUp,
     label: "Upgrade Tier",
     active: false,
     color: "text-emerald-400",
+    onClick: () => navigate('/why')
   },
   {
     icon: Palette,
     label: "SVT Institute of AI",
     active: false,
     color: "text-violet-400",
+    onClick: () => navigate('/institute')
   },
   {
     icon: Shield,
     label: "Client Portal",
     active: false,
     color: "text-red-400",
+    onClick: () => navigate('/saintgpt')
   },
   {
     icon: Users,
     label: "PartnerTech.ai CRM",
     active: false,
     color: "text-teal-400",
+    onClick: () => navigate('/partnertech')
   },
   {
     icon: MessageSquare,
     label: "Feedback & Help",
     active: false,
     color: "text-indigo-400",
+    onClick: () => navigate('/help')
   },
   {
     icon: Rocket,
     label: "SVG Launchpad",
     active: false,
     color: "text-orange-400",
+    onClick: () => navigate('/broker')
   },
   {
     icon: ImageIcon,
     label: "Image Generator",
     active: false,
     color: "text-pink-400",
+    onClick: () => navigate('/tools')
   },
-  { icon: Wrench, label: "AI Tools", active: false, color: "text-purple-400" },
+  { icon: Wrench, label: "AI Tools", active: false, color: "text-purple-400", onClick: () => navigate('/tools') },
   {
     icon: FileText,
     label: "Sticky Notes",
     active: false,
     color: "text-yellow-400",
+    onClick: () => navigate('/tools')
   },
   {
     icon: Building2,
     label: "My Business",
     active: false,
     color: "text-green-400",
+    onClick: () => navigate('/why')
   },
   { icon: Users, label: "My Companion", active: false, color: "text-cyan-400", onClick: () => setCompanionOpen(true) },
 ];
