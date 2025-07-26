@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { 
-  Search, 
-  Plus, 
+import {
+  Search,
+  Plus,
   Sparkles,
   Menu,
   X,
@@ -12,7 +12,19 @@ import {
   Mic,
   Square,
   MessageSquare,
-  Home
+  Home,
+  User,
+  Building2,
+  StickyNote,
+  Wrench,
+  ImageIcon,
+  Rocket,
+  Users,
+  Shield,
+  TrendingUp,
+  Palette,
+  LogOut,
+  Crown
 } from "lucide-react";
 
 interface SimpleSearchProps {
