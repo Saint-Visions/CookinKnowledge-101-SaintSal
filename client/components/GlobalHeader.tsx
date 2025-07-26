@@ -12,7 +12,7 @@ export default function GlobalHeader() {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
             <img
-              src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F7f736971d14847f7bf9416d1184de691?format=webp&width=800"
+              src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Ffae77fcf2442491fade782e3822c0421?format=webp&width=800"
               alt="SaintVisionAI Logo"
               className="w-10 h-10 object-contain"
             />
