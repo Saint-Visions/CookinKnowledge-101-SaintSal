@@ -164,23 +164,20 @@ export default function AppleHomepage() {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-7xl md:text-8xl font-light tracking-tight mb-4 leading-none">
-            <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent font-bold italic">
-              SaintSal™
+          <h1 className="text-7xl md:text-8xl font-light tracking-tight mb-6 leading-none">
+            <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+              The Future of
             </span>
             <br />
-            <span className="bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent font-light tracking-wider">
-              Cookin Knowledge
+            <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-semibold">
+              Enterprise AI
             </span>
           </h1>
 
-          {/* Clever Subheadline */}
+          {/* SaintSal Subheadline */}
           <div className="mb-8">
             <p className="text-xl md:text-2xl text-yellow-400/90 font-medium italic tracking-wide">
-              Where AI meets intuition, and possibilities become reality 😉
-            </p>
-            <p className="text-lg text-white/60 mt-2 font-light">
-              Ready to taste the future?
+              Powered by SaintSal™ • Where AI meets intuition 😉
             </p>
           </div>
 
