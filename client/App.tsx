@@ -20,6 +20,7 @@ import Splash from "./pages/Splash";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import { PartnerTech } from "./components/PartnerTech";
+import { CRM } from "./components/CRM";
 
 const queryClient = new QueryClient();
 
