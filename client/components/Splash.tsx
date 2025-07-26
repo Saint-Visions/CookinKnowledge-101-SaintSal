@@ -107,7 +107,7 @@ export function Splash({ className }: SplashProps) {
                 alt="SaintSal™"
                 className="w-56 h-56 object-contain mx-auto mb-8 drop-shadow-[0_0_80px_rgba(255,215,0,1)] relative z-10"
                 style={{
-                  filter: 'drop-shadow(0 0 120px rgba(255,215,0,0.9)) drop-shadow(0 0 40px rgba(255,215,0,1)) brightness(1.2) contrast(1.1)',
+                  filter: 'drop-shadow(0 0 60px rgba(255,215,0,0.6)) drop-shadow(0 0 20px rgba(255,215,0,0.7)) brightness(1.1) contrast(1.05)',
                   animation: 'brain-bounce 3s ease-in-out infinite'
                 }}
               />
