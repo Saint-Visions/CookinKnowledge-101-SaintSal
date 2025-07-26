@@ -126,7 +126,7 @@ export default function AppleHomepage() {
         <div className="max-w-6xl mx-auto px-6 text-center">
           {/* Patent Badge */}
           <div className="mb-8">
-            <Badge className="bg-white/10 text-white border-white/20 backdrop-blur-sm px-6 py-2">
+            <Badge className="bg-white/10 text-white backdrop-blur-sm px-6 py-2 border-0">
               🛡️ Protected by U.S. Patent No. 10,290,222
             </Badge>
           </div>
