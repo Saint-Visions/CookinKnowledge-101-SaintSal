@@ -186,29 +186,7 @@ export function WarRoom({ className }: WarRoomProps) {
           })}
         </div>
 
-        {/* GHL CRM Widget */}
-        {rightPanelOpen && (
-          <div className="p-4 border-t border-sidebar-border/30">
-            <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-              <Target className="w-4 h-4 text-[hsl(var(--gold))]" />
-              GHL CRM
-            </h3>
-            <div className="h-80 bg-muted/10 rounded-xl border border-border/30 overflow-hidden">
-              <iframe
-                src="about:blank"
-                className="w-full h-full border-0"
-                title="GHL CRM"
-                style={{ backgroundColor: '#1a1a1a' }}
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-muted/20 to-muted/10 pointer-events-none">
-                <div className="text-center">
-                  <div className="text-lg font-bold text-[hsl(var(--gold))] mb-1">$89.2k</div>
-                  <div className="text-xs text-muted-foreground">Pipeline</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+
 
         {/* Quick Actions */}
         {rightPanelOpen && (
