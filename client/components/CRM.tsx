@@ -189,14 +189,14 @@ export function CRM({ className }: CRMProps) {
           {/* Subtle Blue Border */}
           <div className="absolute inset-0 border border-cyan-400/10"></div>
 
-          {/* Placeholder for GHL iframe - Replace with your actual GHL URL */}
+          {/* Live GHL Workspace */}
           <iframe
-            src="https://app.gohighlevel.com/login"
+            src="https://app.gohighlevel.com/location/oRA8vL3OSiCPjpwmEC0V"
             className="w-full h-full border-0 relative z-10"
-            title="GoHighLevel CRM"
+            title="GoHighLevel CRM - Live Workspace"
             frameBorder="0"
             allowFullScreen
-            sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+            sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation"
           />
 
           {/* Loading Overlay */}
