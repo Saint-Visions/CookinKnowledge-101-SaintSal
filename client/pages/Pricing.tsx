@@ -274,7 +274,7 @@ export default function Pricing() {
             <Card key={index} className={getCardStyles(plan.color, plan.popular)}>
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-yellow-400 text-black font-bold px-4 py-1">
+                  <Badge className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold px-4 py-1 shadow-[0_0_20px_rgba(255,215,0,0.5)]">
                     ⭐ MOST POPULAR
                   </Badge>
                 </div>
