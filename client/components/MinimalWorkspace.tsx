@@ -29,12 +29,12 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
   return (
     <div className={`min-h-screen bg-background relative ${className}`}>
       {/* Fixed Background Logo */}
-      <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.08] overflow-hidden">
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.15] overflow-hidden">
         <div className="relative">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F8ab6ede74deb4ba19d09de45b88c2454?format=webp&width=800"
             alt="saintsal + you"
-            className="w-[35vw] h-auto object-contain rounded-2xl border-2 border-[hsl(var(--gold))]/20 shadow-[0_0_30px_rgba(45,212,191,0.1)]"
+            className="w-[35vw] h-auto object-contain rounded-2xl border-2 border-[hsl(var(--gold))]/30 shadow-[0_0_40px_rgba(218,165,32,0.1)]"
           />
         </div>
       </div>
