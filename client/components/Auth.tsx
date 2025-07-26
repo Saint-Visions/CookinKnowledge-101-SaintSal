@@ -61,10 +61,10 @@ export function Auth({ className }: AuthProps) {
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fc88eaa91ad364821b51a4fc6c47320ab?format=webp&width=80"
               alt="SaintVision Logo"
-              className="w-20 h-20 object-contain mx-auto mb-4 drop-shadow-[0_0_30px_rgba(255,215,0,0.8)]"
+              className="w-20 h-20 object-contain mx-auto mb-4 drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]"
             />
             <h1 className="text-3xl font-bold text-foreground mb-2">
-              <span className="text-[hsl(var(--gold))] drop-shadow-[0_0_20px_rgba(255,215,0,0.8)]">SaintVision AI</span>
+              <span className="text-[hsl(var(--gold))] drop-shadow-[0_0_10px_rgba(255,215,0,0.5)]">SaintVision AI</span>
             </h1>
             <p className="text-muted-foreground">
               {isSignUp ? "Join the AI Revolution" : "Welcome Back"}
@@ -98,7 +98,7 @@ export function Auth({ className }: AuthProps) {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full pl-10 pr-4 py-3 bg-black/40 border border-border/30 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-[hsl(var(--gold))]/50 focus:shadow-[0_0_20px_rgba(255,215,0,0.3)] transition-all"
+                      className="w-full pl-10 pr-4 py-3 bg-black/40 border border-border/30 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-[hsl(var(--gold))]/50 focus:shadow-[0_0_10px_rgba(255,215,0,0.2)] transition-all"
                       placeholder="Enter your full name"
                       required
                     />
@@ -117,7 +117,7 @@ export function Auth({ className }: AuthProps) {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-4 py-3 bg-black/40 border border-border/30 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cyan-400/50 focus:shadow-[0_0_20px_rgba(34,211,238,0.3)] transition-all"
+                    className="w-full pl-10 pr-4 py-3 bg-black/40 border border-border/30 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cyan-400/50 focus:shadow-[0_0_10px_rgba(34,211,238,0.2)] transition-all"
                     placeholder="Enter your email"
                     required
                   />
@@ -135,7 +135,7 @@ export function Auth({ className }: AuthProps) {
                     name="password"
                     value={formData.password}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-12 py-3 bg-black/40 border border-border/30 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-blue-400/50 focus:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all"
+                    className="w-full pl-10 pr-12 py-3 bg-black/40 border border-border/30 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-blue-400/50 focus:shadow-[0_0_10px_rgba(59,130,246,0.2)] transition-all"
                     placeholder="Enter your password"
                     required
                   />
@@ -163,7 +163,7 @@ export function Auth({ className }: AuthProps) {
 
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-[hsl(var(--gold))] to-yellow-400 hover:from-yellow-400 hover:to-[hsl(var(--gold))] text-black font-bold py-3 rounded-xl shadow-[0_0_30px_rgba(255,215,0,0.6)] hover:shadow-[0_0_40px_rgba(255,215,0,0.8)] transition-all duration-300 transform hover:scale-[1.02]"
+                className="w-full bg-gradient-to-r from-[hsl(var(--gold))] to-yellow-400 hover:from-yellow-400 hover:to-[hsl(var(--gold))] text-black font-bold py-3 rounded-xl shadow-[0_0_15px_rgba(255,215,0,0.4)] hover:shadow-[0_0_20px_rgba(255,215,0,0.5)] transition-all duration-300 transform hover:scale-[1.02]"
               >
                 {isSignUp ? (
                   <>
@@ -232,7 +232,7 @@ export function Auth({ className }: AuthProps) {
       <div className="absolute bottom-4 left-0 right-0">
         <div className="flex items-center justify-center text-xs text-muted-foreground/60">
           <span>Powered by</span>
-          <span className="text-[hsl(var(--gold))] font-medium mx-2 drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]">SAINTSAL GOTTA GUY</span>
+          <span className="text-[hsl(var(--gold))] font-medium mx-2 drop-shadow-[0_0_5px_rgba(255,215,0,0.4)]">SAINTSAL GOTTA GUY</span>
           <Sparkles className="w-3 h-3 text-[hsl(var(--gold))]" />
         </div>
       </div>
