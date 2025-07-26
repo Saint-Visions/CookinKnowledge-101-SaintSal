@@ -294,59 +294,15 @@ export function WarRoom({ className }: WarRoomProps) {
           </div>
         </div>
 
-        {/* Large Open Search Space */}
-        <div className="p-8 flex-1 flex items-center justify-center">
-          <div className="w-full max-w-5xl">
-            {/* Main Search Input */}
-            <div className="mb-8">
-              <div className="flex items-end gap-3 p-6 border-2 border-cyan-400/60 rounded-2xl bg-muted/5 focus-within:border-cyan-400 transition-all shadow-[0_0_15px_rgba(34,211,238,0.1)]">
-                <Button variant="ghost" size="sm" className="flex-shrink-0">
-                  <Paperclip className="w-5 h-5" />
-                </Button>
-
-                <textarea
-                  placeholder="Execute any business operation, analyze data, manage workflows..."
-                  className="flex-1 bg-transparent border-0 resize-none outline-none text-foreground placeholder:text-muted-foreground min-h-[24px] max-h-40 text-lg"
-                  rows={1}
-                />
-
-                <div className="flex items-center gap-3 flex-shrink-0">
-                  <Button variant="ghost" size="sm">
-                    <Mic className="w-5 h-5" />
-                  </Button>
-
-                  <Button size="lg" className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black rounded-xl px-6">
-                    <ArrowUp className="w-5 h-5" />
-                  </Button>
-                </div>
+        {/* Empty Work Area */}
+        <div className="flex-1 p-8">
+          <div className="h-full min-h-[600px] rounded-2xl border-2 border-dashed border-border/20 flex items-center justify-center">
+            <div className="text-center">
+              <div className="text-lg font-medium text-muted-foreground/50 mb-2">
+                Work Area
               </div>
-            </div>
-
-            {/* Quick Command Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="p-4 rounded-xl bg-muted/20 hover:bg-muted/40 cursor-pointer transition-colors text-center border border-border/30">
-                <Users className="w-8 h-8 mx-auto mb-2 text-blue-400" />
-                <div className="text-sm font-medium text-foreground">Team Status</div>
-              </div>
-              <div className="p-4 rounded-xl bg-muted/20 hover:bg-muted/40 cursor-pointer transition-colors text-center border border-border/30">
-                <BarChart3 className="w-8 h-8 mx-auto mb-2 text-green-400" />
-                <div className="text-sm font-medium text-foreground">Analytics</div>
-              </div>
-              <div className="p-4 rounded-xl bg-muted/20 hover:bg-muted/40 cursor-pointer transition-colors text-center border border-border/30">
-                <Calendar className="w-8 h-8 mx-auto mb-2 text-yellow-400" />
-                <div className="text-sm font-medium text-foreground">Schedule</div>
-              </div>
-              <div className="p-4 rounded-xl bg-muted/20 hover:bg-muted/40 cursor-pointer transition-colors text-center border border-border/30">
-                <Target className="w-8 h-8 mx-auto mb-2 text-red-400" />
-                <div className="text-sm font-medium text-foreground">Goals</div>
-              </div>
-            </div>
-
-            <div className="text-center mt-6">
-              <div className="text-xs text-muted-foreground">
-                <span className="text-[hsl(var(--neon))]">Dual companion</span> ready •
-                <span className="text-[hsl(var(--gold))]"> Full business context</span> •
-                Production-grade operations
+              <div className="text-sm text-muted-foreground/30">
+                Open space for productivity
               </div>
             </div>
           </div>
