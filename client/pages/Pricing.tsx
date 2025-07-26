@@ -160,20 +160,20 @@ export default function Pricing() {
     const baseStyles = "relative transition-all duration-300 hover:scale-105";
     
     if (popular) {
-      return `${baseStyles} ring-2 ring-yellow-400 scale-105 bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border-yellow-400`;
+      return `${baseStyles} ring-2 ring-white scale-105 bg-gradient-to-br from-white/10 to-white/20 border-white`;
     }
-    
+
     switch (color) {
       case 'blue':
-        return `${baseStyles} bg-gray-900/50 border-blue-500/30 hover:border-blue-500/60`;
+        return `${baseStyles} bg-gray-900/50 border-white/20 hover:border-white/40`;
       case 'gold':
-        return `${baseStyles} bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 border-yellow-400/50`;
+        return `${baseStyles} bg-gradient-to-br from-white/10 to-white/20 border-white/50`;
       case 'purple':
-        return `${baseStyles} bg-gray-900/50 border-purple-500/30 hover:border-purple-500/60`;
+        return `${baseStyles} bg-gray-900/50 border-white/20 hover:border-white/40`;
       case 'green':
-        return `${baseStyles} bg-gray-900/50 border-green-500/30 hover:border-green-500/60`;
+        return `${baseStyles} bg-gray-900/50 border-white/20 hover:border-white/40`;
       case 'audit':
-        return `${baseStyles} bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border-2 border-dashed border-yellow-400`;
+        return `${baseStyles} bg-gradient-to-br from-white/10 to-white/20 border-2 border-dashed border-white`;
       default:
         return `${baseStyles} bg-gray-900/50 border-gray-700`;
     }
