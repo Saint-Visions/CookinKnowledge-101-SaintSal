@@ -193,7 +193,7 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
                       <span className="font-semibold text-foreground">New Project</span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Start something <span className="text-primary">extraordinary</span>
+                      Start something <span className="text-[hsl(var(--gold))]">extraordinary</span>
                     </p>
                   </div>
 
