@@ -109,7 +109,7 @@ export default function AppleHomepage() {
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
           transform: `translateY(${scrollY * 0.5}px)`,
-          filter: 'brightness(0.2) sepia(10%) saturate(0.8)'
+          filter: 'brightness(0.4)'
         }}
       />
 
