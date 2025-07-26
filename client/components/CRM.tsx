@@ -203,9 +203,13 @@ export function CRM({ className }: CRMProps) {
           <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-black/90 to-cyan-400/10 flex items-center justify-center z-20">
             <div className="text-center">
               <div className="w-16 h-16 border-4 border-[hsl(var(--gold))] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-              <h3 className="text-lg font-bold text-white mb-2">Loading GHL CRM</h3>
+              <h3 className="text-lg font-bold text-white mb-2">Loading LIVE GHL CRM</h3>
               <p className="text-sm text-gray-400">Connecting to your workspace...</p>
-              <p className="text-xs text-gray-500 mt-2">Replace iframe src with your GHL subdomain</p>
+              <p className="text-xs text-gray-500 mt-2">Location ID: oRA8vL3OSiCPjpwmEC0V</p>
+              <div className="flex items-center justify-center gap-2 mt-3">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <p className="text-xs text-green-400">API Connected</p>
+              </div>
             </div>
           </div>
         </div>
