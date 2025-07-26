@@ -44,93 +44,117 @@ interface WarRoomProps {
 }
 
 interface CompanionMessage {
-  role: 'user' | 'assistant';
+  role: "user" | "assistant";
   content: string;
   timestamp: Date;
 }
 
 const leftPanelItems = [
-  { icon: User, label: "My Account", active: false, color: "text-blue-300", onClick: () => navigate('/auth') },
+  {
+    icon: User,
+    label: "My Account",
+    active: false,
+    color: "text-blue-300",
+    onClick: () => navigate("/auth"),
+  },
   {
     icon: LogOut,
     label: "Login/Logout",
     active: false,
     color: "text-rose-400",
-    onClick: () => navigate('/auth')
+    onClick: () => navigate("/auth"),
   },
-  { icon: Settings, label: "Settings", active: false, color: "text-slate-400", onClick: () => navigate('/tools') },
+  {
+    icon: Settings,
+    label: "Settings",
+    active: false,
+    color: "text-slate-400",
+    onClick: () => navigate("/tools"),
+  },
   {
     icon: Home,
     label: "Dashboard",
     active: true,
     color: "text-blue-400",
-    onClick: () => navigate('/')
+    onClick: () => navigate("/"),
   },
   {
     icon: TrendingUp,
     label: "Upgrade Tier",
     active: false,
     color: "text-emerald-400",
-    onClick: () => navigate('/why')
+    onClick: () => navigate("/why"),
   },
   {
     icon: Palette,
     label: "SVT Institute of AI",
     active: false,
     color: "text-violet-400",
-    onClick: () => navigate('/institute')
+    onClick: () => navigate("/institute"),
   },
   {
     icon: Shield,
     label: "Client Portal",
     active: false,
     color: "text-red-400",
-    onClick: () => navigate('/saintgpt')
+    onClick: () => navigate("/saintgpt"),
   },
   {
     icon: Users,
     label: "PartnerTech.ai CRM",
     active: false,
     color: "text-teal-400",
-    onClick: () => navigate('/partnertech')
+    onClick: () => navigate("/partnertech"),
   },
   {
     icon: MessageSquare,
     label: "Feedback & Help",
     active: false,
     color: "text-indigo-400",
-    onClick: () => navigate('/help')
+    onClick: () => navigate("/help"),
   },
   {
     icon: Rocket,
     label: "SVG Launchpad",
     active: false,
     color: "text-orange-400",
-    onClick: () => navigate('/broker')
+    onClick: () => navigate("/broker"),
   },
   {
     icon: ImageIcon,
     label: "Image Generator",
     active: false,
     color: "text-pink-400",
-    onClick: () => navigate('/tools')
+    onClick: () => navigate("/tools"),
   },
-  { icon: Wrench, label: "AI Tools", active: false, color: "text-purple-400", onClick: () => navigate('/tools') },
+  {
+    icon: Wrench,
+    label: "AI Tools",
+    active: false,
+    color: "text-purple-400",
+    onClick: () => navigate("/tools"),
+  },
   {
     icon: FileText,
     label: "Sticky Notes",
     active: false,
     color: "text-yellow-400",
-    onClick: () => navigate('/tools')
+    onClick: () => navigate("/tools"),
   },
   {
     icon: Building2,
     label: "My Business",
     active: false,
     color: "text-green-400",
-    onClick: () => navigate('/why')
+    onClick: () => navigate("/why"),
   },
-  { icon: Users, label: "My Companion", active: false, color: "text-cyan-400", onClick: () => setCompanionOpen(true) },
+  {
+    icon: Users,
+    label: "My Companion",
+    active: false,
+    color: "text-cyan-400",
+    onClick: () => setCompanionOpen(true),
+  },
 ];
 
 const quickActions = [
@@ -155,14 +179,17 @@ export function WarRoom({ className }: WarRoomProps) {
   const [crmMaximized, setCrmMaximized] = useState(false);
   const [workspaceInput, setWorkspaceInput] = useState("");
   const [companionOpen, setCompanionOpen] = useState(false);
-  const [companionMessages, setCompanionMessages] = useState<CompanionMessage[]>([
+  const [companionMessages, setCompanionMessages] = useState<
+    CompanionMessage[]
+  >([
     {
-      role: 'assistant',
-      content: 'Hey there! I\'m Supersal™, your AI companion. I\'m here to help with support, sales questions, or anything you need. How can I assist you today?',
-      timestamp: new Date()
-    }
+      role: "assistant",
+      content:
+        "Hey there! I'm Supersal™, your AI companion. I'm here to help with support, sales questions, or anything you need. How can I assist you today?",
+      timestamp: new Date(),
+    },
   ]);
-  const [companionInput, setCompanionInput] = useState('');
+  const [companionInput, setCompanionInput] = useState("");
   const [companionLoading, setCompanionLoading] = useState(false);
 
   return (
@@ -531,8 +558,12 @@ export function WarRoom({ className }: WarRoomProps) {
                 className="w-10 h-10 rounded-xl object-cover shadow-[0_0_20px_rgba(255,215,0,0.5)]"
               />
               <div>
-                <h3 className="text-sm font-bold text-[hsl(var(--gold))]">Supersal™ AI</h3>
-                <p className="text-xs text-[hsl(var(--gold))]/70">Help Desk Companion</p>
+                <h3 className="text-sm font-bold text-[hsl(var(--gold))]">
+                  Supersal™ AI
+                </h3>
+                <p className="text-xs text-[hsl(var(--gold))]/70">
+                  Help Desk Companion
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -551,15 +582,23 @@ export function WarRoom({ className }: WarRoomProps) {
           {/* Messages Area */}
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
             {companionMessages.map((message, index) => (
-              <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[280px] p-3 rounded-xl ${
-                  message.role === 'user'
-                    ? 'bg-cyan-400/20 text-white border border-cyan-400/30'
-                    : 'bg-gray-800/80 text-gray-100 border border-gray-600/30'
-                }`}>
+              <div
+                key={index}
+                className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+              >
+                <div
+                  className={`max-w-[280px] p-3 rounded-xl ${
+                    message.role === "user"
+                      ? "bg-cyan-400/20 text-white border border-cyan-400/30"
+                      : "bg-gray-800/80 text-gray-100 border border-gray-600/30"
+                  }`}
+                >
                   <p className="text-sm leading-relaxed">{message.content}</p>
                   <p className="text-xs text-gray-400 mt-1">
-                    {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    {message.timestamp.toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
                   </p>
                 </div>
               </div>
@@ -569,9 +608,17 @@ export function WarRoom({ className }: WarRoomProps) {
                 <div className="bg-gray-800/80 text-gray-100 border border-gray-600/30 p-3 rounded-xl">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
-                    <span className="text-xs text-cyan-400 ml-2">Supersal™ is thinking...</span>
+                    <div
+                      className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"
+                      style={{ animationDelay: "0.2s" }}
+                    ></div>
+                    <div
+                      className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"
+                      style={{ animationDelay: "0.4s" }}
+                    ></div>
+                    <span className="text-xs text-cyan-400 ml-2">
+                      Supersal™ is thinking...
+                    </span>
                   </div>
                 </div>
               </div>
@@ -586,45 +633,48 @@ export function WarRoom({ className }: WarRoomProps) {
                 value={companionInput}
                 onChange={(e) => setCompanionInput(e.target.value)}
                 onKeyPress={async (e) => {
-                  if (e.key === 'Enter' && companionInput.trim()) {
+                  if (e.key === "Enter" && companionInput.trim()) {
                     const userMessage = {
-                      role: 'user' as const,
+                      role: "user" as const,
                       content: companionInput,
-                      timestamp: new Date()
+                      timestamp: new Date(),
                     };
 
-                    setCompanionMessages(prev => [...prev, userMessage]);
+                    setCompanionMessages((prev) => [...prev, userMessage]);
                     const query = companionInput;
-                    setCompanionInput('');
+                    setCompanionInput("");
                     setCompanionLoading(true);
 
                     try {
-                      const response = await fetch('/api/ai/search', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                      const response = await fetch("/api/ai/search", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
                           query,
-                          userContext: { role: 'user' }
-                        })
+                          userContext: { role: "user" },
+                        }),
                       });
 
                       const data = await response.json();
 
                       const aiMessage = {
-                        role: 'assistant' as const,
-                        content: data.response || 'I apologize, but I\'m having trouble responding right now. Please try again.',
-                        timestamp: new Date()
+                        role: "assistant" as const,
+                        content:
+                          data.response ||
+                          "I apologize, but I'm having trouble responding right now. Please try again.",
+                        timestamp: new Date(),
                       };
 
-                      setCompanionMessages(prev => [...prev, aiMessage]);
+                      setCompanionMessages((prev) => [...prev, aiMessage]);
                     } catch (error) {
-                      console.error('Companion error:', error);
+                      console.error("Companion error:", error);
                       const errorMessage = {
-                        role: 'assistant' as const,
-                        content: 'I\'m experiencing technical difficulties. Please try again in a moment.',
-                        timestamp: new Date()
+                        role: "assistant" as const,
+                        content:
+                          "I'm experiencing technical difficulties. Please try again in a moment.",
+                        timestamp: new Date(),
                       };
-                      setCompanionMessages(prev => [...prev, errorMessage]);
+                      setCompanionMessages((prev) => [...prev, errorMessage]);
                     } finally {
                       setCompanionLoading(false);
                     }
@@ -641,43 +691,46 @@ export function WarRoom({ className }: WarRoomProps) {
                 onClick={async () => {
                   if (companionInput.trim()) {
                     const userMessage = {
-                      role: 'user' as const,
+                      role: "user" as const,
                       content: companionInput,
-                      timestamp: new Date()
+                      timestamp: new Date(),
                     };
 
-                    setCompanionMessages(prev => [...prev, userMessage]);
+                    setCompanionMessages((prev) => [...prev, userMessage]);
                     const query = companionInput;
-                    setCompanionInput('');
+                    setCompanionInput("");
                     setCompanionLoading(true);
 
                     try {
-                      const response = await fetch('/api/ai/search', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                      const response = await fetch("/api/ai/search", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
                           query,
-                          userContext: { role: 'user' }
-                        })
+                          userContext: { role: "user" },
+                        }),
                       });
 
                       const data = await response.json();
 
                       const aiMessage = {
-                        role: 'assistant' as const,
-                        content: data.response || 'I apologize, but I\'m having trouble responding right now. Please try again.',
-                        timestamp: new Date()
+                        role: "assistant" as const,
+                        content:
+                          data.response ||
+                          "I apologize, but I'm having trouble responding right now. Please try again.",
+                        timestamp: new Date(),
                       };
 
-                      setCompanionMessages(prev => [...prev, aiMessage]);
+                      setCompanionMessages((prev) => [...prev, aiMessage]);
                     } catch (error) {
-                      console.error('Companion error:', error);
+                      console.error("Companion error:", error);
                       const errorMessage = {
-                        role: 'assistant' as const,
-                        content: 'I\'m experiencing technical difficulties. Please try again in a moment.',
-                        timestamp: new Date()
+                        role: "assistant" as const,
+                        content:
+                          "I'm experiencing technical difficulties. Please try again in a moment.",
+                        timestamp: new Date(),
                       };
-                      setCompanionMessages(prev => [...prev, errorMessage]);
+                      setCompanionMessages((prev) => [...prev, errorMessage]);
                     } finally {
                       setCompanionLoading(false);
                     }
