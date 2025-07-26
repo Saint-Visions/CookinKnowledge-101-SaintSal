@@ -62,6 +62,7 @@ const App = () => (
           <Route path="/about/hacp" element={<HACP />} />
           <Route path="/dashboard" element={<GeneralDashboard />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/splash" element={<Splash />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
