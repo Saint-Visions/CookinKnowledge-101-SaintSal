@@ -52,7 +52,7 @@ export default function AppleHomepage() {
 
   const eliteTech = [
     {
-      icon: Brain,
+      icon: Crown,
       title: "SaintSal™ AI",
       description: "HACP™-powered companion with advanced reasoning",
       status: "Enterprise"
@@ -76,7 +76,7 @@ export default function AppleHomepage() {
       name: "Athena Legacy Care",
       description: "AI-powered legacy system modernization",
       icon: "🏛️",
-      color: "from-blue-500 to-purple-600"
+      color: "from-purple-500 to-purple-600"
     },
     {
       name: "EbyTech Finance", 
