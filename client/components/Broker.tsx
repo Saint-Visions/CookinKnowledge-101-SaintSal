@@ -210,7 +210,7 @@ export function Broker({ className }: BrokerProps) {
       </div>
 
       {/* Services Section */}
-      <div className="relative z-10 py-24" style={{ backgroundColor: '#000000' }}>
+      <div className="relative z-10 py-12" style={{ backgroundColor: '#000000' }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-6">
