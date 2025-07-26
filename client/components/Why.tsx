@@ -233,7 +233,7 @@ export function Why({ className }: WhyProps) {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">Global Impact Focus</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  From healthcare to education, from enterprise to personal growth��our AI ecosystems 
+                  From healthcare to education, from enterprise to personal growth—our AI ecosystems 
                   are deployed where they matter most, changing lives at scale.
                 </p>
               </div>
@@ -533,7 +533,7 @@ export function Why({ className }: WhyProps) {
               when technology serves the heart, and when innovation changes lives.
             </p>
             <div className="flex items-center justify-center gap-4">
-              <Button size="lg" className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-semibold">
+              <Button size="lg" className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-semibold shadow-[0_0_25px_rgba(255,215,0,0.7)] hover:shadow-[0_0_35px_rgba(255,215,0,0.9)] transition-all">
                 <Rocket className="w-5 h-5 mr-2" />
                 Start Your Journey
               </Button>
