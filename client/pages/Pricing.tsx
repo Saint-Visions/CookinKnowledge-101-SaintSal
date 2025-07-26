@@ -192,18 +192,18 @@ export default function Pricing() {
 
   const getButtonStyles = (color: string, popular: boolean) => {
     if (popular) {
-      return "bg-white text-black hover:bg-gray-200 font-bold";
+      return "bg-white text-black hover:bg-gray-200 font-bold shadow-[0_0_20px_rgba(255,255,255,0.4)]";
     }
 
     switch (color) {
       case 'blue':
-        return "bg-white text-black hover:bg-gray-200";
+        return "bg-gradient-to-r from-cyan-400 to-cyan-600 text-black hover:from-cyan-500 hover:to-cyan-700 shadow-[0_0_15px_rgba(0,255,255,0.3)]";
       case 'purple':
-        return "bg-white text-black hover:bg-gray-200";
+        return "bg-gradient-to-r from-purple-400 to-purple-600 text-white hover:from-purple-500 hover:to-purple-700 shadow-[0_0_15px_rgba(128,0,255,0.3)]";
       case 'green':
-        return "bg-white text-black hover:bg-gray-200";
+        return "bg-gradient-to-r from-green-400 to-green-600 text-black hover:from-green-500 hover:to-green-700 shadow-[0_0_15px_rgba(0,255,128,0.3)]";
       case 'audit':
-        return "bg-white text-black hover:bg-gray-200";
+        return "bg-gradient-to-r from-pink-400 to-pink-600 text-white hover:from-pink-500 hover:to-pink-700 shadow-[0_0_15px_rgba(255,20,147,0.3)]";
       default:
         return "bg-gray-700 hover:bg-gray-600 text-white";
     }
