@@ -28,5 +28,8 @@ export function createServer() {
   // Dual AI System routes
   app.use("/api/ai", aiRoutes);
 
+  // Supersal™ Knowledge Base routes
+  app.use("/api/embeddings", embeddingsRoutes);
+
   return app;
 }
