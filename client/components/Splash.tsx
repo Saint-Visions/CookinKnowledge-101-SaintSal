@@ -147,12 +147,12 @@ export function Splash({ className }: SplashProps) {
           <div
             className={`mb-12 transition-all duration-2000 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
-            <h1 className="text-8xl font-bold text-foreground mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-[hsl(var(--gold))] via-yellow-300 to-[hsl(var(--gold))] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]">
+            <h1 className="text-7xl md:text-8xl font-light tracking-tight mb-6 leading-none">
+              <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
                 Responsible
               </span>
               <br />
-              <span className="bg-gradient-to-r from-[hsl(var(--gold))] via-yellow-300 to-[hsl(var(--gold))] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]">
+              <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-semibold">
                 Intelligence
               </span>
             </h1>
