@@ -313,46 +313,52 @@ export function WarRoom({ className }: WarRoomProps) {
         </div>
 
         {/* Main Workspace Area */}
-        <div className="flex-1 p-8">
+        <div className="flex-1 p-8 pb-24">
           <div className="text-center text-muted-foreground/50 mt-20">
             <h2 className="text-xl font-light mb-4">Productivity Workspace</h2>
             <p>Your collaborative workspace is ready for action</p>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Minimized Search Interface */}
-        <div className="border-t border-border/30 p-4">
-          <div className="w-full max-w-2xl mx-auto">
-            {/* Compact Search Bar */}
-            <div className="flex items-center gap-3 p-4 border-2 border-cyan-400 rounded-xl bg-muted/5 focus-within:border-blue-400 focus-within:shadow-[0_0_20px_rgba(34,211,238,0.3)] transition-all">
-              <Button variant="ghost" size="sm" className="flex-shrink-0">
-                <Paperclip className="w-4 h-4 text-cyan-400" />
+      {/* Fixed Bottom Search Interface */}
+      <div className="fixed bottom-0 left-0 right-0 border-t border-border/30 p-3 z-50" style={{ backgroundColor: '#000000' }}>
+        <div
+          className="w-full max-w-2xl mx-auto"
+          style={{
+            marginLeft: leftPanelOpen ? '240px' : '80px',
+            marginRight: rightPanelOpen ? '304px' : '80px'
+          }}
+        >
+          {/* Compact Search Bar */}
+          <div className="flex items-center gap-2 p-3 border-2 border-cyan-400 rounded-lg bg-muted/5 focus-within:border-blue-400 focus-within:shadow-[0_0_20px_rgba(34,211,238,0.3)] transition-all">
+            <Button variant="ghost" size="sm" className="flex-shrink-0">
+              <Paperclip className="w-4 h-4 text-cyan-400" />
+            </Button>
+
+            <textarea
+              placeholder="Execute business operations, analyze data, manage workflows..."
+              className="flex-1 bg-transparent border-0 resize-none outline-none text-foreground placeholder:text-muted-foreground min-h-[20px] max-h-20 text-sm"
+              rows={1}
+            />
+
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <Button variant="ghost" size="sm">
+                <Mic className="w-4 h-4 text-cyan-400" />
               </Button>
 
-              <textarea
-                placeholder="Execute business operations, analyze data, manage workflows..."
-                className="flex-1 bg-transparent border-0 resize-none outline-none text-foreground placeholder:text-muted-foreground min-h-[20px] max-h-20 text-sm"
-                rows={1}
-              />
-
-              <div className="flex items-center gap-2 flex-shrink-0">
-                <Button variant="ghost" size="sm">
-                  <Mic className="w-4 h-4 text-cyan-400" />
-                </Button>
-
-                <Button size="sm" className="bg-cyan-400 hover:bg-cyan-300 text-black rounded-lg px-4 shadow-[0_0_15px_rgba(34,211,238,0.4)]">
-                  <ArrowUp className="w-4 h-4" />
-                </Button>
-              </div>
+              <Button size="sm" className="bg-cyan-400 hover:bg-cyan-300 text-black rounded-lg px-4 shadow-[0_0_15px_rgba(34,211,238,0.4)]">
+                <ArrowUp className="w-4 h-4" />
+              </Button>
             </div>
+          </div>
 
-            {/* Compact Status */}
-            <div className="text-center mt-3">
-              <div className="text-xs text-muted-foreground">
-                <span className="text-cyan-400">Dual companion</span> ready •
-                <span className="text-blue-400"> Azure-powered</span> •
-                <span className="text-[hsl(var(--gold))]">Production-grade</span> operations
-              </div>
+          {/* Compact Status */}
+          <div className="text-center mt-2">
+            <div className="text-xs text-muted-foreground/60">
+              <span className="text-cyan-400">Dual companion</span> ready •
+              <span className="text-blue-400"> Azure-powered</span> •
+              <span className="text-[hsl(var(--gold))]">Production-grade</span> operations
             </div>
           </div>
         </div>
