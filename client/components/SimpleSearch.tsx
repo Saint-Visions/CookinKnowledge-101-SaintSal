@@ -263,8 +263,8 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
 
         {/* Main Chat Area */}
         <div className="flex-1 flex flex-col">
-          {/* Welcome State */}
-          <div className="flex-1 flex items-center justify-center p-4 lg:p-8">
+          {/* Welcome State - Fades when typing */}
+          <div className={`flex-1 flex items-center justify-center p-4 lg:p-8 transition-all duration-500 ${searchQuery.trim() ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
             <div className="max-w-2xl text-center space-y-6">
               <div className="w-20 h-20 mx-auto mb-6">
                 <img
