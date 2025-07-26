@@ -195,8 +195,12 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
             {/* Azure Companion */}
             <div className="p-4 rounded-xl bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-500/20 mb-4">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                  <Sparkles className="w-4 h-4 text-blue-400" />
+                <div className="w-8 h-8 flex items-center justify-center">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fdbc34a0fdf4849459b0ed2678312de82?format=webp&width=80"
+                    alt="Sv. Companion"
+                    className="w-8 h-8 object-contain"
+                  />
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-sidebar-foreground">Azure Companion</div>
