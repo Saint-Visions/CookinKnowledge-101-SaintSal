@@ -42,6 +42,12 @@ interface WarRoomProps {
   className?: string;
 }
 
+interface CompanionMessage {
+  role: 'user' | 'assistant';
+  content: string;
+  timestamp: Date;
+}
+
 const leftPanelItems = [
   { icon: User, label: "My Account", active: false, color: "text-blue-300" },
   {
