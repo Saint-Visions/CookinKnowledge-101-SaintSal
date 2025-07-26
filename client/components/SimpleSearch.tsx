@@ -222,11 +222,9 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
         <div className="border-b border-border/30 px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fc88eaa91ad364821b51a4fc6c47320ab?format=webp&width=80"
-                alt="Sv."
-                className="w-8 h-8 object-contain"
-              />
+              <div className="w-8 h-8 bg-gradient-to-br from-muted/20 to-muted/10 rounded-lg flex items-center justify-center cursor-pointer hover:bg-muted/30 transition-colors">
+                <Wrench className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors" />
+              </div>
               <div>
                 <h1 className="text-lg font-semibold text-foreground">SaintGPT 4.1</h1>
                 <p className="text-sm text-muted-foreground hidden sm:block">Enterprise AI Search</p>
