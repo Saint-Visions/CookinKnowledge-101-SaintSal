@@ -107,7 +107,7 @@ const bottomItems = [
 
 export function Sidebar({ className }: SidebarProps) {
   return (
-    <div className={cn("w-80 bg-sidebar-background border-r border-sidebar-border flex flex-col", className)}>
+    <div className={cn("w-80 lg:w-80 md:w-64 bg-sidebar-background border-r border-sidebar-border flex flex-col", className)}>
       <div className="p-6">
         <div className="flex items-center gap-3 mb-8">
           <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
