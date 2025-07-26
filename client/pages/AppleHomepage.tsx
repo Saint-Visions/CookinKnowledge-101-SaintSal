@@ -240,7 +240,7 @@ export default function AppleHomepage() {
                     <div className="p-3 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-xl group-hover:scale-110 transition-transform duration-300">
                       <tech.icon className="w-6 h-6 text-yellow-400" />
                     </div>
-                    <Badge className="bg-white/10 text-white border-white/20">
+                    <Badge className="bg-white/10 text-white border-0">
                       {tech.status}
                     </Badge>
                   </div>
