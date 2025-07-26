@@ -145,62 +145,61 @@ export function Splash({ className }: SplashProps) {
             </p>
           </div>
 
-          {/* SaintSal™ Realistic Character */}
-          <div className={`mb-8 transition-all duration-2000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="flex items-center justify-center gap-16 max-w-6xl mx-auto">
-              {/* Realistic 3D Character */}
-              <div className="text-center">
-                <div className="relative inline-block">
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fc2fa2dbdfa954bfca04e7108b395867b?format=webp&width=800"
-                    alt="SaintSal™ - Your AI Companion"
-                    className="w-72 h-96 object-contain mx-auto mb-6 drop-shadow-[0_0_40px_rgba(255,215,0,0.4)] animate-pulse"
-                    style={{
-                      filter: 'drop-shadow(0 0 30px rgba(255,215,0,0.3)) brightness(1.1)',
-                      animation: 'character-glow 6s ease-in-out infinite alternate'
-                    }}
-                  />
-
-                  {/* Welcome Message */}
-                  <div className="text-center">
-                    <h3 className="text-3xl font-bold text-[hsl(var(--gold))] mb-3 drop-shadow-[0_0_20px_rgba(255,215,0,0.8)]">
-                      SaintSal™ + You
-                    </h3>
-                    <p className="text-lg text-cyan-400 font-light tracking-wide mb-4">
-                      Your Sophisticated AI Companion
-                    </p>
-                    <p className="text-sm text-muted-foreground max-w-sm mx-auto leading-relaxed">
-                      Meet your tall, handsome, and charming AI companion.
-                      Dressed impeccably in all black with modern glasses,
-                      SaintSal™ welcomes you with confidence and Italian style.
-                    </p>
-                  </div>
-                </div>
+          {/* SaintSal™ & Athena Character */}
+          <div className={`mb-16 transition-all duration-2000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="text-center max-w-4xl mx-auto">
+              {/* Character Image */}
+              <div className="relative inline-block mb-8">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F23b35e0aa8aa463c8e367cec5b73cb35?format=webp&width=800"
+                  alt="SaintSal™ & Athena - Your AI Companions"
+                  className="w-80 h-96 object-contain mx-auto drop-shadow-[0_0_50px_rgba(255,215,0,0.5)]"
+                  style={{
+                    filter: 'drop-shadow(0 0 40px rgba(255,215,0,0.4)) brightness(1.1) contrast(1.05)',
+                    animation: 'character-glow 6s ease-in-out infinite alternate'
+                  }}
+                />
               </div>
 
-              {/* Companion Features */}
-              <div className="text-left">
-                <h4 className="text-2xl font-semibold text-foreground mb-6">Your AI Companion</h4>
-                <div className="space-y-4 text-base text-muted-foreground">
-                  <div className="flex items-center gap-4">
+              {/* Welcome Message */}
+              <div className="text-center">
+                <h3 className="text-4xl font-bold text-[hsl(var(--gold))] mb-4 drop-shadow-[0_0_25px_rgba(255,215,0,0.9)]">
+                  SaintSal™ + You
+                </h3>
+                <p className="text-xl text-cyan-400 font-light tracking-wide mb-6">
+                  Your Sophisticated AI Companions
+                </p>
+                <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
+                  Meet your dynamic duo of AI excellence. SaintSal™ and Athena bring together
+                  sophisticated intelligence, timeless wisdom, and cutting-edge innovation
+                  to guide your journey through the digital realm.
+                </p>
+
+                {/* Companion Features Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                  <div className="flex items-center gap-3 text-sm">
                     <div className="w-3 h-3 bg-[hsl(var(--gold))] rounded-full drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]"></div>
-                    <span>Confident & Charming Personality</span>
+                    <span className="text-muted-foreground">Divine Intelligence</span>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 text-sm">
                     <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
-                    <span>Sophisticated Italian Elegance</span>
+                    <span className="text-muted-foreground">Timeless Wisdom</span>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 text-sm">
                     <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
-                    <span>Sharp Intelligence & Wit</span>
+                    <span className="text-muted-foreground">Strategic Thinking</span>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 text-sm">
                     <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                    <span>Always Impeccably Dressed</span>
+                    <span className="text-muted-foreground">Elegant Solutions</span>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 text-sm">
                     <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
-                    <span>Modern Style & Glasses</span>
+                    <span className="text-muted-foreground">Modern Innovation</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <div className="w-3 h-3 bg-pink-400 rounded-full"></div>
+                    <span className="text-muted-foreground">Boundless Potential</span>
                   </div>
                 </div>
               </div>
