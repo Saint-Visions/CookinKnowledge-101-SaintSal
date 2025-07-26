@@ -114,7 +114,7 @@ export default function AppleHomepage() {
       />
 
       {/* Charcoal Overlay */}
-      <div className="fixed inset-0 z-0 bg-gray-900/30 backdrop-blur-[0.5px]" />
+      <div className="fixed inset-0 z-0 bg-gray-900/20 backdrop-blur-[0.3px]" />
 
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-gray-900/20 backdrop-blur-2xl border-b border-yellow-400/10">
