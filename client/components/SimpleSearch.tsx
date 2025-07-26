@@ -240,15 +240,19 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
           {/* Welcome State */}
           <div className="flex-1 flex items-center justify-center p-4 lg:p-8">
             <div className="max-w-2xl text-center space-y-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-[hsl(var(--gold))]/20 to-[hsl(var(--gold))]/10 rounded-2xl flex items-center justify-center mx-auto">
-                <Search className="w-8 h-8 text-[hsl(var(--gold))]" />
+              <div className="w-20 h-20 mx-auto mb-6">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F6d30471940b642d1a4a6ac05668f0422?format=webp&width=200"
+                  alt="SaintSal"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <h2 className="text-2xl lg:text-3xl font-bold text-foreground">
-                Ask SaintGPT Anything
+                Your <span className="text-[hsl(var(--gold))]">Intelligent</span> Business Companion
               </h2>
               <p className="text-lg text-muted-foreground">
-                Your <span className="text-[hsl(var(--neon))]">intelligent</span> business companion is ready to help with 
-                <span className="text-[hsl(var(--gold))]"> anything</span>
+                Ready to help with <span className="text-[hsl(var(--neon))]">anything</span> -
+                from strategy to automation to <span className="text-[hsl(var(--gold))]">execution</span>
               </p>
             </div>
           </div>
