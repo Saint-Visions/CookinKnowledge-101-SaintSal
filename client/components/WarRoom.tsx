@@ -281,16 +281,21 @@ export function WarRoom({ className }: WarRoomProps) {
         {/* Top Bar */}
         <div className="border-b border-border/30 p-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <h1 className="text-3xl font-bold text-foreground">
-                WARROOM
-              </h1>
-              <div className="text-xs bg-primary/20 text-primary px-3 py-1 rounded uppercase tracking-wider font-medium">
-                PRODUCTION CENTER
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-4">
+                <h1 className="text-3xl font-bold text-foreground">
+                  WARROOM
+                </h1>
+                <div className="text-xs bg-primary/20 text-primary px-3 py-1 rounded uppercase tracking-wider font-medium">
+                  PRODUCTION CENTER
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-[hsl(var(--neon-green))] rounded-full animate-pulse"></div>
+                  <span className="text-sm text-[hsl(var(--neon-green))]">Live</span>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-[hsl(var(--neon-green))] rounded-full animate-pulse"></div>
-                <span className="text-sm text-[hsl(var(--neon-green))]">Live</span>
+              <div className="text-sm text-cyan-400 font-medium">
+                Powered by <span className="text-blue-400">Azure Cognitive Services</span> and <span className="text-[hsl(var(--gold))]">SaintSalGPT 4.1 SaintVisionAI</span>
               </div>
             </div>
 
