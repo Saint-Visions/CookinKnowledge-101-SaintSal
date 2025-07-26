@@ -142,6 +142,16 @@ export function WarRoom({ className }: WarRoomProps) {
   const [rightPanelOpen, setRightPanelOpen] = useState(true);
   const [crmMaximized, setCrmMaximized] = useState(false);
   const [workspaceInput, setWorkspaceInput] = useState("");
+  const [companionOpen, setCompanionOpen] = useState(false);
+  const [companionMessages, setCompanionMessages] = useState<CompanionMessage[]>([
+    {
+      role: 'assistant',
+      content: 'Hey there! I\'m Supersal™, your AI companion. I\'m here to help with support, sales questions, or anything you need. How can I assist you today?',
+      timestamp: new Date()
+    }
+  ]);
+  const [companionInput, setCompanionInput] = useState('');
+  const [companionLoading, setCompanionLoading] = useState(false);
 
   return (
     <div
