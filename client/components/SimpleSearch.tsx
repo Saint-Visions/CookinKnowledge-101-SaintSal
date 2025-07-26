@@ -222,13 +222,62 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
         <div className="border-b border-border/30 px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-muted/20 to-muted/10 rounded-lg flex items-center justify-center cursor-pointer hover:bg-muted/30 transition-colors">
-                <Wrench className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors" />
+              <div className="relative">
+                <div
+                  className="w-8 h-8 bg-gradient-to-br from-muted/20 to-muted/10 rounded-lg flex items-center justify-center cursor-pointer hover:bg-muted/30 transition-colors"
+                  onClick={() => setToolsOpen(!toolsOpen)}
+                >
+                  <Wrench className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors" />
+                </div>
+
+                {/* Tools Popup */}
+                {toolsOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-popover border border-border rounded-xl shadow-lg z-50">
+                    <div className="p-4">
+                      <h3 className="text-sm font-semibold text-foreground mb-3">🛠️ Tools & Resources</h3>
+                      <div className="space-y-2">
+                        <div className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
+                          <div className="text-sm font-medium text-foreground">📁 File GPTs</div>
+                          <div className="text-xs text-muted-foreground">Upload and analyze files</div>
+                        </div>
+                        <div className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
+                          <div className="text-sm font-medium text-foreground">⚙️ Settings</div>
+                          <div className="text-xs text-muted-foreground">Customize your experience</div>
+                        </div>
+                        <div className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
+                          <div className="text-sm font-medium text-foreground">🔍 Search Chat</div>
+                          <div className="text-xs text-muted-foreground">Find conversations</div>
+                        </div>
+                        <div className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
+                          <div className="text-sm font-medium text-foreground">💾 Saved Files</div>
+                          <div className="text-xs text-muted-foreground">Access your documents</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
               <div>
                 <h1 className="text-lg font-semibold text-foreground">SaintGPT 4.1</h1>
                 <p className="text-sm text-muted-foreground hidden sm:block">Enterprise AI Search</p>
               </div>
+            </div>
+
+            {/* Model Selector */}
+            <div className="relative">
+              <select
+                value={selectedModel}
+                onChange={(e) => setSelectedModel(e.target.value)}
+                className="bg-muted/20 border border-border/30 rounded-lg px-3 py-2 text-sm text-foreground cursor-pointer hover:bg-muted/30 transition-colors"
+              >
+                <option value="GPT-4 Turbo">GPT-4 Turbo</option>
+                <option value="GPT-4">GPT-4</option>
+                <option value="GPT-3.5 Turbo">GPT-3.5 Turbo</option>
+                <option value="DALL-E 3">DALL-E 3</option>
+                <option value="Claude 3.5 Sonnet">Claude 3.5 Sonnet</option>
+                <option value="Claude 3 Opus">Claude 3 Opus</option>
+                <option value="Gemini Pro">Gemini Pro</option>
+              </select>
             </div>
           </div>
         </div>
