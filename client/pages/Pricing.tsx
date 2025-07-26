@@ -254,7 +254,7 @@ export default function Pricing() {
             </button>
             <span className={`text-sm ${isYearly ? 'text-white' : 'text-white/60'}`}>Yearly</span>
             {isYearly && (
-              <Badge className="bg-green-500 text-white ml-2">Save 20%</Badge>
+              <Badge className="bg-white text-black ml-2">Save 20%</Badge>
             )}
           </div>
         </div>
