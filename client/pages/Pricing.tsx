@@ -64,7 +64,7 @@ export default function Pricing() {
         "Priority support",
         "Custom AI memory",
         "API access",
-        "��� ALL MAGIC UNLOCKED"
+        "🔥 ALL MAGIC UNLOCKED"
       ],
       buttonText: "Unlock Magic ✨",
       color: "white",
@@ -463,12 +463,7 @@ export default function Pricing() {
       </div>
 
       {/* Footer */}
-      <div className="border-t border-gray-800 p-6">
-        <div className="max-w-7xl mx-auto text-center text-white/60">
-          <p>© 2025 Saint Vision Group LLC. Protected by U.S. Patent No. 10,290,222</p>
-          <p className="text-sm mt-2">We protect your data. We respect your time. We serve your purpose.</p>
-        </div>
-      </div>
+      <GlobalFooter />
     </div>
   );
 }
