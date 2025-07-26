@@ -175,7 +175,7 @@ export function Why({ className }: WhyProps) {
             </div>
 
             {/* Faith-Guided Innovation */}
-            <div className="group p-8 rounded-2xl bg-gradient-to-br from-muted/10 to-muted/5 border border-border/30 hover:border-cyan-400/50 transition-all duration-300">
+            <div className="group p-8 rounded-2xl bg-gradient-to-br from-black/30 to-black/20 backdrop-blur-sm border border-border/30 hover:border-cyan-400/50 transition-all duration-300">
               <div className="mb-6">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-400/10 flex items-center justify-center mb-4">
                   <Heart className="w-8 h-8 text-cyan-400" />
