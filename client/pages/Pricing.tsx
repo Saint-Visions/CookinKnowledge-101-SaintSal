@@ -219,7 +219,7 @@ export default function Pricing() {
             <span className="text-xl font-bold">SaintVisionAI</span>
           </Link>
           <Link to="/auth">
-            <Button variant="outline" className="border-yellow-400 text-yellow-400">
+            <Button variant="outline" className="border-white text-white">
               Sign In
             </Button>
           </Link>
