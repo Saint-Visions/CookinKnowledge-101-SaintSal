@@ -44,6 +44,12 @@ const sidebarItems = [
     hasNotification: true
   },
   {
+    icon: Sparkles,
+    label: "SaintGPT 4.1",
+    hasNotification: false,
+    link: "/saintgpt"
+  },
+  {
     icon: Wrench,
     label: "AI Tools",
     hasNotification: true
