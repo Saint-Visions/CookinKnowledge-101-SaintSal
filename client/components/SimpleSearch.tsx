@@ -24,7 +24,7 @@ import {
   TrendingUp,
   Palette,
   LogOut,
-  Crown
+  Crown,
 } from "lucide-react";
 
 interface SimpleSearchProps {
@@ -42,10 +42,14 @@ const mainMenuItems = [
   { icon: MessageSquare, label: "Feedback & Help", hasNotification: true },
   { icon: Users, label: "PartnerTech.ai CRM", hasNotification: false },
   { icon: Shield, label: "Client Portal", hasNotification: true },
-  { icon: Palette, label: "SVT Institute of AI (R + D)", hasNotification: false },
+  {
+    icon: Palette,
+    label: "SVT Institute of AI (R + D)",
+    hasNotification: false,
+  },
   { icon: TrendingUp, label: "Upgrade Tier", hasNotification: false },
   { icon: User, label: "My Account", hasNotification: false },
-  { icon: LogOut, label: "Logout", hasNotification: false }
+  { icon: LogOut, label: "Logout", hasNotification: false },
 ];
 
 const chatHistory = [
@@ -54,7 +58,7 @@ const chatHistory = [
   "Market research insights",
   "Customer journey mapping",
   "Revenue optimization tips",
-  "Team productivity guide"
+  "Team productivity guide",
 ];
 
 export function SimpleSearch({ className }: SimpleSearchProps) {
@@ -79,7 +83,10 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
   };
 
   return (
-    <div className={`min-h-screen relative ${className}`} style={{ backgroundColor: '#000000' }}>
+    <div
+      className={`min-h-screen relative ${className}`}
+      style={{ backgroundColor: "#000000" }}
+    >
       {/* Mobile Menu Button */}
       <Button
         variant="ghost"
@@ -91,9 +98,11 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
       </Button>
 
       {/* Sidebar */}
-      <div className={`fixed left-0 top-0 h-full w-80 bg-sidebar-background border-r border-sidebar-border/30 z-40 transition-transform duration-300 ${
-        sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-      }`}>
+      <div
+        className={`fixed left-0 top-0 h-full w-80 bg-sidebar-background border-r border-sidebar-border/30 z-40 transition-transform duration-300 ${
+          sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+        }`}
+      >
         {/* Fixed Background Logo */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.08] overflow-hidden">
           <img
@@ -106,7 +115,6 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
         <div className="flex flex-col h-full relative z-10">
           {/* Header */}
           <div className="p-6 border-b border-sidebar-border/30">
-
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 flex items-center justify-center">
                 <img
@@ -116,12 +124,19 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                 />
               </div>
               <div>
-                <h1 className="text-lg font-bold text-sidebar-foreground">SaintGPT</h1>
-                <p className="text-xs text-[hsl(var(--gold))] uppercase tracking-wider">4.1 ENTERPRISE</p>
+                <h1 className="text-lg font-bold text-sidebar-foreground">
+                  SaintGPT
+                </h1>
+                <p className="text-xs text-[hsl(var(--gold))] uppercase tracking-wider">
+                  4.1 ENTERPRISE
+                </p>
               </div>
             </div>
 
-            <Button className="w-full bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-medium" size="sm">
+            <Button
+              className="w-full bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-medium"
+              size="sm"
+            >
               <Plus className="w-4 h-4 mr-2" />
               New conversation
             </Button>
@@ -129,7 +144,9 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
 
           {/* Main Menu */}
           <div className="flex-1 px-3 py-4 space-y-1 overflow-auto">
-            <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider px-3 mb-3">Main Menu</h3>
+            <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider px-3 mb-3">
+              Main Menu
+            </h3>
             {mainMenuItems.map((item, index) => {
               const Icon = item.icon;
               const content = (
@@ -153,18 +170,13 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                   {content}
                 </Link>
               ) : (
-                <div key={index}>
-                  {content}
-                </div>
+                <div key={index}>{content}</div>
               );
             })}
-
-
           </div>
 
           {/* Sticky Companion - Always Visible */}
           <div className="sticky bottom-0 p-4 border-t border-sidebar-border/30 bg-sidebar-background">
-
             {/* Azure Companion */}
             <div className="p-4 rounded-xl bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-500/20 mb-4">
               <div className="flex items-center gap-3 mb-3">
@@ -176,12 +188,18 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                   />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-sidebar-foreground">Azure Companion</div>
-                  <div className="text-xs text-blue-400 uppercase tracking-wider">ALWAYS READY</div>
+                  <div className="text-sm font-semibold text-sidebar-foreground">
+                    Azure Companion
+                  </div>
+                  <div className="text-xs text-blue-400 uppercase tracking-wider">
+                    ALWAYS READY
+                  </div>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground">
-                Your <span className="text-[hsl(var(--neon))]">intelligent</span> assistant is here
+                Your{" "}
+                <span className="text-[hsl(var(--neon))]">intelligent</span>{" "}
+                assistant is here
               </p>
             </div>
 
@@ -213,23 +231,41 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                 {toolsOpen && (
                   <div className="absolute top-full left-0 mt-2 w-64 bg-popover border border-border rounded-xl shadow-lg z-50">
                     <div className="p-4">
-                      <h3 className="text-sm font-semibold text-foreground mb-3">🛠️ Tools & Resources</h3>
+                      <h3 className="text-sm font-semibold text-foreground mb-3">
+                        🛠️ Tools & Resources
+                      </h3>
                       <div className="space-y-2">
                         <div className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
-                          <div className="text-sm font-medium text-foreground">📁 File GPTs</div>
-                          <div className="text-xs text-muted-foreground">Upload and analyze files</div>
+                          <div className="text-sm font-medium text-foreground">
+                            📁 File GPTs
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            Upload and analyze files
+                          </div>
                         </div>
                         <div className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
-                          <div className="text-sm font-medium text-foreground">⚙️ Settings</div>
-                          <div className="text-xs text-muted-foreground">Customize your experience</div>
+                          <div className="text-sm font-medium text-foreground">
+                            ⚙️ Settings
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            Customize your experience
+                          </div>
                         </div>
                         <div className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
-                          <div className="text-sm font-medium text-foreground">🔍 Search Chat</div>
-                          <div className="text-xs text-muted-foreground">Find conversations</div>
+                          <div className="text-sm font-medium text-foreground">
+                            🔍 Search Chat
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            Find conversations
+                          </div>
                         </div>
                         <div className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
-                          <div className="text-sm font-medium text-foreground">💾 Saved Files</div>
-                          <div className="text-xs text-muted-foreground">Access your documents</div>
+                          <div className="text-sm font-medium text-foreground">
+                            💾 Saved Files
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            Access your documents
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -237,8 +273,12 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                 )}
               </div>
               <div>
-                <h1 className="text-lg font-semibold text-foreground">SaintGPT 4.1</h1>
-                <p className="text-sm text-muted-foreground hidden sm:block">Enterprise AI Search</p>
+                <h1 className="text-lg font-semibold text-foreground">
+                  SaintGPT 4.1
+                </h1>
+                <p className="text-sm text-muted-foreground hidden sm:block">
+                  Enterprise AI Search
+                </p>
               </div>
             </div>
 
@@ -264,7 +304,9 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
         {/* Main Chat Area */}
         <div className="flex-1 flex flex-col">
           {/* Welcome State - Fades when typing */}
-          <div className={`flex-1 flex items-center justify-center p-4 lg:p-8 transition-all duration-500 ${searchQuery.trim() ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
+          <div
+            className={`flex-1 flex items-center justify-center p-4 lg:p-8 transition-all duration-500 ${searchQuery.trim() ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}`}
+          >
             <div className="max-w-2xl text-center space-y-6">
               <div className="w-20 h-20 mx-auto mb-6">
                 <img
@@ -274,11 +316,15 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                 />
               </div>
               <h2 className="text-2xl lg:text-3xl font-bold text-foreground">
-                Your <span className="text-[hsl(var(--gold))]">Intelligent</span> Business Companion
+                Your{" "}
+                <span className="text-[hsl(var(--gold))]">Intelligent</span>{" "}
+                Business Companion
               </h2>
               <p className="text-lg text-muted-foreground">
-                Ready to help with <span className="text-[hsl(var(--neon))]">anything</span> -
-                from strategy to automation to <span className="text-[hsl(var(--gold))]">execution</span>
+                Ready to help with{" "}
+                <span className="text-[hsl(var(--neon))]">anything</span> - from
+                strategy to automation to{" "}
+                <span className="text-[hsl(var(--gold))]">execution</span>
               </p>
             </div>
           </div>
@@ -295,7 +341,7 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                   >
                     <Paperclip className="w-4 h-4" />
                   </Button>
-                  
+
                   <textarea
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -304,7 +350,7 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                     className="flex-1 bg-transparent border-0 resize-none outline-none text-foreground placeholder:text-muted-foreground min-h-[20px] max-h-32 text-sm lg:text-base"
                     rows={1}
                   />
-                  
+
                   <div className="flex items-center gap-1 lg:gap-2 flex-shrink-0">
                     <Button
                       variant="ghost"
@@ -312,9 +358,13 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                       onClick={() => setIsListening(!isListening)}
                       className={`hidden sm:flex ${isListening ? "text-red-400" : ""}`}
                     >
-                      {isListening ? <Square className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
+                      {isListening ? (
+                        <Square className="w-4 h-4" />
+                      ) : (
+                        <Mic className="w-4 h-4" />
+                      )}
                     </Button>
-                    
+
                     <Button
                       size="sm"
                       onClick={handleSend}
@@ -326,10 +376,13 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                   </div>
                 </div>
               </div>
-              
+
               <div className="text-xs text-center text-muted-foreground mt-3">
-                SaintGPT is powered by your enterprise knowledge base. 
-                <span className="text-[hsl(var(--gold))]"> Always accurate, always ready.</span>
+                SaintGPT is powered by your enterprise knowledge base.
+                <span className="text-[hsl(var(--gold))]">
+                  {" "}
+                  Always accurate, always ready.
+                </span>
               </div>
             </div>
           </div>
@@ -338,7 +391,7 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
 
       {/* Overlay for mobile */}
       {sidebarOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-background/80 backdrop-blur-sm z-30 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
