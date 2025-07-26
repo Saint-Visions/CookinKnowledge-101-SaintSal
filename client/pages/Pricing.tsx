@@ -106,12 +106,20 @@ export default function Pricing() {
       {/* Hero Section */}
       <div className="text-center py-20 px-6">
         <div className="max-w-4xl mx-auto">
+          <div className="mb-4">
+            <Badge className="bg-red-500 text-white animate-pulse mb-4">
+              🔥 SPECIAL: $47/month - Save $32!
+            </Badge>
+          </div>
           <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
             Route Auditing Service
           </h1>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 mb-4 max-w-2xl mx-auto">
             Powered by SaintSal AI • Ensure your website navigation works perfectly with our comprehensive route auditing and monitoring platform
           </p>
+          <div className="text-lg text-yellow-400 font-semibold mb-8">
+            🚀 47+ Active Clients • $8,947+ Revenue Generated • 1,284+ Audits Completed
+          </div>
           <div className="flex items-center justify-center gap-6 text-sm text-gray-400">
             <div className="flex items-center gap-2">
               <Check className="w-4 h-4 text-green-400" />
