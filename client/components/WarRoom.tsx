@@ -509,7 +509,7 @@ export function WarRoom({ className }: WarRoomProps) {
 
       {/* Supersal™ AI Sticky Companion */}
       {companionOpen && (
-        <div className="fixed bottom-4 right-4 w-96 h-[500px] bg-black/95 border-2 border-cyan-400/60 rounded-2xl shadow-[0_0_40px_rgba(34,211,238,0.3)] backdrop-blur-sm z-[60] flex flex-col">
+        <div className="fixed bottom-4 right-4 w-96 h-[500px] bg-black/95 border-2 border-[hsl(var(--gold))]/60 rounded-2xl shadow-[0_0_40px_rgba(255,215,0,0.4)] backdrop-blur-sm z-[60] flex flex-col">
           {/* Companion Header */}
           <div className="flex items-center justify-between p-4 border-b border-cyan-400/30">
             <div className="flex items-center gap-3">
