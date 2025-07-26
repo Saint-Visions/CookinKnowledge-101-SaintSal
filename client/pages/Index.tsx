@@ -1,11 +1,11 @@
-import { Sidebar } from "@/components/Sidebar";
-import { DashboardMain } from "@/components/DashboardMain";
+import { SaintVisionSidebar } from "@/components/SaintVisionSidebar";
+import { SaintVisionDashboard } from "@/components/SaintVisionDashboard";
 
 export default function Index() {
   return (
     <div className="min-h-screen bg-background flex">
-      <Sidebar />
-      <DashboardMain />
+      <SaintVisionSidebar />
+      <SaintVisionDashboard />
     </div>
   );
 }
