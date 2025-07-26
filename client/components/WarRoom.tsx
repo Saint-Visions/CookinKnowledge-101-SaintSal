@@ -524,12 +524,12 @@ export function WarRoom({ className }: WarRoomProps) {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-[hsl(var(--neon-green))] rounded-full animate-pulse shadow-[0_0_8px_rgba(0,255,0,0.6)]"></div>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setCompanionOpen(false)}
-                className="text-gray-400 hover:text-white"
+                className="text-[hsl(var(--gold))]/60 hover:text-[hsl(var(--gold))] transition-colors"
               >
                 ×
               </Button>
