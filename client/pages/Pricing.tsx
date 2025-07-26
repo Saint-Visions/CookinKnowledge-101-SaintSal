@@ -1,72 +1,213 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
-import { Check, Shield, Zap, Crown, ArrowRight } from 'lucide-react';
+import { Check, Crown, Zap, Building2, Shield, Globe, Sparkles, ArrowRight, MessageSquare, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Pricing() {
+  const [isYearly, setIsYearly] = useState(false);
+
   const plans = [
     {
-      name: "Professional",
-      price: "$79",
+      name: "Free",
+      subtitle: "Try the Cookin'",
+      icon: MessageSquare,
+      price: isYearly ? "$0" : "$0",
       period: "/month",
-      description: "Complete SaintVisionAI Platform for businesses",
+      description: "Perfect for exploring SaintSal™ capabilities",
       features: [
-        "Full WarRoom Production Center",
-        "PartnerTech.ai CRM",
-        "SaintSalGPT 4.1 AI Companion",
-        "SVT Institute of AI",
-        "Image Generator & AI Tools",
-        "Automations & Workflows",
-        "Priority support",
-        "Team collaboration"
+        "100 AI conversations/month",
+        "Dual AI system (GPT-4o + Azure)",
+        "Community support",
+        "Standard response time",
+        "Web interface only"
       ],
+      buttonText: "Start Free",
+      color: "gray",
+      popular: false
+    },
+    {
+      name: "Unlimited",
+      subtitle: "Base Magic",
+      icon: Zap,
+      price: isYearly ? "$270" : "$27",
+      period: isYearly ? "/year" : "/month",
+      description: "Where the magic starts flowing",
+      features: [
+        "Unlimited AI conversations",
+        "Dual AI system (GPT-4o + Azure)",
+        "CRM connection (GHL)",
+        "Email support",
+        "Chrome extension",
+        "Standard response time"
+      ],
+      buttonText: "Get Unlimited",
       color: "blue",
-      popular: false,
-      stripeLink: "https://buy.stripe.com/professional-plan"
+      popular: false
+    },
+    {
+      name: "Pro",
+      subtitle: "Your GOTTA GUY™",
+      icon: Crown,
+      price: isYearly ? "$970" : "$97",
+      period: isYearly ? "/year" : "/month",
+      description: "WHERE ALL THE MAGIC UNLOCKS!",
+      features: [
+        "Everything in Unlimited",
+        "Dual AI system (GPT-4o + Azure)",
+        "Voice & SMS integration",
+        "CRM connection (GHL)",
+        "PartnerTech integration",
+        "Priority support",
+        "Custom AI memory",
+        "API access",
+        "🔥 ALL MAGIC UNLOCKED"
+      ],
+      buttonText: "Unlock Magic ✨",
+      color: "gold",
+      popular: true,
+      highlight: "Most businesses choose this plan"
     },
     {
       name: "Enterprise",
-      price: "$199",
-      period: "/month",
-      description: "🚀 MOST POPULAR: Full platform + Route Intelligence",
+      subtitle: "Scale Mode",
+      icon: Building2,
+      price: isYearly ? "$2970" : "$297",
+      period: isYearly ? "/year" : "/month",
+      description: "For teams ready to dominate",
       features: [
-        "✨ Everything in Professional",
-        "🛡️ Enterprise Route Intelligence Add-On",
-        "Real-time website monitoring",
-        "Advanced AI route analysis",
-        "Custom integrations & API",
-        "White-label options",
-        "24/7 dedicated support",
-        "SLA guarantees"
+        "Everything in Pro",
+        "Team management",
+        "Advanced analytics",
+        "Custom integrations",
+        "Dedicated support",
+        "SLA guarantees",
+        "Multi-user management",
+        "Priority support"
       ],
-      color: "yellow",
-      popular: true,
-      stripeLink: "https://buy.stripe.com/enterprise-plan"
+      buttonText: "Scale Up",
+      color: "purple",
+      popular: false
     },
     {
-      name: "Route Intelligence",
-      price: "+$47",
-      period: "/month",
-      description: "🔥 PREMIUM ADD-ON: Advanced route monitoring",
+      name: "White Label Elite",
+      subtitle: "Empire Mode",
+      icon: Globe,
+      price: isYearly ? "$4970" : "$497",
+      period: isYearly ? "/year" : "/month",
+      description: "Your own branded SaintVisionAI empire",
       features: [
-        "🎯 Add to any existing plan",
-        "Enterprise-grade monitoring",
-        "SaintSal AI route analysis",
-        "Real-time alerts & reporting",
-        "Custom integration support",
-        "Priority add-on support",
-        "Advanced analytics dashboard",
-        "Proven: $8,947+ revenue generated"
+        "Everything in Enterprise",
+        "Full white-label branding",
+        "Custom domain & SSL",
+        "Unlimited user accounts",
+        "Revenue sharing program",
+        "Full source code access",
+        "24/7 dedicated support",
+        "Custom feature development"
       ],
-      color: "gold",
-      popular: false,
-      special: true,
-      addon: true,
-      stripeLink: "https://buy.stripe.com/route-intelligence-addon"
+      buttonText: "Build Empire",
+      color: "green",
+      popular: false
+    },
+    {
+      name: "Custom",
+      subtitle: "Ultimate",
+      icon: Sparkles,
+      price: "$1500",
+      period: "/month",
+      description: "$1500 deposit for custom solutions",
+      features: [
+        "Everything in White Label",
+        "Custom development team",
+        "Dedicated project manager",
+        "White-glove onboarding",
+        "Custom AI training",
+        "Enterprise contracts",
+        "Revenue guarantees",
+        "Full platform customization"
+      ],
+      buttonText: "Custom Build",
+      color: "rainbow",
+      popular: false
     }
   ];
+
+  const auditAddOn = {
+    name: "Route Intelligence",
+    subtitle: "PREMIUM ADD-ON",
+    icon: Shield,
+    price: "+$47",
+    period: "/month",
+    description: "🔥 Enterprise route monitoring & optimization",
+    features: [
+      "🎯 Add to any existing plan",
+      "Real-time website monitoring",
+      "SaintSal AI route analysis",
+      "Advanced performance insights",
+      "Custom integration support",
+      "Priority add-on support",
+      "Revenue optimization alerts",
+      "Proven: $8,947+ generated for clients"
+    ],
+    buttonText: "Add Route Intelligence",
+    color: "audit",
+    addon: true
+  };
+
+  const getCardStyles = (color: string, popular: boolean) => {
+    const baseStyles = "relative transition-all duration-300 hover:scale-105";
+    
+    if (popular) {
+      return `${baseStyles} ring-2 ring-yellow-400 scale-105 bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border-yellow-400`;
+    }
+    
+    switch (color) {
+      case 'blue':
+        return `${baseStyles} bg-gray-900/50 border-blue-500/30 hover:border-blue-500/60`;
+      case 'gold':
+        return `${baseStyles} bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 border-yellow-400/50`;
+      case 'purple':
+        return `${baseStyles} bg-gray-900/50 border-purple-500/30 hover:border-purple-500/60`;
+      case 'green':
+        return `${baseStyles} bg-gray-900/50 border-green-500/30 hover:border-green-500/60`;
+      case 'audit':
+        return `${baseStyles} bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border-2 border-dashed border-yellow-400`;
+      default:
+        return `${baseStyles} bg-gray-900/50 border-gray-700`;
+    }
+  };
+
+  const getIconColor = (color: string) => {
+    switch (color) {
+      case 'blue': return 'text-blue-400';
+      case 'gold': return 'text-yellow-400';
+      case 'purple': return 'text-purple-400';
+      case 'green': return 'text-green-400';
+      case 'audit': return 'text-yellow-400';
+      default: return 'text-gray-400';
+    }
+  };
+
+  const getButtonStyles = (color: string, popular: boolean) => {
+    if (popular) {
+      return "bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 font-bold";
+    }
+    
+    switch (color) {
+      case 'blue':
+        return "bg-blue-600 hover:bg-blue-700 text-white";
+      case 'purple':
+        return "bg-purple-600 hover:bg-purple-700 text-white";
+      case 'green':
+        return "bg-green-600 hover:bg-green-700 text-white";
+      case 'audit':
+        return "bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700";
+      default:
+        return "bg-gray-700 hover:bg-gray-600 text-white";
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
@@ -74,7 +215,7 @@ export default function Pricing() {
       <div className="border-b border-gray-800 p-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <Shield className="w-8 h-8 text-yellow-400" />
+            <Crown className="w-8 h-8 text-yellow-400" />
             <span className="text-xl font-bold">SaintVisionAI</span>
           </Link>
           <Link to="/auth">
@@ -88,70 +229,66 @@ export default function Pricing() {
       {/* Hero Section */}
       <div className="text-center py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-4">
-            <Badge className="bg-red-500 text-white animate-pulse mb-4">
-              🔥 SPECIAL: $47/month - Save $32!
-            </Badge>
-          </div>
-          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-            SaintVisionAI Platform
+          <h1 className="text-6xl md:text-7xl font-light tracking-tight mb-6 leading-none">
+            <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+              Choose Your
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-semibold">
+              Magic Level
+            </span>
           </h1>
-          <p className="text-xl text-gray-300 mb-4 max-w-2xl mx-auto">
-            Complete AI-powered business platform with optional Enterprise Route Intelligence add-on
+          
+          <p className="text-xl text-white/70 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
+            From exploring SaintSal™ to building your AI empire, find the perfect plan for your journey
           </p>
-          <div className="text-lg text-yellow-400 font-semibold mb-8">
-            🚀 47+ Active Clients • $8,947+ Revenue Generated • 1,284+ Audits Completed
-          </div>
-          <div className="flex items-center justify-center gap-6 text-sm text-gray-400">
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-400" />
-              <span>Real-time monitoring</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-400" />
-              <span>AI-powered insights</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-400" />
-              <span>Automated reporting</span>
-            </div>
+
+          {/* Billing Toggle */}
+          <div className="flex items-center justify-center gap-4 mb-12">
+            <span className={`text-sm ${!isYearly ? 'text-white' : 'text-white/60'}`}>Monthly</span>
+            <button
+              onClick={() => setIsYearly(!isYearly)}
+              className={`relative w-12 h-6 rounded-full transition-colors ${isYearly ? 'bg-yellow-400' : 'bg-gray-600'}`}
+            >
+              <div className={`absolute w-4 h-4 bg-white rounded-full top-1 transition-transform ${isYearly ? 'translate-x-7' : 'translate-x-1'}`} />
+            </button>
+            <span className={`text-sm ${isYearly ? 'text-white' : 'text-white/60'}`}>Yearly</span>
+            {isYearly && (
+              <Badge className="bg-green-500 text-white ml-2">Save 20%</Badge>
+            )}
           </div>
         </div>
       </div>
 
-      {/* Pricing Cards */}
-      <div className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Main Pricing Grid */}
+      <div className="max-w-7xl mx-auto px-6 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {plans.map((plan, index) => (
-            <Card key={index} className={`bg-gray-900 border-gray-800 relative ${plan.popular ? 'ring-2 ring-yellow-400 scale-105' : ''} ${plan.special ? 'bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border-yellow-400' : ''} ${plan.addon ? 'border-2 border-dashed border-yellow-400' : ''}`}>
+            <Card key={index} className={getCardStyles(plan.color, plan.popular)}>
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-yellow-400 text-black font-bold">
-                    MOST POPULAR
-                  </Badge>
-                </div>
-              )}
-              {plan.addon && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-gradient-to-r from-purple-500 to-blue-600 text-white font-bold animate-pulse">
-                    PREMIUM ADD-ON
+                  <Badge className="bg-yellow-400 text-black font-bold px-4 py-1">
+                    ⭐ MOST POPULAR
                   </Badge>
                 </div>
               )}
               
               <CardHeader className="text-center pb-8">
                 <div className="flex justify-center mb-4">
-                  {plan.color === 'gold' && <Shield className="w-12 h-12 text-yellow-400 animate-pulse" />}
-                  {plan.color === 'blue' && <Zap className="w-12 h-12 text-yellow-400" />}
-                  {plan.color === 'yellow' && <Crown className="w-12 h-12 text-yellow-400" />}
-                  {plan.color === 'purple' && <Shield className="w-12 h-12 text-purple-400" />}
+                  <div className="p-3 bg-gray-800/50 rounded-xl">
+                    <plan.icon className={`w-8 h-8 ${getIconColor(plan.color)}`} />
+                  </div>
                 </div>
                 <CardTitle className="text-2xl font-bold text-white">{plan.name}</CardTitle>
-                <CardDescription className="text-gray-400">{plan.description}</CardDescription>
+                <CardDescription className="text-white/60 font-medium">{plan.subtitle}</CardDescription>
                 <div className="mt-4">
                   <span className="text-4xl font-bold text-yellow-400">{plan.price}</span>
-                  <span className="text-gray-400">{plan.period}</span>
+                  <span className="text-white/60">{plan.period}</span>
                 </div>
+                <p className="text-sm text-white/70 mt-2">{plan.description}</p>
+                {plan.highlight && (
+                  <p className="text-xs text-yellow-400 mt-2 font-medium">{plan.highlight}</p>
+                )}
               </CardHeader>
 
               <CardContent className="space-y-6">
@@ -159,19 +296,16 @@ export default function Pricing() {
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center gap-3">
                       <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                      <span className="text-gray-300">{feature}</span>
+                      <span className="text-white/80 text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 <Button 
-                  className={`w-full ${plan.popular 
-                    ? 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700' 
-                    : 'bg-gray-800 hover:bg-gray-700 text-white'
-                  }`}
-                  onClick={() => window.open(plan.stripeLink, '_blank')}
+                  className={`w-full ${getButtonStyles(plan.color, plan.popular)}`}
+                  size="lg"
                 >
-                  Get Started
+                  {plan.buttonText}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </CardContent>
@@ -179,30 +313,163 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Enterprise CTA */}
-        <div className="mt-16 text-center">
-          <Card className="bg-gradient-to-r from-gray-900/40 to-black/60 border-yellow-400/30">
+        {/* Route Intelligence Add-On */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-light mb-4 text-white">Premium Add-Ons</h2>
+            <p className="text-white/60">Supercharge any plan with advanced capabilities</p>
+          </div>
+          
+          <div className="max-w-md mx-auto">
+            <Card className={getCardStyles(auditAddOn.color, false)}>
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <Badge className="bg-gradient-to-r from-purple-500 to-blue-600 text-white font-bold animate-pulse px-4 py-1">
+                  PREMIUM ADD-ON
+                </Badge>
+              </div>
+              
+              <CardHeader className="text-center pb-8">
+                <div className="flex justify-center mb-4">
+                  <div className="p-3 bg-yellow-400/20 rounded-xl">
+                    <auditAddOn.icon className="w-8 h-8 text-yellow-400 animate-pulse" />
+                  </div>
+                </div>
+                <CardTitle className="text-2xl font-bold text-white">{auditAddOn.name}</CardTitle>
+                <CardDescription className="text-white/60 font-medium">{auditAddOn.subtitle}</CardDescription>
+                <div className="mt-4">
+                  <span className="text-4xl font-bold text-yellow-400">{auditAddOn.price}</span>
+                  <span className="text-white/60">{auditAddOn.period}</span>
+                </div>
+                <p className="text-sm text-white/70 mt-2">{auditAddOn.description}</p>
+              </CardHeader>
+
+              <CardContent className="space-y-6">
+                <ul className="space-y-3">
+                  {auditAddOn.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center gap-3">
+                      <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                      <span className="text-white/80 text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Button 
+                  className={getButtonStyles(auditAddOn.color, false)}
+                  size="lg"
+                  className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700"
+                >
+                  {auditAddOn.buttonText}
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Need Something Custom Section */}
+        <div className="text-center">
+          <Card className="bg-gradient-to-r from-gray-900/40 to-black/60 border-yellow-400/30 max-w-2xl mx-auto">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">Need a Custom Solution?</h3>
-              <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                Our enterprise team can create a tailored route auditing solution for your specific needs, including custom integrations, dedicated infrastructure, and white-label options.
+              <h3 className="text-3xl font-light text-white mb-4">Need Something Custom?</h3>
+              <p className="text-white/70 mb-8 leading-relaxed">
+                We build white-label solutions, custom integrations, and enterprise deployments. 
+                Let's talk about your vision.
               </p>
-              <Button
-                variant="outline"
-                className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
-                onClick={() => window.location.href = 'mailto:enterprise@saintvision.ai'}
-              >
-                Contact Enterprise Sales
-              </Button>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 px-8"
+                  onClick={() => window.location.href = 'mailto:enterprise@saintvision.ai'}
+                >
+                  <Calendar className="w-4 h-4 mr-2" />
+                  Schedule a Call
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8"
+                  onClick={() => window.location.href = 'mailto:sales@saintvision.ai'}
+                >
+                  <MessageSquare className="w-4 h-4 mr-2" />
+                  Chat with Sales
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>
       </div>
 
+      {/* Why SaintSal Section */}
+      <div className="py-20 bg-gradient-to-r from-yellow-400/10 to-yellow-600/10 border-y border-yellow-400/20">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-light text-white mb-4">Why SaintSal™?</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="p-4 bg-yellow-400/20 rounded-xl mb-4 w-16 h-16 mx-auto flex items-center justify-center">
+                <Shield className="w-8 h-8 text-yellow-400" />
+              </div>
+              <h3 className="font-semibold text-white mb-2">HACP™ Technology</h3>
+              <p className="text-sm text-white/60">Patented Human-AI Connection Protocol</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="p-4 bg-blue-400/20 rounded-xl mb-4 w-16 h-16 mx-auto flex items-center justify-center">
+                <Building2 className="w-8 h-8 text-blue-400" />
+              </div>
+              <h3 className="font-semibold text-white mb-2">Enterprise Security</h3>
+              <p className="text-sm text-white/60">Azure-backed with SOC 2 compliance</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="p-4 bg-purple-400/20 rounded-xl mb-4 w-16 h-16 mx-auto flex items-center justify-center">
+                <Zap className="w-8 h-8 text-purple-400" />
+              </div>
+              <h3 className="font-semibold text-white mb-2">Real Integrations</h3>
+              <p className="text-sm text-white/60">CRM, billing, voice, and SMS ready</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="p-4 bg-green-400/20 rounded-xl mb-4 w-16 h-16 mx-auto flex items-center justify-center">
+                <Globe className="w-8 h-8 text-green-400" />
+              </div>
+              <h3 className="font-semibold text-white mb-2">Global Scale</h3>
+              <p className="text-sm text-white/60">Multi-region deployment ready</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="py-20 bg-gradient-to-br from-gray-900/50 to-black/80">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-light text-white mb-8">Still Have Questions?</h2>
+          <p className="text-white/70 mb-8">
+            Our documentation covers everything, or chat with our support team.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              variant="outline" 
+              className="border-white/30 text-white hover:bg-white/5"
+            >
+              View Documentation
+            </Button>
+            <Button 
+              className="bg-yellow-400 text-black hover:bg-yellow-500"
+            >
+              Live Support
+            </Button>
+          </div>
+        </div>
+      </div>
+
       {/* Footer */}
       <div className="border-t border-gray-800 p-6">
-        <div className="max-w-7xl mx-auto text-center text-gray-400">
-          <p>© 2024 SaintVisionAI. All rights reserved. • Powered by SaintSal AI</p>
+        <div className="max-w-7xl mx-auto text-center text-white/60">
+          <p>© 2025 Saint Vision Group LLC. Protected by U.S. Patent No. 10,290,222</p>
+          <p className="text-sm mt-2">We protect your data. We respect your time. We serve your purpose.</p>
         </div>
       </div>
     </div>
