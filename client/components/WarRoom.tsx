@@ -43,21 +43,21 @@ interface WarRoomProps {
 }
 
 const leftPanelItems = [
-  { icon: Home, label: "Dashboard", active: true, link: "/" },
-  { icon: Users, label: "My Companion", active: false },
-  { icon: Building2, label: "My Business", active: false },
-  { icon: FileText, label: "Sticky Notes", active: false },
-  { icon: Wrench, label: "AI Tools", active: false },
-  { icon: ImageIcon, label: "Image Generator", active: false },
-  { icon: Rocket, label: "SVG Launchpad", active: false },
-  { icon: MessageSquare, label: "Feedback & Help", active: false },
-  { icon: Users, label: "PartnerTech.ai CRM", active: false },
-  { icon: Shield, label: "Client Portal", active: false },
-  { icon: Palette, label: "SVT Institute of AI", active: false },
-  { icon: TrendingUp, label: "Upgrade Tier", active: false },
-  { icon: User, label: "My Account", active: false },
-  { icon: LogOut, label: "Login/Logout", active: false },
-  { icon: Settings, label: "Settings", active: false }
+  { icon: Home, label: "Dashboard", active: true, link: "/", color: "text-blue-400" },
+  { icon: Users, label: "My Companion", active: false, color: "text-cyan-400" },
+  { icon: Building2, label: "My Business", active: false, color: "text-green-400" },
+  { icon: FileText, label: "Sticky Notes", active: false, color: "text-yellow-400" },
+  { icon: Wrench, label: "AI Tools", active: false, color: "text-purple-400" },
+  { icon: ImageIcon, label: "Image Generator", active: false, color: "text-pink-400" },
+  { icon: Rocket, label: "SVG Launchpad", active: false, color: "text-orange-400" },
+  { icon: MessageSquare, label: "Feedback & Help", active: false, color: "text-indigo-400" },
+  { icon: Users, label: "PartnerTech.ai CRM", active: false, color: "text-teal-400" },
+  { icon: Shield, label: "Client Portal", active: false, color: "text-red-400" },
+  { icon: Palette, label: "SVT Institute of AI", active: false, color: "text-violet-400" },
+  { icon: TrendingUp, label: "Upgrade Tier", active: false, color: "text-emerald-400" },
+  { icon: User, label: "My Account", active: false, color: "text-blue-300" },
+  { icon: LogOut, label: "Login/Logout", active: false, color: "text-rose-400" },
+  { icon: Settings, label: "Settings", active: false, color: "text-slate-400" }
 ];
 
 const quickActions = [
