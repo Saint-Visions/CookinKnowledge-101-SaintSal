@@ -36,7 +36,7 @@ export default function AppleHomepage() {
     {
       icon: Award,
       title: "Patent Protected Technology",
-      description: "HACP��� U.S. Patent No. 10,290,222 - The only legally protected AI collaboration protocol in the industry"
+      description: "HACP™ U.S. Patent No. 10,290,222 - The only legally protected AI collaboration protocol in the industry"
     },
     {
       icon: TrendingUp, 
@@ -196,7 +196,7 @@ export default function AppleHomepage() {
             </div>
             <div className="w-px h-4 bg-white/20"></div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
               <span className="text-white/60">Enterprise Grade</span>
             </div>
           </div>
