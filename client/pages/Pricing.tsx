@@ -396,7 +396,7 @@ export default function Pricing() {
       </div>
 
       {/* Why SaintSal Section */}
-      <div className="py-20 bg-gradient-to-r from-white/5 to-white/10 border-y border-white/20">
+      <div className="py-20 bg-gradient-to-r from-white/5 to-white/10">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-light text-white mb-4">Why SaintSal™?</h2>
