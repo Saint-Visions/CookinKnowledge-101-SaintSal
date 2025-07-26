@@ -123,11 +123,8 @@ export function Sidebar({ className }: SidebarProps) {
       <div className="flex-1 px-3 space-y-1">
         {sidebarItems.map((item, index) => {
           const Icon = item.icon;
-          return (
-            <div
-              key={index}
-              className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-sidebar-accent cursor-pointer group transition-colors"
-            >
+          const content = (
+            <div className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-sidebar-accent cursor-pointer group transition-colors">
               <div className="flex items-center gap-3 flex-1 min-w-0">
                 <Icon className="w-5 h-5 text-sidebar-foreground flex-shrink-0" />
                 <div className="flex-1 min-w-0">
@@ -144,6 +141,16 @@ export function Sidebar({ className }: SidebarProps) {
               {item.hasNotification && (
                 <div className="w-2 h-2 bg-red-500 rounded-full flex-shrink-0" />
               )}
+            </div>
+          );
+
+          return item.link ? (
+            <Link key={index} to={item.link}>
+              {content}
+            </Link>
+          ) : (
+            <div key={index}>
+              {content}
             </div>
           );
         })}
