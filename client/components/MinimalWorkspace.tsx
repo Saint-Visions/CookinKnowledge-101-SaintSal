@@ -103,8 +103,12 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between mb-12">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[hsl(var(--gold))]/20 to-[hsl(var(--gold))]/10 flex items-center justify-center">
-                  <Target className="w-6 h-6 text-[hsl(var(--gold))]" />
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[hsl(var(--gold))]/20 to-[hsl(var(--gold))]/10 flex items-center justify-center p-1">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F4a6078b96f0c45fa8f2a4fbd402916d5?format=webp&width=80"
+                    alt="Sv. Cookin' Knowledge"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <div>
                   <h1 className="text-2xl lg:text-3xl font-bold text-foreground">
