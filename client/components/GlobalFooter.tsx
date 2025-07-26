@@ -8,7 +8,7 @@ export default function GlobalFooter() {
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <img
-              src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F7f736971d14847f7bf9416d1184de691?format=webp&width=800"
+              src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Ffae77fcf2442491fade782e3822c0421?format=webp&width=800"
               alt="SaintVisionAI Logo"
               className="w-6 h-6 object-contain"
             />
