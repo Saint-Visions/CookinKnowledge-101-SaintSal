@@ -266,29 +266,29 @@ export function WarRoom({ className }: WarRoomProps) {
         }}
       >
         {/* Top Bar */}
-        <div className="border-b border-border/30 p-4">
+        <div className="border-b border-border/30 p-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <h1 className="text-2xl font-bold text-foreground">
-                Business Command Center
+              <h1 className="text-3xl font-bold text-foreground">
+                WARROOM
               </h1>
+              <div className="text-xs bg-primary/20 text-primary px-3 py-1 rounded uppercase tracking-wider font-medium">
+                PRODUCTION CENTER
+              </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-[hsl(var(--neon-green))] rounded-full animate-pulse"></div>
                 <span className="text-sm text-[hsl(var(--neon-green))]">Live</span>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-3">
               <Button variant="outline" size="sm">
                 <RefreshCw className="w-4 h-4 mr-2" />
                 Refresh
               </Button>
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={() => setCrmMaximized(!crmMaximized)}
-              >
-                {crmMaximized ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
+              <Button variant="outline" size="sm">
+                <Bell className="w-4 h-4 mr-2" />
+                Alerts
               </Button>
             </div>
           </div>
