@@ -145,61 +145,62 @@ export function Splash({ className }: SplashProps) {
             </p>
           </div>
 
-          {/* SaintSal™ Character Showcase */}
-          <div className={`mb-16 transition-all duration-2000 delay-1200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="flex items-center justify-center gap-12 max-w-5xl mx-auto">
-              {/* Character Description */}
+          {/* SaintSal™ Realistic Character */}
+          <div className={`mb-8 transition-all duration-2000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="flex items-center justify-center gap-16 max-w-6xl mx-auto">
+              {/* Realistic 3D Character */}
               <div className="text-center">
                 <div className="relative inline-block">
-                  {/* Stylized Character Representation */}
-                  <div className="w-32 h-48 mx-auto mb-6 relative">
-                    {/* Silhouette of tall, confident man */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-black rounded-full transform scale-y-150 opacity-80"></div>
-                    {/* Glasses highlight */}
-                    <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-8 h-2 bg-[hsl(var(--gold))] rounded-full opacity-60"></div>
-                    {/* Confident pose indicators */}
-                    <div className="absolute top-12 -left-2 w-6 h-12 bg-gray-700 rounded-lg transform rotate-12 opacity-70"></div>
-                    <div className="absolute top-12 -right-2 w-6 h-12 bg-gray-700 rounded-lg transform -rotate-12 opacity-70"></div>
-                  </div>
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fc2fa2dbdfa954bfca04e7108b395867b?format=webp&width=800"
+                    alt="SaintSal™ - Your AI Companion"
+                    className="w-72 h-96 object-contain mx-auto mb-6 drop-shadow-[0_0_40px_rgba(255,215,0,0.4)] animate-pulse"
+                    style={{
+                      filter: 'drop-shadow(0 0 30px rgba(255,215,0,0.3)) brightness(1.1)',
+                      animation: 'character-glow 6s ease-in-out infinite alternate'
+                    }}
+                  />
 
-                  {/* Welcoming text */}
+                  {/* Welcome Message */}
                   <div className="text-center">
-                    <h3 className="text-2xl font-bold text-[hsl(var(--gold))] mb-2 drop-shadow-[0_0_15px_rgba(255,215,0,0.6)]">
-                      SaintSal™
+                    <h3 className="text-3xl font-bold text-[hsl(var(--gold))] mb-3 drop-shadow-[0_0_20px_rgba(255,215,0,0.8)]">
+                      SaintSal™ + You
                     </h3>
-                    <p className="text-lg text-cyan-400 font-light tracking-wide">
-                      + you
+                    <p className="text-lg text-cyan-400 font-light tracking-wide mb-4">
+                      Your Sophisticated AI Companion
                     </p>
-                    <p className="text-sm text-muted-foreground mt-3 max-w-xs mx-auto leading-relaxed">
-                      Your tall, sophisticated AI companion. Sharp intellect meets Italian charm
-                      in perfect black attire and modern style.
+                    <p className="text-sm text-muted-foreground max-w-sm mx-auto leading-relaxed">
+                      Meet your tall, handsome, and charming AI companion.
+                      Dressed impeccably in all black with modern glasses,
+                      SaintSal™ welcomes you with confidence and Italian style.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Divider */}
-              <div className="h-24 w-px bg-gradient-to-b from-transparent via-[hsl(var(--gold))]/30 to-transparent"></div>
-
               {/* Companion Features */}
               <div className="text-left">
-                <h4 className="text-xl font-semibold text-foreground mb-4">Meet Your AI Companion</h4>
-                <div className="space-y-2 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full"></div>
+                <h4 className="text-2xl font-semibold text-foreground mb-6">Your AI Companion</h4>
+                <div className="space-y-4 text-base text-muted-foreground">
+                  <div className="flex items-center gap-4">
+                    <div className="w-3 h-3 bg-[hsl(var(--gold))] rounded-full drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]"></div>
                     <span>Confident & Charming Personality</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
-                    <span>Sophisticated Italian Style</span>
+                  <div className="flex items-center gap-4">
+                    <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
+                    <span>Sophisticated Italian Elegance</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
                     <span>Sharp Intelligence & Wit</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                     <span>Always Impeccably Dressed</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
+                    <span>Modern Style & Glasses</span>
                   </div>
                 </div>
               </div>
