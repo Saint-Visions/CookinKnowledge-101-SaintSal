@@ -215,7 +215,7 @@ export default function Pricing() {
       <div className="border-b border-gray-800 p-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <Crown className="w-8 h-8 text-yellow-400" />
+            <Crown className="w-8 h-8 text-white" />
             <span className="text-xl font-bold">SaintVisionAI</span>
           </Link>
           <Link to="/auth">
