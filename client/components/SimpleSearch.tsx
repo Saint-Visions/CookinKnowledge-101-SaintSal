@@ -92,14 +92,27 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
       <div className={`fixed left-0 top-0 h-full w-80 bg-sidebar-background border-r border-sidebar-border/30 z-40 transition-transform duration-300 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
       }`}>
-        <div className="flex flex-col h-full">
+        {/* Fixed Background Logo */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02] overflow-hidden">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F6a4a7caae7d14837b20112e2ce9e5015?format=webp&width=300"
+            alt="Cookin' Knowledge Background"
+            className="w-[200px] h-auto object-contain"
+          />
+        </div>
+
+        <div className="flex flex-col h-full relative z-10">
           {/* Header */}
           <div className="p-6 border-b border-sidebar-border/30">
-            <Link to="/" className="flex items-center gap-3 mb-6">
-              <Home className="w-5 h-5 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">Back to Home</span>
-            </Link>
-            
+            {/* Top Logo */}
+            <div className="flex justify-center mb-4">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fc88eaa91ad364821b51a4fc6c47320ab?format=webp&width=80"
+                alt="SaintVisionAI"
+                className="w-10 h-10 object-contain"
+              />
+            </div>
+
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 bg-gradient-to-br from-[hsl(var(--gold))]/20 to-[hsl(var(--gold))]/10 rounded-xl flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-[hsl(var(--gold))]" />
@@ -109,29 +122,59 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                 <p className="text-xs text-[hsl(var(--gold))] uppercase tracking-wider">4.1 ENTERPRISE</p>
               </div>
             </div>
-            
+
             <Button className="w-full bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-medium" size="sm">
               <Plus className="w-4 h-4 mr-2" />
               New conversation
             </Button>
           </div>
 
-          {/* Chat History */}
-          <div className="flex-1 p-4 overflow-auto">
-            <h3 className="text-sm font-medium text-sidebar-foreground mb-3">Recent</h3>
-            <div className="space-y-1">
-              {chatHistory.map((chat, index) => (
-                <div
-                  key={index}
-                  className="group flex items-center gap-2 p-3 rounded-xl hover:bg-sidebar-accent/50 cursor-pointer transition-colors"
-                >
-                  <MessageSquare className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                  <span className="text-sm text-sidebar-foreground truncate flex-1">
-                    {chat}
-                  </span>
+          {/* Main Menu */}
+          <div className="flex-1 px-3 py-4 space-y-1 overflow-auto">
+            <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider px-3 mb-3">Main Menu</h3>
+            {mainMenuItems.map((item, index) => {
+              const Icon = item.icon;
+              const content = (
+                <div className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-sidebar-accent/50 cursor-pointer group transition-colors">
+                  <div className="flex items-center gap-3 flex-1 min-w-0">
+                    <Icon className="w-5 h-5 text-sidebar-foreground/70 group-hover:text-sidebar-foreground flex-shrink-0 transition-colors" />
+                    <div className="flex-1 min-w-0">
+                      <div className="text-sm font-medium text-sidebar-foreground/90 group-hover:text-sidebar-foreground truncate transition-colors">
+                        {item.label}
+                      </div>
+                    </div>
+                  </div>
+                  {item.hasNotification && (
+                    <div className="w-2 h-2 bg-[hsl(var(--neon))] rounded-full flex-shrink-0 animate-pulse" />
+                  )}
                 </div>
-              ))}
-            </div>
+              );
+
+              return item.link ? (
+                <Link key={index} to={item.link}>
+                  {content}
+                </Link>
+              ) : (
+                <div key={index}>
+                  {content}
+                </div>
+              );
+            })}
+
+            <div className="border-t border-sidebar-border/30 my-4"></div>
+
+            <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider px-3 mb-3">Recent Chats</h3>
+            {chatHistory.map((chat, index) => (
+              <div
+                key={index}
+                className="group flex items-center gap-2 p-3 rounded-xl hover:bg-sidebar-accent/50 cursor-pointer transition-colors"
+              >
+                <MessageSquare className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                <span className="text-sm text-sidebar-foreground truncate flex-1">
+                  {chat}
+                </span>
+              </div>
+            ))}
           </div>
 
           {/* Sticky Companion - Always Visible */}
