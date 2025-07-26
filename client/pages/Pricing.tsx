@@ -235,9 +235,9 @@ export default function Pricing() {
             </Link>
 
             <div className="hidden md:flex items-center gap-8 text-sm">
-              <Link to="/about" className="text-white/80 hover:text-white transition-colors">About</Link>
-              <Link to="/platform" className="text-white/80 hover:text-white transition-colors">Platform</Link>
-              <Link to="/legal" className="text-white/80 hover:text-white transition-colors">Legal</Link>
+              <Link to="/" className="text-white/80 hover:text-white transition-colors">Home</Link>
+              <Link to="/warroom" className="text-white/80 hover:text-white transition-colors">WarRoom</Link>
+              <Link to="/why" className="text-white/80 hover:text-white transition-colors">Why Us</Link>
               <Link to="/institute" className="text-white/80 hover:text-white transition-colors">Institute</Link>
               <Link to="/pricing" className="text-white hover:text-yellow-400 transition-colors font-medium">Pricing</Link>
               <Link to="/contact" className="text-white/80 hover:text-white transition-colors">Contact</Link>
