@@ -192,7 +192,7 @@ export function Why({ className }: WhyProps) {
             </div>
 
             {/* Enterprise Excellence */}
-            <div className="group p-8 rounded-2xl bg-gradient-to-br from-muted/10 to-muted/5 border border-border/30 hover:border-blue-400/50 transition-all duration-300">
+            <div className="group p-8 rounded-2xl bg-gradient-to-br from-black/30 to-black/20 backdrop-blur-sm border border-border/30 hover:border-blue-400/50 transition-all duration-300">
               <div className="mb-6">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400/20 to-indigo-400/10 flex items-center justify-center mb-4">
                   <Shield className="w-8 h-8 text-blue-400" />
@@ -209,7 +209,7 @@ export function Why({ className }: WhyProps) {
             </div>
 
             {/* Adaptive Intelligence */}
-            <div className="group p-8 rounded-2xl bg-gradient-to-br from-muted/10 to-muted/5 border border-border/30 hover:border-green-400/50 transition-all duration-300">
+            <div className="group p-8 rounded-2xl bg-gradient-to-br from-black/30 to-black/20 backdrop-blur-sm border border-border/30 hover:border-green-400/50 transition-all duration-300">
               <div className="mb-6">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-400/20 to-emerald-400/10 flex items-center justify-center mb-4">
                   <Zap className="w-8 h-8 text-green-400" />
@@ -226,7 +226,7 @@ export function Why({ className }: WhyProps) {
             </div>
 
             {/* Global Impact */}
-            <div className="group p-8 rounded-2xl bg-gradient-to-br from-muted/10 to-muted/5 border border-border/30 hover:border-purple-400/50 transition-all duration-300">
+            <div className="group p-8 rounded-2xl bg-gradient-to-br from-black/30 to-black/20 backdrop-blur-sm border border-border/30 hover:border-purple-400/50 transition-all duration-300">
               <div className="mb-6">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400/20 to-violet-400/10 flex items-center justify-center mb-4">
                   <Globe className="w-8 h-8 text-purple-400" />
@@ -243,7 +243,7 @@ export function Why({ className }: WhyProps) {
             </div>
 
             {/* Human-Centered Design */}
-            <div className="group p-8 rounded-2xl bg-gradient-to-br from-muted/10 to-muted/5 border border-border/30 hover:border-orange-400/50 transition-all duration-300">
+            <div className="group p-8 rounded-2xl bg-gradient-to-br from-black/30 to-black/20 backdrop-blur-sm border border-border/30 hover:border-orange-400/50 transition-all duration-300">
               <div className="mb-6">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400/20 to-red-400/10 flex items-center justify-center mb-4">
                   <Users className="w-8 h-8 text-orange-400" />
@@ -362,7 +362,7 @@ export function Why({ className }: WhyProps) {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-muted/10 to-muted/5 rounded-2xl p-8 border border-border/30">
+            <div className="bg-gradient-to-br from-black/30 to-black/20 backdrop-blur-sm rounded-2xl p-8 border border-border/30">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div>
                   <h4 className="font-bold text-foreground mb-4 flex items-center gap-2">
@@ -524,7 +524,7 @@ export function Why({ className }: WhyProps) {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center bg-gradient-to-br from-muted/10 to-muted/5 rounded-3xl p-12 border border-border/30">
+          <div className="text-center bg-gradient-to-br from-black/30 to-black/20 backdrop-blur-sm rounded-3xl p-12 border border-border/30">
             <h3 className="text-3xl font-bold text-foreground mb-6">
               Ready to Experience the Difference?
             </h3>
