@@ -161,8 +161,8 @@ export function CRM({ className }: CRMProps) {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => setSidebarOpen(true)}
-                className="lg:hidden text-white"
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+                className="text-white hover:bg-white/10"
               >
                 <Menu className="w-4 h-4" />
               </Button>
