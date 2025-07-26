@@ -144,7 +144,7 @@ export function Why({ className }: WhyProps) {
       </div>
 
       {/* What Makes Us Different Section */}
-      <div className="relative z-10 py-24 bg-black/20 backdrop-blur-sm">
+      <div className="relative z-10 py-24 bg-black/10 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold text-foreground mb-6">
