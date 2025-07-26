@@ -11,6 +11,9 @@ import SaintGPT from "./pages/SaintGPT";
 import SimpleSearch from "./pages/SimpleSearch";
 import WarRoom from "./pages/WarRoom";
 import Tools from "./pages/Tools";
+import Legal from "./pages/Legal";
+import Why from "./pages/Why";
+import Help from "./pages/Help";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
