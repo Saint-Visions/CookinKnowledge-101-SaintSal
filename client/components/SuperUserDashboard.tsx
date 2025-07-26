@@ -139,9 +139,17 @@ export default function SuperUserDashboard() {
             </div>
             <div>
               <h1 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-                Route Auditing Service
-              </h1>
-              <p className="text-gray-400">Powered by SaintSal AI • Super User Dashboard</p>
+              Enterprise Route Intelligence
+            </h1>
+            <p className="text-gray-400">Advanced AI Monitoring Add-On • Powered by SaintSal AI</p>
+            <div className="mt-2 flex items-center gap-2">
+              <div className="px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-xs font-semibold">
+                PREMIUM ADD-ON
+              </div>
+              <div className="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300">
+                For SaintVisionAI Platform Users
+              </div>
+            </div>
             </div>
           </div>
         </div>
