@@ -234,7 +234,7 @@ export default function Pricing() {
               Choose Your
             </span>
             <br />
-            <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-semibold">
+            <span className="bg-gradient-to-r from-white to-white bg-clip-text text-transparent font-semibold">
               Magic Level
             </span>
           </h1>
