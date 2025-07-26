@@ -34,9 +34,9 @@ export function CRM({ className }: CRMProps) {
   return (
     <div className={`min-h-screen ${className}`} style={{ backgroundColor: '#000000' }}>
       {/* Blended Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
-        {/* Subtle Gradient Background - Blends with iframe */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-transparent backdrop-blur-sm"></div>
+      <div className={`fixed inset-y-0 left-0 z-50 w-72 transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
+        {/* Cool Blue Gradient Background - Like PartnerTech */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-blue-900/80 backdrop-blur-sm"></div>
         
         {/* Sidebar Content */}
         <div className="relative h-full flex flex-col">
