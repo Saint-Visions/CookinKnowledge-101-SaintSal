@@ -187,21 +187,21 @@ export default function AppleHomepage() {
             <span className="text-white"> Patent-protected. Enterprise-proven. Faith-aligned.</span>
           </p>
 
-          {/* Stats Bar */}
+          {/* Trusted Tech Stack */}
           <div className="flex justify-center items-center gap-8 mb-12 text-sm">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-white/60">47+ Enterprise Clients</span>
+              <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+              <span className="text-white/60">Azure Cognitive Services</span>
             </div>
             <div className="w-px h-4 bg-white/20"></div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-              <span className="text-white/60">$8,947+ Revenue Generated</span>
+              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <span className="text-white/60">OpenAI GPT-4</span>
             </div>
             <div className="w-px h-4 bg-white/20"></div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-              <span className="text-white/60">99.9% Uptime</span>
+              <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+              <span className="text-white/60">Enterprise Grade</span>
             </div>
           </div>
 
