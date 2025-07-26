@@ -105,10 +105,15 @@ export function Splash({ className }: SplashProps) {
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F62f2dc3414ab48ea8b95074999a49f4e?format=webp&width=800"
                 alt="SaintSal™"
-                className="w-32 h-32 object-contain mx-auto mb-8 drop-shadow-[0_0_50px_rgba(255,215,0,0.8)] animate-pulse"
+                className="w-32 h-32 object-contain mx-auto mb-8 drop-shadow-[0_0_50px_rgba(255,215,0,0.8)] animate-pulse relative z-10"
               />
-              <div className="absolute inset-0 w-32 h-32 mx-auto animate-spin-slow">
-                <div className="w-full h-full border-2 border-transparent border-t-[hsl(var(--gold))] rounded-full"></div>
+              {/* Floating Orbital Elements */}
+              <div className="absolute inset-0 w-48 h-48 -m-8">
+                <div className="absolute w-2 h-2 bg-[hsl(var(--gold))] rounded-full opacity-60 animate-orbital-1" style={{ top: '10%', left: '50%' }} />
+                <div className="absolute w-1.5 h-1.5 bg-[hsl(var(--gold))] rounded-full opacity-50 animate-orbital-2" style={{ top: '30%', right: '15%' }} />
+                <div className="absolute w-2.5 h-2.5 bg-[hsl(var(--gold))] rounded-full opacity-70 animate-orbital-3" style={{ bottom: '20%', left: '20%' }} />
+                <div className="absolute w-1 h-1 bg-[hsl(var(--gold))] rounded-full opacity-40 animate-orbital-4" style={{ top: '60%', right: '30%' }} />
+                <div className="absolute w-3 h-3 bg-[hsl(var(--gold))] rounded-full opacity-30 animate-orbital-5" style={{ top: '45%', left: '5%' }} />
               </div>
             </div>
           </div>
