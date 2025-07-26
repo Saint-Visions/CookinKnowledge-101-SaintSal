@@ -79,7 +79,7 @@ export function CRM({ className }: CRMProps) {
                 <Crown className="w-3 h-3 ml-auto text-[hsl(var(--gold))]" />
               </Link>
 
-              <button className="w-full flex items-center gap-3 px-3 py-2 rounded-lg bg-cyan-400/20 text-white border border-cyan-400/30 text-sm">
+              <button className="w-full flex items-center gap-3 px-3 py-2 rounded-lg bg-blue-600/30 text-white border border-blue-500/50 text-sm">
                 <Monitor className="w-4 h-4" />
                 CRM WorkCenter
               </button>
