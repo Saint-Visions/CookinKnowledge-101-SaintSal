@@ -36,7 +36,7 @@ export default function AppleHomepage() {
     {
       icon: Award,
       title: "Patent Protected Technology",
-      description: "HACP™ U.S. Patent No. 10,290,222 - The only legally protected AI collaboration protocol in the industry"
+      description: "HACP��� U.S. Patent No. 10,290,222 - The only legally protected AI collaboration protocol in the industry"
     },
     {
       icon: TrendingUp, 
@@ -53,7 +53,7 @@ export default function AppleHomepage() {
   const eliteTech = [
     {
       icon: Brain,
-      title: "SaintSal��� AI",
+      title: "SaintSal™ AI",
       description: "HACP™-powered companion with advanced reasoning",
       status: "Enterprise"
     },
@@ -165,12 +165,8 @@ export default function AppleHomepage() {
 
           {/* Main Headline */}
           <h1 className="text-7xl md:text-8xl font-light tracking-tight mb-6 leading-none">
-            <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
-              The Future of
-            </span>
-            <br />
             <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-semibold">
-              Enterprise AI
+              Responsible Intelligence
             </span>
           </h1>
 
