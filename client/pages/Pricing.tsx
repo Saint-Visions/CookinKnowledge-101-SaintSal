@@ -8,6 +8,27 @@ import { Link } from 'react-router-dom';
 export default function Pricing() {
   const plans = [
     {
+      name: "BONUS SPECIAL",
+      price: "$47",
+      period: "/month",
+      description: "🚀 LIMITED TIME: Full Route Auditing Service",
+      features: [
+        "🔥 EVERYTHING from Professional plan",
+        "100 Route Audits/month",
+        "SaintSal AI insights",
+        "Real-time monitoring",
+        "Priority support",
+        "Full WarRoom access",
+        "Custom integrations",
+        "API access",
+        "Save $32/month!"
+      ],
+      color: "gold",
+      popular: true,
+      special: true,
+      stripeLink: "https://buy.stripe.com/bonus-47-plan"
+    },
+    {
       name: "Starter",
       price: "$29",
       period: "/month",
