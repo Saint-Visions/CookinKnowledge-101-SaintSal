@@ -467,6 +467,9 @@ export function WarRoom({ className }: WarRoomProps) {
                   SaintSalGPT 4.1 SaintVisionAI
                 </span>
               </div>
+              <div className="text-xs text-yellow-400 font-bold mt-1 animate-pulse">
+                🔥 Route Auditing Service: 47+ Clients • $8,947 Revenue • $47 Special Offer!
+              </div>
             </div>
 
             <div className="flex items-center gap-3">
