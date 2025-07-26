@@ -150,15 +150,20 @@ export function Splash({ className }: SplashProps) {
             <div className="flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto gap-12">
               {/* Character Image */}
               <div className="flex-1 text-center lg:text-left">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fb8034e4b403449878ea0a06b2b0dae90?format=webp&width=800"
-                  alt="SaintSal™ - Your AI Companion"
-                  className="w-72 h-80 object-contain mx-auto lg:mx-0 drop-shadow-[0_0_50px_rgba(255,215,0,0.4)]"
-                  style={{
-                    filter: 'drop-shadow(0 0 30px rgba(255,215,0,0.3)) brightness(1.1) contrast(1.05)',
-                    animation: 'character-glow 6s ease-in-out infinite alternate'
-                  }}
-                />
+                <div className="relative">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F1578d022320148cdb4bb929a7dcf02e6?format=webp&width=800"
+                    alt="SaintSal™ - Leading AI Innovation"
+                    className="w-80 h-80 object-cover mx-auto lg:mx-0 rounded-2xl border border-[hsl(var(--gold))]/30 drop-shadow-[0_0_30px_rgba(255,215,0,0.3)]"
+                    style={{
+                      filter: 'brightness(1.1) contrast(1.05)',
+                      animation: 'character-glow 6s ease-in-out infinite alternate'
+                    }}
+                  />
+                  <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-[hsl(var(--gold))] to-yellow-400 text-black px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                    Live AI Session
+                  </div>
+                </div>
               </div>
 
               {/* Welcome Message */}
