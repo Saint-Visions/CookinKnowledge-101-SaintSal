@@ -294,57 +294,59 @@ export function WarRoom({ className }: WarRoomProps) {
           </div>
         </div>
 
-        {/* Dual Bot Search Interface */}
-        <div className="p-6 flex-1 flex flex-col">
-          {/* Search Welcome */}
-          <div className="flex-1 flex items-center justify-center">
-            <div className="max-w-3xl text-center space-y-6">
-              <div className="w-20 h-20 mx-auto mb-6">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F6d30471940b642d1a4a6ac05668f0422?format=webp&width=200"
-                  alt="SaintSal"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <h2 className="text-3xl font-bold text-foreground">
-                <span className="text-[hsl(var(--gold))]">Dual Bot</span> Production Center
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Your <span className="text-[hsl(var(--neon))]">intelligent</span> companion is ready for
-                <span className="text-[hsl(var(--gold))]"> serious business</span>
-              </p>
-            </div>
-          </div>
+        {/* Large Open Search Space */}
+        <div className="p-8 flex-1 flex items-center justify-center">
+          <div className="w-full max-w-5xl">
+            {/* Main Search Input */}
+            <div className="mb-8">
+              <div className="flex items-end gap-3 p-6 border-2 border-cyan-400/60 rounded-2xl bg-muted/5 focus-within:border-cyan-400 transition-all shadow-[0_0_15px_rgba(34,211,238,0.1)]">
+                <Button variant="ghost" size="sm" className="flex-shrink-0">
+                  <Paperclip className="w-5 h-5" />
+                </Button>
 
-          {/* Search Input */}
-          <div className="border-t border-border/30 p-6">
-            <div className="max-w-4xl mx-auto">
-              <div className="relative">
-                <div className="flex items-end gap-2 lg:gap-3 p-4 border-2 border-cyan-400/60 rounded-2xl bg-muted/5 focus-within:border-cyan-400 transition-all shadow-[0_0_10px_rgba(34,211,238,0.1)]">
-                  <Button variant="ghost" size="sm" className="flex-shrink-0 hidden sm:flex">
-                    <Paperclip className="w-4 h-4" />
+                <textarea
+                  placeholder="Execute any business operation, analyze data, manage workflows..."
+                  className="flex-1 bg-transparent border-0 resize-none outline-none text-foreground placeholder:text-muted-foreground min-h-[24px] max-h-40 text-lg"
+                  rows={1}
+                />
+
+                <div className="flex items-center gap-3 flex-shrink-0">
+                  <Button variant="ghost" size="sm">
+                    <Mic className="w-5 h-5" />
                   </Button>
 
-                  <textarea
-                    placeholder="Ask your dual companion anything about your business operations..."
-                    className="flex-1 bg-transparent border-0 resize-none outline-none text-foreground placeholder:text-muted-foreground min-h-[20px] max-h-32 text-sm lg:text-base"
-                    rows={1}
-                  />
-
-                  <div className="flex items-center gap-1 lg:gap-2 flex-shrink-0">
-                    <Button variant="ghost" size="sm" className="hidden sm:flex">
-                      <Mic className="w-4 h-4" />
-                    </Button>
-
-                    <Button size="sm" className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black rounded-xl">
-                      <ArrowUp className="w-4 h-4" />
-                    </Button>
-                  </div>
+                  <Button size="lg" className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black rounded-xl px-6">
+                    <ArrowUp className="w-5 h-5" />
+                  </Button>
                 </div>
               </div>
+            </div>
 
-              <div className="text-xs text-center text-muted-foreground mt-3">
-                <span className="text-[hsl(var(--gold))]">Production-ready</span> dual companion with full business context
+            {/* Quick Command Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="p-4 rounded-xl bg-muted/20 hover:bg-muted/40 cursor-pointer transition-colors text-center border border-border/30">
+                <Users className="w-8 h-8 mx-auto mb-2 text-blue-400" />
+                <div className="text-sm font-medium text-foreground">Team Status</div>
+              </div>
+              <div className="p-4 rounded-xl bg-muted/20 hover:bg-muted/40 cursor-pointer transition-colors text-center border border-border/30">
+                <BarChart3 className="w-8 h-8 mx-auto mb-2 text-green-400" />
+                <div className="text-sm font-medium text-foreground">Analytics</div>
+              </div>
+              <div className="p-4 rounded-xl bg-muted/20 hover:bg-muted/40 cursor-pointer transition-colors text-center border border-border/30">
+                <Calendar className="w-8 h-8 mx-auto mb-2 text-yellow-400" />
+                <div className="text-sm font-medium text-foreground">Schedule</div>
+              </div>
+              <div className="p-4 rounded-xl bg-muted/20 hover:bg-muted/40 cursor-pointer transition-colors text-center border border-border/30">
+                <Target className="w-8 h-8 mx-auto mb-2 text-red-400" />
+                <div className="text-sm font-medium text-foreground">Goals</div>
+              </div>
+            </div>
+
+            <div className="text-center mt-6">
+              <div className="text-xs text-muted-foreground">
+                <span className="text-[hsl(var(--neon))]">Dual companion</span> ready •
+                <span className="text-[hsl(var(--gold))]"> Full business context</span> •
+                Production-grade operations
               </div>
             </div>
           </div>
