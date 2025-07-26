@@ -167,7 +167,7 @@ export default function Pricing() {
       case 'blue':
         return `${baseStyles} bg-gray-900/50 border-cyan-400/50 hover:border-cyan-400 shadow-[0_0_20px_rgba(0,255,255,0.2)] hover:shadow-[0_0_30px_rgba(0,255,255,0.4)]`;
       case 'gold':
-        return `${baseStyles} bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border-yellow-400/50 shadow-[0_0_20px_rgba(255,255,0,0.2)]`;
+        return `${baseStyles} bg-gradient-to-br from-white/10 to-white/20 border-white/50 shadow-[0_0_20px_rgba(255,255,255,0.2)]`;
       case 'purple':
         return `${baseStyles} bg-gray-900/50 border-purple-400/50 hover:border-purple-400 shadow-[0_0_20px_rgba(128,0,255,0.2)] hover:shadow-[0_0_30px_rgba(128,0,255,0.4)]`;
       case 'green':
