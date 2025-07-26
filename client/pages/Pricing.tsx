@@ -8,81 +8,63 @@ import { Link } from 'react-router-dom';
 export default function Pricing() {
   const plans = [
     {
-      name: "BONUS SPECIAL",
-      price: "$47",
-      period: "/month",
-      description: "🚀 LIMITED TIME: Full Route Auditing Service",
-      features: [
-        "🔥 EVERYTHING from Professional plan",
-        "100 Route Audits/month",
-        "SaintSal AI insights",
-        "Real-time monitoring",
-        "Priority support",
-        "Full WarRoom access",
-        "Custom integrations",
-        "API access",
-        "Save $32/month!"
-      ],
-      color: "gold",
-      popular: true,
-      special: true,
-      stripeLink: "https://buy.stripe.com/bonus-47-plan"
-    },
-    {
-      name: "Starter",
-      price: "$29",
-      period: "/month",
-      description: "Perfect for small websites and startups",
-      features: [
-        "50 Route Audits/month",
-        "Basic reporting",
-        "Email support",
-        "Route monitoring",
-        "JavaScript integration",
-        "Basic analytics"
-      ],
-      color: "blue",
-      popular: false,
-      stripeLink: "https://buy.stripe.com/starter-plan"
-    },
-    {
       name: "Professional",
       price: "$79",
       period: "/month",
-      description: "For growing businesses and agencies",
+      description: "Complete SaintVisionAI Platform for businesses",
       features: [
-        "200 Route Audits/month",
-        "Advanced reporting",
+        "Full WarRoom Production Center",
+        "PartnerTech.ai CRM",
+        "SaintSalGPT 4.1 AI Companion",
+        "SVT Institute of AI",
+        "Image Generator & AI Tools",
+        "Automations & Workflows",
         "Priority support",
-        "Real-time monitoring",
-        "SaintSal AI insights",
-        "Custom integrations",
-        "Team collaboration",
-        "API access"
+        "Team collaboration"
       ],
-      color: "yellow",
-      popular: true,
+      color: "blue",
+      popular: false,
       stripeLink: "https://buy.stripe.com/professional-plan"
     },
     {
       name: "Enterprise",
       price: "$199",
       period: "/month",
-      description: "Complete platform access for enterprises",
+      description: "🚀 MOST POPULAR: Full platform + Route Intelligence",
       features: [
-        "Unlimited Route Audits",
-        "Full WarRoom access",
-        "24/7 priority support",
-        "Advanced AI analytics",
-        "Custom integrations",
+        "✨ Everything in Professional",
+        "🛡️ Enterprise Route Intelligence Add-On",
+        "Real-time website monitoring",
+        "Advanced AI route analysis",
+        "Custom integrations & API",
         "White-label options",
-        "Dedicated account manager",
-        "SLA guarantees",
-        "On-premise deployment"
+        "24/7 dedicated support",
+        "SLA guarantees"
       ],
-      color: "purple",
-      popular: false,
+      color: "yellow",
+      popular: true,
       stripeLink: "https://buy.stripe.com/enterprise-plan"
+    },
+    {
+      name: "Route Intelligence",
+      price: "+$47",
+      period: "/month",
+      description: "🔥 PREMIUM ADD-ON: Advanced route monitoring",
+      features: [
+        "🎯 Add to any existing plan",
+        "Enterprise-grade monitoring",
+        "SaintSal AI route analysis",
+        "Real-time alerts & reporting",
+        "Custom integration support",
+        "Priority add-on support",
+        "Advanced analytics dashboard",
+        "Proven: $8,947+ revenue generated"
+      ],
+      color: "gold",
+      popular: false,
+      special: true,
+      addon: true,
+      stripeLink: "https://buy.stripe.com/route-intelligence-addon"
     }
   ];
 
