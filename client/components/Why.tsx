@@ -28,15 +28,15 @@ export function Why({ className }: WhyProps) {
       {/* Hero Section with Fixed Background */}
       <div className="relative min-h-screen overflow-hidden">
         {/* Background Image - Fixed */}
-        <div 
-          className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+        <div
+          className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-60"
           style={{
             backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fa182b43f5461483aaa39c44d7e7d1628?format=webp&width=800')`
           }}
         />
-        
+
         {/* Gradient Overlay */}
-        <div className="fixed inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/90" />
+        <div className="fixed inset-0 bg-gradient-to-br from-black/40 via-black/30 to-black/50" />
 
         {/* Header */}
         <div className="relative z-10 border-b border-border/30 px-6 py-4" style={{ backgroundColor: 'rgba(0,0,0,0.9)' }}>
