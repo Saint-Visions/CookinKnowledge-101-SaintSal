@@ -22,6 +22,8 @@ import {
   Play
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import GlobalHeader from '../components/GlobalHeader';
+import GlobalFooter from '../components/GlobalFooter';
 
 export default function AppleHomepage() {
   const [scrollY, setScrollY] = useState(0);
@@ -126,7 +128,7 @@ export default function AppleHomepage() {
               </div>
               <div>
                 <span className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-                  SaintVisionAI™
+                  SaintVisionAI��
                 </span>
                 <div className="text-xs text-white/60 uppercase tracking-wider">COOKIN' KNOWLEDGE</div>
               </div>
