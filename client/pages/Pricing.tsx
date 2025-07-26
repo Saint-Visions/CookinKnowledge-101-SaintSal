@@ -200,7 +200,7 @@ export default function Pricing() {
 
     switch (color) {
       case 'white':
-        return "bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 shadow-[0_0_15px_rgba(255,215,0,0.4)]";
+        return "bg-white text-black hover:bg-gray-200 shadow-[0_0_15px_rgba(255,255,255,0.3)]";
       case 'blue':
         return "bg-gradient-to-r from-cyan-400 to-cyan-600 text-black hover:from-cyan-500 hover:to-cyan-700 shadow-[0_0_15px_rgba(0,255,255,0.3)]";
       case 'purple':
