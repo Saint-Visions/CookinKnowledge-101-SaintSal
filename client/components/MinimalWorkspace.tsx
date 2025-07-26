@@ -55,11 +55,11 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
       }`}>
         <div className="flex flex-col items-center py-6 space-y-6">
           {/* Logo */}
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[hsl(var(--gold))]/20 to-[hsl(var(--gold))]/10 flex items-center justify-center">
+          <div className="w-10 h-10 flex items-center justify-center">
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fb6e20c7d6a2e48b2866512020c3b4c5a?format=webp&width=40"
               alt="SV"
-              className="w-6 h-6"
+              className="w-8 h-8"
             />
           </div>
 
