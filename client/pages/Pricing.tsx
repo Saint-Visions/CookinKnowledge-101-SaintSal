@@ -112,10 +112,10 @@ export default function Pricing() {
             </Badge>
           </div>
           <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-            Route Auditing Service
+            SaintVisionAI Platform
           </h1>
           <p className="text-xl text-gray-300 mb-4 max-w-2xl mx-auto">
-            Powered by SaintSal AI • Ensure your website navigation works perfectly with our comprehensive route auditing and monitoring platform
+            Complete AI-powered business platform with optional Enterprise Route Intelligence add-on
           </p>
           <div className="text-lg text-yellow-400 font-semibold mb-8">
             🚀 47+ Active Clients • $8,947+ Revenue Generated • 1,284+ Audits Completed
