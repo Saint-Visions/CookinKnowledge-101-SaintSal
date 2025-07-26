@@ -195,7 +195,7 @@ export default function Pricing() {
 
   const getButtonStyles = (color: string, popular: boolean) => {
     if (popular) {
-      return "bg-white text-black hover:bg-gray-200 font-bold shadow-[0_0_20px_rgba(255,255,255,0.4)]";
+      return "bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 font-bold shadow-[0_0_20px_rgba(255,215,0,0.5)]";
     }
 
     switch (color) {
