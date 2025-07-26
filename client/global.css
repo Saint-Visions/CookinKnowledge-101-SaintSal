@@ -9,26 +9,26 @@
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
-    --background: 0 0% 0.5%;
-    --foreground: 0 0% 80%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 75%;
 
-    --card: 0 0% 0.5%;
-    --card-foreground: 0 0% 80%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 75%;
 
-    --popover: 0 0% 2%;
-    --popover-foreground: 0 0% 80%;
+    --popover: 0 0% 1%;
+    --popover-foreground: 0 0% 75%;
 
     --primary: 45 85% 70%;
-    --primary-foreground: 0 0% 0.5%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 0 0% 3%;
-    --secondary-foreground: 0 0% 55%;
+    --secondary: 0 0% 2%;
+    --secondary-foreground: 0 0% 50%;
 
-    --muted: 0 0% 2%;
-    --muted-foreground: 0 0% 35%;
+    --muted: 0 0% 1%;
+    --muted-foreground: 0 0% 30%;
 
     --accent: 45 85% 70%;
-    --accent-foreground: 0 0% 0.5%;
+    --accent-foreground: 0 0% 0%;
 
     --gold: 45 90% 75%;
     --gold-soft: 45 60% 60%;
@@ -39,19 +39,19 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 4%;
-    --input: 0 0% 1%;
+    --border: 0 0% 2%;
+    --input: 0 0% 0.5%;
     --ring: 45 85% 70%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 0%;
-    --sidebar-foreground: 0 0% 60%;
+    --sidebar-foreground: 0 0% 55%;
     --sidebar-primary: 45 85% 70%;
-    --sidebar-primary-foreground: 0 0% 0.5%;
-    --sidebar-accent: 0 0% 1%;
-    --sidebar-accent-foreground: 0 0% 65%;
-    --sidebar-border: 0 0% 3%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 0.5%;
+    --sidebar-accent-foreground: 0 0% 60%;
+    --sidebar-border: 0 0% 1%;
     --sidebar-ring: 45 85% 70%;
   }
 
