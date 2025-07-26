@@ -41,7 +41,7 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
   return (
     <div className={`flex-1 flex flex-col ${className}`}>
       {/* Header */}
-      <div className="border-b border-border px-6 py-4">
+      <div className="border-b border-border px-4 lg:px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary/70 rounded-lg flex items-center justify-center">
@@ -49,14 +49,14 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
             </div>
             <div>
               <h1 className="text-lg font-semibold text-foreground">SaintGPT 4.1</h1>
-              <p className="text-sm text-muted-foreground">Enterprise AI Assistant</p>
+              <p className="text-sm text-muted-foreground hidden sm:block">Enterprise AI Assistant</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <img 
-              src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fd2505f01d3b4483fbcd78c42450432d0?format=webp&width=120" 
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fd2505f01d3b4483fbcd78c42450432d0?format=webp&width=120"
               alt="Cookin' Knowledge"
-              className="h-6"
+              className="h-6 hidden sm:block"
             />
           </div>
         </div>
