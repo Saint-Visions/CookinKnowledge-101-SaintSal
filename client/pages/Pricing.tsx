@@ -210,7 +210,7 @@ export default function Pricing() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
+    <div className="min-h-screen bg-black text-white" style={{ backgroundColor: '#090909' }}>
       {/* Header */}
       <div className="border-b border-gray-800 p-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
