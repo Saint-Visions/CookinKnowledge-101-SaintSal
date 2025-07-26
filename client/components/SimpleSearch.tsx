@@ -164,14 +164,6 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
 
           {/* Sticky Companion - Always Visible */}
           <div className="sticky bottom-0 p-4 border-t border-sidebar-border/30 bg-sidebar-background">
-            {/* Top Logo */}
-            <div className="mb-4 flex justify-center">
-              <img 
-                src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fa999c663eca34f31ae2290c3acba61c5?format=webp&width=80" 
-                alt="Sv. First"
-                className="w-12 h-12 object-contain"
-              />
-            </div>
 
             {/* Azure Companion */}
             <div className="p-4 rounded-xl bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-500/20 mb-4">
