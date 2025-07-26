@@ -506,6 +506,192 @@ export function WarRoom({ className }: WarRoomProps) {
           </div>
         </div>
       </div>
+
+      {/* Supersal™ AI Sticky Companion */}
+      {companionOpen && (
+        <div className="fixed bottom-4 right-4 w-96 h-[500px] bg-black/95 border-2 border-cyan-400/60 rounded-2xl shadow-[0_0_40px_rgba(34,211,238,0.3)] backdrop-blur-sm z-[60] flex flex-col">
+          {/* Companion Header */}
+          <div className="flex items-center justify-between p-4 border-b border-cyan-400/30">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
+                <Users className="w-4 h-4 text-black" />
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-white">Supersal™ AI</h3>
+                <p className="text-xs text-cyan-400">Help Desk Companion</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setCompanionOpen(false)}
+                className="text-gray-400 hover:text-white"
+              >
+                ×
+              </Button>
+            </div>
+          </div>
+
+          {/* Messages Area */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            {companionMessages.map((message, index) => (
+              <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div className={`max-w-[280px] p-3 rounded-xl ${
+                  message.role === 'user'
+                    ? 'bg-cyan-400/20 text-white border border-cyan-400/30'
+                    : 'bg-gray-800/80 text-gray-100 border border-gray-600/30'
+                }`}>
+                  <p className="text-sm leading-relaxed">{message.content}</p>
+                  <p className="text-xs text-gray-400 mt-1">
+                    {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  </p>
+                </div>
+              </div>
+            ))}
+            {companionLoading && (
+              <div className="flex justify-start">
+                <div className="bg-gray-800/80 text-gray-100 border border-gray-600/30 p-3 rounded-xl">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                    <span className="text-xs text-cyan-400 ml-2">Supersal™ is thinking...</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Input Area */}
+          <div className="p-4 border-t border-cyan-400/30">
+            <div className="flex items-center gap-2 p-2 border border-cyan-400/40 rounded-lg bg-black/50 focus-within:border-cyan-400 focus-within:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all">
+              <input
+                type="text"
+                value={companionInput}
+                onChange={(e) => setCompanionInput(e.target.value)}
+                onKeyPress={async (e) => {
+                  if (e.key === 'Enter' && companionInput.trim()) {
+                    const userMessage = {
+                      role: 'user' as const,
+                      content: companionInput,
+                      timestamp: new Date()
+                    };
+
+                    setCompanionMessages(prev => [...prev, userMessage]);
+                    const query = companionInput;
+                    setCompanionInput('');
+                    setCompanionLoading(true);
+
+                    try {
+                      const response = await fetch('/api/ai/search', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                          query,
+                          userContext: { role: 'user' }
+                        })
+                      });
+
+                      const data = await response.json();
+
+                      const aiMessage = {
+                        role: 'assistant' as const,
+                        content: data.response || 'I apologize, but I\'m having trouble responding right now. Please try again.',
+                        timestamp: new Date()
+                      };
+
+                      setCompanionMessages(prev => [...prev, aiMessage]);
+                    } catch (error) {
+                      console.error('Companion error:', error);
+                      const errorMessage = {
+                        role: 'assistant' as const,
+                        content: 'I\'m experiencing technical difficulties. Please try again in a moment.',
+                        timestamp: new Date()
+                      };
+                      setCompanionMessages(prev => [...prev, errorMessage]);
+                    } finally {
+                      setCompanionLoading(false);
+                    }
+                  }
+                }}
+                placeholder="Ask Supersal™ for help..."
+                className="flex-1 bg-transparent border-0 outline-none text-white placeholder:text-gray-400 text-sm"
+                disabled={companionLoading}
+              />
+              <Button
+                size="sm"
+                disabled={!companionInput.trim() || companionLoading}
+                className="bg-cyan-400 hover:bg-cyan-300 text-black px-3 py-1 rounded"
+                onClick={async () => {
+                  if (companionInput.trim()) {
+                    const userMessage = {
+                      role: 'user' as const,
+                      content: companionInput,
+                      timestamp: new Date()
+                    };
+
+                    setCompanionMessages(prev => [...prev, userMessage]);
+                    const query = companionInput;
+                    setCompanionInput('');
+                    setCompanionLoading(true);
+
+                    try {
+                      const response = await fetch('/api/ai/search', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                          query,
+                          userContext: { role: 'user' }
+                        })
+                      });
+
+                      const data = await response.json();
+
+                      const aiMessage = {
+                        role: 'assistant' as const,
+                        content: data.response || 'I apologize, but I\'m having trouble responding right now. Please try again.',
+                        timestamp: new Date()
+                      };
+
+                      setCompanionMessages(prev => [...prev, aiMessage]);
+                    } catch (error) {
+                      console.error('Companion error:', error);
+                      const errorMessage = {
+                        role: 'assistant' as const,
+                        content: 'I\'m experiencing technical difficulties. Please try again in a moment.',
+                        timestamp: new Date()
+                      };
+                      setCompanionMessages(prev => [...prev, errorMessage]);
+                    } finally {
+                      setCompanionLoading(false);
+                    }
+                  }
+                }}
+              >
+                <ArrowUp className="w-4 h-4" />
+              </Button>
+            </div>
+            <div className="text-center mt-2">
+              <div className="text-xs text-gray-400">
+                <span className="text-cyan-400">Supersal™</span> • Help Desk •
+                <span className="text-green-400">Live Support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Floating Companion Button (when closed) */}
+      {!companionOpen && (
+        <Button
+          onClick={() => setCompanionOpen(true)}
+          className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 shadow-[0_0_25px_rgba(34,211,238,0.4)] hover:shadow-[0_0_35px_rgba(34,211,238,0.6)] transition-all duration-300 z-50 group"
+        >
+          <Users className="w-6 h-6 text-black group-hover:scale-110 transition-transform" />
+        </Button>
+      )}
     </div>
   );
 }
