@@ -4,6 +4,7 @@ import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import ghlRoutes from "./routes/ghl";
 import aiRoutes from "./routes/ai";
+import embeddingsRoutes from "./routes/embeddings";
 
 export function createServer() {
   const app = express();
