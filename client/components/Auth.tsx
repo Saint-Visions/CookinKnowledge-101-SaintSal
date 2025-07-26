@@ -12,7 +12,8 @@ import {
   EyeOff,
   Brain,
   Zap,
-  Shield
+  Shield,
+  Github
 } from "lucide-react";
 
 interface AuthProps {
