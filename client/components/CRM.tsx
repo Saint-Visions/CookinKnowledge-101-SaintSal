@@ -135,7 +135,7 @@ export function CRM({ className }: CRMProps) {
           </div>
 
           {/* User Profile */}
-          <div className="p-3 border-t border-white/10">
+          <div className="p-3 border-t border-cyan-400/20">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-blue-400 flex items-center justify-center">
                 <span className="text-xs font-bold text-black">SV</span>
