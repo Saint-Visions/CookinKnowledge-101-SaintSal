@@ -103,37 +103,37 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
         </div>
 
         {/* Input Area */}
-        <div className="border-t border-border p-6">
+        <div className="border-t border-border p-4 lg:p-6">
           <div className="max-w-4xl mx-auto">
             <div className="relative">
-              <div className="flex items-end gap-3 p-4 border border-border rounded-2xl bg-background focus-within:ring-2 focus-within:ring-primary focus-within:border-primary transition-all">
+              <div className="flex items-end gap-2 lg:gap-3 p-3 lg:p-4 border border-border rounded-2xl bg-background focus-within:ring-2 focus-within:ring-primary focus-within:border-primary transition-all">
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="flex-shrink-0"
+                  className="flex-shrink-0 hidden sm:flex"
                 >
                   <Paperclip className="w-4 h-4" />
                 </Button>
-                
+
                 <textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Ask SaintGPT anything about your business..."
-                  className="flex-1 bg-transparent border-0 resize-none outline-none text-foreground placeholder:text-muted-foreground min-h-[20px] max-h-32"
+                  className="flex-1 bg-transparent border-0 resize-none outline-none text-foreground placeholder:text-muted-foreground min-h-[20px] max-h-32 text-sm lg:text-base"
                   rows={1}
                 />
-                
-                <div className="flex items-center gap-2 flex-shrink-0">
+
+                <div className="flex items-center gap-1 lg:gap-2 flex-shrink-0">
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={() => setIsListening(!isListening)}
-                    className={isListening ? "text-red-500" : ""}
+                    className={`hidden sm:flex ${isListening ? "text-red-500" : ""}`}
                   >
                     {isListening ? <Square className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
                   </Button>
-                  
+
                   <Button
                     size="sm"
                     onClick={handleSend}
@@ -145,8 +145,8 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
                 </div>
               </div>
             </div>
-            
-            <div className="text-xs text-center text-muted-foreground mt-3">
+
+            <div className="text-xs text-center text-muted-foreground mt-3 px-4">
               SaintGPT can make mistakes. Check important information and verify business decisions.
             </div>
           </div>
