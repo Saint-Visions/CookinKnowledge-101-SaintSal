@@ -26,6 +26,7 @@ const App = () => (
           <Route path="/saintgpt" element={<SaintGPT />} />
           <Route path="/search" element={<SimpleSearch />} />
           <Route path="/warroom" element={<WarRoom />} />
+          <Route path="/tools" element={<Tools />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
