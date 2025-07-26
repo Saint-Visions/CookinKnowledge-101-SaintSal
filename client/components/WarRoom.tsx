@@ -340,6 +340,8 @@ export function WarRoom({ className }: WarRoomProps) {
             </Button>
 
             <textarea
+              value={workspaceInput}
+              onChange={(e) => setWorkspaceInput(e.target.value)}
               placeholder="Execute business operations, analyze data, manage workflows..."
               className="flex-1 bg-transparent border-0 resize-none outline-none text-foreground placeholder:text-muted-foreground min-h-[20px] max-h-20 text-sm"
               rows={1}
