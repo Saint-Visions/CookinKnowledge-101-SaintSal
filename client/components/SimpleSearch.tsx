@@ -106,14 +106,6 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
         <div className="flex flex-col h-full relative z-10">
           {/* Header */}
           <div className="p-6 border-b border-sidebar-border/30">
-            {/* Top Logo */}
-            <div className="flex justify-center mb-4">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fc88eaa91ad364821b51a4fc6c47320ab?format=webp&width=80"
-                alt="SaintVisionAI"
-                className="w-10 h-10 object-contain"
-              />
-            </div>
 
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 flex items-center justify-center">
