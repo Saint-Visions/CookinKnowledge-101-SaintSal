@@ -11,7 +11,8 @@ import {
   Eye,
   EyeOff,
   Brain,
-  Zap
+  Zap,
+  Shield
 } from "lucide-react";
 
 interface AuthProps {
