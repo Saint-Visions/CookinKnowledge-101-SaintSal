@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import SaintGPT from "./pages/SaintGPT";
 import SimpleSearch from "./pages/SimpleSearch";
 import WarRoom from "./pages/WarRoom";
+import Tools from "./pages/Tools";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
