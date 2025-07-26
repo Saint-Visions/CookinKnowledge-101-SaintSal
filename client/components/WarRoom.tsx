@@ -140,7 +140,7 @@ export function WarRoom({ className }: WarRoomProps) {
 
       {/* Right Sidebar */}
       <div className={`fixed right-0 top-0 h-full border-l border-border/30 bg-sidebar-background transition-all duration-300 z-40 overflow-auto ${
-        rightPanelOpen ? 'w-96' : 'w-16'
+        rightPanelOpen ? 'w-72' : 'w-16'
       }`}>
         {/* Header */}
         <div className="p-4 border-b border-sidebar-border/30">
