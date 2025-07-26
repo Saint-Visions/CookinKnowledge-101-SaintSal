@@ -199,7 +199,7 @@ export default function AppleHomepage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {whyUsPoints.map((point, index) => (
-              <Card key={index} className="bg-gray-800/30 border-yellow-400/20 backdrop-blur-sm hover:bg-gray-800/50 hover:border-yellow-400/40 transition-all duration-300 shadow-lg">
+              <Card key={index} className="bg-gray-800/30 backdrop-blur-sm hover:bg-gray-800/50 transition-all duration-300 shadow-lg border-0">
                 <CardContent className="p-8 text-center">
                   <div className="flex justify-center mb-6">
                     <div className="p-4 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-2xl">
