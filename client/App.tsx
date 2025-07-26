@@ -19,6 +19,8 @@ import Pricing from "./pages/Pricing";
 import Landing from "./pages/Landing";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Enterprise from "./pages/Enterprise";
+import HACP from "./pages/HACP";
 import Institute from "./pages/Institute";
 import Broker from "./pages/Broker";
 import Splash from "./pages/Splash";
