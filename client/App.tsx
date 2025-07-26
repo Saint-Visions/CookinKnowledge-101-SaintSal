@@ -18,6 +18,7 @@ import AuditService from "./pages/AuditService";
 import Pricing from "./pages/Pricing";
 import Landing from "./pages/Landing";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Institute from "./pages/Institute";
 import Broker from "./pages/Broker";
 import Splash from "./pages/Splash";
