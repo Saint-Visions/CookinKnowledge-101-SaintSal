@@ -252,12 +252,12 @@ export function WarRoom({ className }: WarRoomProps) {
         )}
       </div>
 
-      {/* Main Content Area */}
-      <div 
+      {/* Main Content Area - Wide Open Workspace */}
+      <div
         className="transition-all duration-300"
         style={{
-          marginLeft: leftPanelOpen ? '320px' : '64px',
-          marginRight: rightPanelOpen ? '320px' : '64px'
+          marginLeft: leftPanelOpen ? '256px' : '64px',
+          marginRight: rightPanelOpen ? '384px' : '64px'
         }}
       >
         {/* Top Bar */}
