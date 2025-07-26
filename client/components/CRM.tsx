@@ -152,8 +152,8 @@ export function CRM({ className }: CRMProps) {
         </div>
       </div>
 
-      {/* Main Content Area */}
-      <div className="lg:pl-64">
+      {/* Main Content Area - Responsive to sidebar */}
+      <div className={`transition-all duration-300 ${sidebarOpen ? 'lg:pl-72' : 'lg:pl-0'}`}>
         {/* Top Header - Consistent Blue Theme */}
         <div className="border-b border-cyan-400/20 px-4 py-2 bg-gradient-to-r from-black/80 via-black/70 to-cyan-400/10 backdrop-blur-sm">
           <div className="flex items-center justify-between">
