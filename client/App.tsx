@@ -19,6 +19,7 @@ import Broker from "./pages/Broker";
 import Splash from "./pages/Splash";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import { PartnerTech } from "./components/PartnerTech";
 
 const queryClient = new QueryClient();
 
