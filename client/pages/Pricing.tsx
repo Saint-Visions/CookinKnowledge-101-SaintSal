@@ -144,6 +144,7 @@ export default function Pricing() {
               
               <CardHeader className="text-center pb-8">
                 <div className="flex justify-center mb-4">
+                  {plan.color === 'gold' && <Shield className="w-12 h-12 text-yellow-400 animate-pulse" />}
                   {plan.color === 'blue' && <Zap className="w-12 h-12 text-blue-400" />}
                   {plan.color === 'yellow' && <Crown className="w-12 h-12 text-yellow-400" />}
                   {plan.color === 'purple' && <Shield className="w-12 h-12 text-purple-400" />}
