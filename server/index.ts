@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import ghlRoutes from "./routes/ghl";
+import aiRoutes from "./routes/ai";
 
 export function createServer() {
   const app = express();
