@@ -215,9 +215,9 @@ export function CRM({ className }: CRMProps) {
         </div>
       </div>
 
-      {/* Mobile Overlay */}
+      {/* Mobile Overlay - Only on mobile when sidebar is open */}
       {sidebarOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
