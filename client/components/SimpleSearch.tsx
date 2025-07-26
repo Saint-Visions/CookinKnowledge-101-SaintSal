@@ -31,9 +31,26 @@ interface SimpleSearchProps {
   className?: string;
 }
 
+const mainMenuItems = [
+  { icon: Home, label: "Main Dashboard", link: "/", hasNotification: false },
+  { icon: User, label: "My Companion", hasNotification: true },
+  { icon: Building2, label: "My Business", hasNotification: true },
+  { icon: StickyNote, label: "Sticky Notes", hasNotification: true },
+  { icon: Wrench, label: "AI Tools", hasNotification: true },
+  { icon: ImageIcon, label: "Image Generator", hasNotification: true },
+  { icon: Rocket, label: "SVG Launchpad", hasNotification: false },
+  { icon: MessageSquare, label: "Feedback & Help", hasNotification: true },
+  { icon: Users, label: "PartnerTech.ai CRM", hasNotification: false },
+  { icon: Shield, label: "Client Portal", hasNotification: true },
+  { icon: Palette, label: "SVT Institute of AI (R + D)", hasNotification: false },
+  { icon: TrendingUp, label: "Upgrade Tier", hasNotification: false },
+  { icon: User, label: "My Account", hasNotification: false },
+  { icon: LogOut, label: "Logout", hasNotification: false }
+];
+
 const chatHistory = [
   "Business strategy analysis",
-  "Product launch timeline", 
+  "Product launch timeline",
   "Market research insights",
   "Customer journey mapping",
   "Revenue optimization tips",
