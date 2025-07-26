@@ -16,6 +16,8 @@ import Why from "./pages/Why";
 import Help from "./pages/Help";
 import Institute from "./pages/Institute";
 import Broker from "./pages/Broker";
+import Splash from "./pages/Splash";
+import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
