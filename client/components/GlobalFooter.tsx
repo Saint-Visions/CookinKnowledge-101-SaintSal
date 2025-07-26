@@ -1,5 +1,5 @@
-import React from 'react';
-import { Crown } from 'lucide-react';
+import React from "react";
+import { Crown } from "lucide-react";
 
 export default function GlobalFooter() {
   return (
@@ -12,10 +12,13 @@ export default function GlobalFooter() {
               alt="SaintVisionAI Logo"
               className="w-6 h-6 object-contain"
             />
-            <span className="text-xl font-bold text-white">SaintVisionAI™</span>
+            <span className="text-xl font-bold text-white">
+              SaintVisionAI™
+            </span>
           </div>
           <p className="text-white/60 text-sm">
-            © 2025 Saint Vision Group LLC. Protected by U.S. Patent No. 10,290,222
+            © 2025 Saint Vision Group LLC. Protected by U.S. Patent No.
+            10,290,222
           </p>
           <p className="text-white/40 text-xs mt-2">
             We protect your data. We respect your time. We serve your purpose.

@@ -1,21 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Badge } from './ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import { 
-  Copy, 
-  Plus, 
-  BarChart3, 
-  Users, 
-  DollarSign, 
-  Shield, 
+import React, { useState, useEffect } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Badge } from "./ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
+import {
+  Copy,
+  Plus,
+  BarChart3,
+  Users,
+  DollarSign,
+  Shield,
   Activity,
   Zap,
   Code,
-  ExternalLink
-} from 'lucide-react';
+  ExternalLink,
+} from "lucide-react";
 
 interface AuditToken {
   id: string;
@@ -25,7 +31,7 @@ interface AuditToken {
   domain?: string;
   createdAt: string;
   lastUsed: string;
-  status: 'active' | 'depleted' | 'suspended';
+  status: "active" | "depleted" | "suspended";
 }
 
 interface ClientStats {
@@ -43,12 +49,12 @@ export default function SuperUserDashboard() {
     activeTokens: 0,
     totalAudits: 0,
     revenue: 0,
-    avgCreditsUsed: 0
+    avgCreditsUsed: 0,
   });
   const [newTokenForm, setNewTokenForm] = useState({
-    userId: '',
+    userId: "",
     credits: 100,
-    domain: ''
+    domain: "",
   });
   const [generatedToken, setGeneratedToken] = useState<string | null>(null);
 
@@ -63,51 +69,51 @@ export default function SuperUserDashboard() {
       activeTokens: 42,
       totalAudits: 1284,
       revenue: 8947,
-      avgCreditsUsed: 73
+      avgCreditsUsed: 73,
     });
 
     // Load sample tokens
     setTokens([
       {
-        id: '1',
-        token: 'audit_abc123...',
-        userId: 'user_123',
+        id: "1",
+        token: "audit_abc123...",
+        userId: "user_123",
         credits: 75,
-        domain: 'https://example.com',
-        createdAt: '2024-01-15',
-        lastUsed: '2024-01-20',
-        status: 'active'
+        domain: "https://example.com",
+        createdAt: "2024-01-15",
+        lastUsed: "2024-01-20",
+        status: "active",
       },
       {
-        id: '2',
-        token: 'audit_def456...',
-        userId: 'user_456',
+        id: "2",
+        token: "audit_def456...",
+        userId: "user_456",
         credits: 0,
-        domain: 'https://test.app',
-        createdAt: '2024-01-10',
-        lastUsed: '2024-01-19',
-        status: 'depleted'
-      }
+        domain: "https://test.app",
+        createdAt: "2024-01-10",
+        lastUsed: "2024-01-19",
+        status: "depleted",
+      },
     ]);
   };
 
   const generateNewToken = async () => {
     try {
-      const response = await fetch('/api/audit-service/tokens/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newTokenForm)
+      const response = await fetch("/api/audit-service/tokens/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newTokenForm),
       });
 
       const data = await response.json();
-      
+
       if (data.success) {
         setGeneratedToken(data.token);
         loadDashboardData(); // Refresh
-        setNewTokenForm({ userId: '', credits: 100, domain: '' });
+        setNewTokenForm({ userId: "", credits: 100, domain: "" });
       }
     } catch (error) {
-      console.error('Failed to generate token:', error);
+      console.error("Failed to generate token:", error);
     }
   };
 
@@ -139,17 +145,19 @@ export default function SuperUserDashboard() {
             </div>
             <div>
               <h1 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-              Enterprise Route Intelligence
-            </h1>
-            <p className="text-gray-400">Advanced AI Monitoring Add-On • Powered by SaintSal AI</p>
-            <div className="mt-2 flex items-center gap-2">
-              <div className="px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-xs font-semibold">
-                PREMIUM ADD-ON
+                Enterprise Route Intelligence
+              </h1>
+              <p className="text-gray-400">
+                Advanced AI Monitoring Add-On • Powered by SaintSal AI
+              </p>
+              <div className="mt-2 flex items-center gap-2">
+                <div className="px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-xs font-semibold">
+                  PREMIUM ADD-ON
+                </div>
+                <div className="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300">
+                  For SaintVisionAI Platform Users
+                </div>
               </div>
-              <div className="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300">
-                For SaintVisionAI Platform Users
-              </div>
-            </div>
             </div>
           </div>
         </div>
@@ -164,7 +172,9 @@ export default function SuperUserDashboard() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-yellow-400">{stats.totalClients}</div>
+              <div className="text-2xl font-bold text-yellow-400">
+                {stats.totalClients}
+              </div>
             </CardContent>
           </Card>
 
@@ -176,7 +186,9 @@ export default function SuperUserDashboard() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-green-400">{stats.activeTokens}</div>
+              <div className="text-2xl font-bold text-green-400">
+                {stats.activeTokens}
+              </div>
             </CardContent>
           </Card>
 
@@ -188,7 +200,9 @@ export default function SuperUserDashboard() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-blue-400">{stats.totalAudits.toLocaleString()}</div>
+              <div className="text-2xl font-bold text-blue-400">
+                {stats.totalAudits.toLocaleString()}
+              </div>
             </CardContent>
           </Card>
 
@@ -200,7 +214,9 @@ export default function SuperUserDashboard() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-yellow-400">${stats.revenue.toLocaleString()}</div>
+              <div className="text-2xl font-bold text-yellow-400">
+                ${stats.revenue.toLocaleString()}
+              </div>
             </CardContent>
           </Card>
 
@@ -212,7 +228,9 @@ export default function SuperUserDashboard() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-purple-400">{stats.avgCreditsUsed}%</div>
+              <div className="text-2xl font-bold text-purple-400">
+                {stats.avgCreditsUsed}%
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -229,7 +247,9 @@ export default function SuperUserDashboard() {
           <TabsContent value="tokens">
             <Card className="bg-gray-900 border-gray-800">
               <CardHeader>
-                <CardTitle className="text-yellow-400">Active Audit Tokens</CardTitle>
+                <CardTitle className="text-yellow-400">
+                  Active Audit Tokens
+                </CardTitle>
                 <CardDescription>
                   Manage client tokens and monitor usage
                 </CardDescription>
@@ -237,21 +257,32 @@ export default function SuperUserDashboard() {
               <CardContent>
                 <div className="space-y-4">
                   {tokens.map((token) => (
-                    <div key={token.id} className="flex items-center justify-between p-4 bg-gray-800 rounded-lg border border-gray-700">
+                    <div
+                      key={token.id}
+                      className="flex items-center justify-between p-4 bg-gray-800 rounded-lg border border-gray-700"
+                    >
                       <div className="flex-1">
                         <div className="flex items-center space-x-3 mb-2">
                           <code className="text-sm bg-gray-700 px-2 py-1 rounded">
                             {token.token}
                           </code>
-                          <Badge variant={token.status === 'active' ? 'default' : 'destructive'}>
+                          <Badge
+                            variant={
+                              token.status === "active"
+                                ? "default"
+                                : "destructive"
+                            }
+                          >
                             {token.status}
                           </Badge>
                         </div>
                         <div className="text-sm text-gray-400">
-                          User: {token.userId} • Credits: {token.credits} • Domain: {token.domain || 'Any'}
+                          User: {token.userId} • Credits: {token.credits} •
+                          Domain: {token.domain || "Any"}
                         </div>
                         <div className="text-xs text-gray-500">
-                          Created: {token.createdAt} • Last used: {token.lastUsed}
+                          Created: {token.createdAt} • Last used:{" "}
+                          {token.lastUsed}
                         </div>
                       </div>
                       <div className="flex space-x-2">
@@ -283,7 +314,9 @@ export default function SuperUserDashboard() {
           <TabsContent value="generate">
             <Card className="bg-gray-900 border-gray-800">
               <CardHeader>
-                <CardTitle className="text-yellow-400">Generate New Audit Token</CardTitle>
+                <CardTitle className="text-yellow-400">
+                  Generate New Audit Token
+                </CardTitle>
                 <CardDescription>
                   Create a new token for client route auditing
                 </CardDescription>
@@ -297,7 +330,12 @@ export default function SuperUserDashboard() {
                     <Input
                       placeholder="user_123"
                       value={newTokenForm.userId}
-                      onChange={(e) => setNewTokenForm(prev => ({ ...prev, userId: e.target.value }))}
+                      onChange={(e) =>
+                        setNewTokenForm((prev) => ({
+                          ...prev,
+                          userId: e.target.value,
+                        }))
+                      }
                       className="bg-gray-800 border-gray-700"
                     />
                   </div>
@@ -309,7 +347,12 @@ export default function SuperUserDashboard() {
                       type="number"
                       placeholder="100"
                       value={newTokenForm.credits}
-                      onChange={(e) => setNewTokenForm(prev => ({ ...prev, credits: parseInt(e.target.value) || 0 }))}
+                      onChange={(e) =>
+                        setNewTokenForm((prev) => ({
+                          ...prev,
+                          credits: parseInt(e.target.value) || 0,
+                        }))
+                      }
                       className="bg-gray-800 border-gray-700"
                     />
                   </div>
@@ -320,13 +363,18 @@ export default function SuperUserDashboard() {
                     <Input
                       placeholder="https://example.com"
                       value={newTokenForm.domain}
-                      onChange={(e) => setNewTokenForm(prev => ({ ...prev, domain: e.target.value }))}
+                      onChange={(e) =>
+                        setNewTokenForm((prev) => ({
+                          ...prev,
+                          domain: e.target.value,
+                        }))
+                      }
                       className="bg-gray-800 border-gray-700"
                     />
                   </div>
                 </div>
-                
-                <Button 
+
+                <Button
                   onClick={generateNewToken}
                   className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700"
                 >
@@ -336,7 +384,9 @@ export default function SuperUserDashboard() {
 
                 {generatedToken && (
                   <div className="p-4 bg-green-900/20 border border-green-800 rounded-lg">
-                    <h3 className="text-green-400 font-medium mb-2">Token Generated Successfully!</h3>
+                    <h3 className="text-green-400 font-medium mb-2">
+                      Token Generated Successfully!
+                    </h3>
                     <div className="flex items-center space-x-2">
                       <code className="flex-1 p-2 bg-gray-800 rounded text-sm">
                         {generatedToken}
@@ -360,7 +410,9 @@ export default function SuperUserDashboard() {
           <TabsContent value="analytics">
             <Card className="bg-gray-900 border-gray-800">
               <CardHeader>
-                <CardTitle className="text-yellow-400">Service Analytics</CardTitle>
+                <CardTitle className="text-yellow-400">
+                  Service Analytics
+                </CardTitle>
                 <CardDescription>
                   Monitor usage patterns and performance metrics
                 </CardDescription>
@@ -377,14 +429,18 @@ export default function SuperUserDashboard() {
           <TabsContent value="integration">
             <Card className="bg-gray-900 border-gray-800">
               <CardHeader>
-                <CardTitle className="text-yellow-400">Integration Guide</CardTitle>
+                <CardTitle className="text-yellow-400">
+                  Integration Guide
+                </CardTitle>
                 <CardDescription>
                   How to integrate SaintVisionAI Route Auditor into any project
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-3">HTML/JavaScript Integration</h3>
+                  <h3 className="text-lg font-semibold text-white mb-3">
+                    HTML/JavaScript Integration
+                  </h3>
                   <pre className="p-4 bg-gray-800 rounded-lg text-sm overflow-x-auto">
                     <code>{`<!-- Add to your HTML head -->
 <script src="https://saintvision.ai/audit-client.js"></script>
@@ -400,7 +456,9 @@ export default function SuperUserDashboard() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-3">React Integration</h3>
+                  <h3 className="text-lg font-semibold text-white mb-3">
+                    React Integration
+                  </h3>
                   <pre className="p-4 bg-gray-800 rounded-lg text-sm overflow-x-auto">
                     <code>{`npm install saintvision-audit-client
 
@@ -417,7 +475,9 @@ useEffect(() => {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-3">API Usage</h3>
+                  <h3 className="text-lg font-semibold text-white mb-3">
+                    API Usage
+                  </h3>
                   <pre className="p-4 bg-gray-800 rounded-lg text-sm overflow-x-auto">
                     <code>{`// Perform manual audit
 const response = await fetch('https://saintvision.ai/api/audit-service/audit', {
@@ -441,10 +501,16 @@ const audit = await response.json();`}</code>
                     <ExternalLink className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-blue-400 font-medium">Full Documentation</h4>
+                    <h4 className="text-blue-400 font-medium">
+                      Full Documentation
+                    </h4>
                     <p className="text-gray-300 text-sm">
-                      Complete integration guide, API reference, and examples available at 
-                      <a href="https://saintvision.ai/docs" className="text-blue-400 hover:underline ml-1">
+                      Complete integration guide, API reference, and examples
+                      available at
+                      <a
+                        href="https://saintvision.ai/docs"
+                        className="text-blue-400 hover:underline ml-1"
+                      >
                         saintvision.ai/docs
                       </a>
                     </p>
