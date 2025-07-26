@@ -312,15 +312,55 @@ export function WarRoom({ className }: WarRoomProps) {
           </div>
         </div>
 
-        {/* Empty Work Area */}
-        <div className="flex-1 p-8">
-          <div className="h-full min-h-[600px] rounded-2xl border-2 border-dashed border-border/20 flex items-center justify-center">
-            <div className="text-center">
-              <div className="text-lg font-medium text-muted-foreground/50 mb-2">
-                Work Area
+        {/* Full Search Interface */}
+        <div className="flex-1 p-8 flex items-center justify-center">
+          <div className="w-full max-w-4xl">
+            {/* Main Search Bar */}
+            <div className="mb-8">
+              <div className="flex items-end gap-4 p-6 border-2 border-cyan-400 rounded-2xl bg-muted/5 focus-within:border-blue-400 focus-within:shadow-[0_0_20px_rgba(34,211,238,0.3)] transition-all">
+                <Button variant="ghost" size="sm" className="flex-shrink-0">
+                  <Paperclip className="w-5 h-5 text-cyan-400" />
+                </Button>
+
+                <textarea
+                  placeholder="Execute business operations, analyze data, manage workflows, automate processes..."
+                  className="flex-1 bg-transparent border-0 resize-none outline-none text-foreground placeholder:text-muted-foreground min-h-[24px] max-h-40 text-xl"
+                  rows={1}
+                />
+
+                <div className="flex items-center gap-3 flex-shrink-0">
+                  <Button variant="ghost" size="sm">
+                    <Mic className="w-5 h-5 text-cyan-400" />
+                  </Button>
+
+                  <Button size="lg" className="bg-cyan-400 hover:bg-cyan-300 text-black rounded-xl px-6 shadow-[0_0_15px_rgba(34,211,238,0.4)]">
+                    <ArrowUp className="w-5 h-5" />
+                  </Button>
+                </div>
               </div>
-              <div className="text-sm text-muted-foreground/30">
-                Open space for productivity
+            </div>
+
+            {/* Quick Command Pills */}
+            <div className="flex flex-wrap justify-center gap-3 mb-6">
+              <div className="px-4 py-2 rounded-full bg-blue-400/10 border border-blue-400/30 text-blue-400 text-sm cursor-pointer hover:bg-blue-400/20 transition-colors">
+                Analyze pipeline
+              </div>
+              <div className="px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-400 text-sm cursor-pointer hover:bg-cyan-400/20 transition-colors">
+                Generate report
+              </div>
+              <div className="px-4 py-2 rounded-full bg-teal-400/10 border border-teal-400/30 text-teal-400 text-sm cursor-pointer hover:bg-teal-400/20 transition-colors">
+                Schedule meetings
+              </div>
+              <div className="px-4 py-2 rounded-full bg-indigo-400/10 border border-indigo-400/30 text-indigo-400 text-sm cursor-pointer hover:bg-indigo-400/20 transition-colors">
+                Automate workflow
+              </div>
+            </div>
+
+            <div className="text-center">
+              <div className="text-sm text-muted-foreground">
+                <span className="text-cyan-400">Dual companion</span> ready •
+                <span className="text-blue-400"> Azure-powered</span> •
+                <span className="text-[hsl(var(--gold))]">Production-grade</span> operations
               </div>
             </div>
           </div>
