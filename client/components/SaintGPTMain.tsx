@@ -65,17 +65,17 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Empty State / Welcome */}
-        <div className="flex-1 flex items-center justify-center p-8">
-          <div className="max-w-2xl text-center space-y-8">
+        <div className="flex-1 flex items-center justify-center p-4 lg:p-8">
+          <div className="max-w-2xl text-center space-y-6 lg:space-y-8">
             <div className="space-y-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto">
-                <Sparkles className="w-8 h-8 text-primary-foreground" />
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto">
+                <Sparkles className="w-6 h-6 lg:w-8 lg:h-8 text-primary-foreground" />
               </div>
-              <h2 className="text-3xl font-bold text-foreground">
+              <h2 className="text-2xl lg:text-3xl font-bold text-foreground">
                 Welcome to SaintGPT 4.1
               </h2>
-              <p className="text-lg text-muted-foreground">
-                Your enterprise AI assistant powered by Cookin' Knowledge. 
+              <p className="text-base lg:text-lg text-muted-foreground px-4">
+                Your enterprise AI assistant powered by Cookin' Knowledge.
                 Ask me anything about your business, get insights, and boost productivity.
               </p>
             </div>
@@ -86,17 +86,17 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
                 <Button
                   key={index}
                   variant="outline"
-                  className="p-4 h-auto text-left justify-start hover:bg-accent"
+                  className="p-3 lg:p-4 h-auto text-left justify-start hover:bg-accent"
                   onClick={() => setMessage(suggestion)}
                 >
                   <div>
-                    <div className="font-medium text-sm">{suggestion}</div>
+                    <div className="font-medium text-xs lg:text-sm">{suggestion}</div>
                   </div>
                 </Button>
               ))}
             </div>
 
-            <div className="text-sm text-muted-foreground">
+            <div className="text-xs lg:text-sm text-muted-foreground px-4">
               Powered by OpenAI • Enhanced by Saint Sal's Cookin' Knowledge
             </div>
           </div>
