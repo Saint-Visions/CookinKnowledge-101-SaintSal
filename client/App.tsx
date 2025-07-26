@@ -14,6 +14,7 @@ import Tools from "./pages/Tools";
 import Legal from "./pages/Legal";
 import Why from "./pages/Why";
 import Help from "./pages/Help";
+import AuditService from "./pages/AuditService";
 import Institute from "./pages/Institute";
 import Broker from "./pages/Broker";
 import Splash from "./pages/Splash";
