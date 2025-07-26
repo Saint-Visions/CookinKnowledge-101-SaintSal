@@ -25,7 +25,17 @@ import {
   Sparkles,
   Paperclip,
   Mic,
-  ArrowUp
+  ArrowUp,
+  Building2,
+  Wrench,
+  ImageIcon,
+  Rocket,
+  MessageSquare,
+  Shield,
+  Palette,
+  TrendingUp,
+  User,
+  LogOut
 } from "lucide-react";
 
 interface WarRoomProps {
