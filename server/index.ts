@@ -32,5 +32,8 @@ export function createServer() {
   // Supersal™ Knowledge Base routes
   app.use("/api/embeddings", embeddingsRoutes);
 
+  // Route Auditing Service - Token-based premium feature
+  app.use("/api/audit-service", auditServiceRoutes);
+
   return app;
 }
