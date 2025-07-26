@@ -33,17 +33,20 @@ interface WarRoomProps {
 }
 
 const leftPanelItems = [
-  { icon: BarChart3, label: "Analytics", active: true },
-  { icon: Users, label: "Team", active: false },
-  { icon: Calendar, label: "Schedule", active: false },
-  { icon: FileText, label: "Reports", active: false },
-  { icon: Target, label: "Goals", active: false },
-  { icon: Bell, label: "Notifications", active: false },
-  { icon: Search, label: "Search", active: false },
-  { icon: Plus, label: "Projects", active: false },
-  { icon: Download, label: "Documents", active: false },
-  { icon: Upload, label: "Files", active: false },
-  { icon: RefreshCw, label: "Sync", active: false },
+  { icon: Home, label: "Dashboard", active: true, link: "/" },
+  { icon: Users, label: "My Companion", active: false },
+  { icon: Building2, label: "My Business", active: false },
+  { icon: FileText, label: "Sticky Notes", active: false },
+  { icon: Wrench, label: "AI Tools", active: false },
+  { icon: ImageIcon, label: "Image Generator", active: false },
+  { icon: Rocket, label: "SVG Launchpad", active: false },
+  { icon: MessageSquare, label: "Feedback & Help", active: false },
+  { icon: Users, label: "PartnerTech.ai CRM", active: false },
+  { icon: Shield, label: "Client Portal", active: false },
+  { icon: Palette, label: "SVT Institute of AI", active: false },
+  { icon: TrendingUp, label: "Upgrade Tier", active: false },
+  { icon: User, label: "My Account", active: false },
+  { icon: LogOut, label: "Login/Logout", active: false },
   { icon: Settings, label: "Settings", active: false }
 ];
 
