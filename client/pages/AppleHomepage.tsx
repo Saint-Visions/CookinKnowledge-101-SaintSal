@@ -53,7 +53,7 @@ export default function AppleHomepage() {
   const eliteTech = [
     {
       icon: Brain,
-      title: "SaintSal™ AI",
+      title: "SaintSal��� AI",
       description: "HACP™-powered companion with advanced reasoning",
       status: "Enterprise"
     },
@@ -114,7 +114,7 @@ export default function AppleHomepage() {
       />
 
       {/* Charcoal Overlay */}
-      <div className="fixed inset-0 z-0 bg-gray-900/60 backdrop-blur-[1px]" />
+      <div className="fixed inset-0 z-0 bg-gray-900/30 backdrop-blur-[0.5px]" />
 
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-gray-900/20 backdrop-blur-2xl border-b border-yellow-400/10">
