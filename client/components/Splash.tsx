@@ -149,13 +149,11 @@ export function Splash({ className }: SplashProps) {
           >
             <h1 className="text-8xl font-bold text-foreground mb-6 leading-tight">
               <span className="bg-gradient-to-r from-[hsl(var(--gold))] via-yellow-300 to-[hsl(var(--gold))] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]">
-                SaintVisionAI™
+                Responsible
               </span>
               <br />
-              <span className="text-5xl">Where Technology Meets</span>
-              <br />
-              <span className="text-6xl text-cyan-400 transition-all duration-1000 drop-shadow-[0_0_10px_rgba(34,211,238,0.4)]">
-                {words[currentWord]}
+              <span className="bg-gradient-to-r from-[hsl(var(--gold))] via-yellow-300 to-[hsl(var(--gold))] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]">
+                Intelligence
               </span>
             </h1>
           </div>
