@@ -282,7 +282,7 @@ export default function Pricing() {
                 <CardTitle className="text-2xl font-bold text-white">{plan.name}</CardTitle>
                 <CardDescription className="text-white/60 font-medium">{plan.subtitle}</CardDescription>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold text-yellow-400">{plan.price}</span>
+                  <span className={`text-4xl font-bold ${getIconColor(plan.color)}`}>{plan.price}</span>
                   <span className="text-white/60">{plan.period}</span>
                 </div>
                 <p className="text-sm text-white/70 mt-2">{plan.description}</p>
