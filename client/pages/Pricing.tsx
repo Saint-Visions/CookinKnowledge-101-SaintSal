@@ -256,7 +256,7 @@ export default function Pricing() {
       </nav>
 
       {/* Hero Section */}
-      <div className="text-center py-20 px-6">
+      <div className="text-center py-20 px-6 pt-32">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-6xl md:text-7xl font-light tracking-tight mb-6 leading-none">
             <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
