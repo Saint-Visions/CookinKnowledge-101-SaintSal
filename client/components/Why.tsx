@@ -233,7 +233,7 @@ export function Why({ className }: WhyProps) {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">Global Impact Focus</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  From healthcare to education, from enterprise to personal growth—our AI ecosystems 
+                  From healthcare to education, from enterprise to personal growth��our AI ecosystems 
                   are deployed where they matter most, changing lives at scale.
                 </p>
               </div>
@@ -263,7 +263,7 @@ export function Why({ className }: WhyProps) {
           {/* Stats Section */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-20">
             <div className="text-center">
-              <div className="text-4xl font-bold text-[hsl(var(--gold))] mb-2">$75M+</div>
+              <div className="text-4xl font-bold text-[hsl(var(--gold))] mb-2 drop-shadow-[0_0_20px_rgba(255,215,0,0.9)]">$75M+</div>
               <div className="text-sm text-muted-foreground">Patent Portfolio Value</div>
             </div>
             <div className="text-center">
