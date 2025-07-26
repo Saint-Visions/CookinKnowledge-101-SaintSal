@@ -294,7 +294,7 @@ export default function Pricing() {
                 </div>
                 <p className="text-sm text-white/70 mt-2">{plan.description}</p>
                 {plan.highlight && (
-                  <p className="text-xs text-white mt-2 font-medium">{plan.highlight}</p>
+                  <p className="text-xs text-yellow-400 mt-2 font-medium">{plan.highlight}</p>
                 )}
               </CardHeader>
 
