@@ -158,7 +158,7 @@ export function Why({ className }: WhyProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
             {/* Patented Technology */}
-            <div className="group p-8 rounded-2xl bg-gradient-to-br from-muted/10 to-muted/5 border border-border/30 hover:border-[hsl(var(--gold))]/50 transition-all duration-300">
+            <div className="group p-8 rounded-2xl bg-gradient-to-br from-black/30 to-black/20 backdrop-blur-sm border border-border/30 hover:border-[hsl(var(--gold))]/50 transition-all duration-300">
               <div className="mb-6">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[hsl(var(--gold))]/20 to-[hsl(var(--gold))]/10 flex items-center justify-center mb-4">
                   <Brain className="w-8 h-8 text-[hsl(var(--gold))]" />
