@@ -199,12 +199,16 @@ export default function Pricing() {
     }
 
     switch (color) {
+      case 'white':
+        return "bg-white text-black hover:bg-gray-200 shadow-[0_0_15px_rgba(255,255,255,0.3)]";
       case 'blue':
         return "bg-gradient-to-r from-cyan-400 to-cyan-600 text-black hover:from-cyan-500 hover:to-cyan-700 shadow-[0_0_15px_rgba(0,255,255,0.3)]";
       case 'purple':
         return "bg-gradient-to-r from-purple-400 to-purple-600 text-white hover:from-purple-500 hover:to-purple-700 shadow-[0_0_15px_rgba(128,0,255,0.3)]";
       case 'green':
         return "bg-gradient-to-r from-green-400 to-green-600 text-black hover:from-green-500 hover:to-green-700 shadow-[0_0_15px_rgba(0,255,128,0.3)]";
+      case 'red':
+        return "bg-gradient-to-r from-red-400 to-red-600 text-white hover:from-red-500 hover:to-red-700 shadow-[0_0_15px_rgba(255,0,128,0.3)]";
       case 'audit':
         return "bg-gradient-to-r from-pink-400 to-pink-600 text-white hover:from-pink-500 hover:to-pink-700 shadow-[0_0_15px_rgba(255,20,147,0.3)]";
       default:
