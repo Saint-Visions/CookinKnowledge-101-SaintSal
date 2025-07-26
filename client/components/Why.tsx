@@ -14,7 +14,8 @@ import {
   ArrowRight,
   CheckCircle,
   Star,
-  Award
+  Award,
+  Building2
 } from "lucide-react";
 
 interface WhyProps {
