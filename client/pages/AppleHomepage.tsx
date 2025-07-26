@@ -270,7 +270,7 @@ export default function AppleHomepage() {
               <div className="text-xs text-white/60">Compliant</div>
             </div>
             <div className="p-6">
-              <Award className="w-8 h-8 text-yellow-400 mx-auto mb-4" />
+              <Award className="w-8 h-8 text-white mx-auto mb-4" />
               <div className="text-sm font-semibold text-white mb-2">Patent</div>
               <div className="text-xs text-white/60">Protected</div>
             </div>
