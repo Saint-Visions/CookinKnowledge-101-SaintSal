@@ -135,6 +135,13 @@ const leftPanelItems = [
     onClick: () => navigate("/tools"),
   },
   {
+    icon: Shield,
+    label: "Route Audit Service",
+    active: false,
+    color: "text-yellow-400",
+    onClick: () => navigate("/audit-service"),
+  },
+  {
     icon: FileText,
     label: "Sticky Notes",
     active: false,
