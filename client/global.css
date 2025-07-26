@@ -217,3 +217,50 @@
 .animate-orbital-3 { animation: orbital-3 18s infinite linear; }
 .animate-orbital-4 { animation: orbital-4 30s infinite linear reverse; }
 .animate-orbital-5 { animation: orbital-5 22s infinite linear; }
+
+@keyframes hero-glow {
+  0% {
+    filter: drop-shadow(0 0 80px rgba(255,215,0,0.8)) drop-shadow(0 0 40px rgba(255,215,0,0.9)) brightness(1.1) contrast(1.05);
+  }
+  100% {
+    filter: drop-shadow(0 0 120px rgba(255,215,0,1)) drop-shadow(0 0 60px rgba(255,215,0,1)) brightness(1.3) contrast(1.15);
+  }
+}
+
+@keyframes ultra-fine-drift {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.03;
+  }
+  25% {
+    transform: translateY(-4px) translateX(2px) rotate(20deg);
+    opacity: 0.08;
+  }
+  50% {
+    transform: translateY(-2px) translateX(-3px) rotate(40deg);
+    opacity: 0.05;
+  }
+  75% {
+    transform: translateY(-6px) translateX(1px) rotate(60deg);
+    opacity: 0.07;
+  }
+  100% {
+    transform: translateY(-8px) translateX(-1px) rotate(80deg);
+    opacity: 0.02;
+  }
+}
+
+@keyframes micro-float {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.02;
+  }
+  50% {
+    transform: translateY(-3px) translateX(1px);
+    opacity: 0.06;
+  }
+  100% {
+    transform: translateY(-6px) translateX(-0.5px);
+    opacity: 0.01;
+  }
+}
