@@ -204,7 +204,7 @@ export default function Pricing() {
       case 'white':
         return "bg-white text-black hover:bg-gray-200 shadow-[0_0_15px_rgba(255,255,255,0.3)]";
       case 'blue':
-        return "bg-gradient-to-r from-cyan-400 to-cyan-600 text-black hover:from-cyan-500 hover:to-cyan-700 shadow-[0_0_15px_rgba(0,255,255,0.3)]";
+        return "bg-blue-500 text-white hover:bg-blue-600 shadow-[0_0_15px_rgba(0,100,255,0.5)]";
       case 'purple':
         return "bg-gradient-to-r from-purple-400 to-purple-600 text-white hover:from-purple-500 hover:to-purple-700 shadow-[0_0_15px_rgba(128,0,255,0.3)]";
       case 'green':
