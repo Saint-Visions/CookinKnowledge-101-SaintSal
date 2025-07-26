@@ -142,7 +142,7 @@ export default function Pricing() {
               <CardHeader className="text-center pb-8">
                 <div className="flex justify-center mb-4">
                   {plan.color === 'gold' && <Shield className="w-12 h-12 text-yellow-400 animate-pulse" />}
-                  {plan.color === 'blue' && <Zap className="w-12 h-12 text-blue-400" />}
+                  {plan.color === 'blue' && <Zap className="w-12 h-12 text-yellow-400" />}
                   {plan.color === 'yellow' && <Crown className="w-12 h-12 text-yellow-400" />}
                   {plan.color === 'purple' && <Shield className="w-12 h-12 text-purple-400" />}
                 </div>
@@ -181,15 +181,15 @@ export default function Pricing() {
 
         {/* Enterprise CTA */}
         <div className="mt-16 text-center">
-          <Card className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 border-purple-500/30">
+          <Card className="bg-gradient-to-r from-gray-900/40 to-black/60 border-yellow-400/30">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-white mb-4">Need a Custom Solution?</h3>
               <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
                 Our enterprise team can create a tailored route auditing solution for your specific needs, including custom integrations, dedicated infrastructure, and white-label options.
               </p>
-              <Button 
-                variant="outline" 
-                className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-black"
+              <Button
+                variant="outline"
+                className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
                 onClick={() => window.location.href = 'mailto:enterprise@saintvision.ai'}
               >
                 Contact Enterprise Sales
