@@ -79,6 +79,7 @@ export function WarRoom({ className }: WarRoomProps) {
   const [leftPanelOpen, setLeftPanelOpen] = useState(true);
   const [rightPanelOpen, setRightPanelOpen] = useState(true);
   const [crmMaximized, setCrmMaximized] = useState(false);
+  const [workspaceInput, setWorkspaceInput] = useState("");
 
   return (
     <div className={`min-h-screen relative ${className}`} style={{ backgroundColor: '#000000' }}>
