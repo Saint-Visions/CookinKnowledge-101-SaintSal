@@ -185,19 +185,22 @@ export function CRM({ className }: CRMProps) {
         </div>
 
         {/* GHL Iframe - Full Screen */}
-        <div className="relative w-full" style={{ height: 'calc(100vh - 60px)' }}>
+        <div className="relative w-full bg-gradient-to-br from-black/95 via-black/90 to-cyan-400/5" style={{ height: 'calc(100vh - 60px)' }}>
+          {/* Subtle Blue Border */}
+          <div className="absolute inset-0 border border-cyan-400/10"></div>
+
           {/* Placeholder for GHL iframe - Replace with your actual GHL URL */}
           <iframe
             src="https://app.gohighlevel.com/login"
-            className="w-full h-full border-0"
+            className="w-full h-full border-0 relative z-10"
             title="GoHighLevel CRM"
             frameBorder="0"
             allowFullScreen
             sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
           />
-          
+
           {/* Loading Overlay */}
-          <div className="absolute inset-0 bg-black/90 flex items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-black/90 to-cyan-400/10 flex items-center justify-center z-20">
             <div className="text-center">
               <div className="w-16 h-16 border-4 border-[hsl(var(--gold))] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
               <h3 className="text-lg font-bold text-white mb-2">Loading GHL CRM</h3>
