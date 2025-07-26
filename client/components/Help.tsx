@@ -20,7 +20,8 @@ import {
   Globe,
   Star,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Rocket
 } from "lucide-react";
 
 interface HelpProps {
