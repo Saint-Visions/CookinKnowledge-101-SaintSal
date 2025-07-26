@@ -154,8 +154,8 @@ export function CRM({ className }: CRMProps) {
 
       {/* Main Content Area */}
       <div className="lg:pl-64">
-        {/* Top Header - Minimal */}
-        <div className="border-b border-border/20 px-4 py-2 bg-black/60 backdrop-blur-sm">
+        {/* Top Header - Consistent Blue Theme */}
+        <div className="border-b border-cyan-400/20 px-4 py-2 bg-gradient-to-r from-black/80 via-black/70 to-cyan-400/10 backdrop-blur-sm">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Button
