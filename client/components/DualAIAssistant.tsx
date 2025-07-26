@@ -125,22 +125,24 @@ export function DualAIAssistant({ isOpen, onClose, userContext }: DualAIAssistan
   if (!isOpen) return null;
 
   return (
-    <div className={`fixed bottom-4 right-4 bg-black/95 border-2 border-cyan-400/60 rounded-2xl shadow-[0_0_40px_rgba(34,211,238,0.3)] backdrop-blur-sm z-[60] flex flex-col transition-all duration-300 ${
+    <div className={`fixed bottom-4 right-4 bg-black/95 border-2 border-[hsl(var(--gold))]/60 rounded-2xl shadow-[0_0_40px_rgba(255,215,0,0.4)] backdrop-blur-sm z-[60] flex flex-col transition-all duration-300 ${
       isMinimized ? 'w-80 h-16' : 'w-[480px] h-[600px]'
     }`}>
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-cyan-400/30">
+      <div className="flex items-center justify-between p-4 border-b border-[hsl(var(--gold))]/30">
         <div className="flex items-center gap-3">
           <div className="relative">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
-              <Users className="w-4 h-4 text-black" />
-            </div>
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F8c7c9578e6324915bda191428ef80ec9?format=webp&width=800"
+              alt="Supersal AI"
+              className="w-10 h-10 rounded-xl object-cover shadow-[0_0_20px_rgba(255,215,0,0.5)]"
+            />
+            <div className="absolute -top-1 -right-1 w-3 h-3 bg-[hsl(var(--neon-green))] rounded-full animate-pulse"></div>
           </div>
           <div>
-            <h3 className="text-sm font-bold text-white">Supersal™ Dual AI</h3>
-            <p className="text-xs text-cyan-400">
-              {activeProvider === 'auto' ? 'Smart Router' : activeProvider.toUpperCase()} • 
+            <h3 className="text-sm font-bold text-[hsl(var(--gold))]">Supersal™ Dual AI</h3>
+            <p className="text-xs text-[hsl(var(--gold))]/70">
+              {activeProvider === 'auto' ? 'Smart Router' : activeProvider.toUpperCase()} •
               {userContext?.role === 'admin' ? ' Companion Mode' : ' Client Mode'}
             </p>
           </div>
@@ -148,12 +150,12 @@ export function DualAIAssistant({ isOpen, onClose, userContext }: DualAIAssistan
         
         <div className="flex items-center gap-2">
           {/* AI Provider Selection */}
-          <div className="flex items-center gap-1 bg-gray-800/50 rounded-lg p-1">
+          <div className="flex items-center gap-1 bg-black/80 border border-[hsl(var(--gold))]/20 rounded-lg p-1">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setActiveProvider('openai')}
-              className={`px-2 py-1 text-xs ${activeProvider === 'openai' ? 'bg-blue-500 text-white' : 'text-gray-400'}`}
+              className={`px-2 py-1 text-xs transition-all ${activeProvider === 'openai' ? 'bg-[hsl(var(--gold))] text-black shadow-[0_0_10px_rgba(255,215,0,0.5)]' : 'text-[hsl(var(--gold))]/60 hover:text-[hsl(var(--gold))]'}`}
             >
               <Zap className="w-3 h-3 mr-1" />
               Fast
@@ -162,7 +164,7 @@ export function DualAIAssistant({ isOpen, onClose, userContext }: DualAIAssistan
               variant="ghost"
               size="sm"
               onClick={() => setActiveProvider('azure')}
-              className={`px-2 py-1 text-xs ${activeProvider === 'azure' ? 'bg-purple-500 text-white' : 'text-gray-400'}`}
+              className={`px-2 py-1 text-xs transition-all ${activeProvider === 'azure' ? 'bg-[hsl(var(--gold))] text-black shadow-[0_0_10px_rgba(255,215,0,0.5)]' : 'text-[hsl(var(--gold))]/60 hover:text-[hsl(var(--gold))]'}`}
             >
               <Brain className="w-3 h-3 mr-1" />
               Smart
@@ -171,7 +173,7 @@ export function DualAIAssistant({ isOpen, onClose, userContext }: DualAIAssistan
               variant="ghost"
               size="sm"
               onClick={() => setActiveProvider('auto')}
-              className={`px-2 py-1 text-xs ${activeProvider === 'auto' ? 'bg-cyan-500 text-white' : 'text-gray-400'}`}
+              className={`px-2 py-1 text-xs transition-all ${activeProvider === 'auto' ? 'bg-[hsl(var(--gold))] text-black shadow-[0_0_10px_rgba(255,215,0,0.5)]' : 'text-[hsl(var(--gold))]/60 hover:text-[hsl(var(--gold))]'}`}
             >
               <Sparkles className="w-3 h-3 mr-1" />
               Auto
@@ -182,16 +184,16 @@ export function DualAIAssistant({ isOpen, onClose, userContext }: DualAIAssistan
             variant="ghost"
             size="sm"
             onClick={() => setIsMinimized(!isMinimized)}
-            className="text-gray-400 hover:text-white"
+            className="text-[hsl(var(--gold))]/60 hover:text-[hsl(var(--gold))] transition-colors"
           >
             {isMinimized ? <Maximize2 className="w-4 h-4" /> : <Minimize2 className="w-4 h-4" />}
           </Button>
-          
+
           <Button
             variant="ghost"
             size="sm"
             onClick={onClose}
-            className="text-gray-400 hover:text-white"
+            className="text-[hsl(var(--gold))]/60 hover:text-[hsl(var(--gold))] transition-colors"
           >
             <X className="w-4 h-4" />
           </Button>
@@ -205,33 +207,31 @@ export function DualAIAssistant({ isOpen, onClose, userContext }: DualAIAssistan
             {messages.map((message, index) => (
               <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-[360px] p-3 rounded-xl ${
-                  message.role === 'user' 
-                    ? 'bg-cyan-400/20 text-white border border-cyan-400/30' 
+                  message.role === 'user'
+                    ? 'bg-[hsl(var(--gold))]/20 text-white border border-[hsl(var(--gold))]/30 shadow-[0_0_15px_rgba(255,215,0,0.2)]'
                     : message.provider === 'azure'
-                      ? 'bg-purple-900/40 text-gray-100 border border-purple-500/30'
-                      : 'bg-gray-800/80 text-gray-100 border border-gray-600/30'
+                      ? 'bg-gradient-to-br from-black to-gray-900 text-[hsl(var(--gold))] border border-[hsl(var(--gold))]/20 shadow-[0_0_15px_rgba(255,215,0,0.1)]'
+                      : 'bg-gradient-to-br from-gray-900 to-black text-[hsl(var(--gold))]/90 border border-[hsl(var(--gold))]/15 shadow-[0_0_10px_rgba(255,215,0,0.1)]'
                 }`}>
                   <div className="flex items-start gap-2">
                     {message.role === 'assistant' && (
                       <div className={`w-4 h-4 rounded-full flex items-center justify-center mt-0.5 ${
-                        message.provider === 'azure' ? 'bg-purple-500' : 'bg-blue-500'
+                        message.provider === 'azure' ? 'bg-[hsl(var(--gold))] shadow-[0_0_8px_rgba(255,215,0,0.6)]' : 'bg-[hsl(var(--gold))]/80 shadow-[0_0_6px_rgba(255,215,0,0.4)]'
                       }`}>
-                        {message.provider === 'azure' ? 
-                          <Brain className="w-2.5 h-2.5 text-white" /> : 
-                          <Zap className="w-2.5 h-2.5 text-white" />
+                        {message.provider === 'azure' ?
+                          <Brain className="w-2.5 h-2.5 text-black" /> :
+                          <Zap className="w-2.5 h-2.5 text-black" />
                         }
                       </div>
                     )}
                     <div className="flex-1">
                       <p className="text-sm leading-relaxed">{message.content}</p>
                       <div className="flex items-center justify-between mt-1">
-                        <p className="text-xs text-gray-400">
+                        <p className="text-xs text-[hsl(var(--gold))]/50">
                           {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                         </p>
                         {message.role === 'assistant' && (
-                          <span className={`text-xs px-1.5 py-0.5 rounded ${
-                            message.provider === 'azure' ? 'bg-purple-500/20 text-purple-300' : 'bg-blue-500/20 text-blue-300'
-                          }`}>
+                          <span className={`text-xs px-1.5 py-0.5 rounded bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]/70 border border-[hsl(var(--gold))]/20`}>
                             {message.provider?.toUpperCase()}
                           </span>
                         )}
@@ -244,12 +244,10 @@ export function DualAIAssistant({ isOpen, onClose, userContext }: DualAIAssistan
             
             {isLoading && (
               <div className="flex justify-start">
-                <div className={`${
-                  activeProvider === 'azure' ? 'bg-purple-900/40 border-purple-500/30' : 'bg-gray-800/80 border-gray-600/30'
-                } p-3 rounded-xl border`}>
+                <div className="bg-gradient-to-br from-black to-gray-900 border border-[hsl(var(--gold))]/20 p-3 rounded-xl shadow-[0_0_15px_rgba(255,215,0,0.1)]">
                   <div className="flex items-center gap-2">
-                    <Loader2 className="w-4 h-4 animate-spin text-cyan-400" />
-                    <span className="text-xs text-cyan-400">
+                    <Loader2 className="w-4 h-4 animate-spin text-[hsl(var(--gold))]" />
+                    <span className="text-xs text-[hsl(var(--gold))]/80">
                       {activeProvider === 'azure' ? 'Azure AI' : activeProvider === 'openai' ? 'OpenAI' : 'Smart AI'} is thinking...
                     </span>
                   </div>
@@ -260,31 +258,31 @@ export function DualAIAssistant({ isOpen, onClose, userContext }: DualAIAssistan
           </div>
 
           {/* Input Area */}
-          <div className="p-4 border-t border-cyan-400/30">
-            <div className="flex items-center gap-2 p-2 border border-cyan-400/40 rounded-lg bg-black/50 focus-within:border-cyan-400 focus-within:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all">
+          <div className="p-4 border-t border-[hsl(var(--gold))]/30">
+            <div className="flex items-center gap-2 p-2 border border-[hsl(var(--gold))]/40 rounded-lg bg-black/80 focus-within:border-[hsl(var(--gold))] focus-within:shadow-[0_0_20px_rgba(255,215,0,0.3)] transition-all">
               <textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ask Supersal™ anything..."
-                className="flex-1 bg-transparent border-0 outline-none text-white placeholder:text-gray-400 text-sm resize-none min-h-[20px] max-h-24"
+                className="flex-1 bg-transparent border-0 outline-none text-[hsl(var(--gold))] placeholder:text-[hsl(var(--gold))]/50 text-sm resize-none min-h-[20px] max-h-24"
                 rows={1}
                 disabled={isLoading}
               />
               <Button
                 size="sm"
                 disabled={!input.trim() || isLoading}
-                className="bg-cyan-400 hover:bg-cyan-300 text-black px-3 py-1 rounded shrink-0"
+                className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black px-3 py-1 rounded shrink-0 shadow-[0_0_15px_rgba(255,215,0,0.4)] hover:shadow-[0_0_20px_rgba(255,215,0,0.6)] transition-all"
                 onClick={sendMessage}
               >
                 <ArrowUp className="w-4 h-4" />
               </Button>
             </div>
             <div className="text-center mt-2">
-              <div className="text-xs text-gray-400">
-                <span className="text-cyan-400">Supersal™</span> • Dual AI • 
-                <span className="text-green-400">Live Support</span> • 
-                <span className="text-yellow-400">{activeProvider.toUpperCase()}</span>
+              <div className="text-xs text-[hsl(var(--gold))]/60">
+                <span className="text-[hsl(var(--gold))] font-medium">Supersal™</span> • Dual AI •
+                <span className="text-[hsl(var(--neon-green))]" font-medium>Live Support</span> •
+                <span className="text-[hsl(var(--gold))]/80 font-medium">{activeProvider.toUpperCase()}</span>
               </div>
             </div>
           </div>
