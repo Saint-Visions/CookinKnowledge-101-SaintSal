@@ -438,8 +438,8 @@ export default function Pricing() {
             </div>
             
             <div className="text-center">
-              <div className="p-4 bg-green-400/20 rounded-xl mb-4 w-16 h-16 mx-auto flex items-center justify-center">
-                <Globe className="w-8 h-8 text-green-400" />
+              <div className="p-4 bg-white/20 rounded-xl mb-4 w-16 h-16 mx-auto flex items-center justify-center">
+                <Globe className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-semibold text-white mb-2">Global Scale</h3>
               <p className="text-sm text-white/60">Multi-region deployment ready</p>
