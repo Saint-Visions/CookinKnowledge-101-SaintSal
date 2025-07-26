@@ -34,7 +34,7 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F8ab6ede74deb4ba19d09de45b88c2454?format=webp&width=800"
             alt="saintsal + you"
-            className="w-[40vw] h-auto object-contain rounded-2xl border-2 border-[hsl(var(--gold))]/50 shadow-[0_0_60px_rgba(218,165,32,0.2)]"
+            className="w-[40vw] h-auto object-contain rounded-2xl border border-[hsl(var(--gold))]/60 shadow-[0_0_20px_rgba(218,165,32,0.1)] filter brightness-110 contrast-110"
           />
         </div>
       </div>
