@@ -45,7 +45,7 @@ const aiTools = [
 
 export function SaintGPTSidebar({ className }: SaintGPTSidebarProps) {
   return (
-    <div className={cn("w-80 bg-sidebar-background border-r border-sidebar-border flex flex-col", className)}>
+    <div className={cn("w-80 lg:w-80 md:w-64 bg-sidebar-background border-r border-sidebar-border flex flex-col", className)}>
       {/* Header */}
       <div className="p-4 border-b border-sidebar-border">
         <div className="flex items-center justify-between mb-4">
