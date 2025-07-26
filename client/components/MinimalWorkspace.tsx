@@ -109,7 +109,7 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
                     What Separates
                   </h1>
                   <h2 className="text-2xl lg:text-3xl font-bold">
-                    <span className="text-primary">Saint</span>
+                    <span className="text-[hsl(var(--gold))]">Saint</span>
                     <span className="text-[hsl(var(--neon))] font-extrabold">Vision</span>
                     <span className="text-foreground">AI?</span>
                   </h2>
