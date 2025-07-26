@@ -119,7 +119,7 @@ const leftPanelItems = [
     active: false,
     color: "text-green-400",
   },
-  { icon: Users, label: "My Companion", active: false, color: "text-cyan-400" },
+  { icon: Users, label: "My Companion", active: false, color: "text-cyan-400", onClick: () => setCompanionOpen(true) },
 ];
 
 const quickActions = [
