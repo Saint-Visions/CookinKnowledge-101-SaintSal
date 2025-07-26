@@ -34,7 +34,21 @@ const leftPanelItems = [
   { icon: Users, label: "Team", active: false },
   { icon: Calendar, label: "Schedule", active: false },
   { icon: FileText, label: "Reports", active: false },
-  { icon: Target, label: "Goals", active: false }
+  { icon: Target, label: "Goals", active: false },
+  { icon: Bell, label: "Notifications", active: false },
+  { icon: Search, label: "Search", active: false },
+  { icon: Plus, label: "Projects", active: false },
+  { icon: Download, label: "Documents", active: false },
+  { icon: Upload, label: "Files", active: false },
+  { icon: RefreshCw, label: "Sync", active: false },
+  { icon: Settings, label: "Settings", active: false }
+];
+
+const quickActions = [
+  { icon: Users, label: "Contacts", color: "text-blue-400" },
+  { icon: Calendar, label: "Calendar", color: "text-green-400" },
+  { icon: FileText, label: "Notes", color: "text-yellow-400" },
+  { icon: Bell, label: "Reminders", color: "text-red-400" }
 ];
 
 const rightPanelItems = [
