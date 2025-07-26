@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { 
+import {
   ChevronLeft,
   ChevronRight,
   Target,
@@ -22,7 +22,10 @@ import {
   Minimize,
   Home,
   Crown,
-  Sparkles
+  Sparkles,
+  Paperclip,
+  Mic,
+  ArrowUp
 } from "lucide-react";
 
 interface WarRoomProps {
