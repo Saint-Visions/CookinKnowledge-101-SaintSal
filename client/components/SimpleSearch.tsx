@@ -159,20 +159,7 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
               );
             })}
 
-            <div className="border-t border-sidebar-border/30 my-4"></div>
 
-            <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider px-3 mb-3">Recent Chats</h3>
-            {chatHistory.map((chat, index) => (
-              <div
-                key={index}
-                className="group flex items-center gap-2 p-3 rounded-xl hover:bg-sidebar-accent/50 cursor-pointer transition-colors"
-              >
-                <MessageSquare className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                <span className="text-sm text-sidebar-foreground truncate flex-1">
-                  {chat}
-                </span>
-              </div>
-            ))}
           </div>
 
           {/* Sticky Companion - Always Visible */}
