@@ -269,7 +269,33 @@ export function WarRoom({ className }: WarRoomProps) {
 
         {/* CRM Widget Area */}
         <div className="p-6">
-          <div className={`transition-all duration-300 ${crmMaximized ? 'h-[calc(100vh-120px)]' : 'h-[600px]'}`}>
+          {/* Smaller GHL Widget Above */}
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+              <Target className="w-4 h-4 text-[hsl(var(--gold))]" />
+              GHL CRM Overview
+            </h3>
+            <div className="h-32 bg-muted/10 rounded-xl border border-border/30 overflow-hidden">
+              <div className="flex items-center justify-center h-full bg-gradient-to-br from-muted/20 to-muted/10">
+                <div className="flex items-center gap-8">
+                  <div className="text-center">
+                    <div className="text-xl font-bold text-[hsl(var(--neon))]">247</div>
+                    <div className="text-xs text-muted-foreground">Active Leads</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xl font-bold text-[hsl(var(--gold))]">$89.2k</div>
+                    <div className="text-xs text-muted-foreground">Pipeline</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xl font-bold text-[hsl(var(--neon-green))]">94%</div>
+                    <div className="text-xs text-muted-foreground">Efficiency</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className={`transition-all duration-300 ${crmMaximized ? 'h-[calc(100vh-240px)]' : 'h-[500px]'}`}>
             <div className="w-full h-full bg-muted/10 rounded-xl border border-border/30 overflow-hidden">
               {/* GHL CRM Iframe Placeholder */}
               <div className="w-full h-full relative">
