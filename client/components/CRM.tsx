@@ -41,7 +41,7 @@ export function CRM({ className }: CRMProps) {
         {/* Sidebar Content */}
         <div className="relative h-full flex flex-col">
           {/* Header */}
-          <div className="p-6 border-b border-blue-400/20">
+          <div className="p-6 border-b border-blue-600/30">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-6">
                 <img
