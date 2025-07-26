@@ -160,20 +160,20 @@ export default function Pricing() {
     const baseStyles = "relative transition-all duration-300 hover:scale-105";
     
     if (popular) {
-      return `${baseStyles} ring-2 ring-white scale-105 bg-gradient-to-br from-white/10 to-white/20 border-white`;
+      return `${baseStyles} ring-2 ring-yellow-400 scale-105 bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border-yellow-400 shadow-[0_0_30px_rgba(255,255,0,0.3)]`;
     }
 
     switch (color) {
       case 'blue':
-        return `${baseStyles} bg-gray-900/50 border-white/20 hover:border-white/40`;
+        return `${baseStyles} bg-gray-900/50 border-cyan-400/50 hover:border-cyan-400 shadow-[0_0_20px_rgba(0,255,255,0.2)] hover:shadow-[0_0_30px_rgba(0,255,255,0.4)]`;
       case 'gold':
-        return `${baseStyles} bg-gradient-to-br from-white/10 to-white/20 border-white/50`;
+        return `${baseStyles} bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border-yellow-400/50 shadow-[0_0_20px_rgba(255,255,0,0.2)]`;
       case 'purple':
-        return `${baseStyles} bg-gray-900/50 border-white/20 hover:border-white/40`;
+        return `${baseStyles} bg-gray-900/50 border-purple-400/50 hover:border-purple-400 shadow-[0_0_20px_rgba(128,0,255,0.2)] hover:shadow-[0_0_30px_rgba(128,0,255,0.4)]`;
       case 'green':
-        return `${baseStyles} bg-gray-900/50 border-white/20 hover:border-white/40`;
+        return `${baseStyles} bg-gray-900/50 border-green-400/50 hover:border-green-400 shadow-[0_0_20px_rgba(0,255,128,0.2)] hover:shadow-[0_0_30px_rgba(0,255,128,0.4)]`;
       case 'audit':
-        return `${baseStyles} bg-gradient-to-br from-white/10 to-white/20 border-2 border-dashed border-white`;
+        return `${baseStyles} bg-gradient-to-br from-pink-400/10 to-pink-600/10 border-2 border-dashed border-pink-400 shadow-[0_0_25px_rgba(255,20,147,0.3)]`;
       default:
         return `${baseStyles} bg-gray-900/50 border-gray-700`;
     }
