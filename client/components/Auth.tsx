@@ -43,10 +43,10 @@ export function Auth({ className }: AuthProps) {
   return (
     <div className={`min-h-screen relative overflow-hidden ${className}`} style={{ backgroundColor: '#000000' }}>
       {/* Background Image - Fixed */}
-      <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+      <div
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-50"
         style={{
-          backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fbd5a7a0f57204af586001625ce32864b?format=webp&width=800')`
+          backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F92c010749dfe4c8da022a5b1c11b2a37?format=webp&width=800')`
         }}
       />
       
