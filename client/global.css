@@ -273,3 +273,12 @@
     transform: scale(1.08);
   }
 }
+
+@keyframes character-glow {
+  0% {
+    filter: drop-shadow(0 0 20px rgba(255,215,0,0.2)) brightness(1.05);
+  }
+  100% {
+    filter: drop-shadow(0 0 40px rgba(255,215,0,0.4)) brightness(1.15);
+  }
+}
