@@ -21,7 +21,7 @@ import {
   X,
   ExternalLink,
   Monitor,
-  Activity
+  Activity,
 } from "lucide-react";
 
 interface CRMProps {
@@ -32,12 +32,17 @@ export function CRM({ className }: CRMProps) {
   const [sidebarOpen, setSidebarOpen] = useState(true); // Default open on desktop
 
   return (
-    <div className={`min-h-screen ${className}`} style={{ backgroundColor: '#000000' }}>
+    <div
+      className={`min-h-screen ${className}`}
+      style={{ backgroundColor: "#000000" }}
+    >
       {/* Blended Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-72 transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <div
+        className={`fixed inset-y-0 left-0 z-50 w-72 transform transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
+      >
         {/* Batman Batcave Blue - Deep, Sophisticated, Powerful */}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-slate-900 to-blue-950/90 backdrop-blur-sm"></div>
-        
+
         {/* Sidebar Content */}
         <div className="relative h-full flex flex-col">
           {/* Header */}
@@ -68,8 +73,10 @@ export function CRM({ className }: CRMProps) {
           {/* Navigation */}
           <div className="flex-1 p-3 overflow-y-auto">
             <div className="space-y-1">
-              <div className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-3">Quick Access</div>
-              
+              <div className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-3">
+                Quick Access
+              </div>
+
               <Link
                 to="/partnertech"
                 className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-white hover:bg-white/10 transition-all text-sm"
@@ -93,8 +100,10 @@ export function CRM({ className }: CRMProps) {
                 <ArrowRight className="w-3 h-3 ml-auto" />
               </Link>
 
-              <div className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-2 mt-4">CRM Tools</div>
-              
+              <div className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-2 mt-4">
+                CRM Tools
+              </div>
+
               <button className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:bg-white/10 transition-all text-sm">
                 <Phone className="w-4 h-4" />
                 Calls
@@ -125,10 +134,15 @@ export function CRM({ className }: CRMProps) {
             <div className="mt-6 p-3 rounded-lg bg-gradient-to-r from-[hsl(var(--gold))]/20 to-yellow-400/10 border border-[hsl(var(--gold))]/30">
               <div className="flex items-center gap-2 mb-2">
                 <Zap className="w-4 h-4 text-[hsl(var(--gold))]" />
-                <span className="text-xs font-medium text-white">SaintSal™ AI</span>
+                <span className="text-xs font-medium text-white">
+                  SaintSal™ AI
+                </span>
               </div>
               <p className="text-xs text-gray-300 mb-2">Smart CRM automation</p>
-              <Button size="sm" className="w-full h-7 bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-medium text-xs">
+              <Button
+                size="sm"
+                className="w-full h-7 bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-medium text-xs"
+              >
                 Activate
               </Button>
             </div>
@@ -144,7 +158,11 @@ export function CRM({ className }: CRMProps) {
                 <p className="text-xs font-medium text-white">SaintVision</p>
                 <p className="text-xs text-gray-400">CRM Active</p>
               </div>
-              <Button variant="ghost" size="sm" className="text-gray-300 hover:bg-white/10 w-6 h-6 p-0">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-gray-300 hover:bg-white/10 w-6 h-6 p-0"
+              >
                 <Settings className="w-3 h-3" />
               </Button>
             </div>
@@ -153,7 +171,9 @@ export function CRM({ className }: CRMProps) {
       </div>
 
       {/* Main Content Area - Responsive to sidebar */}
-      <div className={`transition-all duration-300 ${sidebarOpen ? 'lg:pl-72' : 'lg:pl-0'}`}>
+      <div
+        className={`transition-all duration-300 ${sidebarOpen ? "lg:pl-72" : "lg:pl-0"}`}
+      >
         {/* Top Header - Consistent Blue Theme */}
         <div className="border-b border-cyan-400/20 px-4 py-2 bg-gradient-to-r from-black/80 via-black/70 to-cyan-400/10 backdrop-blur-sm">
           <div className="flex items-center justify-between">
@@ -185,7 +205,10 @@ export function CRM({ className }: CRMProps) {
         </div>
 
         {/* GHL Iframe - Full Screen */}
-        <div className="relative w-full bg-gradient-to-br from-black/95 via-black/90 to-cyan-400/5" style={{ height: 'calc(100vh - 60px)' }}>
+        <div
+          className="relative w-full bg-gradient-to-br from-black/95 via-black/90 to-cyan-400/5"
+          style={{ height: "calc(100vh - 60px)" }}
+        >
           {/* Subtle Blue Border */}
           <div className="absolute inset-0 border border-cyan-400/10"></div>
 
@@ -207,12 +230,19 @@ export function CRM({ className }: CRMProps) {
                 alt="SaintVision Logo"
                 className="w-16 h-16 object-contain mx-auto mb-4 animate-spin drop-shadow-[0_0_30px_rgba(255,215,0,0.8)]"
                 style={{
-                  filter: 'brightness(1.2) drop-shadow(0 0 20px rgba(255,215,0,0.6))'
+                  filter:
+                    "brightness(1.2) drop-shadow(0 0 20px rgba(255,215,0,0.6))",
                 }}
               />
-              <h3 className="text-lg font-bold text-white mb-2">Loading LIVE GHL CRM</h3>
-              <p className="text-sm text-gray-400">Connecting to your workspace...</p>
-              <p className="text-xs text-gray-500 mt-2">Location ID: oRA8vL3OSiCPjpwmEC0V</p>
+              <h3 className="text-lg font-bold text-white mb-2">
+                Loading LIVE GHL CRM
+              </h3>
+              <p className="text-sm text-gray-400">
+                Connecting to your workspace...
+              </p>
+              <p className="text-xs text-gray-500 mt-2">
+                Location ID: oRA8vL3OSiCPjpwmEC0V
+              </p>
               <div className="flex items-center justify-center gap-2 mt-3">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                 <p className="text-xs text-green-400">API Connected</p>
