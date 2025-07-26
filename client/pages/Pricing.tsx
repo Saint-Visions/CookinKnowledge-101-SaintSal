@@ -123,11 +123,18 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto px-6 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
-            <Card key={index} className={`bg-gray-900 border-gray-800 relative ${plan.popular ? 'ring-2 ring-yellow-400 scale-105' : ''} ${plan.special ? 'bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border-yellow-400' : ''}`}>
+            <Card key={index} className={`bg-gray-900 border-gray-800 relative ${plan.popular ? 'ring-2 ring-yellow-400 scale-105' : ''} ${plan.special ? 'bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border-yellow-400' : ''} ${plan.addon ? 'border-2 border-dashed border-yellow-400' : ''}`}>
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className={`font-bold ${plan.special ? 'bg-red-500 text-white animate-pulse' : 'bg-yellow-400 text-black'}`}>
-                    {plan.special ? '🔥 LIMITED TIME' : 'MOST POPULAR'}
+                  <Badge className="bg-yellow-400 text-black font-bold">
+                    MOST POPULAR
+                  </Badge>
+                </div>
+              )}
+              {plan.addon && (
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <Badge className="bg-gradient-to-r from-purple-500 to-blue-600 text-white font-bold animate-pulse">
+                    PREMIUM ADD-ON
                   </Badge>
                 </div>
               )}
