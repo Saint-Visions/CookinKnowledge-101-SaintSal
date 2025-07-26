@@ -117,7 +117,7 @@ export default function AppleHomepage() {
       <div className="fixed inset-0 z-0 bg-gray-900/60 backdrop-blur-[1px]" />
 
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-black/10 backdrop-blur-2xl border-b border-white/5">
+      <nav className="fixed top-0 w-full z-50 bg-gray-900/20 backdrop-blur-2xl border-b border-yellow-400/10">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
