@@ -260,7 +260,7 @@ export default function AppleHomepage() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
             <div className="p-6">
-              <Lock className="w-8 h-8 text-yellow-400 mx-auto mb-4" />
+              <Lock className="w-8 h-8 text-white mx-auto mb-4" />
               <div className="text-sm font-semibold text-white mb-2">AES-256</div>
               <div className="text-xs text-white/60">Military Grade</div>
             </div>
