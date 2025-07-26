@@ -99,16 +99,16 @@ export function WarRoom({ className }: WarRoomProps) {
           <div className="flex items-center justify-between">
             {leftPanelOpen && (
               <div className="flex items-center gap-3">
-                <img 
-                  src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fc88eaa91ad364821b51a4fc6c47320ab?format=webp&width=80" 
-                  alt="Sv."
-                  className="w-8 h-8 object-contain"
-                />
-                <div>
-                  <h1 className="text-lg font-bold text-sidebar-foreground">WARROOM</h1>
-                  <p className="text-xs text-[hsl(var(--gold))] uppercase tracking-wider">COMMAND CENTER</p>
-                </div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fc88eaa91ad364821b51a4fc6c47320ab?format=webp&width=80"
+                alt="Sv."
+                className="w-8 h-8 object-contain"
+              />
+              <div>
+                <h1 className="text-lg font-bold text-sidebar-foreground">Menu</h1>
+                <p className="text-xs text-[hsl(var(--gold))] uppercase tracking-wider">NAVIGATION</p>
               </div>
+            </div>
             )}
             <Button 
               variant="ghost" 
