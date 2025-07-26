@@ -1,11 +1,5 @@
-import { SaintVisionSidebar } from "@/components/SaintVisionSidebar";
-import { SaintVisionDashboard } from "@/components/SaintVisionDashboard";
+import { MinimalWorkspace } from "@/components/MinimalWorkspace";
 
 export default function Index() {
-  return (
-    <div className="min-h-screen bg-background flex">
-      <SaintVisionSidebar />
-      <SaintVisionDashboard />
-    </div>
-  );
+  return <MinimalWorkspace />;
 }
