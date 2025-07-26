@@ -267,73 +267,57 @@ export function WarRoom({ className }: WarRoomProps) {
           </div>
         </div>
 
-        {/* CRM Widget Area */}
-        <div className="p-6">
-          {/* Smaller GHL Widget Above */}
-          <div className="mb-6">
-            <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-              <Target className="w-4 h-4 text-[hsl(var(--gold))]" />
-              GHL CRM Overview
-            </h3>
-            <div className="h-32 bg-muted/10 rounded-xl border border-border/30 overflow-hidden">
-              <div className="flex items-center justify-center h-full bg-gradient-to-br from-muted/20 to-muted/10">
-                <div className="flex items-center gap-8">
-                  <div className="text-center">
-                    <div className="text-xl font-bold text-[hsl(var(--neon))]">247</div>
-                    <div className="text-xs text-muted-foreground">Active Leads</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-xl font-bold text-[hsl(var(--gold))]">$89.2k</div>
-                    <div className="text-xs text-muted-foreground">Pipeline</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-xl font-bold text-[hsl(var(--neon-green))]">94%</div>
-                    <div className="text-xs text-muted-foreground">Efficiency</div>
-                  </div>
-                </div>
+        {/* Dual Bot Search Interface */}
+        <div className="p-6 flex-1 flex flex-col">
+          {/* Search Welcome */}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="max-w-3xl text-center space-y-6">
+              <div className="w-20 h-20 mx-auto mb-6">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F6d30471940b642d1a4a6ac05668f0422?format=webp&width=200"
+                  alt="SaintSal"
+                  className="w-full h-full object-contain"
+                />
               </div>
+              <h2 className="text-3xl font-bold text-foreground">
+                <span className="text-[hsl(var(--gold))]">Dual Bot</span> Production Center
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Your <span className="text-[hsl(var(--neon))]">intelligent</span> companion is ready for
+                <span className="text-[hsl(var(--gold))]"> serious business</span>
+              </p>
             </div>
           </div>
 
-          <div className={`transition-all duration-300 ${crmMaximized ? 'h-[calc(100vh-240px)]' : 'h-[500px]'}`}>
-            <div className="w-full h-full bg-muted/10 rounded-xl border border-border/30 overflow-hidden">
-              {/* GHL CRM Iframe Placeholder */}
-              <div className="w-full h-full relative">
-                <iframe
-                  src="about:blank"
-                  className="w-full h-full border-0"
-                  title="GHL CRM Platform"
-                  style={{ backgroundColor: '#1a1a1a' }}
-                />
-                
-                {/* Overlay for demo */}
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-muted/20 to-muted/10">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-[hsl(var(--gold))]/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                      <Target className="w-8 h-8 text-[hsl(var(--gold))]" />
-                    </div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">
-                      GHL CRM Integration
-                    </h3>
-                    <p className="text-muted-foreground mb-4">
-                      Your complete business management platform
-                    </p>
-                    <div className="flex items-center justify-center gap-4">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-[hsl(var(--neon))]">247</div>
-                        <div className="text-xs text-muted-foreground">Active Leads</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-[hsl(var(--gold))]">$89.2k</div>
-                        <div className="text-xs text-muted-foreground">Pipeline Value</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-[hsl(var(--neon-green))]">94%</div>
-                        <div className="text-xs text-muted-foreground">Efficiency</div>
-                      </div>
-                    </div>
+          {/* Search Input */}
+          <div className="border-t border-border/30 p-6">
+            <div className="max-w-4xl mx-auto">
+              <div className="relative">
+                <div className="flex items-end gap-2 lg:gap-3 p-4 border-2 border-cyan-400/60 rounded-2xl bg-muted/5 focus-within:border-cyan-400 transition-all shadow-[0_0_10px_rgba(34,211,238,0.1)]">
+                  <Button variant="ghost" size="sm" className="flex-shrink-0 hidden sm:flex">
+                    <Paperclip className="w-4 h-4" />
+                  </Button>
+
+                  <textarea
+                    placeholder="Ask your dual companion anything about your business operations..."
+                    className="flex-1 bg-transparent border-0 resize-none outline-none text-foreground placeholder:text-muted-foreground min-h-[20px] max-h-32 text-sm lg:text-base"
+                    rows={1}
+                  />
+
+                  <div className="flex items-center gap-1 lg:gap-2 flex-shrink-0">
+                    <Button variant="ghost" size="sm" className="hidden sm:flex">
+                      <Mic className="w-4 h-4" />
+                    </Button>
+
+                    <Button size="sm" className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black rounded-xl">
+                      <ArrowUp className="w-4 h-4" />
+                    </Button>
                   </div>
                 </div>
+              </div>
+
+              <div className="text-xs text-center text-muted-foreground mt-3">
+                <span className="text-[hsl(var(--gold))]">Production-ready</span> dual companion with full business context
               </div>
             </div>
           </div>
