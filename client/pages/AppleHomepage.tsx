@@ -165,8 +165,12 @@ export default function AppleHomepage() {
 
           {/* Main Headline */}
           <h1 className="text-7xl md:text-8xl font-light tracking-tight mb-6 leading-none">
+            <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+              The Future of
+            </span>
+            <br />
             <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-semibold">
-              Responsible Intelligence
+              Enterprise AI
             </span>
           </h1>
 
