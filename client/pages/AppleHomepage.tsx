@@ -93,7 +93,7 @@ export default function AppleHomepage() {
     {
       name: "SBVG Institute",
       description: "Research and development excellence",
-      icon: "���",
+      icon: "🎓",
       color: "from-yellow-500 to-orange-600"
     }
   ];
@@ -269,7 +269,7 @@ export default function AppleHomepage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {eliteTech.map((tech, index) => (
-              <Card key={index} className="bg-white/5 border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all duration-500">
+              <Card key={index} className="bg-gray-800/30 border-yellow-400/20 backdrop-blur-sm group hover:bg-gray-800/50 hover:border-yellow-400/50 transition-all duration-500 shadow-lg">
                 <CardContent className="p-8">
                   <div className="flex items-center justify-between mb-6">
                     <div className="p-3 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-xl group-hover:scale-110 transition-transform duration-300">
