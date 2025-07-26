@@ -283,7 +283,7 @@ export function WarRoom({ className }: WarRoomProps) {
           <div className="flex items-center justify-between">
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-4">
-                <h1 className="text-3xl font-bold text-foreground">
+                <h1 className="text-3xl font-light text-white tracking-[0.3em] uppercase">
                   WARROOM
                 </h1>
                 <div className="text-xs bg-primary/20 text-primary px-3 py-1 rounded uppercase tracking-wider font-medium">
