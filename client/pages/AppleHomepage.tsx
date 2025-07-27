@@ -174,9 +174,17 @@ export default function AppleHomepage() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="border-yellow-400/50 text-yellow-400 hover:bg-yellow-400/10 hover:border-yellow-400 px-8 py-4 text-lg backdrop-blur-sm">
-              <Play className="w-5 h-5 mr-2" />
-              Watch Demo
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-yellow-400/50 text-yellow-400 hover:bg-yellow-400/10 hover:border-yellow-400 px-8 py-4 text-lg backdrop-blur-sm"
+              onClick={() => {
+                const whyUsSection = document.querySelector('section:nth-of-type(2)');
+                whyUsSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <ArrowRight className="w-5 h-5 mr-2" />
+              Why Us
             </Button>
           </div>
 
@@ -190,7 +198,7 @@ export default function AppleHomepage() {
       </section>
 
       {/* Why Us Section - Super Clean */}
-      <section className="relative z-10 py-32">
+      <section id="why-us" className="relative z-10 py-32">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-light mb-16 text-white">Why SaintVisionAI</h2>
 
