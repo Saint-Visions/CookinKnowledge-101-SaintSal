@@ -190,7 +190,7 @@ export default function AppleHomepage() {
       </section>
 
       {/* Why Us Section */}
-      <section className="relative z-10 py-32 bg-gray-800/50 backdrop-blur-sm">
+      <section className="relative z-10 py-32">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-light mb-6">Why SaintVisionAI</h2>
@@ -204,7 +204,7 @@ export default function AppleHomepage() {
               <Card key={index} className="backdrop-blur-sm transition-all duration-300 shadow-lg border-0">
                 <CardContent className="p-8 text-center">
                   <div className="flex justify-center mb-6">
-                    <div className="p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-2xl">
+                    <div className="p-4 rounded-2xl">
                       <point.icon className="w-8 h-8 text-white" />
                     </div>
                   </div>
@@ -217,7 +217,7 @@ export default function AppleHomepage() {
 
           <div className="text-center mt-12">
             <Link to="/why">
-              <Button variant="outline" className="border-white/30 text-white hover:bg-white/5 backdrop-blur-sm">
+              <Button variant="outline" className="border-white/30 text-white hover:text-yellow-400 backdrop-blur-sm">
                 Learn More About Our Approach
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
@@ -236,13 +236,13 @@ export default function AppleHomepage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {eliteTech.map((tech, index) => (
-              <Card key={index} className="bg-gray-700/30 backdrop-blur-sm group hover:bg-gray-700/50 transition-all duration-500 shadow-lg border-0">
+              <Card key={index} className="group transition-all duration-500 border-0">
                 <CardContent className="p-8">
                   <div className="flex items-center justify-between mb-6">
                     <div className="p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
                       <tech.icon className="w-6 h-6 text-purple-400" />
                     </div>
-                    <Badge className="bg-white/10 text-white border-0">
+                    <Badge className="text-white border-0">
                       {tech.status}
                     </Badge>
                   </div>
