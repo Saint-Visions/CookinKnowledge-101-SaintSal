@@ -301,6 +301,11 @@ router.post("/chat", async (req, res) => {
   }
 });
 
+// Simple ping test
+router.get("/ping", (req, res) => {
+  res.json({ status: "AI routes working", timestamp: new Date().toISOString() });
+});
+
 // Quick Test Endpoint
 router.get("/test", async (req, res) => {
   try {
