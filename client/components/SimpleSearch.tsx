@@ -209,6 +209,32 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
           <div className="sticky bottom-0 p-4 border-t border-sidebar-border/30 bg-sidebar-background">
 
 
+            {/* Azure Companion - No Blue */}
+            <div className="p-4 rounded-xl bg-gradient-to-br from-[hsl(var(--gold))]/10 to-[hsl(var(--gold))]/5 border border-[hsl(var(--gold))]/20 mb-4">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 flex items-center justify-center">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fdbc34a0fdf4849459b0ed2678312de82?format=webp&width=80"
+                    alt="Sv. Companion"
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-sidebar-foreground">
+                    Azure Companion
+                  </div>
+                  <div className="text-xs text-[hsl(var(--gold))] uppercase tracking-wider">
+                    ALWAYS READY
+                  </div>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Your{" "}
+                <span className="text-[hsl(var(--neon))]">intelligent</span>{" "}
+                assistant is here
+              </p>
+            </div>
+
             {/* Gold Sparkles */}
             <div className="flex justify-center">
               <div className="w-10 h-10 bg-gradient-to-br from-[hsl(var(--gold))]/20 to-[hsl(var(--gold))]/10 rounded-xl flex items-center justify-center">
