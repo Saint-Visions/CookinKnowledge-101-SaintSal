@@ -313,7 +313,7 @@ export function Splash({ className }: SplashProps) {
                   <ArrowRight className="w-6 h-6 ml-4" />
                 </Button>
               </Link>
-              <Link to="/why">
+              <Link to="/about">
                 <Button
                   variant="outline"
                   size="lg"
@@ -328,12 +328,12 @@ export function Splash({ className }: SplashProps) {
             {/* Quick Access Menu */}
             <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mb-16">
               <Link
-                to="/tools"
+                to="/pricing"
                 className="group p-4 rounded-xl bg-black/40 backdrop-blur-sm border border-border/30 hover:border-purple-400/50 transition-all duration-300 hover:scale-105"
               >
                 <Zap className="w-8 h-8 text-purple-400 mx-auto mb-2 group-hover:scale-110 transition-transform" />
                 <div className="text-sm font-medium text-foreground">
-                  AI Tools
+                  Pricing
                 </div>
               </Link>
               <Link
@@ -346,32 +346,32 @@ export function Splash({ className }: SplashProps) {
                 </div>
               </Link>
               <Link
-                to="/broker"
+                to="/auth"
                 className="group p-4 rounded-xl bg-black/40 backdrop-blur-sm border border-border/30 hover:border-[hsl(var(--gold))]/50 transition-all duration-300 hover:scale-105"
               >
                 <Building2 className="w-8 h-8 text-[hsl(var(--gold))] mx-auto mb-2 group-hover:scale-110 transition-transform" />
                 <div className="text-sm font-medium text-foreground">
-                  Brokerage
+                  Sign In
                 </div>
               </Link>
               <Link
-                to="/institute"
+                to="/about"
                 className="group p-4 rounded-xl bg-black/40 backdrop-blur-sm border border-border/30 hover:border-cyan-400/50 transition-all duration-300 hover:scale-105"
               >
                 <Brain className="w-8 h-8 text-cyan-400 mx-auto mb-2 group-hover:scale-110 transition-transform" />
                 <div className="text-sm font-medium text-foreground">
-                  Institute
+                  About
                 </div>
               </Link>
               <Link
-                to="/legal"
+                to="/contact"
                 className="group p-4 rounded-xl bg-black/40 backdrop-blur-sm border border-border/30 hover:border-green-400/50 transition-all duration-300 hover:scale-105"
               >
                 <Shield className="w-8 h-8 text-green-400 mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                <div className="text-sm font-medium text-foreground">Legal</div>
+                <div className="text-sm font-medium text-foreground">Contact</div>
               </Link>
               <Link
-                to="/help"
+                to="/pricing"
                 className="group p-4 rounded-xl bg-black/40 backdrop-blur-sm border border-border/30 hover:border-orange-400/50 transition-all duration-300 hover:scale-105"
               >
                 <Users className="w-8 h-8 text-orange-400 mx-auto mb-2 group-hover:scale-110 transition-transform" />
