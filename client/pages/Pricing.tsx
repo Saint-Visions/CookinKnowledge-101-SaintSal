@@ -26,6 +26,7 @@ import GlobalHeader from "../components/GlobalHeader";
 import GlobalFooter from "../components/GlobalFooter";
 import { useAuth } from "../hooks/useAuth";
 import { loadStripe } from '@stripe/stripe-js';
+import VoiceInterface from "../components/VoiceInterface";
 
 export default function Pricing() {
   const [isYearly, setIsYearly] = useState(false);
