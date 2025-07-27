@@ -204,7 +204,7 @@ export function Tools({ className }: ToolsProps) {
         navigate('/dashboard'); // Working business dashboard
         break;
       case 'PartnerTech.ai CRM':
-        navigate('/partnertech'); // Working CRM page (corrected route)
+        navigate('/crm'); // Working CRM page
         break;
       case 'Smart Scheduler':
         navigate('/warroom'); // Use WarRoom for scheduling workflows
