@@ -75,10 +75,9 @@ export default function Pricing() {
       color: "blue",
       popular: false,
       action: () => {
-        console.log('🔥 UNLIMITED BUTTON CLICKED - REDIRECTING TO STRIPE');
-        // Create checkout session with proper return URLs
-        const checkoutUrl = `https://buy.stripe.com/4gw8AdeNM4dC9wQ4gi?success_url=${encodeURIComponent(window.location.origin + '/?upgraded=unlimited&signin=true')}&cancel_url=${encodeURIComponent(window.location.origin + '/pricing')}`;
-        window.location.href = checkoutUrl;
+        alert('🚀 UNLIMITED BUTTON WORKS! This will redirect to Stripe checkout for $27/month');
+        console.log('✅ UNLIMITED BUTTON CLICKED AND WORKING!');
+        // For now, show working alert - will replace with Stripe once confirmed working
       }
     },
     {
