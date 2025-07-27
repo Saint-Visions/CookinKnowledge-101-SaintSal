@@ -212,7 +212,7 @@ export function WarRoom({ className }: WarRoomProps) {
       label: "My Business",
       active: false,
       color: "text-green-400",
-      onClick: () => navigate("/search"),
+      onClick: () => navigate("/dashboard"),
     },
     {
       icon: FileText,
@@ -226,14 +226,14 @@ export function WarRoom({ className }: WarRoomProps) {
       label: "AI Tools",
       active: false,
       color: "text-purple-400",
-      onClick: () => navigate("/search"),
+      onClick: () => navigate("/tools"),
     },
     {
       icon: ImageIcon,
       label: "Image Generator",
       active: false,
       color: "text-pink-400",
-      onClick: () => navigate("/search"),
+      onClick: () => navigate("/tools"),
     },
     {
       icon: Rocket,
