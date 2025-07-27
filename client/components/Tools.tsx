@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { handleSafeToolClick, toolHealthCheck } from "@/utils/ToolValidation";
+import { SystemHealth } from "@/components/SystemHealth";
 import {
   Home,
   Search,
