@@ -273,6 +273,15 @@ export function Tools({ className }: ToolsProps) {
 
           {/* Right: Account */}
           <div className="flex items-center gap-3">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => navigate('/warroom')}
+              className="border-[hsl(var(--gold))]/30 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
+            >
+              <Home className="w-4 h-4 mr-2" />
+              Back to WarRoom
+            </Button>
             <Button variant="outline" size="sm">
               <Crown className="w-4 h-4 mr-2 text-[hsl(var(--gold))]" />
               Upgrade
