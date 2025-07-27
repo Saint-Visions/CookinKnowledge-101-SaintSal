@@ -105,7 +105,8 @@ export default function Pricing() {
       highlight: "Most businesses choose this plan",
       action: () => {
         console.log('🔥 CORE TOOLS BUTTON CLICKED - REDIRECTING TO STRIPE');
-        window.location.href = 'https://buy.stripe.com/6oE6sc6aebZ49wQ4gh';
+        const checkoutUrl = `https://buy.stripe.com/6oE6sc6aebZ49wQ4gh?success_url=${encodeURIComponent(window.location.origin + '/?upgraded=core&signin=true')}&cancel_url=${encodeURIComponent(window.location.origin + '/pricing')}`;
+        window.location.href = checkoutUrl;
       }
     },
     {
@@ -211,7 +212,7 @@ export default function Pricing() {
     period: "/month",
     description: "🔥 Enterprise route monitoring & optimization that's generated $8,947+ for existing clients",
     features: [
-      "🎯 Add to any existing plan tier",
+      "�� Add to any existing plan tier",
       "Real-time website monitoring & alerts",
       "SaintSal AI route analysis & optimization",
       "Advanced performance insights & reporting",
