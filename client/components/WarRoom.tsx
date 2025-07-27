@@ -88,6 +88,15 @@ export function WarRoom({ className }: WarRoomProps) {
   const [companionLoading, setCompanionLoading] = useState(false);
 
   // Single function to handle companion messages
+  // Show loading while checking auth
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-[hsl(var(--gold))]/20 border-t-[hsl(var(--gold))] rounded-full animate-spin" />
+      </div>
+    );
+  }
+
   const sendCompanionMessage = async (message: string) => {
     if (!message.trim() || companionLoading) return;
 
