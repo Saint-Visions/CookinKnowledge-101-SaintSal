@@ -675,9 +675,9 @@ export function WarRoom({ className }: WarRoomProps) {
       >
         <div className="w-full max-w-2xl mx-auto">
           {/* Compact Search Bar */}
-          <div className="flex items-center gap-2 p-3 border-2 border-cyan-400 rounded-lg bg-muted/5 focus-within:border-blue-400 focus-within:shadow-[0_0_20px_rgba(34,211,238,0.3)] transition-all">
+          <div className="flex items-center gap-2 p-3 border-2 border-[hsl(var(--neon))] rounded-lg bg-muted/5 focus-within:border-[hsl(var(--gold))] focus-within:shadow-[0_0_20px_rgba(255,215,0,0.3)] transition-all">
             <Button variant="ghost" size="sm" className="flex-shrink-0">
-              <Paperclip className="w-4 h-4 text-cyan-400" />
+              <Paperclip className="w-4 h-4 text-[hsl(var(--neon))]" />
             </Button>
 
             <textarea
