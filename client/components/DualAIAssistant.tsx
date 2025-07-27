@@ -44,17 +44,24 @@ export function DualAIAssistant({
   isOpen,
   onClose,
   userContext,
+  isFirstTimeUser = false,
 }: DualAIAssistantProps) {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: "assistant",
-      content:
-        "Welcome to the SaintVision AI Dual Assistant! I'm Supersal™, powered by both OpenAI and Azure. Ask me anything about our platform, get help, or let me assist with your business needs.",
+  const { user, userTier } = useAuth();
+
+  // 🧠 PLAN-BASED SUPERSAL ONBOARDING
+  const getInitialMessage = () => {
+    const onboardingMessage = getSupersalOnboardingMessage(userTier, isFirstTimeUser);
+    return {
+      role: "assistant" as const,
+      content: onboardingMessage.content,
       timestamp: new Date(),
-      provider: "azure",
-      mode: "client",
-    },
-  ]);
+      provider: "azure" as const,
+      mode: "companion" as const,
+      actions: onboardingMessage.actions
+    };
+  };
+
+  const [messages, setMessages] = useState<Message[]>([getInitialMessage()]);
 
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
