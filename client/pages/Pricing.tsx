@@ -159,7 +159,7 @@ export default function Pricing() {
       action: () => {
         alert('👑 WHITE LABEL BUTTON WORKS! This will redirect to Stripe checkout for $497/month');
         console.log('✅ WHITE LABEL BUTTON CLICKED AND WORKING!');
-        // For now, show working alert - will replace with Stripe once confirmed working
+        setLoading(null); // Clear loading state
       }
     },
     {
