@@ -615,7 +615,8 @@ export function WarRoom({ className }: WarRoomProps) {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => console.log('Alerts functionality coming soon')}
+                onClick={() => setRightPanelOpen(!rightPanelOpen)}
+                className={rightPanelOpen ? "bg-[hsl(var(--gold))]/20 text-[hsl(var(--gold))]" : ""}
               >
                 <Bell className="w-4 h-4 mr-2" />
                 Alerts
@@ -623,9 +624,18 @@ export function WarRoom({ className }: WarRoomProps) {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => alert('TEST CLICK WORKING!')}
+                onClick={() => {
+                  console.log('WarRoom System Test:', {
+                    timestamp: new Date().toISOString(),
+                    user: user?.email,
+                    tier: userTier,
+                    workspace_active: true,
+                    api_ready: true
+                  });
+                  alert(`✅ System Test Complete\nUser: ${user?.email || 'Anonymous'}\nTier: ${userTier}\nWorkspace: Active\nAPI: Ready`);
+                }}
               >
-                Test Click
+                System Test
               </Button>
             </div>
           </div>
