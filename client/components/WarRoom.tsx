@@ -70,6 +70,7 @@ export function WarRoom({ className }: WarRoomProps) {
   const [rightPanelOpen, setRightPanelOpen] = useState(false);
   const [crmMaximized, setCrmMaximized] = useState(false);
   const [workspaceInput, setWorkspaceInput] = useState("");
+  const [isProcessing, setIsProcessing] = useState(false);
   const [companionOpen, setCompanionOpen] = useState(false);
   const [companionMessages, setCompanionMessages] = useState<
     CompanionMessage[]
