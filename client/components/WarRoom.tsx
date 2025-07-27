@@ -69,6 +69,7 @@ export function WarRoom({ className }: WarRoomProps) {
   const navigate = useNavigate();
   const [leftPanelOpen, setLeftPanelOpen] = useState(false);
   const [rightPanelOpen, setRightPanelOpen] = useState(false);
+  const { user, loading: authLoading, signOut } = useAuth();
   const [crmMaximized, setCrmMaximized] = useState(false);
   const [workspaceInput, setWorkspaceInput] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
