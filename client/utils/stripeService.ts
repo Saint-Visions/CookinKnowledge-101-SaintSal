@@ -65,6 +65,22 @@ export async function createCheckoutSession(tier: string, userEmail?: string, us
 
 export async function handleUpgrade(tier: string, userEmail?: string) {
   try {
+    // Get user data from Supabase if available
+    let userId, supabaseId;
+
+    // Import supabase client to get current user
+    const { createClient } = await import('@supabase/supabase-js');
+    const supabase = createClient(
+      import.meta.env.VITE_SUPABASE_URL || '',
+      import.meta.env.VITE_SUPABASE_ANON_KEY || ''
+    );
+
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      supabaseId = user.id;
+      userEmail = userEmail || user.email;
+    }
+
     // Show loading state
     const loadingDiv = document.createElement('div');
     loadingDiv.innerHTML = `
@@ -77,15 +93,15 @@ export async function handleUpgrade(tier: string, userEmail?: string) {
     `;
     document.body.appendChild(loadingDiv);
 
-    await createCheckoutSession(tier, userEmail);
-    
+    await createCheckoutSession(tier, userEmail, userId, supabaseId);
+
   } catch (error) {
     // Remove loading state
     const loadingDiv = document.querySelector('[style*="position: fixed"]');
     if (loadingDiv) {
       loadingDiv.remove();
     }
-    
+
     // Show error
     alert(`Payment Error: ${error instanceof Error ? error.message : 'Unknown error occurred'}`);
   }
