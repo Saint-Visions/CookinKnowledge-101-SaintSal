@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
-import { ROUTE_MAP } from "./RouteMapper";
+// Removed unused import
 import {
   ChevronLeft,
   ChevronRight,
