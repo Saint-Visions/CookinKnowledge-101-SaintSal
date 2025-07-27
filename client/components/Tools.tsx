@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   Home,
@@ -44,8 +44,8 @@ const toolCategories = [
         icon: Brain,
         name: "SaintSalGPT 4.1",
         description: "Advanced AI companion for business operations",
-        color: "from-blue-400 to-cyan-400",
-        iconColor: "text-blue-400"
+        color: "from-[hsl(var(--gold))] to-yellow-400",
+        iconColor: "text-[hsl(var(--gold))]"
       },
       {
         icon: FileText,
@@ -98,8 +98,8 @@ const toolCategories = [
         icon: Layout,
         name: "Design Studio",
         description: "Professional design templates and tools",
-        color: "from-cyan-400 to-blue-400",
-        iconColor: "text-cyan-400"
+        color: "from-gray-400 to-slate-400",
+        iconColor: "text-gray-400"
       }
     ]
   },
@@ -124,8 +124,8 @@ const toolCategories = [
         icon: Calendar,
         name: "Smart Scheduler",
         description: "AI-powered meeting and task scheduling",
-        color: "from-blue-400 to-indigo-400",
-        iconColor: "text-blue-400"
+        color: "from-[hsl(var(--gold))] to-yellow-400",
+        iconColor: "text-[hsl(var(--gold))]"
       },
       {
         icon: Mail,
@@ -172,6 +172,63 @@ const toolCategories = [
 ];
 
 export function Tools({ className }: ToolsProps) {
+  const navigate = useNavigate();
+
+  const handleToolClick = (toolName: string) => {
+    switch (toolName) {
+      case 'SaintSalGPT 4.1':
+        navigate('/search');
+        break;
+      case 'Sticky Notes AI':
+        navigate('/warroom');
+        break;
+      case 'AI Tools Suite':
+        navigate('/warroom');
+        break;
+      case 'Data Analytics':
+        navigate('/dashboard');
+        break;
+      case 'Image Generator':
+        alert('Image Generator launching soon! Join our Discord for updates.');
+        break;
+      case 'SVG Launchpad':
+        alert('SVG Launchpad coming soon! Stay tuned for updates.');
+        break;
+      case 'Video Studio':
+        alert('Video Studio in development! Contact support for early access.');
+        break;
+      case 'Design Studio':
+        alert('Design Studio launching soon! Check back for updates.');
+        break;
+      case 'My Business':
+        navigate('/dashboard');
+        break;
+      case 'PartnerTech.ai CRM':
+        navigate('/crm');
+        break;
+      case 'Smart Scheduler':
+        alert('Smart Scheduler coming soon! Join waitlist for early access.');
+        break;
+      case 'Email Assistant':
+        alert('Email Assistant in development! Contact us for enterprise access.');
+        break;
+      case 'SVT Institute of AI':
+        navigate('/institute');
+        break;
+      case 'Code Academy':
+        alert('Code Academy launching Q2 2025! Join our community for updates.');
+        break;
+      case 'Skill Tracker':
+        alert('Skill Tracker coming soon! Follow us for development updates.');
+        break;
+      case 'Progress Analytics':
+        navigate('/dashboard');
+        break;
+      default:
+        alert('Tool launching soon! Contact support for more information.');
+    }
+  };
+
   return (
     <div className={`min-h-screen ${className}`} style={{ backgroundColor: '#000000' }}>
       {/* Header */}
@@ -220,7 +277,7 @@ export function Tools({ className }: ToolsProps) {
               <Crown className="w-4 h-4 mr-2 text-[hsl(var(--gold))]" />
               Upgrade
             </Button>
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(var(--gold))] to-yellow-400 flex items-center justify-center">
               <span className="text-xs font-bold text-black">SV</span>
             </div>
           </div>
@@ -239,12 +296,12 @@ export function Tools({ className }: ToolsProps) {
             Everything you need to succeed in the digital age.
           </p>
           <div className="flex items-center justify-center gap-4">
-            <div className="flex items-center gap-2 text-sm text-cyan-400">
-              <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+            <div className="flex items-center gap-2 text-sm text-[hsl(var(--neon))]">
+              <div className="w-2 h-2 bg-[hsl(var(--neon))] rounded-full animate-pulse"></div>
               25+ AI Tools Available
             </div>
             <div className="text-muted-foreground">•</div>
-            <div className="flex items-center gap-2 text-sm text-blue-400">
+            <div className="flex items-center gap-2 text-sm text-white">
               <Zap className="w-4 h-4" />
               Powered by Azure & SaintSalGPT
             </div>
@@ -272,6 +329,7 @@ export function Tools({ className }: ToolsProps) {
                     <div
                       key={toolIndex}
                       className="group relative p-6 rounded-2xl bg-muted/5 border border-border/30 hover:border-border/60 transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-2xl"
+                      onClick={() => handleToolClick(tool.name)}
                     >
                       {/* Background Gradient */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${tool.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}></div>
@@ -294,7 +352,15 @@ export function Tools({ className }: ToolsProps) {
                         
                         {/* Launch Button */}
                         <div className="flex items-center justify-between">
-                          <Button variant="ghost" size="sm" className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-[hsl(var(--gold))]/10 hover:text-[hsl(var(--gold))]"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleToolClick(tool.name);
+                            }}
+                          >
                             Launch Tool
                             <ArrowRight className="w-3 h-3 ml-1" />
                           </Button>
@@ -320,11 +386,19 @@ export function Tools({ className }: ToolsProps) {
             Join thousands of professionals who are already using SaintVisionAI tools to boost their productivity and creativity.
           </p>
           <div className="flex items-center justify-center gap-4">
-            <Button size="lg" className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-semibold">
+            <Button
+              size="lg"
+              className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-semibold"
+              onClick={() => navigate('/warroom')}
+            >
               <Crown className="w-5 h-5 mr-2" />
               Get Started
             </Button>
-            <Button variant="outline" size="lg">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => navigate('/contact')}
+            >
               <MessageSquare className="w-5 h-5 mr-2" />
               Contact Sales
             </Button>
@@ -339,9 +413,9 @@ export function Tools({ className }: ToolsProps) {
           <span className="text-[hsl(var(--gold))] font-medium mx-2">SAINTSAL GOTTA GUY</span>
           <Sparkles className="w-4 h-4 text-[hsl(var(--gold))]" />
           <span className="mx-3">•</span>
-          <span className="text-cyan-400">Azure Cognitive Services</span>
+          <span className="text-white">Azure Cognitive Services</span>
           <span className="mx-3">•</span>
-          <span className="text-blue-400">SaintSalGPT 4.1 SaintVisionAI</span>
+          <span className="text-[hsl(var(--gold))]">SaintSalGPT 4.1 SaintVisionAI</span>
         </div>
       </div>
     </div>
