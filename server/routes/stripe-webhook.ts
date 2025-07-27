@@ -200,6 +200,11 @@ async function unlockFeatures(supabaseId: string, tier: string) {
   const features = featureSets[tier as keyof typeof featureSets] || {};
 
   try {
+    if (!supabaseAdmin) {
+      console.log("⚠️ Supabase admin not configured - skipping feature unlock in development");
+      return;
+    }
+
     // Store features in Supabase user_features table or metadata
     const { error } = await supabaseAdmin
       .from('user_features')
