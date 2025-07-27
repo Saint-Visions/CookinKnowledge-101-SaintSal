@@ -206,7 +206,7 @@ export function Auth({ className }: AuthProps) {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-4 py-3 bg-black/40 border border-border/30 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cyan-400/50 focus:shadow-[0_0_10px_rgba(34,211,238,0.2)] transition-all"
+                    className="w-full pl-10 pr-4 py-3 bg-black/40 border border-border/30 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-[hsl(var(--gold))]/50 focus:shadow-[0_0_10px_rgba(255,215,0,0.2)] transition-all"
                     placeholder="Enter your email"
                     required
                   />
@@ -224,7 +224,7 @@ export function Auth({ className }: AuthProps) {
                     name="password"
                     value={formData.password}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-12 py-3 bg-black/40 border border-border/30 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-blue-400/50 focus:shadow-[0_0_10px_rgba(59,130,246,0.2)] transition-all"
+                    className="w-full pl-10 pr-12 py-3 bg-black/40 border border-border/30 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-[hsl(var(--gold))]/50 focus:shadow-[0_0_10px_rgba(255,215,0,0.2)] transition-all"
                     placeholder="Enter your password"
                     required
                   />
@@ -250,7 +250,7 @@ export function Auth({ className }: AuthProps) {
                   </label>
                   <Link
                     to="#"
-                    className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                    className="text-[hsl(var(--gold))] hover:text-yellow-300 transition-colors"
                   >
                     Forgot password?
                   </Link>
@@ -293,7 +293,7 @@ export function Auth({ className }: AuthProps) {
               <Button
                 variant="outline"
                 onClick={() => setIsSignUp(!isSignUp)}
-                className="w-full border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 hover:border-cyan-400 transition-all"
+                className="w-full border-[hsl(var(--gold))]/50 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10 hover:border-[hsl(var(--gold))] transition-all"
               >
                 {isSignUp ? "Sign In Instead" : "Create Account"}
               </Button>
