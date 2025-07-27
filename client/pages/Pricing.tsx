@@ -157,9 +157,24 @@ export default function Pricing() {
       buttonText: "Go Pro",
       color: "purple",
       popular: false,
-      action: () => {
+      action: async () => {
         console.log('🔥 PRO SUITE BUTTON CLICKED');
-        window.open('https://buy.stripe.com/test_bIY28f5L3eCe148eUV', '_blank');
+        const { loadStripe } = await import('@stripe/stripe-js');
+        const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
+
+        if (stripe) {
+          const { error } = await stripe.redirectToCheckout({
+            lineItems: [{ price: 'price_1RINQ3FZsXxBWnjQQAJ8mxzg', quantity: 1 }],
+            mode: 'subscription',
+            successUrl: `${window.location.origin}/checkout-success?tier=pro`,
+            cancelUrl: `${window.location.origin}/pricing?cancelled=true`,
+          });
+
+          if (error) {
+            console.error('Stripe error:', error);
+            alert('Payment system error. Please try again.');
+          }
+        }
       }
     },
     {
