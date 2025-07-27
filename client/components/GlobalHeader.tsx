@@ -58,11 +58,12 @@ export default function GlobalHeader() {
           </div>
 
           <div className="flex items-center gap-4">
-            <Button className="bg-blue-500 hover:bg-blue-600 text-white border-0">
+            <Button className="bg-transparent text-blue-400 hover:text-blue-300 hover:bg-blue-400/10 border-0 font-medium transition-all">
               Sign In
             </Button>
-            <Button className="bg-white text-black hover:bg-white/90 font-semibold">
-              Get Started
+            <Button className="bg-transparent text-purple-400 hover:text-purple-300 border-0 font-semibold relative overflow-hidden group transition-all">
+              <span className="relative z-10">Get Started</span>
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-green-400 to-green-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             </Button>
           </div>
         </div>
