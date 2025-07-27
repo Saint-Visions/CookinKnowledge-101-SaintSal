@@ -249,12 +249,19 @@ export const TOOL_REGISTRY: Record<string, ToolDefinition> = {
   'skill-tracker': {
     id: 'skill-tracker',
     name: 'Skill Tracker',
-    route: 'placeholder',
-    component: 'Alert',
+    route: '/dashboard',
+    component: 'GeneralDashboard',
     category: 'Learning & Development',
-    status: 'placeholder',
-    dependencies: [],
-    validation: async () => true // Placeholder always works
+    status: 'active',
+    dependencies: ['dashboard-analytics', 'skill-tracking'],
+    validation: async () => {
+      try {
+        const response = await fetch('/dashboard');
+        return response.ok;
+      } catch {
+        return false;
+      }
+    }
   }
 };
 
