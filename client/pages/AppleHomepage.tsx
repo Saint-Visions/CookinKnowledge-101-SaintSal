@@ -203,7 +203,7 @@ export default function AppleHomepage() {
                 <CardContent className="p-8 text-center">
                   <div className="flex justify-center mb-6">
                     <div className="p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-2xl">
-                      <point.icon className="w-8 h-8 text-cyan-400" />
+                      <point.icon className="w-8 h-8 text-white" />
                     </div>
                   </div>
                   <h3 className="text-xl font-semibold mb-4 text-white">{point.title}</h3>
