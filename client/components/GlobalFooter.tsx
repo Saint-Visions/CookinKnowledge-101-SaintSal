@@ -36,7 +36,7 @@ export default function GlobalFooter() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
           {/* Brand Section */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-4">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fa84bf594ade74dd483b9e0584a784499?format=webp&width=800"
                 alt="SaintVision Logo"
@@ -46,7 +46,7 @@ export default function GlobalFooter() {
                 SaintVisionAI™
               </span>
             </div>
-            <p className="text-white/60 text-sm leading-relaxed mb-4">
+            <p className="text-white/60 text-sm leading-relaxed mb-3">
               The future of enterprise AI collaboration. Patent-protected technology, faith-aligned values.
             </p>
             <div className="text-xs text-white/40">
