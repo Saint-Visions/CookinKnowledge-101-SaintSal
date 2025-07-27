@@ -129,32 +129,9 @@ export default function Pricing() {
       buttonText: "Go Pro",
       color: "purple",
       popular: false,
-      action: async () => {
-        console.log('⚡ PRO SUITE BUTTON CLICKED - LOADING STRIPE');
-        try {
-          const { loadStripe } = await import('@stripe/stripe-js');
-          const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
-
-          if (stripe) {
-            console.log('✅ STRIPE LOADED - REDIRECTING TO CHECKOUT');
-            const { error } = await stripe.redirectToCheckout({
-              lineItems: [{ price: 'price_1RINQ3FZsXxBWnjQQAJ8mxzg', quantity: 1 }],
-              mode: 'subscription',
-              successUrl: window.location.origin + '/?upgraded=pro',
-              cancelUrl: window.location.origin + '/pricing',
-            });
-
-            if (error) {
-              console.error('Stripe error:', error);
-              alert('Payment error: ' + error.message);
-            }
-          } else {
-            alert('Unable to load payment system. Please try again.');
-          }
-        } catch (error) {
-          console.error('Failed to load Stripe:', error);
-          alert('Payment system unavailable. Please contact support.');
-        }
+      action: () => {
+        console.log('⚡ PRO SUITE BUTTON CLICKED - REDIRECTING TO EMAIL');
+        window.location.href = 'mailto:ryan@saintvision.ai?subject=Pro Suite Plan ($297/month)&body=I want to subscribe to the Pro Suite plan for $297/month. Please send me the payment link now!';
         setLoading(null);
       }
     },
