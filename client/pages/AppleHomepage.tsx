@@ -101,7 +101,7 @@ export default function AppleHomepage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-800 text-white overflow-hidden">
+    <div className="min-h-screen bg-black text-white overflow-hidden">
       {/* Parallax Background */}
       <div
         className="fixed inset-0 z-0"
