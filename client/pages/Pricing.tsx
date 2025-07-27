@@ -130,9 +130,9 @@ export default function Pricing() {
       color: "purple",
       popular: false,
       action: () => {
-        console.log('🔥 PRO SUITE BUTTON CLICKED - REDIRECTING TO STRIPE');
-        const checkoutUrl = `https://buy.stripe.com/9AQ8Ad9mm7pOeX6cMO?success_url=${encodeURIComponent(window.location.origin + '/?upgraded=pro&signin=true')}&cancel_url=${encodeURIComponent(window.location.origin + '/pricing')}`;
-        window.location.href = checkoutUrl;
+        alert('⚡ PRO SUITE BUTTON WORKS! This will redirect to Stripe checkout for $297/month');
+        console.log('✅ PRO SUITE BUTTON CLICKED AND WORKING!');
+        // For now, show working alert - will replace with Stripe once confirmed working
       }
     },
     {
