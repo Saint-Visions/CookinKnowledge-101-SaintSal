@@ -108,7 +108,7 @@ export default function AppleHomepage() {
         style={{
           backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F446d6f0fa2c34f478f99f49fc6ba7f85?format=webp&width=800')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center bottom',
           backgroundAttachment: 'fixed',
           transform: `translateY(${scrollY * 0.5}px)`,
           filter: 'brightness(0.6)'
