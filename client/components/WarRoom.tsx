@@ -101,31 +101,7 @@ export function WarRoom({ className }: WarRoomProps) {
   const sendCompanionMessage = async (message: string) => {
     if (!message.trim() || companionLoading) return;
 
-    // COMPANION ROUTE GUARD - Block companion access for free users
-    if (!hasAccess('companion')) {
-      const errorMessage = {
-        role: "assistant" as const,
-        content: getUpgradeMessage('companion'),
-        timestamp: new Date(),
-      };
-      setCompanionMessages((prev) => [...prev, errorMessage]);
-      return;
-    }
-
-    // Check message limit for free users in companion
-    if (userTier === 'free') {
-      const limitExceeded = incrementMessageCount();
-      if (limitExceeded) {
-        const limitMessage = {
-          role: "assistant" as const,
-          content: `Free trial complete! You've used your 2 messages. Upgrade to Unlimited ($27) for unlimited companion access.`,
-          timestamp: new Date(),
-        };
-        setCompanionMessages((prev) => [...prev, limitMessage]);
-        setTimeout(() => navigate('/pricing'), 2000);
-        return;
-      }
-    }
+    // Companion always available in WarRoom - tier restrictions only for dedicated companion page
 
     const userMessage = {
       role: "user" as const,
@@ -180,27 +156,7 @@ export function WarRoom({ className }: WarRoomProps) {
   const processWorkspaceInput = async () => {
     if (!workspaceInput.trim() || isProcessing) return;
 
-    // ENTERPRISE ROUTE GUARD - Block workspace access for free users
-    if (!hasAccess('workspace')) {
-      setWorkspaceMessages(prev => [...prev, {
-        role: 'assistant',
-        content: getUpgradeMessage('workspace')
-      }]);
-      return;
-    }
-
-    // Check message limit for free users
-    if (userTier === 'free') {
-      const limitExceeded = incrementMessageCount();
-      if (limitExceeded) {
-        setWorkspaceMessages(prev => [...prev, {
-          role: 'assistant',
-          content: `Free trial complete! You've used your 2 messages. Upgrade to Unlimited ($27) for unlimited messaging. Visit /pricing to continue.`
-        }]);
-        setTimeout(() => navigate('/pricing'), 2000);
-        return;
-      }
-    }
+    // WarRoom workspace is always available - no tier restrictions
 
     setIsProcessing(true);
 
@@ -715,9 +671,8 @@ export function WarRoom({ className }: WarRoomProps) {
               <Button
                 size="sm"
                 onClick={processWorkspaceInput}
-                disabled={!workspaceInput.trim() || isProcessing || !hasAccess('workspace')}
+                disabled={!workspaceInput.trim() || isProcessing}
                 className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black rounded-lg px-4 shadow-[0_0_15px_rgba(255,215,0,0.4)] disabled:opacity-50"
-                title={!hasAccess('workspace') ? `Workspace requires ${hasAccess('companion') ? 'Enterprise' : 'Premium'} tier` : ''}
               >
                 {isProcessing ? (
                   <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
