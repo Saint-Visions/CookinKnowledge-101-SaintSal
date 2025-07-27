@@ -147,6 +147,8 @@ You have comprehensive knowledge about SaintVision AI products, pricing, feature
       }),
     });
 
+    console.log("OpenAI API response status:", response.status);
+
     if (!response.ok) {
       const errorText = await response.text();
       console.error("OpenAI API error:", response.status, errorText);
