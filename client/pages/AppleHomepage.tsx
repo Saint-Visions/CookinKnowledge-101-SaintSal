@@ -89,7 +89,7 @@ export default function AppleHomepage() {
     {
       name: "SVTLegal.ai",
       description: "Legal technology and compliance automation", 
-      icon: "��️",
+      icon: "⚖️",
       color: "from-red-500 to-rose-600"
     },
     {
@@ -158,7 +158,7 @@ export default function AppleHomepage() {
           {/* Trusted Tech Stack */}
           <div className="flex justify-center items-center gap-8 mb-12 text-sm">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
               <span className="text-white/60">Azure Cognitive Services</span>
             </div>
             <div className="w-px h-4 bg-white/20"></div>
