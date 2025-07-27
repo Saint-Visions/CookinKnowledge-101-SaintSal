@@ -256,7 +256,7 @@ export function WarRoom({ className }: WarRoomProps) {
   return (
     <div
       className={`min-h-screen relative ${className}`}
-      style={{ backgroundColor: "#000000" }}
+      style={{ backgroundColor: "#1a1a1a" }}
     >
       {/* Left Sidebar */}
       <div
