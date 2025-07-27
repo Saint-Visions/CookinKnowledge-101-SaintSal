@@ -32,35 +32,51 @@ export default function Pricing() {
   const [loading, setLoading] = useState<string | null>(null);
   const { user } = useAuth();
 
-  // 🔥 SIMPLIFIED STRIPE REDIRECT - NO ALERTS, JUST REDIRECT
-  const handleTierUpgrade = (tier: string) => {
+  // 🔥 SIMPLE STRIPE CHECKOUT - NO COMPLEX ERROR HANDLING
+  const handleTierUpgrade = async (tier: string) => {
     if (loading) return;
 
-    console.log(`🚀 STRIPE REDIRECT FOR: ${tier}`);
+    console.log(`🚀 STRIPE CHECKOUT FOR: ${tier}`);
     setLoading(tier);
 
-    // Direct URLs to Stripe Checkout - NO TRY/CATCH TO AVOID ALERTS
+    // Handle custom tier
+    if (tier === 'custom') {
+      window.location.href = 'mailto:enterprise@saintvision.ai?subject=Custom Enterprise Plan $1500/month';
+      setLoading(null);
+      return;
+    }
+
+    // Price IDs
     const priceIds = {
       unlimited: 'price_1RINIMFZsXxBWnjQEYxlyUIy', // $27
       core: 'price_1RLChzFZsXxBWnj0VcveVdDf',     // $97
       pro: 'price_1IRNqvFZsXxBWnj0RlB9d1cP',      // $297
       fullPro: 'price_1IRg90FZsXxBWnj0H3PHnVc6',  // $497
-      custom: 'price_1Rh5yFZsXxBWnj0w6p9KY0j',   // $1500
     };
 
     const priceId = priceIds[tier as keyof typeof priceIds];
 
-    if (tier === 'custom') {
-      window.location.href = 'mailto:enterprise@saintvision.ai?subject=Custom Enterprise Plan $1500/month';
+    if (!priceId) {
+      console.error('No price ID for tier:', tier);
+      setLoading(null);
       return;
     }
 
-    if (priceId) {
-      // Direct Stripe Checkout URL
-      const checkoutUrl = `https://checkout.stripe.com/c/pay/cs_test_${priceId}#fidkdWxOYHwnPyd1blpxYHZxWjA0TGlnZTVnf2FvP05fQmZmYEdudVF%2Fd11VNz1mTFR2fHJJP3FSUjFcYjBGMlJQNlFJfXRcYnZuXWs1YHxtZmRyY2JqRnBpcUN0STF1QkZGRG9VfFdGQzZLPWhFSicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl`;
-      console.log('💳 REDIRECTING TO STRIPE CHECKOUT');
-      window.location.href = checkoutUrl;
+    // Load Stripe and redirect
+    const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
+
+    if (stripe) {
+      console.log('💳 REDIRECTING TO STRIPE FOR:', tier, priceId);
+      stripe.redirectToCheckout({
+        lineItems: [{ price: priceId, quantity: 1 }],
+        mode: 'subscription',
+        successUrl: `${window.location.origin}/dashboard?upgrade=success&tier=${tier}`,
+        cancelUrl: `${window.location.origin}/pricing?upgrade=cancelled`,
+        customerEmail: user?.email,
+      });
     }
+
+    setLoading(null);
   };
 
   const plans = [
