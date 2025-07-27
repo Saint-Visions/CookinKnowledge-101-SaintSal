@@ -205,14 +205,14 @@ export const TOOL_REGISTRY: Record<string, ToolDefinition> = {
   'code-academy': {
     id: 'code-academy',
     name: 'Code Academy',
-    route: '/institute',
-    component: 'Institute',
+    route: '/code-academy',
+    component: 'CodeAcademy',
     category: 'Learning & Development',
     status: 'active',
-    dependencies: ['Institute'],
+    dependencies: ['CodeAcademy', 'programming-tracks'],
     validation: async () => {
       try {
-        const response = await fetch('/institute');
+        const response = await fetch('/code-academy');
         return response.ok;
       } catch {
         return false;
