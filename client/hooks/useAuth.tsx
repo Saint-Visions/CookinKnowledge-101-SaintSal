@@ -89,6 +89,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         redirectTo: `${window.location.origin}/warroom`,
       },
     })
+    if (error) {
+      console.error('GitHub OAuth error:', error)
+    }
     return { error }
   }
 
