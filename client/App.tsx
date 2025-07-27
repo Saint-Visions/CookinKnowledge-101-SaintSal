@@ -40,7 +40,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
+        <AuthProvider>
+          <Routes>
           <Route path="/" element={<AppleHomepage />} />
           <Route path="/home" element={<Index />} />
           <Route path="/saintgpt" element={<SaintGPT />} />
@@ -66,7 +67,8 @@ const App = () => (
           <Route path="/splash" element={<Splash />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-        </Routes>
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
