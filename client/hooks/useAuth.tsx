@@ -6,6 +6,8 @@ interface AuthContextType {
   user: User | null
   session: Session | null
   loading: boolean
+  userTier: 'free' | 'premium' | 'enterprise'
+  hasAccess: (feature: string) => boolean
   signIn: (email: string, password: string) => Promise<{ error?: any }>
   signUp: (email: string, password: string, name: string) => Promise<{ error?: any }>
   signOut: () => Promise<void>
@@ -19,12 +21,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [session, setSession] = useState<Session | null>(null)
   const [loading, setLoading] = useState(true)
+  const [userTier, setUserTier] = useState<'free' | 'premium' | 'enterprise'>('free')
 
   useEffect(() => {
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session)
       setUser(session?.user ?? null)
+      // Extract tier from user metadata or default to free
+      const tier = session?.user?.user_metadata?.subscription_tier || 'free'
+      setUserTier(tier)
       setLoading(false)
     })
 
@@ -33,11 +39,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       async (event, session) => {
         setSession(session)
         setUser(session?.user ?? null)
+        // Extract tier from user metadata or default to free
+        const tier = session?.user?.user_metadata?.subscription_tier || 'free'
+        setUserTier(tier)
         setLoading(false)
 
         // Note: Redirect will be handled by components, not here
         if (event === 'SIGNED_IN') {
-          console.log('User signed in:', session?.user?.email)
+          console.log('User signed in:', session?.user?.email, 'Tier:', tier)
         }
       }
     )
@@ -68,6 +77,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signOut = async () => {
     await supabase.auth.signOut()
+    setUserTier('free') // Reset tier on logout
+  }
+
+  // Access control function based on tier
+  const hasAccess = (feature: string): boolean => {
+    const featureMap: Record<string, string[]> = {
+      'workspace': ['premium', 'enterprise'],
+      'companion': ['premium', 'enterprise'],
+      'export': ['enterprise'],
+      'import': ['enterprise'],
+      'crm': ['premium', 'enterprise'],
+      'audit': ['enterprise']
+    }
+
+    return featureMap[feature]?.includes(userTier) || false
   }
 
   const signInWithGoogle = async () => {
@@ -97,6 +121,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     user,
     session,
     loading,
+    userTier,
+    hasAccess,
     signIn,
     signUp,
     signOut,
