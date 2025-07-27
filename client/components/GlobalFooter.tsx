@@ -30,7 +30,7 @@ export default function GlobalFooter() {
   };
 
   return (
-    <footer className="relative z-10 bg-black/40 backdrop-blur-sm border-t border-white/10">
+    <footer className="relative z-10 bg-black/50 backdrop-blur-sm border-t border-yellow-400/30">
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
@@ -123,28 +123,29 @@ export default function GlobalFooter() {
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-white/10 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-6 text-sm text-white/40">
+        {/* Bottom Section - Clean Single Footer */}
+        <div className="pt-6">
+          <div className="flex flex-col items-center gap-4">
+            {/* Powered By - Moved Up */}
+            <div className="text-center">
+              <p className="text-sm text-white/50">
+                Powered by <span className="text-yellow-400 font-medium">SaintSal™</span> • Where AI meets intuition
+              </p>
+            </div>
+
+            {/* Patent & Compliance with Neon Dots */}
+            <div className="flex items-center gap-4 text-sm text-white/40">
               <span>Protected by U.S. Patent No. 10,290,222</span>
-              <span>•</span>
+              <div className="w-1 h-1 bg-green-400 rounded-full animate-pulse shadow-[0_0_4px_rgba(34,197,94,0.8)]"></div>
               <span>SOC 2 Compliant</span>
-              <span>•</span>
+              <div className="w-1 h-1 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_4px_rgba(34,211,238,0.8)]" style={{animationDelay: '0.5s'}}></div>
               <span>GDPR Ready</span>
             </div>
-            
+
             <div className="text-sm text-white/40">
               Made with ❤️ by SaintVision Team
             </div>
           </div>
-        </div>
-
-        {/* Powered By */}
-        <div className="text-center mt-6 pt-4 border-t border-white/5">
-          <p className="text-xs text-white/30">
-            Powered by <span className="text-yellow-400 font-medium">SaintSal™</span> • Where AI meets intuition
-          </p>
         </div>
       </div>
     </footer>
