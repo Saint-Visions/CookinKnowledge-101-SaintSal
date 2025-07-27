@@ -58,7 +58,7 @@ export default function GlobalHeader() {
           </div>
 
           <div className="flex items-center gap-4">
-            <Button variant="ghost" className="text-white/80 hover:text-white border-white/20 hover:bg-white/5">
+            <Button className="bg-blue-500 hover:bg-blue-600 text-white border-0">
               Sign In
             </Button>
             <Button className="bg-white text-black hover:bg-white/90 font-semibold">
