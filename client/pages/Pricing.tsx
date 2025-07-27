@@ -116,9 +116,24 @@ export default function Pricing() {
       color: "white",
       popular: true,
       highlight: "Most businesses choose this plan",
-      action: () => {
+      action: async () => {
         console.log('🔥 CORE TOOLS BUTTON CLICKED');
-        window.open('https://buy.stripe.com/test_aEU3cjdhs6jK0487st', '_blank');
+        const { loadStripe } = await import('@stripe/stripe-js');
+        const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
+
+        if (stripe) {
+          const { error } = await stripe.redirectToCheckout({
+            lineItems: [{ price: 'price_1RLChrFZsXxBWnjQVcrcVeDf', quantity: 1 }],
+            mode: 'subscription',
+            successUrl: `${window.location.origin}/checkout-success?tier=core`,
+            cancelUrl: `${window.location.origin}/pricing?cancelled=true`,
+          });
+
+          if (error) {
+            console.error('Stripe error:', error);
+            alert('Payment system error. Please try again.');
+          }
+        }
       }
     },
     {
