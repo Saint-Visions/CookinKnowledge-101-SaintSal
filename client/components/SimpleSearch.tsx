@@ -90,8 +90,11 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
 
         if (response.ok) {
           const data = await response.json();
-          setMessages(prev => [...prev, { role: 'assistant', content: data.response }]);
+          const aiResponse = data.response || data.message || 'I got your message but had trouble responding. Please try again.';
+          setMessages(prev => [...prev, { role: 'assistant', content: aiResponse }]);
         } else {
+          const errorData = await response.json().catch(() => null);
+          console.error('Search API error:', response.status, errorData);
           setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' }]);
         }
       } catch (error) {
