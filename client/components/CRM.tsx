@@ -221,6 +221,14 @@ export function CRM({ className }: CRMProps) {
             frameBorder="0"
             allowFullScreen
             sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation"
+            onLoad={() => {
+              // Hide loading overlay after iframe loads
+              setTimeout(() => setIsLoading(false), 1500); // Brief delay to show completed state
+            }}
+            onError={() => {
+              // Keep loading if iframe fails, but show error state
+              setTimeout(() => setIsLoading(false), 3000);
+            }}
           />
 
           {/* Loading Overlay */}
