@@ -132,7 +132,7 @@ export default function Pricing() {
       action: () => {
         alert('⚡ PRO SUITE BUTTON WORKS! This will redirect to Stripe checkout for $297/month');
         console.log('✅ PRO SUITE BUTTON CLICKED AND WORKING!');
-        // For now, show working alert - will replace with Stripe once confirmed working
+        setLoading(null); // Clear loading state
       }
     },
     {
