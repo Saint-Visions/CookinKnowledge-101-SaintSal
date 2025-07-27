@@ -579,11 +579,19 @@ export function WarRoom({ className }: WarRoomProps) {
             </div>
 
             <div className="flex items-center gap-3">
-              <Button variant="outline" size="sm">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => window.location.reload()}
+              >
                 <RefreshCw className="w-4 h-4 mr-2" />
                 Refresh
               </Button>
-              <Button variant="outline" size="sm">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => console.log('Alerts functionality coming soon')}
+              >
                 <Bell className="w-4 h-4 mr-2" />
                 Alerts
               </Button>
