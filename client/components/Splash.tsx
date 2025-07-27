@@ -55,9 +55,9 @@ export function Splash({ className }: SplashProps) {
 
           {/* Subtitle */}
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <p className="text-xl md:text-2xl text-white/70 mb-16 max-w-3xl mx-auto leading-relaxed font-light">
+            <p className="text-xl md:text-2xl text-white mb-16 max-w-3xl mx-auto leading-relaxed">
               Revolutionizing industries through{" "}
-              <span className="text-yellow-400 font-medium">patented HACP™ technology</span>
+              <span className="text-yellow-400 font-semibold">patented HACP™ technology</span>
               , faith-guided innovation, and AI solutions that change lives.
             </p>
           </div>
