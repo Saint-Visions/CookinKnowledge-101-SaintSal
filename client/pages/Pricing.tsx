@@ -76,7 +76,7 @@ export default function Pricing() {
       popular: false,
       action: () => {
         console.log('🚀 UNLIMITED BUTTON CLICKED - REDIRECTING TO STRIPE');
-        window.location.href = 'mailto:ryan@saintvision.ai?subject=Unlimited Plan ($27/month)&body=I want to subscribe to the Unlimited plan for $27/month. Please send me the payment link!';
+        window.location.href = 'mailto:ryan@saintvisiongroup.com?subject=Unlimited Plan ($27/month)&body=I want to subscribe to the Unlimited plan for $27/month. Please send me the payment link!';
         setLoading(null);
       }
     },
