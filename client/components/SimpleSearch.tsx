@@ -78,13 +78,13 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
       setIsLoading(true);
 
       try {
-        const response = await fetch('/api/ai/chat', {
+        const response = await fetch('/api/ai/search', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            message: userMessage,
-            model: selectedModel,
-            context: 'business-companion'
+            query: userMessage,
+            context: 'saintgpt-search',
+            userContext: { mode: 'client' }
           })
         });
 
@@ -272,7 +272,7 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                         </div>
                         <div className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
                           <div className="text-sm font-medium text-foreground">
-                            ⚙�� Settings
+                            ⚙️ Settings
                           </div>
                           <div className="text-xs text-muted-foreground">
                             Customize your experience
