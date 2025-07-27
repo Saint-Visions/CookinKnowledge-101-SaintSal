@@ -12,13 +12,13 @@ const supabaseAdmin = process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_R
   ? createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
   : null;
 
-// 💸 SAINTSAL™ STRIPE PRICE IDS - ALL 6 TIERS
+// 💸 SAINTSAL™ STRIPE PRICE IDS - LIVE PRODUCTION VALUES
 const STRIPE_PRICE_IDS = {
-  unlimited: process.env.STRIPE_UNLIMITED_PRICE_ID || 'price_1RINIM_unlimited_27', // $27/month
-  core: process.env.STRIPE_CORE_PRICE_ID || 'price_1RLChz_core_97',               // $97/month  
-  pro: process.env.STRIPE_PRO_PRICE_ID || 'price_1IRNqv_pro_297',                 // $297/month
-  fullPro: process.env.STRIPE_FULLPRO_PRICE_ID || 'price_1IRg90_fullpro_497',     // $497/month
-  custom: process.env.STRIPE_CUSTOM_PRICE_ID || 'price_1Rh5yF_custom_1500',       // $1500/month
+  unlimited: 'price_1RINIMFZsXxBWnjQEYxlyUIy', // $27/month - LIVE ID
+  core: 'price_1RLChzFZsXxBWnj0VcveVdDf',     // $97/month - LIVE ID
+  pro: 'price_1IRNqvFZsXxBWnj0RlB9d1cP',      // $297/month - LIVE ID
+  fullPro: 'price_1IRg90FZsXxBWnj0H3PHnVc6',  // $497/month - LIVE ID
+  custom: 'price_1Rh5yFZsXxBWnj0w6p9KY0j',   // $1500/month - LIVE ID
 };
 
 // 🧠 TIER CONFIGURATION WITH EXACT LOGIC
