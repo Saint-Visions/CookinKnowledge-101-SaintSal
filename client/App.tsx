@@ -35,6 +35,7 @@ import { StickyNotes } from "./components/StickyNotes";
 import { EmailAssistant } from "./components/EmailAssistant";
 import { VideoStudio } from "./components/VideoStudio";
 import { CodeAcademy } from "./components/CodeAcademy";
+import { AIToolsSuite } from "./components/AIToolsSuite";
 import { AuthProvider } from "./hooks/useAuth";
 
 const queryClient = new QueryClient();
