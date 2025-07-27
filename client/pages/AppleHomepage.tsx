@@ -195,19 +195,22 @@ export default function AppleHomepage() {
         </div>
       </section>
 
-      {/* Why Us Section - Super Clean */}
-      <section id="why-us" className="relative z-10 py-32">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-light mb-16 text-white">Why SaintVisionAI</h2>
+      {/* Why Us Section - Apple Style */}
+      <section id="why-us" className="relative z-10 py-24">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-light mb-6 text-white">Why SaintVisionAI</h2>
+            <p className="text-xl text-white/60 max-w-2xl mx-auto">The only platform combining patent-protected technology with enterprise-grade security</p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
             {whyUsPoints.map((point, index) => (
               <div key={index} className="text-center">
-                <div className="mb-6">
-                  <point.icon className="w-8 h-8 text-white mx-auto" />
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-white/5">
+                  <point.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-lg font-medium mb-3 text-white">{point.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed">{point.description}</p>
+                <h3 className="text-xl font-medium mb-4 text-white">{point.title}</h3>
+                <p className="text-white/70 leading-relaxed">{point.description}</p>
               </div>
             ))}
           </div>
