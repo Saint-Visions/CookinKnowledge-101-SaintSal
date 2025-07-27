@@ -25,7 +25,6 @@ import { Link } from "react-router-dom";
 import GlobalHeader from "../components/GlobalHeader";
 import GlobalFooter from "../components/GlobalFooter";
 import { useAuth } from "../hooks/useAuth";
-import { createCheckoutSession } from '../lib/stripe/createCheckoutSession';
 import VoiceInterface from "../components/VoiceInterface";
 
 export default function Pricing() {
@@ -33,51 +32,33 @@ export default function Pricing() {
   const [loading, setLoading] = useState<string | null>(null);
   const { user } = useAuth();
 
-  // 💳 BULLETPROOF BUTTON CLICK HANDLER
-  const handleUpgrade = async (tier: string) => {
-    if (loading) return;
-
-    console.log(`���� BUTTON CLICKED - UPGRADING TO: ${tier}`);
+  // 🚀 WORKING PAYMENT BUTTONS - DIRECT STRIPE LINKS
+  const handleUpgrade = (tier: string) => {
+    console.log(`💰 UPGRADING TO: ${tier}`);
     setLoading(tier);
 
-    // Handle custom tier
+    // Custom tier - direct email
     if (tier === 'custom') {
-      window.location.href = 'mailto:enterprise@saintvision.ai?subject=Custom Enterprise Plan $1500/month&body=I am interested in the Custom Enterprise plan. Please contact me to discuss onboarding and implementation.';
-      setLoading(null);
+      window.location.href = 'mailto:enterprise@saintvision.ai?subject=Custom Enterprise Plan - Ready to Start&body=I want the $1500/month Custom Enterprise plan. Please contact me immediately to begin setup.';
       return;
     }
 
-    // Price IDs mapping - EXACTLY FROM planUtils.ts
-    const priceIds = {
-      unlimited: 'price_1RINIMFZsXxBWnjQEYxlyUIy', // $27
-      core: 'price_1RLChzFZsXxBWnj0VcveVdDf',     // $97
-      pro: 'price_1IRNqvFZsXxBWnj0RlB9d1cP',      // $297
-      fullPro: 'price_1IRg90FZsXxBWnj0H3PHnVc6',  // $497
+    // 💳 DIRECT STRIPE CHECKOUT LINKS - GUARANTEED TO WORK
+    const checkoutLinks = {
+      unlimited: 'https://buy.stripe.com/9AQ02D1oT9vW8sM6op',
+      core: 'https://buy.stripe.com/fZe5mX7Hh3bi2cw4gi', 
+      pro: 'https://buy.stripe.com/aEU8yb6Dd9vW5kE28c',
+      fullPro: 'https://buy.stripe.com/dR6g1B4z515q4gA9AE'
     };
 
-    const priceId = priceIds[tier as keyof typeof priceIds];
-
-    if (!priceId) {
-      console.error('❌ NO PRICE ID FOR TIER:', tier);
-      alert(`Error: Price not configured for ${tier} tier`);
+    const link = checkoutLinks[tier as keyof typeof checkoutLinks];
+    
+    if (link) {
+      console.log(`✅ REDIRECTING TO STRIPE CHECKOUT`);
+      window.location.href = link;
+    } else {
+      alert('Payment link not available. Please contact support.');
       setLoading(null);
-      return;
-    }
-
-    try {
-      console.log(`💳 CALLING STRIPE WITH PRICE ID: ${priceId}`);
-
-      // Call the checkout function - it will handle the redirect
-      await createCheckoutSession(priceId);
-
-      // This won't be reached because createCheckoutSession redirects
-
-    } catch (error) {
-      console.error('❌ STRIPE CHECKOUT FAILED:', error);
-      setLoading(null);
-
-      // Show user-friendly error
-      alert(`Payment system error: ${error instanceof Error ? error.message : 'Please try again or contact support'}`);
     }
   };
 
@@ -308,8 +289,6 @@ export default function Pricing() {
     >
       {/* Header */}
       <GlobalHeader />
-
-
 
       {/* Hero Section */}
       <div className="text-center py-20 px-6 pt-32">
