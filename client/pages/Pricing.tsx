@@ -32,24 +32,24 @@ export default function Pricing() {
   const [loading, setLoading] = useState<string | null>(null);
   const { user } = useAuth();
 
-  // 🔥 STRIPE INTEGRATION - HANDLE PAYMENT UPGRADES
+  // 🔥 DIRECT STRIPE INTEGRATION - BYPASS AZURE ISSUES
   const handleTierUpgrade = async (tier: string) => {
     if (loading) return;
 
-    console.log(`🚀 ATTEMPTING UPGRADE TO: ${tier}`);
+    console.log(`🚀 DIRECT STRIPE CHECKOUT FOR: ${tier}`);
     setLoading(tier);
 
     try {
-      await handleUpgrade(tier, user?.email);
+      await directStripeCheckout(tier, user?.email);
       // If we get here, redirect was successful
       setLoading(null);
     } catch (error) {
-      console.error('🚨 CRITICAL UPGRADE ERROR:', error);
+      console.error('🚨 CRITICAL PAYMENT ERROR:', error);
       setLoading(null);
 
       // SHOW USER THE ACTUAL ERROR
       const errorMessage = error instanceof Error ? error.message : 'Unknown payment error';
-      alert(`❌ Payment Failed: ${errorMessage}\n\nPlease try again or contact support.`);
+      alert(`❌ Payment Failed: ${errorMessage}\n\nTry again or contact ryan@saintvision.ai`);
     }
   };
 
