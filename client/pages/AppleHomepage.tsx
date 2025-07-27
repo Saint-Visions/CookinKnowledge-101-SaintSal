@@ -275,7 +275,7 @@ export default function AppleHomepage() {
               <div className="text-xs text-white/60">Protected</div>
             </div>
             <div className="p-6">
-              <Building2 className="w-8 h-8 text-blue-500 mx-auto mb-4" />
+              <Building2 className="w-8 h-8 text-white mx-auto mb-4" />
               <div className="text-sm font-semibold text-white mb-2">Delaware</div>
               <div className="text-xs text-white/60">LLC Structure</div>
             </div>
