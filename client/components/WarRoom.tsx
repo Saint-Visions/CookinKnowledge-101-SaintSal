@@ -230,7 +230,7 @@ export function WarRoom({ className }: WarRoomProps) {
       label: "Sticky Notes",
       active: false,
       color: "text-green-400",
-      onClick: () => console.log('Sticky Notes functionality coming soon'),
+      onClick: () => alert('📝 Sticky Notes feature coming soon! Will include notes, tasks, voice memos, and cross-device sync.'),
     },
     {
       icon: Wrench,
