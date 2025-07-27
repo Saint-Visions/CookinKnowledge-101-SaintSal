@@ -44,10 +44,10 @@ export function Splash({ className }: SplashProps) {
           {/* Hero Title */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <h1 className="text-7xl md:text-8xl font-light tracking-tight mb-8 leading-[0.9]">
-              <span className="block bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+              <span className="block text-white">
                 Responsible
               </span>
-              <span className="block bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-semibold">
+              <span className="block text-yellow-400 font-semibold">
                 Intelligence
               </span>
             </h1>
