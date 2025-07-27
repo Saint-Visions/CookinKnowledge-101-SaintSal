@@ -154,30 +154,21 @@ export function Splash({ className }: SplashProps) {
             </p>
           </div>
 
-          {/* SaintSal™ Preview */}
+          {/* Enterprise Excellence */}
           <div
-            className={`mb-12 transition-all duration-2000 delay-1200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            className={`mb-16 transition-all duration-2000 delay-1200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
-            <div className="text-center max-w-4xl mx-auto">
-              <div className="relative inline-block mb-8">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F1578d022320148cdb4bb929a7dcf02e6?format=webp&width=800"
-                  alt="SaintSal™ - Leading AI Innovation"
-                  className="w-48 h-32 object-cover mx-auto rounded-xl border border-[hsl(var(--gold))]/30 drop-shadow-[0_0_20px_rgba(255,215,0,0.2)]"
-                  style={{
-                    filter: "brightness(1.1) contrast(1.05)",
-                  }}
-                />
-                <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-[hsl(var(--gold))] to-yellow-400 text-black px-2 py-1 rounded-full text-xs font-bold shadow-lg">
-                  Live
-                </div>
+            <div className="text-center max-w-2xl mx-auto">
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-green-400/10 to-emerald-400/10 border border-green-400/20 rounded-full px-6 py-3 mb-6">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-green-400 font-medium text-sm">System Status: Operational</span>
               </div>
-              <p className="text-lg text-cyan-400 font-light mb-2">
-                Meet SaintSal™
-              </p>
-              <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-                Your AI companion leading the next generation of intelligent
-                technology
+              <h3 className="text-2xl font-semibold text-white mb-4">
+                Enterprise-Grade AI Platform
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Trusted by Fortune 500 companies worldwide. Experience the power of
+                patent-protected HACP™ technology in your organization.
               </p>
             </div>
           </div>
