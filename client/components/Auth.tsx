@@ -58,6 +58,9 @@ export function Auth({ className }: AuthProps) {
 
       if (result.error) {
         setError(result.error.message || "An error occurred");
+      } else {
+        // Success! Navigate to WarRoom
+        navigate('/warroom');
       }
     } catch (err) {
       setError("An unexpected error occurred");
