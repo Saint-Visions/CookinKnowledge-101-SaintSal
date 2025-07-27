@@ -207,21 +207,21 @@ export function WarRoom({ className }: WarRoomProps) {
       label: "Upgrade Tier",
       active: false,
       color: "text-emerald-400",
-      onClick: () => navigate("/why"),
+      onClick: () => navigate("/pricing"),
     },
     {
       icon: Palette,
       label: "SVT Institute of AI",
       active: false,
       color: "text-violet-400",
-      onClick: () => navigate("/institute"),
+      onClick: () => navigate("/about"),
     },
     {
       icon: Shield,
       label: "Client Portal",
       active: false,
       color: "text-red-400",
-      onClick: () => navigate("/saintgpt"),
+      onClick: () => navigate("/contact"),
     },
     {
       icon: Users,
@@ -605,6 +605,12 @@ export function WarRoom({ className }: WarRoomProps) {
             <textarea
               value={workspaceInput}
               onChange={(e) => setWorkspaceInput(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  processWorkspaceInput();
+                }
+              }}
               placeholder="Execute business operations, analyze data, manage workflows..."
               className="flex-1 bg-transparent border-0 resize-none outline-none text-foreground placeholder:text-muted-foreground min-h-[20px] max-h-20 text-sm"
               rows={1}
@@ -617,9 +623,15 @@ export function WarRoom({ className }: WarRoomProps) {
 
               <Button
                 size="sm"
-                className="bg-cyan-400 hover:bg-cyan-300 text-black rounded-lg px-4 shadow-[0_0_15px_rgba(34,211,238,0.4)]"
+                onClick={processWorkspaceInput}
+                disabled={!workspaceInput.trim() || isProcessing}
+                className="bg-cyan-400 hover:bg-cyan-300 text-black rounded-lg px-4 shadow-[0_0_15px_rgba(34,211,238,0.4)] disabled:opacity-50"
               >
-                <ArrowUp className="w-4 h-4" />
+                {isProcessing ? (
+                  <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                ) : (
+                  <ArrowUp className="w-4 h-4" />
+                )}
               </Button>
             </div>
           </div>
