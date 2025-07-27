@@ -186,7 +186,7 @@ export default function Pricing() {
       action: () => {
         alert('🚀 CUSTOM ENTERPRISE BUTTON WORKS! This will redirect to Stripe checkout for $1500/month');
         console.log('✅ CUSTOM ENTERPRISE BUTTON CLICKED AND WORKING!');
-        // For now, show working alert - will replace with Stripe once confirmed working
+        setLoading(null); // Clear loading state
       }
     },
   ];
