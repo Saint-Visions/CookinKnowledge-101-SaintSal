@@ -84,6 +84,7 @@ export function WarRoom({ className }: WarRoomProps) {
       timestamp: new Date(),
     },
   ]);
+  const [workspaceMessages, setWorkspaceMessages] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
   const [companionInput, setCompanionInput] = useState("");
   const [companionLoading, setCompanionLoading] = useState(false);
 
