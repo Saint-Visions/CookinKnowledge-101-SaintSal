@@ -555,7 +555,7 @@ export function WarRoom({ className }: WarRoomProps) {
       <div
         className="fixed bottom-0 border-t border-border/30 p-3 z-50"
         style={{
-          backgroundColor: "#000000",
+          backgroundColor: "#1a1a1a",
           left: leftPanelOpen ? "192px" : "64px",
           right: rightPanelOpen ? "288px" : "64px",
         }}
