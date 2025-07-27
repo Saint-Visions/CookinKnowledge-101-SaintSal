@@ -78,10 +78,10 @@ export function Splash({ className }: SplashProps) {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="text-xl px-12 py-4 rounded-2xl border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 hover:border-cyan-300 transition-all duration-300 transform hover:scale-105"
+                  className="text-xl px-12 py-4 rounded-2xl border-2 border-blue-500 text-blue-500 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-300 transform hover:scale-105"
                 >
                   <Play className="w-6 h-6 mr-3" />
-                  Watch Our Story
+                  Why Us
                 </Button>
               </Link>
             </div>
