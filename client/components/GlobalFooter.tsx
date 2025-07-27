@@ -73,8 +73,8 @@ export default function GlobalFooter() {
 
           {/* Company Links */}
           <div>
-            <h3 className="text-white font-medium mb-4">Company</h3>
-            <ul className="space-y-3">
+            <h3 className="text-white font-medium mb-3">Company</h3>
+            <ul className="space-y-2">
               {footerLinks.Company.map((link, index) => (
                 <li key={index}>
                   <Link
@@ -90,8 +90,8 @@ export default function GlobalFooter() {
 
           {/* Resources Links */}
           <div>
-            <h3 className="text-white font-medium mb-4">Resources</h3>
-            <ul className="space-y-3">
+            <h3 className="text-white font-medium mb-3">Resources</h3>
+            <ul className="space-y-2">
               {footerLinks.Resources.map((link, index) => (
                 <li key={index}>
                   <Link
@@ -107,8 +107,8 @@ export default function GlobalFooter() {
 
           {/* Legal Links */}
           <div>
-            <h3 className="text-white font-medium mb-4">Legal</h3>
-            <ul className="space-y-3">
+            <h3 className="text-white font-medium mb-3">Legal</h3>
+            <ul className="space-y-2">
               {footerLinks.Legal.map((link, index) => (
                 <li key={index}>
                   <Link
@@ -124,7 +124,7 @@ export default function GlobalFooter() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-white/10 pt-8">
+        <div className="border-t border-white/10 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-6 text-sm text-white/40">
               <span>Protected by U.S. Patent No. 10,290,222</span>
@@ -141,7 +141,7 @@ export default function GlobalFooter() {
         </div>
 
         {/* Powered By */}
-        <div className="text-center mt-8 pt-6 border-t border-white/5">
+        <div className="text-center mt-6 pt-4 border-t border-white/5">
           <p className="text-xs text-white/30">
             Powered by <span className="text-yellow-400 font-medium">SaintSal™</span> • Where AI meets intuition
           </p>
