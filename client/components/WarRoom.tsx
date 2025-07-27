@@ -173,8 +173,9 @@ export function WarRoom({ className }: WarRoomProps) {
 
       if (response.ok) {
         const result = await response.json();
-        console.log("Operation executed:", result);
-        // Display results in workspace
+        console.log("Azure AI Companion response:", result);
+        // TODO: Display AI response in workspace interface
+        alert(`Supersal™ Companion: ${result.response}`);
       }
 
       setWorkspaceInput("");
