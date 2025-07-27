@@ -138,6 +138,40 @@ export function WarRoom({ className }: WarRoomProps) {
     }
   };
 
+  // Process workspace input - MAIN WARROOM FUNCTIONALITY
+  const processWorkspaceInput = async () => {
+    if (!workspaceInput.trim() || isProcessing) return;
+
+    setIsProcessing(true);
+
+    try {
+      // This is where the magic happens - enterprise operations
+      console.log("Processing enterprise operation:", workspaceInput);
+
+      // TODO: Connect to your backend API
+      const response = await fetch("/api/warroom/execute", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          operation: workspaceInput,
+          context: { userId: "enterprise", mode: "production" }
+        })
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Operation executed:", result);
+        // Display results in workspace
+      }
+
+      setWorkspaceInput("");
+    } catch (error) {
+      console.error("Workspace operation failed:", error);
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
   // Navigation items - now defined inside component with access to navigate
   const leftPanelItems = [
     {
