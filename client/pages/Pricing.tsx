@@ -65,15 +65,24 @@ export default function Pricing() {
     // Load Stripe and redirect
     const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
 
-    if (stripe) {
-      console.log('💳 REDIRECTING TO STRIPE FOR:', tier, priceId);
-      stripe.redirectToCheckout({
-        lineItems: [{ price: priceId, quantity: 1 }],
-        mode: 'subscription',
-        successUrl: `${window.location.origin}/dashboard?upgrade=success&tier=${tier}`,
-        cancelUrl: `${window.location.origin}/pricing?upgrade=cancelled`,
-        customerEmail: user?.email,
-      });
+    if (!stripe) {
+      console.error('❌ STRIPE FAILED TO LOAD');
+      setLoading(null);
+      return;
+    }
+
+    console.log('💳 REDIRECTING TO STRIPE FOR:', tier, priceId);
+
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [{ price: priceId, quantity: 1 }],
+      mode: 'subscription',
+      successUrl: `${window.location.origin}/dashboard?upgrade=success&tier=${tier}`,
+      cancelUrl: `${window.location.origin}/pricing?upgrade=cancelled`,
+      customerEmail: user?.email,
+    });
+
+    if (error) {
+      console.error('❌ STRIPE REDIRECT ERROR:', error);
     }
 
     setLoading(null);
