@@ -8,6 +8,7 @@ import embeddingsRoutes from "./routes/embeddings";
 import auditServiceRoutes from "./routes/audit-service";
 import stripeCheckoutRoutes from "./routes/stripe-checkout";
 import stripeWebhookRoutes from "./routes/stripe-webhook";
+import voiceRoutes from "./routes/voice";
 
 export function createServer() {
   const app = express();
