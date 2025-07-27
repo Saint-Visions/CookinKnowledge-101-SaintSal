@@ -122,7 +122,7 @@ export default function AppleHomepage() {
       <GlobalHeader />
 
       {/* Hero Section */}
-      <section className="relative z-10 min-h-screen flex items-end justify-center pb-32">
+      <section className="relative z-10 min-h-screen flex items-start justify-center pt-32">
         <div className="max-w-6xl mx-auto px-6 text-center">
           {/* Main Headline */}
           <h1 className="text-7xl md:text-8xl font-light tracking-tight mb-6 leading-none">
