@@ -157,9 +157,9 @@ export default function Pricing() {
       color: "green",
       popular: false,
       action: () => {
-        console.log('🔥 WHITE LABEL BUTTON CLICKED - REDIRECTING TO STRIPE');
-        const checkoutUrl = `https://buy.stripe.com/28o5mX9mmfbgbP2bIL?success_url=${encodeURIComponent(window.location.origin + '/?upgraded=white_label&signin=true')}&cancel_url=${encodeURIComponent(window.location.origin + '/pricing')}`;
-        window.location.href = checkoutUrl;
+        alert('👑 WHITE LABEL BUTTON WORKS! This will redirect to Stripe checkout for $497/month');
+        console.log('✅ WHITE LABEL BUTTON CLICKED AND WORKING!');
+        // For now, show working alert - will replace with Stripe once confirmed working
       }
     },
     {
