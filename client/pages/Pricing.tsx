@@ -36,12 +36,20 @@ export default function Pricing() {
   const handleTierUpgrade = async (tier: string) => {
     if (loading) return;
 
+    console.log(`🚀 ATTEMPTING UPGRADE TO: ${tier}`);
     setLoading(tier);
+
     try {
       await handleUpgrade(tier, user?.email);
-    } catch (error) {
-      console.error('Upgrade error:', error);
+      // If we get here, redirect was successful
       setLoading(null);
+    } catch (error) {
+      console.error('🚨 CRITICAL UPGRADE ERROR:', error);
+      setLoading(null);
+
+      // SHOW USER THE ACTUAL ERROR
+      const errorMessage = error instanceof Error ? error.message : 'Unknown payment error';
+      alert(`❌ Payment Failed: ${errorMessage}\n\nPlease try again or contact support.`);
     }
   };
 
