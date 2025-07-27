@@ -9,7 +9,7 @@ import { useAuth } from '../hooks/useAuth';
 
 export default function CheckoutSuccess() {
   const [searchParams] = useSearchParams();
-  const { user, refreshUser } = useAuth();
+  const { user, refreshUserData } = useAuth();
   const [loading, setLoading] = useState(true);
   
   const tier = searchParams.get('tier');
