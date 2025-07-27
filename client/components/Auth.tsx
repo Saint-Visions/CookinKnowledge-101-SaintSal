@@ -148,7 +148,8 @@ export function Auth({ className }: AuthProps) {
                 type="button"
                 variant="outline"
                 className="w-full bg-gray-900 hover:bg-gray-800 text-white border-gray-700 transition-all"
-                onClick={() => console.log("GitHub sign-in")}
+                onClick={signInWithGitHub}
+                disabled={loading}
               >
                 <Github className="w-5 h-5 mr-3" />
                 Continue with GitHub
