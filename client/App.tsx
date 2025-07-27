@@ -69,6 +69,11 @@ const App = () => (
           <Route path="/dashboard" element={<GeneralDashboard />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/splash" element={<Splash />} />
+          {/* AI Tool Routes */}
+          <Route path="/image-generator" element={<ImageGenerator />} />
+          <Route path="/sticky-notes" element={<StickyNotes />} />
+          <Route path="/email-assistant" element={<EmailAssistant />} />
+          <Route path="/video-studio" element={<VideoStudio />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
           </Routes>
