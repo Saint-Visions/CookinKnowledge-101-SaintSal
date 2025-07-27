@@ -159,7 +159,8 @@ export default function Pricing() {
       popular: false,
       action: () => {
         console.log('🔥 WHITE LABEL BUTTON CLICKED - REDIRECTING TO STRIPE');
-        window.location.href = 'https://buy.stripe.com/28o5mX9mmfbgbP2bIL';
+        const checkoutUrl = `https://buy.stripe.com/28o5mX9mmfbgbP2bIL?success_url=${encodeURIComponent(window.location.origin + '/?upgraded=white_label&signin=true')}&cancel_url=${encodeURIComponent(window.location.origin + '/pricing')}`;
+        window.location.href = checkoutUrl;
       }
     },
     {
