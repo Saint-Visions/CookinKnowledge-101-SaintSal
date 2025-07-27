@@ -77,7 +77,7 @@ export function WarRoom({ className }: WarRoomProps) {
     {
       role: "assistant",
       content:
-        "Hey there! I'm Supersal™, your AI companion. I'm here to help with support, sales questions, or anything you need. How can I assist you today?",
+        "Hey there! I'm Supersal��, your AI companion. I'm here to help with support, sales questions, or anything you need. How can I assist you today?",
       timestamp: new Date(),
     },
   ]);
@@ -697,52 +697,9 @@ export function WarRoom({ className }: WarRoomProps) {
                 type="text"
                 value={companionInput}
                 onChange={(e) => setCompanionInput(e.target.value)}
-                onKeyPress={async (e) => {
-                  if (e.key === "Enter" && companionInput.trim()) {
-                    const userMessage = {
-                      role: "user" as const,
-                      content: companionInput,
-                      timestamp: new Date(),
-                    };
-
-                    setCompanionMessages((prev) => [...prev, userMessage]);
-                    const query = companionInput;
-                    setCompanionInput("");
-                    setCompanionLoading(true);
-
-                    try {
-                      const response = await fetch("/api/ai/search", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                          query,
-                          userContext: { role: "user" },
-                        }),
-                      });
-
-                      const data = await response.json();
-
-                      const aiMessage = {
-                        role: "assistant" as const,
-                        content:
-                          data.response ||
-                          "I apologize, but I'm having trouble responding right now. Please try again.",
-                        timestamp: new Date(),
-                      };
-
-                      setCompanionMessages((prev) => [...prev, aiMessage]);
-                    } catch (error) {
-                      console.error("Companion error:", error);
-                      const errorMessage = {
-                        role: "assistant" as const,
-                        content:
-                          "I'm experiencing technical difficulties. Please try again in a moment.",
-                        timestamp: new Date(),
-                      };
-                      setCompanionMessages((prev) => [...prev, errorMessage]);
-                    } finally {
-                      setCompanionLoading(false);
-                    }
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") {
+                    sendCompanionMessage(companionInput);
                   }
                 }}
                 placeholder="Ask Supersal™ for help..."
