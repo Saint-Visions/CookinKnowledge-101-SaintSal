@@ -74,7 +74,10 @@ export default function Pricing() {
       buttonText: "Get Unlimited",
       color: "blue",
       popular: false,
-      action: () => window.location.href = 'https://buy.stripe.com/9AQ02D1oT9vW8sM6op'
+      action: () => {
+        console.log('🔥 UNLIMITED BUTTON CLICKED');
+        window.open('https://buy.stripe.com/9AQ02D1oT9vW8sM6op', '_blank');
+      }
     },
     {
       name: "Core Tools",
