@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { 
-  Shield, 
-  CheckCircle, 
-  AlertTriangle, 
+import {
+  Shield,
+  CheckCircle,
+  AlertTriangle,
   XCircle,
   RefreshCw,
   Activity,
   Zap,
   Database,
   Globe,
-  Settings
+  Settings,
 } from "lucide-react";
 import { toolHealthCheck } from "@/utils/ToolValidation";
 
@@ -35,7 +35,7 @@ export function SystemHealth() {
       setHealthStatus(status);
       setLastCheck(new Date());
     } catch (error) {
-      console.error('Health check failed:', error);
+      console.error("Health check failed:", error);
     } finally {
       setIsLoading(false);
     }
@@ -44,18 +44,18 @@ export function SystemHealth() {
   useEffect(() => {
     // Run initial health check
     runHealthCheck();
-    
+
     // Set up periodic health checks every 5 minutes
     const interval = setInterval(runHealthCheck, 5 * 60 * 1000);
-    
+
     return () => clearInterval(interval);
   }, []);
 
   const getHealthColor = () => {
     if (!healthStatus) return "text-gray-400";
-    
+
     const successRate = healthStatus.validatedTools / healthStatus.activeTools;
-    
+
     if (successRate >= 0.9) return "text-green-400";
     if (successRate >= 0.7) return "text-yellow-400";
     return "text-red-400";
@@ -63,9 +63,9 @@ export function SystemHealth() {
 
   const getHealthIcon = () => {
     if (!healthStatus) return Activity;
-    
+
     const successRate = healthStatus.validatedTools / healthStatus.activeTools;
-    
+
     if (successRate >= 0.9) return CheckCircle;
     if (successRate >= 0.7) return AlertTriangle;
     return XCircle;
@@ -73,7 +73,9 @@ export function SystemHealth() {
 
   const getSystemScore = () => {
     if (!healthStatus) return 0;
-    return Math.round((healthStatus.validatedTools / healthStatus.totalTools) * 100);
+    return Math.round(
+      (healthStatus.validatedTools / healthStatus.totalTools) * 100,
+    );
   };
 
   const HealthIcon = getHealthIcon();
@@ -90,7 +92,7 @@ export function SystemHealth() {
             <p className="text-sm text-gray-400">Tool ecosystem monitoring</p>
           </div>
         </div>
-        
+
         <Button
           variant="outline"
           size="sm"
@@ -98,7 +100,9 @@ export function SystemHealth() {
           disabled={isLoading}
           className="border-[hsl(var(--gold))]/30 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
         >
-          <RefreshCw className={`w-4 h-4 mr-2 ${isLoading ? 'animate-spin' : ''}`} />
+          <RefreshCw
+            className={`w-4 h-4 mr-2 ${isLoading ? "animate-spin" : ""}`}
+          />
           Check
         </Button>
       </div>
@@ -124,21 +128,21 @@ export function SystemHealth() {
               </div>
               <div className="text-xs text-gray-400">Total Tools</div>
             </div>
-            
+
             <div className="text-center p-4 bg-gray-800 rounded-lg">
               <div className="text-2xl font-bold text-green-400 mb-1">
                 {healthStatus.activeTools}
               </div>
               <div className="text-xs text-gray-400">Active</div>
             </div>
-            
+
             <div className="text-center p-4 bg-gray-800 rounded-lg">
               <div className="text-2xl font-bold text-yellow-400 mb-1">
                 {healthStatus.developmentTools}
               </div>
               <div className="text-xs text-gray-400">In Development</div>
             </div>
-            
+
             <div className="text-center p-4 bg-gray-800 rounded-lg">
               <div className="text-2xl font-bold text-[hsl(var(--gold))] mb-1">
                 {healthStatus.validatedTools}
@@ -149,16 +153,20 @@ export function SystemHealth() {
 
           {/* System Components */}
           <div className="space-y-3">
-            <h4 className="text-sm font-semibold text-gray-300 mb-3">Core Systems</h4>
-            
+            <h4 className="text-sm font-semibold text-gray-300 mb-3">
+              Core Systems
+            </h4>
+
             <div className="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
               <div className="flex items-center gap-3">
                 <Database className="w-5 h-5 text-green-400" />
-                <span className="text-sm font-medium">Authentication System</span>
+                <span className="text-sm font-medium">
+                  Authentication System
+                </span>
               </div>
               <CheckCircle className="w-5 h-5 text-green-400" />
             </div>
-            
+
             <div className="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
               <div className="flex items-center gap-3">
                 <Globe className="w-5 h-5 text-green-400" />
@@ -166,7 +174,7 @@ export function SystemHealth() {
               </div>
               <CheckCircle className="w-5 h-5 text-green-400" />
             </div>
-            
+
             <div className="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
               <div className="flex items-center gap-3">
                 <Zap className="w-5 h-5 text-green-400" />
@@ -174,7 +182,7 @@ export function SystemHealth() {
               </div>
               <CheckCircle className="w-5 h-5 text-green-400" />
             </div>
-            
+
             <div className="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
               <div className="flex items-center gap-3">
                 <Settings className="w-5 h-5 text-green-400" />
@@ -187,9 +195,14 @@ export function SystemHealth() {
           {/* Issues */}
           {healthStatus.issues.length > 0 && (
             <div className="space-y-2">
-              <h4 className="text-sm font-semibold text-red-400">Issues Detected</h4>
+              <h4 className="text-sm font-semibold text-red-400">
+                Issues Detected
+              </h4>
               {healthStatus.issues.map((issue, index) => (
-                <div key={index} className="flex items-center gap-2 p-2 bg-red-900/20 border border-red-800 rounded">
+                <div
+                  key={index}
+                  className="flex items-center gap-2 p-2 bg-red-900/20 border border-red-800 rounded"
+                >
                   <AlertTriangle className="w-4 h-4 text-red-400 flex-shrink-0" />
                   <span className="text-sm text-red-300">{issue}</span>
                 </div>
@@ -210,7 +223,9 @@ export function SystemHealth() {
             <Activity className="w-8 h-8 text-gray-600" />
           </div>
           <p className="text-gray-400">
-            {isLoading ? 'Running health check...' : 'Click "Check" to run system diagnostics'}
+            {isLoading
+              ? "Running health check..."
+              : 'Click "Check" to run system diagnostics'}
           </p>
         </div>
       )}

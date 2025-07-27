@@ -69,7 +69,15 @@ export function WarRoom({ className }: WarRoomProps) {
   const navigate = useNavigate();
   const [leftPanelOpen, setLeftPanelOpen] = useState(true);
   const [rightPanelOpen, setRightPanelOpen] = useState(false);
-  const { user, loading: authLoading, signOut, userTier, hasAccess, incrementMessageCount, getUpgradeMessage } = useAuth();
+  const {
+    user,
+    loading: authLoading,
+    signOut,
+    userTier,
+    hasAccess,
+    incrementMessageCount,
+    getUpgradeMessage,
+  } = useAuth();
   const [crmMaximized, setCrmMaximized] = useState(false);
   const [workspaceInput, setWorkspaceInput] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
@@ -84,7 +92,9 @@ export function WarRoom({ className }: WarRoomProps) {
       timestamp: new Date(),
     },
   ]);
-  const [workspaceMessages, setWorkspaceMessages] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
+  const [workspaceMessages, setWorkspaceMessages] = useState<
+    Array<{ role: "user" | "assistant"; content: string }>
+  >([]);
   const [companionInput, setCompanionInput] = useState("");
   const [companionLoading, setCompanionLoading] = useState(false);
 
@@ -163,7 +173,10 @@ export function WarRoom({ className }: WarRoomProps) {
     try {
       // Add user message to workspace
       const userMessage = workspaceInput.trim();
-      setWorkspaceMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+      setWorkspaceMessages((prev) => [
+        ...prev,
+        { role: "user", content: userMessage },
+      ]);
       setWorkspaceInput("");
 
       // This is where the magic happens - enterprise operations
@@ -176,17 +189,26 @@ export function WarRoom({ className }: WarRoomProps) {
         body: JSON.stringify({
           query: userMessage,
           context: "warroom-enterprise",
-          userContext: { role: "admin", internal: true, mode: "production" }
-        })
+          userContext: { role: "admin", internal: true, mode: "production" },
+        }),
       });
 
       if (response.ok) {
         const result = await response.json();
         console.log("AI Companion response:", result);
         // Add AI response to workspace messages
-        setWorkspaceMessages(prev => [...prev, { role: 'assistant', content: result.response }]);
+        setWorkspaceMessages((prev) => [
+          ...prev,
+          { role: "assistant", content: result.response },
+        ]);
       } else {
-        setWorkspaceMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' }]);
+        setWorkspaceMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content: "Sorry, I encountered an error. Please try again.",
+          },
+        ]);
       }
     } catch (error) {
       console.error("Workspace operation failed:", error);
@@ -230,7 +252,10 @@ export function WarRoom({ className }: WarRoomProps) {
       label: "Sticky Notes",
       active: false,
       color: "text-green-400",
-      onClick: () => alert('📝 Sticky Notes feature coming soon! Will include notes, tasks, voice memos, and cross-device sync.'),
+      onClick: () =>
+        alert(
+          "📝 Sticky Notes feature coming soon! Will include notes, tasks, voice memos, and cross-device sync.",
+        ),
     },
     {
       icon: Wrench,
@@ -373,11 +398,11 @@ export function WarRoom({ className }: WarRoomProps) {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  console.log('Navigation clicked:', item.label);
+                  console.log("Navigation clicked:", item.label);
                   try {
                     item.onClick();
                   } catch (error) {
-                    console.error('Navigation error:', error);
+                    console.error("Navigation error:", error);
                   }
                 }}
               >
@@ -531,12 +556,14 @@ export function WarRoom({ className }: WarRoomProps) {
                 size="sm"
                 className="w-full justify-start"
                 onClick={() => {
-                  if (!hasAccess('export')) {
-                    alert(`Export requires Enterprise tier. Current: ${userTier}. Visit /pricing to upgrade.`);
-                    navigate('/pricing');
+                  if (!hasAccess("export")) {
+                    alert(
+                      `Export requires Enterprise tier. Current: ${userTier}. Visit /pricing to upgrade.`,
+                    );
+                    navigate("/pricing");
                     return;
                   }
-                  console.log('Export functionality coming soon');
+                  console.log("Export functionality coming soon");
                 }}
               >
                 <Download className="w-4 h-4 mr-2" />
@@ -547,12 +574,14 @@ export function WarRoom({ className }: WarRoomProps) {
                 size="sm"
                 className="w-full justify-start"
                 onClick={() => {
-                  if (!hasAccess('import')) {
-                    alert(`Import requires Enterprise tier. Current: ${userTier}. Visit /pricing to upgrade.`);
-                    navigate('/pricing');
+                  if (!hasAccess("import")) {
+                    alert(
+                      `Import requires Enterprise tier. Current: ${userTier}. Visit /pricing to upgrade.`,
+                    );
+                    navigate("/pricing");
                     return;
                   }
-                  console.log('Import functionality coming soon');
+                  console.log("Import functionality coming soon");
                 }}
               >
                 <Upload className="w-4 h-4 mr-2" />
@@ -616,7 +645,11 @@ export function WarRoom({ className }: WarRoomProps) {
                 variant="outline"
                 size="sm"
                 onClick={() => setRightPanelOpen(!rightPanelOpen)}
-                className={rightPanelOpen ? "bg-[hsl(var(--gold))]/20 text-[hsl(var(--gold))]" : ""}
+                className={
+                  rightPanelOpen
+                    ? "bg-[hsl(var(--gold))]/20 text-[hsl(var(--gold))]"
+                    : ""
+                }
               >
                 <Bell className="w-4 h-4 mr-2" />
                 Alerts
@@ -625,14 +658,16 @@ export function WarRoom({ className }: WarRoomProps) {
                 variant="outline"
                 size="sm"
                 onClick={() => {
-                  console.log('WarRoom System Test:', {
+                  console.log("WarRoom System Test:", {
                     timestamp: new Date().toISOString(),
                     user: user?.email,
                     tier: userTier,
                     workspace_active: true,
-                    api_ready: true
+                    api_ready: true,
                   });
-                  alert(`✅ System Test Complete\nUser: ${user?.email || 'Anonymous'}\nTier: ${userTier}\nWorkspace: Active\nAPI: Ready`);
+                  alert(
+                    `✅ System Test Complete\nUser: ${user?.email || "Anonymous"}\nTier: ${userTier}\nWorkspace: Active\nAPI: Ready`,
+                  );
                 }}
               >
                 System Test
@@ -647,7 +682,9 @@ export function WarRoom({ className }: WarRoomProps) {
             <div
               className={`text-center text-muted-foreground/50 mt-20 transition-all duration-500 ${workspaceInput.trim() ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}`}
             >
-              <h2 className="text-xl font-light mb-4">Productivity Workspace</h2>
+              <h2 className="text-xl font-light mb-4">
+                Productivity Workspace
+              </h2>
               <p>Your collaborative workspace is ready for action</p>
             </div>
           ) : (
@@ -656,24 +693,24 @@ export function WarRoom({ className }: WarRoomProps) {
                 <div
                   key={index}
                   className={`flex gap-3 ${
-                    message.role === 'user' ? 'justify-end' : 'justify-start'
+                    message.role === "user" ? "justify-end" : "justify-start"
                   }`}
                 >
-                  {message.role === 'assistant' && (
+                  {message.role === "assistant" && (
                     <div className="w-8 h-8 bg-[hsl(var(--gold))]/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Crown className="w-4 h-4 text-[hsl(var(--gold))]" />
                     </div>
                   )}
                   <div
                     className={`max-w-lg px-4 py-3 rounded-lg ${
-                      message.role === 'user'
-                        ? 'bg-cyan-400 text-black'
-                        : 'bg-muted text-foreground border border-[hsl(var(--gold))]/20'
+                      message.role === "user"
+                        ? "bg-cyan-400 text-black"
+                        : "bg-muted text-foreground border border-[hsl(var(--gold))]/20"
                     }`}
                   >
                     <p className="text-sm">{message.content}</p>
                   </div>
-                  {message.role === 'user' && (
+                  {message.role === "user" && (
                     <div className="w-8 h-8 bg-cyan-400/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <User className="w-4 h-4 text-cyan-400" />
                     </div>
@@ -688,8 +725,14 @@ export function WarRoom({ className }: WarRoomProps) {
                   <div className="bg-muted px-4 py-3 rounded-lg border border-[hsl(var(--gold))]/20">
                     <div className="flex items-center gap-1">
                       <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" />
-                      <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
-                      <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                      <div
+                        className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce"
+                        style={{ animationDelay: "0.1s" }}
+                      />
+                      <div
+                        className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce"
+                        style={{ animationDelay: "0.2s" }}
+                      />
                     </div>
                   </div>
                 </div>

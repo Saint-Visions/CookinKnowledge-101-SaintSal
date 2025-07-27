@@ -7,12 +7,19 @@ import GlobalFooter from "@/components/GlobalFooter";
 
 export function Search() {
   const navigate = useNavigate();
-  const { user, loading, userTier, messageCount, incrementMessageCount, getUpgradeMessage } = useAuth();
+  const {
+    user,
+    loading,
+    userTier,
+    messageCount,
+    incrementMessageCount,
+    getUpgradeMessage,
+  } = useAuth();
   const [limitReached, setLimitReached] = useState(false);
 
   useEffect(() => {
     // Check if free user has reached message limit
-    if (userTier === 'free' && messageCount >= 2) {
+    if (userTier === "free" && messageCount >= 2) {
       setLimitReached(true);
     }
   }, [userTier, messageCount]);
@@ -28,7 +35,7 @@ export function Search() {
 
   // Redirect to auth if not signed in
   if (!user) {
-    navigate('/auth');
+    navigate("/auth");
     return null;
   }
 
@@ -44,7 +51,8 @@ export function Search() {
                 Free Trial Complete
               </h1>
               <p className="text-lg text-gray-300 mb-6">
-                You've used your 2 free messages. Upgrade to continue with unlimited AI search.
+                You've used your 2 free messages. Upgrade to continue with
+                unlimited AI search.
               </p>
               <div className="bg-gray-900 border border-[hsl(var(--gold))]/20 rounded-lg p-6 mb-8">
                 <h3 className="text-xl font-semibold text-[hsl(var(--gold))] mb-3">
@@ -59,14 +67,14 @@ export function Search() {
               </div>
               <div className="space-y-4">
                 <button
-                  onClick={() => navigate('/pricing')}
+                  onClick={() => navigate("/pricing")}
                   className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-semibold py-3 px-8 rounded-lg text-lg shadow-[0_0_20px_rgba(255,215,0,0.3)] transition-all"
                 >
                   Upgrade Now
                 </button>
                 <div>
                   <button
-                    onClick={() => navigate('/warroom')}
+                    onClick={() => navigate("/warroom")}
                     className="text-gray-400 hover:text-white underline"
                   >
                     Back to WarRoom

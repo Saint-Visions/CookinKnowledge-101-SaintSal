@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { 
-  ArrowLeft, 
-  Play, 
-  Download, 
-  Share, 
+import {
+  ArrowLeft,
+  Play,
+  Download,
+  Share,
   Video as VideoIcon,
   Loader2,
   Settings,
@@ -17,7 +17,7 @@ import {
   Clock,
   Film,
   Camera,
-  Music
+  Music,
 } from "lucide-react";
 
 export function VideoStudio() {
@@ -30,17 +30,45 @@ export function VideoStudio() {
   const [generatedVideo, setGeneratedVideo] = useState<string | null>(null);
 
   const videoStyles = [
-    { id: "professional", name: "Professional", description: "Clean, business-focused presentation" },
-    { id: "creative", name: "Creative", description: "Dynamic with animations and effects" },
+    {
+      id: "professional",
+      name: "Professional",
+      description: "Clean, business-focused presentation",
+    },
+    {
+      id: "creative",
+      name: "Creative",
+      description: "Dynamic with animations and effects",
+    },
     { id: "minimal", name: "Minimal", description: "Simple, clean design" },
-    { id: "educational", name: "Educational", description: "Perfect for tutorials and explanations" }
+    {
+      id: "educational",
+      name: "Educational",
+      description: "Perfect for tutorials and explanations",
+    },
   ];
 
   const voiceOptions = [
-    { id: "professional", name: "Professional Male", description: "Clear, authoritative voice" },
-    { id: "friendly", name: "Friendly Female", description: "Warm, approachable tone" },
-    { id: "energetic", name: "Energetic", description: "Dynamic, engaging delivery" },
-    { id: "calm", name: "Calm Narrator", description: "Soothing, documentary style" }
+    {
+      id: "professional",
+      name: "Professional Male",
+      description: "Clear, authoritative voice",
+    },
+    {
+      id: "friendly",
+      name: "Friendly Female",
+      description: "Warm, approachable tone",
+    },
+    {
+      id: "energetic",
+      name: "Energetic",
+      description: "Dynamic, engaging delivery",
+    },
+    {
+      id: "calm",
+      name: "Calm Narrator",
+      description: "Soothing, documentary style",
+    },
   ];
 
   const templateScripts = [
@@ -48,22 +76,24 @@ export function VideoStudio() {
     "Explain the benefits of our premium service tier and how it transforms customer experience.",
     "Create a product demo showcasing key features and user interface highlights.",
     "Develop a customer testimonial video highlighting success stories and results.",
-    "Present quarterly business results with data visualizations and key insights."
+    "Present quarterly business results with data visualizations and key insights.",
   ];
 
   const generateVideo = async () => {
     if (!script.trim() || isGenerating) return;
 
     setIsGenerating(true);
-    
+
     try {
       // Simulate AI video generation
-      await new Promise(resolve => setTimeout(resolve, 8000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 8000));
+
       // Generate placeholder video (in real implementation, call AI video service)
-      setGeneratedVideo("https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4");
+      setGeneratedVideo(
+        "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      );
     } catch (error) {
-      console.error('Video generation failed:', error);
+      console.error("Video generation failed:", error);
     } finally {
       setIsGenerating(false);
     }
@@ -71,9 +101,9 @@ export function VideoStudio() {
 
   const downloadVideo = () => {
     if (generatedVideo) {
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = generatedVideo;
-      link.download = 'generated-video.mp4';
+      link.download = "generated-video.mp4";
       link.click();
     }
   };
@@ -87,7 +117,7 @@ export function VideoStudio() {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => navigate('/tools')}
+              onClick={() => navigate("/tools")}
               className="border-[hsl(var(--gold))]/30 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -99,7 +129,9 @@ export function VideoStudio() {
               </div>
               <div>
                 <h1 className="text-xl font-bold">Video Studio</h1>
-                <p className="text-sm text-gray-400">AI-powered video creation</p>
+                <p className="text-sm text-gray-400">
+                  AI-powered video creation
+                </p>
               </div>
             </div>
           </div>
@@ -122,7 +154,7 @@ export function VideoStudio() {
                 <Type className="w-5 h-5 text-[hsl(var(--gold))]" />
                 Video Script
               </h3>
-              
+
               <textarea
                 value={script}
                 onChange={(e) => setScript(e.target.value)}
@@ -133,7 +165,9 @@ export function VideoStudio() {
 
               {/* Duration */}
               <div className="mb-4">
-                <label className="text-sm font-medium text-gray-300 mb-2 block">Duration (seconds)</label>
+                <label className="text-sm font-medium text-gray-300 mb-2 block">
+                  Duration (seconds)
+                </label>
                 <select
                   value={duration}
                   onChange={(e) => setDuration(e.target.value)}
@@ -149,7 +183,9 @@ export function VideoStudio() {
 
               {/* Video Style */}
               <div className="mb-4">
-                <label className="text-sm font-medium text-gray-300 mb-2 block">Video Style</label>
+                <label className="text-sm font-medium text-gray-300 mb-2 block">
+                  Video Style
+                </label>
                 <div className="space-y-2">
                   {videoStyles.map((style) => (
                     <button
@@ -157,12 +193,14 @@ export function VideoStudio() {
                       onClick={() => setVideoStyle(style.id)}
                       className={`w-full p-3 rounded-lg border text-left transition-all ${
                         videoStyle === style.id
-                          ? 'border-[hsl(var(--gold))] bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]'
-                          : 'border-gray-700 bg-gray-800 text-gray-300 hover:border-gray-600'
+                          ? "border-[hsl(var(--gold))] bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]"
+                          : "border-gray-700 bg-gray-800 text-gray-300 hover:border-gray-600"
                       }`}
                     >
                       <div className="font-medium text-sm">{style.name}</div>
-                      <div className="text-xs opacity-70">{style.description}</div>
+                      <div className="text-xs opacity-70">
+                        {style.description}
+                      </div>
                     </button>
                   ))}
                 </div>
@@ -170,7 +208,9 @@ export function VideoStudio() {
 
               {/* Voice Selection */}
               <div className="mb-6">
-                <label className="text-sm font-medium text-gray-300 mb-2 block">Voice Type</label>
+                <label className="text-sm font-medium text-gray-300 mb-2 block">
+                  Voice Type
+                </label>
                 <div className="space-y-2">
                   {voiceOptions.map((voice) => (
                     <button
@@ -178,12 +218,14 @@ export function VideoStudio() {
                       onClick={() => setVoiceType(voice.id)}
                       className={`w-full p-3 rounded-lg border text-left transition-all ${
                         voiceType === voice.id
-                          ? 'border-[hsl(var(--gold))] bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]'
-                          : 'border-gray-700 bg-gray-800 text-gray-300 hover:border-gray-600'
+                          ? "border-[hsl(var(--gold))] bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]"
+                          : "border-gray-700 bg-gray-800 text-gray-300 hover:border-gray-600"
                       }`}
                     >
                       <div className="font-medium text-sm">{voice.name}</div>
-                      <div className="text-xs opacity-70">{voice.description}</div>
+                      <div className="text-xs opacity-70">
+                        {voice.description}
+                      </div>
                     </button>
                   ))}
                 </div>
@@ -242,16 +284,25 @@ export function VideoStudio() {
                     <div className="w-24 h-24 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
                       <VideoIcon className="w-12 h-12 text-gray-500" />
                     </div>
-                    <h4 className="text-xl font-semibold mb-2">No video generated yet</h4>
-                    <p className="text-gray-400 mb-6">Enter a script and click "Generate Video" to create your content</p>
+                    <h4 className="text-xl font-semibold mb-2">
+                      No video generated yet
+                    </h4>
+                    <p className="text-gray-400 mb-6">
+                      Enter a script and click "Generate Video" to create your
+                      content
+                    </p>
                   </div>
                 </div>
               ) : isGenerating ? (
                 <div className="aspect-video bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center">
                   <div className="text-center">
                     <Loader2 className="w-16 h-16 text-[hsl(var(--gold))] animate-spin mx-auto mb-4" />
-                    <h4 className="text-xl font-semibold mb-2">Generating Video...</h4>
-                    <p className="text-gray-400 mb-2">Creating your AI-powered video</p>
+                    <h4 className="text-xl font-semibold mb-2">
+                      Generating Video...
+                    </h4>
+                    <p className="text-gray-400 mb-2">
+                      Creating your AI-powered video
+                    </p>
                     <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
                       <Clock className="w-4 h-4" />
                       This may take a few minutes
@@ -304,11 +355,15 @@ export function VideoStudio() {
                     </div>
                     <div className="text-center">
                       <div className="text-sm text-gray-400">Style</div>
-                      <div className="font-semibold capitalize">{videoStyle}</div>
+                      <div className="font-semibold capitalize">
+                        {videoStyle}
+                      </div>
                     </div>
                     <div className="text-center">
                       <div className="text-sm text-gray-400">Voice</div>
-                      <div className="font-semibold">{voiceOptions.find(v => v.id === voiceType)?.name}</div>
+                      <div className="font-semibold">
+                        {voiceOptions.find((v) => v.id === voiceType)?.name}
+                      </div>
                     </div>
                     <div className="text-center">
                       <div className="text-sm text-gray-400">Quality</div>

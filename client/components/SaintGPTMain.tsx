@@ -8,7 +8,7 @@ import {
   Square,
   Sparkles,
   ArrowUp,
-  ArrowLeft
+  ArrowLeft,
 } from "lucide-react";
 
 interface SaintGPTMainProps {
@@ -19,46 +19,66 @@ const suggestions = [
   "Analyze my business metrics for Q4",
   "Create a product roadmap for 2024",
   "Help me write a compelling sales email",
-  "Generate ideas for customer retention"
+  "Generate ideas for customer retention",
 ];
 
 export function SaintGPTMain({ className }: SaintGPTMainProps) {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const [isListening, setIsListening] = useState(false);
-  const [messages, setMessages] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
+  const [messages, setMessages] = useState<
+    Array<{ role: "user" | "assistant"; content: string }>
+  >([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSend = async (customMessage?: string) => {
     const messageToSend = customMessage || message;
     if (messageToSend.trim() && !isLoading) {
       const userMessage = messageToSend.trim();
-      setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+      setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
       setMessage("");
       setIsLoading(true);
 
       try {
-        const response = await fetch('/api/ai/search', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+        const response = await fetch("/api/ai/search", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             query: userMessage,
-            context: 'saintgpt-enterprise',
-            userContext: { mode: 'enterprise' }
-          })
+            context: "saintgpt-enterprise",
+            userContext: { mode: "enterprise" },
+          }),
         });
 
         if (response.ok) {
           const data = await response.json();
-          const aiResponse = data.response || data.message || 'I received your message but had trouble responding. Please try again.';
-          setMessages(prev => [...prev, { role: 'assistant', content: aiResponse }]);
+          const aiResponse =
+            data.response ||
+            data.message ||
+            "I received your message but had trouble responding. Please try again.";
+          setMessages((prev) => [
+            ...prev,
+            { role: "assistant", content: aiResponse },
+          ]);
         } else {
-          console.error('SaintGPT API error:', response.status);
-          setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' }]);
+          console.error("SaintGPT API error:", response.status);
+          setMessages((prev) => [
+            ...prev,
+            {
+              role: "assistant",
+              content: "Sorry, I encountered an error. Please try again.",
+            },
+          ]);
         }
       } catch (error) {
-        console.error('SaintGPT error:', error);
-        setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' }]);
+        console.error("SaintGPT error:", error);
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content: "Sorry, I encountered an error. Please try again.",
+          },
+        ]);
       } finally {
         setIsLoading(false);
       }
@@ -73,9 +93,19 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
   };
 
   return (
-    <div className={`flex-1 flex flex-col ${className}`} style={{ backgroundColor: '#0f0f0f', fontFamily: 'Inter Tight, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
+    <div
+      className={`flex-1 flex flex-col ${className}`}
+      style={{
+        backgroundColor: "#0f0f0f",
+        fontFamily:
+          'Inter Tight, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+      }}
+    >
       {/* Header */}
-      <div className="border-b border-gray-800 px-4 lg:px-6 py-4" style={{ backgroundColor: '#0f0f0f' }}>
+      <div
+        className="border-b border-gray-800 px-4 lg:px-6 py-4"
+        style={{ backgroundColor: "#0f0f0f" }}
+      >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-gradient-to-br from-[hsl(var(--gold))] to-yellow-400 rounded-lg flex items-center justify-center">
@@ -83,7 +113,9 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
             </div>
             <div>
               <h1 className="text-lg font-semibold text-white">SaintGPT 4.1</h1>
-              <p className="text-sm text-gray-400 hidden sm:block">Enterprise AI Assistant</p>
+              <p className="text-sm text-gray-400 hidden sm:block">
+                Enterprise AI Assistant
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-3">
@@ -119,8 +151,9 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
                   Welcome to SaintGPT 4.1
                 </h2>
                 <p className="text-base lg:text-lg text-gray-300 px-4">
-                  Your enterprise AI assistant powered by Cookin' Knowledge.
-                  Ask me anything about your business, get insights, and boost productivity.
+                  Your enterprise AI assistant powered by Cookin' Knowledge. Ask
+                  me anything about your business, get insights, and boost
+                  productivity.
                 </p>
               </div>
 
@@ -137,7 +170,9 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
                     }}
                   >
                     <div>
-                      <div className="font-medium text-xs lg:text-sm">{suggestion}</div>
+                      <div className="font-medium text-xs lg:text-sm">
+                        {suggestion}
+                      </div>
                     </div>
                   </Button>
                 ))}
@@ -155,23 +190,23 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
                 {messages.map((msg, index) => (
                   <div
                     key={index}
-                    className={`flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                    className={`flex gap-3 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                   >
-                    {msg.role === 'assistant' && (
+                    {msg.role === "assistant" && (
                       <div className="w-8 h-8 bg-gradient-to-br from-[hsl(var(--gold))] to-yellow-400 rounded-lg flex items-center justify-center flex-shrink-0">
                         <Sparkles className="w-4 h-4 text-black" />
                       </div>
                     )}
                     <div
                       className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
-                        msg.role === 'user'
-                          ? 'bg-[hsl(var(--gold))] text-black'
-                          : 'bg-gray-800 text-white'
+                        msg.role === "user"
+                          ? "bg-[hsl(var(--gold))] text-black"
+                          : "bg-gray-800 text-white"
                       }`}
                     >
                       <p className="text-sm">{msg.content}</p>
                     </div>
-                    {msg.role === 'user' && (
+                    {msg.role === "user" && (
                       <div className="w-8 h-8 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0">
                         <span className="text-xs font-bold text-white">U</span>
                       </div>
@@ -186,8 +221,14 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
                     <div className="bg-gray-800 px-4 py-2 rounded-lg">
                       <div className="flex items-center gap-1">
                         <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" />
-                        <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
-                        <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                        <div
+                          className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce"
+                          style={{ animationDelay: "0.1s" }}
+                        />
+                        <div
+                          className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce"
+                          style={{ animationDelay: "0.2s" }}
+                        />
                       </div>
                     </div>
                   </div>
@@ -199,7 +240,10 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
       </div>
 
       {/* Input Area - Always visible */}
-      <div className="border-t border-gray-800 p-4 lg:p-6" style={{ backgroundColor: '#0f0f0f' }}>
+      <div
+        className="border-t border-gray-800 p-4 lg:p-6"
+        style={{ backgroundColor: "#0f0f0f" }}
+      >
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             <div className="flex items-end gap-2 lg:gap-3 p-3 lg:p-4 border border-gray-700 rounded-2xl bg-gray-900 focus-within:ring-2 focus-within:ring-[hsl(var(--gold))] focus-within:border-[hsl(var(--gold))] transition-all">
@@ -227,7 +271,11 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
                   onClick={() => setIsListening(!isListening)}
                   className={`hidden sm:flex ${isListening ? "text-red-500" : ""}`}
                 >
-                  {isListening ? <Square className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
+                  {isListening ? (
+                    <Square className="w-4 h-4" />
+                  ) : (
+                    <Mic className="w-4 h-4" />
+                  )}
                 </Button>
 
                 <Button
@@ -243,7 +291,8 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
           </div>
 
           <div className="text-xs text-center text-gray-500 mt-3 px-4">
-            SaintGPT can make mistakes. Check important information and verify business decisions.
+            SaintGPT can make mistakes. Check important information and verify
+            business decisions.
           </div>
         </div>
       </div>

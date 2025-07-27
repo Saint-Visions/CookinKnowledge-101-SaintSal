@@ -33,22 +33,67 @@ interface SimpleSearchProps {
 
 const mainMenuItems = [
   { icon: Home, label: "Main Dashboard", link: "/", hasNotification: false },
-  { icon: User, label: "My Companion", link: "/warroom", hasNotification: true },
-  { icon: Building2, label: "My Business", link: "/dashboard", hasNotification: true },
-  { icon: StickyNote, label: "Sticky Notes", link: "/tools", hasNotification: true },
+  {
+    icon: User,
+    label: "My Companion",
+    link: "/warroom",
+    hasNotification: true,
+  },
+  {
+    icon: Building2,
+    label: "My Business",
+    link: "/dashboard",
+    hasNotification: true,
+  },
+  {
+    icon: StickyNote,
+    label: "Sticky Notes",
+    link: "/tools",
+    hasNotification: true,
+  },
   { icon: Wrench, label: "AI Tools", link: "/tools", hasNotification: true },
-  { icon: ImageIcon, label: "Image Generator", link: "/tools", hasNotification: true },
-  { icon: Rocket, label: "SVG Launchpad", link: "/tools", hasNotification: false },
-  { icon: MessageSquare, label: "Feedback & Help", link: "/contact", hasNotification: true },
-  { icon: Users, label: "PartnerTech.ai CRM", link: "/crm", hasNotification: false },
-  { icon: Shield, label: "Client Portal", link: "/audit-service", hasNotification: true },
+  {
+    icon: ImageIcon,
+    label: "Image Generator",
+    link: "/tools",
+    hasNotification: true,
+  },
+  {
+    icon: Rocket,
+    label: "SVG Launchpad",
+    link: "/tools",
+    hasNotification: false,
+  },
+  {
+    icon: MessageSquare,
+    label: "Feedback & Help",
+    link: "/contact",
+    hasNotification: true,
+  },
+  {
+    icon: Users,
+    label: "PartnerTech.ai CRM",
+    link: "/crm",
+    hasNotification: false,
+  },
+  {
+    icon: Shield,
+    label: "Client Portal",
+    link: "/audit-service",
+    hasNotification: true,
+  },
   {
     icon: Palette,
     label: "SVT Institute of AI (R + D)",
     link: "/institute",
     hasNotification: false,
   },
-  { icon: TrendingUp, label: "Upgrade Tier", link: "/pricing", hasNotification: false },
+  {
+    icon: TrendingUp,
+    label: "Upgrade Tier",
+    link: "/pricing",
+    hasNotification: false,
+  },
   { icon: User, label: "My Account", link: "/auth", hasNotification: false },
   { icon: LogOut, label: "Logout", hasNotification: false },
 ];
@@ -68,38 +113,58 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
   const [isListening, setIsListening] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
   const [selectedModel, setSelectedModel] = useState("GPT-4 Turbo");
-  const [messages, setMessages] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
+  const [messages, setMessages] = useState<
+    Array<{ role: "user" | "assistant"; content: string }>
+  >([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSend = async () => {
     if (searchQuery.trim() && !isLoading) {
       const userMessage = searchQuery.trim();
-      setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+      setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
       setSearchQuery("");
       setIsLoading(true);
 
       try {
-        const response = await fetch('/api/ai/search', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+        const response = await fetch("/api/ai/search", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             query: userMessage,
-            context: 'saintgpt-search',
-            userContext: { mode: 'client' }
-          })
+            context: "saintgpt-search",
+            userContext: { mode: "client" },
+          }),
         });
 
         if (response.ok) {
           const data = await response.json();
-          const aiResponse = data.response || data.message || 'I got your message but had trouble responding. Please try again.';
-          setMessages(prev => [...prev, { role: 'assistant', content: aiResponse }]);
+          const aiResponse =
+            data.response ||
+            data.message ||
+            "I got your message but had trouble responding. Please try again.";
+          setMessages((prev) => [
+            ...prev,
+            { role: "assistant", content: aiResponse },
+          ]);
         } else {
           const errorData = await response.json().catch(() => null);
-          console.error('Search API error:', response.status, errorData);
-          setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' }]);
+          console.error("Search API error:", response.status, errorData);
+          setMessages((prev) => [
+            ...prev,
+            {
+              role: "assistant",
+              content: "Sorry, I encountered an error. Please try again.",
+            },
+          ]);
         }
       } catch (error) {
-        setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' }]);
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content: "Sorry, I encountered an error. Please try again.",
+          },
+        ]);
       } finally {
         setIsLoading(false);
       }
@@ -208,8 +273,6 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
 
           {/* Sticky Companion - Always Visible */}
           <div className="sticky bottom-0 p-4 border-t border-sidebar-border/30 bg-sidebar-background">
-
-
             {/* Azure Companion - No Blue */}
             <div className="p-4 rounded-xl bg-gradient-to-br from-[hsl(var(--gold))]/10 to-[hsl(var(--gold))]/5 border border-[hsl(var(--gold))]/20 mb-4">
               <div className="flex items-center gap-3 mb-3">
@@ -371,10 +434,12 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                     <div
                       key={index}
                       className={`flex gap-3 ${
-                        message.role === 'user' ? 'justify-end' : 'justify-start'
+                        message.role === "user"
+                          ? "justify-end"
+                          : "justify-start"
                       }`}
                     >
-                      {message.role === 'assistant' && (
+                      {message.role === "assistant" && (
                         <div className="w-8 h-8 bg-[hsl(var(--gold))]/20 rounded-lg flex items-center justify-center flex-shrink-0">
                           <img
                             src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fdbc34a0fdf4849459b0ed2678312de82?format=webp&width=80"
@@ -385,14 +450,14 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                       )}
                       <div
                         className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
-                          message.role === 'user'
-                            ? 'bg-[hsl(var(--gold))] text-black'
-                            : 'bg-muted text-foreground'
+                          message.role === "user"
+                            ? "bg-[hsl(var(--gold))] text-black"
+                            : "bg-muted text-foreground"
                         }`}
                       >
                         <p className="text-sm">{message.content}</p>
                       </div>
-                      {message.role === 'user' && (
+                      {message.role === "user" && (
                         <div className="w-8 h-8 bg-[hsl(var(--gold))]/20 rounded-lg flex items-center justify-center flex-shrink-0">
                           <User className="w-5 h-5 text-[hsl(var(--gold))]" />
                         </div>
@@ -411,8 +476,14 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                       <div className="bg-muted px-4 py-2 rounded-lg">
                         <div className="flex items-center gap-1">
                           <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" />
-                          <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
-                          <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                          <div
+                            className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce"
+                            style={{ animationDelay: "0.1s" }}
+                          />
+                          <div
+                            className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce"
+                            style={{ animationDelay: "0.2s" }}
+                          />
                         </div>
                       </div>
                     </div>

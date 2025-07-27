@@ -31,7 +31,7 @@ import {
   Video,
   Layout,
   Target,
-  TrendingUp
+  TrendingUp,
 } from "lucide-react";
 
 interface ToolsProps {
@@ -47,30 +47,30 @@ const toolCategories = [
         name: "SaintSalGPT 4.1",
         description: "Advanced AI companion for business operations",
         color: "from-[hsl(var(--gold))] to-yellow-400",
-        iconColor: "text-[hsl(var(--gold))]"
+        iconColor: "text-[hsl(var(--gold))]",
       },
       {
         icon: FileText,
         name: "Sticky Notes AI",
         description: "Intelligent note-taking with AI suggestions",
         color: "from-yellow-400 to-orange-400",
-        iconColor: "text-yellow-400"
+        iconColor: "text-yellow-400",
       },
       {
         icon: Wrench,
         name: "AI Tools Suite",
         description: "Complete toolkit for AI-powered workflows",
         color: "from-purple-400 to-pink-400",
-        iconColor: "text-purple-400"
+        iconColor: "text-purple-400",
       },
       {
         icon: BarChart3,
         name: "Data Analytics",
         description: "AI-driven insights and reporting",
         color: "from-green-400 to-teal-400",
-        iconColor: "text-green-400"
-      }
-    ]
+        iconColor: "text-green-400",
+      },
+    ],
   },
   {
     title: "Creative Suite",
@@ -80,30 +80,30 @@ const toolCategories = [
         name: "Image Generator",
         description: "Create stunning visuals with AI",
         color: "from-pink-400 to-rose-400",
-        iconColor: "text-pink-400"
+        iconColor: "text-pink-400",
       },
       {
         icon: Rocket,
         name: "SVG Launchpad",
         description: "Design and launch SVG graphics",
         color: "from-orange-400 to-red-400",
-        iconColor: "text-orange-400"
+        iconColor: "text-orange-400",
       },
       {
         icon: Video,
         name: "Video Studio",
         description: "AI-powered video creation and editing",
         color: "from-indigo-400 to-purple-400",
-        iconColor: "text-indigo-400"
+        iconColor: "text-indigo-400",
       },
       {
         icon: Layout,
         name: "Design Studio",
         description: "Professional design templates and tools",
         color: "from-gray-400 to-slate-400",
-        iconColor: "text-gray-400"
-      }
-    ]
+        iconColor: "text-gray-400",
+      },
+    ],
   },
   {
     title: "Business Operations",
@@ -113,30 +113,30 @@ const toolCategories = [
         name: "My Business",
         description: "Comprehensive business management",
         color: "from-green-400 to-emerald-400",
-        iconColor: "text-green-400"
+        iconColor: "text-green-400",
       },
       {
         icon: Users,
         name: "PartnerTech.ai CRM",
         description: "Advanced customer relationship management",
         color: "from-teal-400 to-cyan-400",
-        iconColor: "text-teal-400"
+        iconColor: "text-teal-400",
       },
       {
         icon: Calendar,
         name: "Smart Scheduler",
         description: "AI-powered meeting and task scheduling",
         color: "from-[hsl(var(--gold))] to-yellow-400",
-        iconColor: "text-[hsl(var(--gold))]"
+        iconColor: "text-[hsl(var(--gold))]",
       },
       {
         icon: Mail,
         name: "Email Assistant",
         description: "Intelligent email management and automation",
         color: "from-purple-400 to-violet-400",
-        iconColor: "text-purple-400"
-      }
-    ]
+        iconColor: "text-purple-400",
+      },
+    ],
   },
   {
     title: "Learning & Development",
@@ -146,31 +146,31 @@ const toolCategories = [
         name: "SVT Institute of AI",
         description: "Advanced AI training and certification",
         color: "from-violet-400 to-purple-400",
-        iconColor: "text-violet-400"
+        iconColor: "text-violet-400",
       },
       {
         icon: Code,
         name: "Code Academy",
         description: "Learn programming with AI guidance",
         color: "from-emerald-400 to-green-400",
-        iconColor: "text-emerald-400"
+        iconColor: "text-emerald-400",
       },
       {
         icon: Target,
         name: "Skill Tracker",
         description: "Monitor and develop professional skills",
         color: "from-red-400 to-pink-400",
-        iconColor: "text-red-400"
+        iconColor: "text-red-400",
       },
       {
         icon: TrendingUp,
         name: "Progress Analytics",
         description: "Track learning progress and insights",
         color: "from-amber-400 to-yellow-400",
-        iconColor: "text-amber-400"
-      }
-    ]
-  }
+        iconColor: "text-amber-400",
+      },
+    ],
+  },
 ];
 
 export function Tools({ className }: ToolsProps) {
@@ -182,7 +182,10 @@ export function Tools({ className }: ToolsProps) {
   };
 
   return (
-    <div className={`min-h-screen ${className}`} style={{ backgroundColor: '#000000' }}>
+    <div
+      className={`min-h-screen ${className}`}
+      style={{ backgroundColor: "#000000" }}
+    >
       {/* Header */}
       <div className="border-b border-border/30 px-6 py-4">
         <div className="flex items-center justify-between">
@@ -203,22 +206,37 @@ export function Tools({ className }: ToolsProps) {
 
           {/* Center: Navigation */}
           <nav className="flex items-center gap-1">
-            <Link to="/" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+            <Link
+              to="/"
+              className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+            >
               Home
             </Link>
-            <Link to="/search" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+            <Link
+              to="/search"
+              className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+            >
               Search
             </Link>
-            <Link to="/warroom" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+            <Link
+              to="/warroom"
+              className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+            >
               WarRoom
             </Link>
             <div className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium">
               Tools
             </div>
-            <Link to="/help" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+            <Link
+              to="/help"
+              className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+            >
               Help
             </Link>
-            <Link to="/partnertech" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]/80">
+            <Link
+              to="/partnertech"
+              className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]/80"
+            >
               PartnerTech.ai
             </Link>
           </nav>
@@ -228,7 +246,7 @@ export function Tools({ className }: ToolsProps) {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => navigate('/warroom')}
+              onClick={() => navigate("/warroom")}
               className="border-[hsl(var(--gold))]/30 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
             >
               <Home className="w-4 h-4 mr-2" />
@@ -253,8 +271,9 @@ export function Tools({ className }: ToolsProps) {
             AI Tools & <span className="text-[hsl(var(--gold))]">Features</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Discover powerful AI-driven tools designed to enhance your productivity, creativity, and business operations. 
-            Everything you need to succeed in the digital age.
+            Discover powerful AI-driven tools designed to enhance your
+            productivity, creativity, and business operations. Everything you
+            need to succeed in the digital age.
           </p>
           <div className="flex items-center justify-center gap-4">
             <div className="flex items-center gap-2 text-sm text-[hsl(var(--neon))]">
@@ -279,10 +298,12 @@ export function Tools({ className }: ToolsProps) {
           {toolCategories.map((category, categoryIndex) => (
             <div key={categoryIndex}>
               <div className="flex items-center gap-4 mb-8">
-                <h2 className="text-2xl font-bold text-foreground">{category.title}</h2>
+                <h2 className="text-2xl font-bold text-foreground">
+                  {category.title}
+                </h2>
                 <div className="flex-1 h-px bg-gradient-to-r from-border/50 to-transparent"></div>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {category.tools.map((tool, toolIndex) => {
                   const Icon = tool.icon;
@@ -293,11 +314,15 @@ export function Tools({ className }: ToolsProps) {
                       onClick={() => handleToolClick(tool.name)}
                     >
                       {/* Background Gradient */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${tool.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}></div>
-                      
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${tool.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
+                      ></div>
+
                       {/* Icon */}
                       <div className="relative mb-4">
-                        <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${tool.color} bg-opacity-10`}>
+                        <div
+                          className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${tool.color} bg-opacity-10`}
+                        >
                           <Icon className={`w-6 h-6 ${tool.iconColor}`} />
                         </div>
                       </div>
@@ -310,7 +335,7 @@ export function Tools({ className }: ToolsProps) {
                         <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                           {tool.description}
                         </p>
-                        
+
                         {/* Launch Button */}
                         <div className="flex items-center justify-between">
                           <Button
@@ -349,13 +374,14 @@ export function Tools({ className }: ToolsProps) {
             Ready to transform your workflow?
           </h3>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Join thousands of professionals who are already using SaintVisionAI tools to boost their productivity and creativity.
+            Join thousands of professionals who are already using SaintVisionAI
+            tools to boost their productivity and creativity.
           </p>
           <div className="flex items-center justify-center gap-4">
             <Button
               size="lg"
               className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-semibold"
-              onClick={() => navigate('/warroom')}
+              onClick={() => navigate("/warroom")}
             >
               <Crown className="w-5 h-5 mr-2" />
               Get Started
@@ -363,7 +389,7 @@ export function Tools({ className }: ToolsProps) {
             <Button
               variant="outline"
               size="lg"
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate("/contact")}
             >
               <MessageSquare className="w-5 h-5 mr-2" />
               Contact Sales
@@ -376,12 +402,16 @@ export function Tools({ className }: ToolsProps) {
       <div className="border-t border-border/30 p-6 mt-16">
         <div className="flex items-center justify-center text-sm text-muted-foreground">
           <span>Powered by</span>
-          <span className="text-[hsl(var(--gold))] font-medium mx-2">SAINTSAL GOTTA GUY</span>
+          <span className="text-[hsl(var(--gold))] font-medium mx-2">
+            SAINTSAL GOTTA GUY
+          </span>
           <Sparkles className="w-4 h-4 text-[hsl(var(--gold))]" />
           <span className="mx-3">•</span>
           <span className="text-white">Azure Cognitive Services</span>
           <span className="mx-3">•</span>
-          <span className="text-[hsl(var(--gold))]">SaintSalGPT 4.1 SaintVisionAI</span>
+          <span className="text-[hsl(var(--gold))]">
+            SaintSalGPT 4.1 SaintVisionAI
+          </span>
         </div>
       </div>
     </div>

@@ -36,14 +36,18 @@ export function CRM({ className }: CRMProps) {
   const [isLoading, setIsLoading] = useState(true); // Track iframe loading state
 
   // Auth guard for CRM access
-  if (!hasAccess('crm')) {
+  if (!hasAccess("crm")) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">CRM Access Required</h2>
-          <p className="text-gray-400 mb-6">Upgrade to Premium to access PartnerTech.ai CRM</p>
+          <h2 className="text-2xl font-bold text-white mb-4">
+            CRM Access Required
+          </h2>
+          <p className="text-gray-400 mb-6">
+            Upgrade to Premium to access PartnerTech.ai CRM
+          </p>
           <button
-            onClick={() => navigate('/pricing')}
+            onClick={() => navigate("/pricing")}
             className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black px-6 py-3 rounded-lg font-semibold"
           >
             Upgrade Now
@@ -128,7 +132,11 @@ export function CRM({ className }: CRMProps) {
 
               <button
                 className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:bg-white/10 transition-all text-sm"
-                onClick={() => alert('📞 Call Center\n\nIntegrated calling system with GHL. Click-to-call functionality and call logging active.')}
+                onClick={() =>
+                  alert(
+                    "📞 Call Center\n\nIntegrated calling system with GHL. Click-to-call functionality and call logging active.",
+                  )
+                }
               >
                 <Phone className="w-4 h-4" />
                 Calls
@@ -136,7 +144,11 @@ export function CRM({ className }: CRMProps) {
 
               <button
                 className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:bg-white/10 transition-all text-sm"
-                onClick={() => alert('👥 Contact Management\n\nFull contact database with lead scoring, pipeline tracking, and automated follow-ups.')}
+                onClick={() =>
+                  alert(
+                    "👥 Contact Management\n\nFull contact database with lead scoring, pipeline tracking, and automated follow-ups.",
+                  )
+                }
               >
                 <Users className="w-4 h-4" />
                 Contacts
@@ -144,7 +156,11 @@ export function CRM({ className }: CRMProps) {
 
               <button
                 className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:bg-white/10 transition-all text-sm"
-                onClick={() => alert('🎯 Sales Pipeline\n\nAdvanced pipeline management with deal tracking, forecasting, and conversion analytics.')}
+                onClick={() =>
+                  alert(
+                    "🎯 Sales Pipeline\n\nAdvanced pipeline management with deal tracking, forecasting, and conversion analytics.",
+                  )
+                }
               >
                 <Target className="w-4 h-4" />
                 Campaigns
@@ -228,7 +244,12 @@ export function CRM({ className }: CRMProps) {
                 variant="outline"
                 size="sm"
                 className="h-8 text-xs"
-                onClick={() => window.open('https://app.gohighlevel.com/location/oRA8vL3OSiCPjpwmEC0V', '_blank')}
+                onClick={() =>
+                  window.open(
+                    "https://app.gohighlevel.com/location/oRA8vL3OSiCPjpwmEC0V",
+                    "_blank",
+                  )
+                }
               >
                 <ExternalLink className="w-3 h-3 mr-1" />
                 Open in GHL
@@ -237,7 +258,11 @@ export function CRM({ className }: CRMProps) {
                 variant="outline"
                 size="sm"
                 className="h-8"
-                onClick={() => alert('🔔 CRM Notifications\n\nNotification system integrated with your GHL workspace. All lead updates and pipeline changes will appear here.')}
+                onClick={() =>
+                  alert(
+                    "🔔 CRM Notifications\n\nNotification system integrated with your GHL workspace. All lead updates and pipeline changes will appear here.",
+                  )
+                }
               >
                 <Bell className="w-3 h-3" />
               </Button>

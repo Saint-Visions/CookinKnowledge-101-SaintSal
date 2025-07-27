@@ -49,39 +49,39 @@ const App = () => (
       <BrowserRouter>
         <AuthProvider>
           <Routes>
-          <Route path="/" element={<AppleHomepage />} />
-          <Route path="/home" element={<Index />} />
-          <Route path="/saintgpt" element={<SaintGPT />} />
-          <Route path="/search" element={<SimpleSearch />} />
-          <Route path="/warroom" element={<WarRoom />} />
-          <Route path="/tools" element={<Tools />} />
-          <Route path="/legal" element={<Legal />} />
-          <Route path="/why" element={<Why />} />
-          <Route path="/help" element={<Help />} />
-          <Route path="/institute" element={<Institute />} />
-          <Route path="/broker" element={<Broker />} />
-          <Route path="/partnertech" element={<PartnerTech />} />
-          <Route path="/crm" element={<CRM />} />
-          <Route path="/audit-service" element={<AuditService />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/landing" element={<Landing />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/enterprise" element={<Enterprise />} />
-          <Route path="/about/hacp" element={<HACP />} />
-          <Route path="/dashboard" element={<GeneralDashboard />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/checkout-success" element={<CheckoutSuccess />} />
-          <Route path="/splash" element={<Splash />} />
-          {/* AI Tool Routes */}
-          <Route path="/image-generator" element={<ImageGenerator />} />
-          <Route path="/sticky-notes" element={<StickyNotes />} />
-          <Route path="/email-assistant" element={<EmailAssistant />} />
-          <Route path="/video-studio" element={<VideoStudio />} />
-          <Route path="/code-academy" element={<CodeAcademy />} />
-          <Route path="/ai-tools-suite" element={<AIToolsSuite />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<AppleHomepage />} />
+            <Route path="/home" element={<Index />} />
+            <Route path="/saintgpt" element={<SaintGPT />} />
+            <Route path="/search" element={<SimpleSearch />} />
+            <Route path="/warroom" element={<WarRoom />} />
+            <Route path="/tools" element={<Tools />} />
+            <Route path="/legal" element={<Legal />} />
+            <Route path="/why" element={<Why />} />
+            <Route path="/help" element={<Help />} />
+            <Route path="/institute" element={<Institute />} />
+            <Route path="/broker" element={<Broker />} />
+            <Route path="/partnertech" element={<PartnerTech />} />
+            <Route path="/crm" element={<CRM />} />
+            <Route path="/audit-service" element={<AuditService />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/landing" element={<Landing />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/enterprise" element={<Enterprise />} />
+            <Route path="/about/hacp" element={<HACP />} />
+            <Route path="/dashboard" element={<GeneralDashboard />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/checkout-success" element={<CheckoutSuccess />} />
+            <Route path="/splash" element={<Splash />} />
+            {/* AI Tool Routes */}
+            <Route path="/image-generator" element={<ImageGenerator />} />
+            <Route path="/sticky-notes" element={<StickyNotes />} />
+            <Route path="/email-assistant" element={<EmailAssistant />} />
+            <Route path="/video-studio" element={<VideoStudio />} />
+            <Route path="/code-academy" element={<CodeAcademy />} />
+            <Route path="/ai-tools-suite" element={<AIToolsSuite />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>

@@ -1,6 +1,6 @@
 import express from "express";
 import Stripe from "stripe";
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 
 const router = express.Router();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
@@ -8,49 +8,68 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 });
 
 // Initialize Supabase admin client only if environment variables are available
-const supabaseAdmin = process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY
-  ? createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
-  : null;
+const supabaseAdmin =
+  process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY
+    ? createClient(
+        process.env.SUPABASE_URL,
+        process.env.SUPABASE_SERVICE_ROLE_KEY,
+      )
+    : null;
 
 // 🎯 STRIPE WEBHOOK - HANDLES ALL TIER UPGRADES
-router.post("/webhook", express.raw({ type: "application/json" }), async (req, res) => {
-  const sig = req.headers["stripe-signature"]!;
-  const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
+router.post(
+  "/webhook",
+  express.raw({ type: "application/json" }),
+  async (req, res) => {
+    const sig = req.headers["stripe-signature"]!;
+    const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
-  try {
-    const event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+    try {
+      const event = stripe.webhooks.constructEvent(
+        req.body,
+        sig,
+        endpointSecret,
+      );
 
-    console.log(`🎯 Stripe webhook received: ${event.type}`);
+      console.log(`🎯 Stripe webhook received: ${event.type}`);
 
-    switch (event.type) {
-      case "checkout.session.completed":
-        await handleSuccessfulPayment(event.data.object as Stripe.Checkout.Session);
-        break;
-      case "customer.subscription.updated":
-        await handleSubscriptionChange(event.data.object as Stripe.Subscription);
-        break;
-      case "customer.subscription.deleted":
-        await handleSubscriptionCancellation(event.data.object as Stripe.Subscription);
-        break;
-      case "invoice.payment_failed":
-        await handlePaymentFailure(event.data.object as Stripe.Invoice);
-        break;
-      default:
-        console.log(`🔔 Unhandled event type: ${event.type}`);
+      switch (event.type) {
+        case "checkout.session.completed":
+          await handleSuccessfulPayment(
+            event.data.object as Stripe.Checkout.Session,
+          );
+          break;
+        case "customer.subscription.updated":
+          await handleSubscriptionChange(
+            event.data.object as Stripe.Subscription,
+          );
+          break;
+        case "customer.subscription.deleted":
+          await handleSubscriptionCancellation(
+            event.data.object as Stripe.Subscription,
+          );
+          break;
+        case "invoice.payment_failed":
+          await handlePaymentFailure(event.data.object as Stripe.Invoice);
+          break;
+        default:
+          console.log(`🔔 Unhandled event type: ${event.type}`);
+      }
+
+      res.json({ received: true });
+    } catch (error) {
+      console.error("❌ Webhook error:", error);
+      res.status(400).send("Webhook Error");
     }
-
-    res.json({ received: true });
-  } catch (error) {
-    console.error("❌ Webhook error:", error);
-    res.status(400).send("Webhook Error");
-  }
-});
+  },
+);
 
 // 💸 HANDLE SUCCESSFUL PAYMENT - THE MONEY MAKER
 async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
   try {
     const { metadata } = session;
-    const { userId, supabaseId, targetRole, plan, tier, price } = metadata || {};
+    const { userId, supabaseId, targetRole, plan, tier, price } =
+      metadata || {};
 
     console.log(`🚀 Processing successful payment:`, {
       sessionId: session.id,
@@ -76,7 +95,7 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
     await unlockFeatures(supabaseId, tier);
 
     // 3️⃣ GHL CRM PROVISIONING (Core+ tiers)
-    if (['core', 'pro', 'fullPro', 'custom'].includes(tier)) {
+    if (["core", "pro", "fullPro", "custom"].includes(tier)) {
       await provisionGHLSubaccount(session.customer_email!, tier, supabaseId);
     }
 
@@ -89,8 +108,9 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
     // 6️⃣ TRIGGER ONBOARDING SEQUENCE
     await triggerOnboardingSequence(supabaseId, tier);
 
-    console.log(`✅ Payment processing complete for ${session.customer_email} - ${tier} tier`);
-
+    console.log(
+      `✅ Payment processing complete for ${session.customer_email} - ${tier} tier`,
+    );
   } catch (error) {
     console.error("❌ Error processing successful payment:", error);
     // Don't throw - we don't want to retry webhook
@@ -98,37 +118,48 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
 }
 
 // 🔐 UPGRADE SUPABASE ROLE AND USER METADATA
-async function upgradeSupabaseRole(supabaseId: string, targetRole: string, metadata: any) {
+async function upgradeSupabaseRole(
+  supabaseId: string,
+  targetRole: string,
+  metadata: any,
+) {
   if (!supabaseAdmin) {
-    console.log("⚠️ Supabase admin not configured - skipping role upgrade in development");
+    console.log(
+      "⚠️ Supabase admin not configured - skipping role upgrade in development",
+    );
     return;
   }
 
   try {
     // Update user role
-    const { error: roleError } = await supabaseAdmin.auth.admin.updateUserById(supabaseId, {
-      role: targetRole,
-    });
+    const { error: roleError } = await supabaseAdmin.auth.admin.updateUserById(
+      supabaseId,
+      {
+        role: targetRole,
+      },
+    );
 
     if (roleError) throw roleError;
 
     // Update user metadata
-    const { error: metadataError } = await supabaseAdmin.auth.admin.updateUserById(supabaseId, {
-      user_metadata: {
-        plan: metadata.plan,
-        billingStatus: "active",
-        paymentSource: "Stripe",
-        tier: metadata.tier,
-        customerId: metadata.customerId,
-        subscriptionId: metadata.subscriptionId,
-        upgradeDate: new Date().toISOString(),
-      },
-    });
+    const { error: metadataError } =
+      await supabaseAdmin.auth.admin.updateUserById(supabaseId, {
+        user_metadata: {
+          plan: metadata.plan,
+          billingStatus: "active",
+          paymentSource: "Stripe",
+          tier: metadata.tier,
+          customerId: metadata.customerId,
+          subscriptionId: metadata.subscriptionId,
+          upgradeDate: new Date().toISOString(),
+        },
+      });
 
     if (metadataError) throw metadataError;
 
-    console.log(`🔐 Supabase role upgraded to ${targetRole} for user ${supabaseId}`);
-
+    console.log(
+      `🔐 Supabase role upgraded to ${targetRole} for user ${supabaseId}`,
+    );
   } catch (error) {
     console.error("❌ Supabase role upgrade failed:", error);
     throw error;
@@ -193,7 +224,7 @@ async function unlockFeatures(supabaseId: string, tier: string) {
       enableOnboarding: true,
       enableDevPriority: true,
       customDomain: true,
-      ghlSubaccounts: 'unlimited',
+      ghlSubaccounts: "unlimited",
     },
   };
 
@@ -201,19 +232,19 @@ async function unlockFeatures(supabaseId: string, tier: string) {
 
   try {
     if (!supabaseAdmin) {
-      console.log("⚠️ Supabase admin not configured - skipping feature unlock in development");
+      console.log(
+        "⚠️ Supabase admin not configured - skipping feature unlock in development",
+      );
       return;
     }
 
     // Store features in Supabase user_features table or metadata
-    const { error } = await supabaseAdmin
-      .from('user_features')
-      .upsert({
-        user_id: supabaseId,
-        features: features,
-        tier: tier,
-        updated_at: new Date().toISOString(),
-      });
+    const { error } = await supabaseAdmin.from("user_features").upsert({
+      user_id: supabaseId,
+      features: features,
+      tier: tier,
+      updated_at: new Date().toISOString(),
+    });
 
     if (error) {
       // Fallback: store in user metadata if table doesn't exist
@@ -225,21 +256,33 @@ async function unlockFeatures(supabaseId: string, tier: string) {
       });
     }
 
-    console.log(`🧠 Features unlocked for ${tier} tier:`, Object.keys(features));
-
+    console.log(
+      `🧠 Features unlocked for ${tier} tier:`,
+      Object.keys(features),
+    );
   } catch (error) {
     console.error("❌ Feature unlock failed:", error);
   }
 }
 
 // 🔧 GHL CRM PROVISIONING
-async function provisionGHLSubaccount(email: string, tier: string, userId: string) {
+async function provisionGHLSubaccount(
+  email: string,
+  tier: string,
+  userId: string,
+) {
   try {
     const ghlConfig = {
-      core: { template: 'CORE_TEMPLATE_ID', name: 'Core Client' },
-      pro: { template: 'PRO_TEMPLATE_ID', name: 'Pro Client' },
-      fullPro: { template: 'WHITE_LABEL_TEMPLATE_ID', name: 'White Label Client' },
-      custom: { template: 'CUSTOM_TEMPLATE_ID', name: 'Custom Enterprise Client' },
+      core: { template: "CORE_TEMPLATE_ID", name: "Core Client" },
+      pro: { template: "PRO_TEMPLATE_ID", name: "Pro Client" },
+      fullPro: {
+        template: "WHITE_LABEL_TEMPLATE_ID",
+        name: "White Label Client",
+      },
+      custom: {
+        template: "CUSTOM_TEMPLATE_ID",
+        name: "Custom Enterprise Client",
+      },
     };
 
     const config = ghlConfig[tier as keyof typeof ghlConfig];
@@ -247,13 +290,13 @@ async function provisionGHLSubaccount(email: string, tier: string, userId: strin
 
     // Call GHL API (implement with actual GHL credentials)
     const ghlResponse = await fetch(`${process.env.GHL_API_URL}/v1/accounts`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Authorization': `Bearer ${process.env.GHL_API_KEY}`,
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.GHL_API_KEY}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: `SaintVision Client - ${email.split('@')[0]}`,
+        name: `SaintVision Client - ${email.split("@")[0]}`,
         email: email,
         template_id: config.template,
         user_id: userId,
@@ -263,22 +306,22 @@ async function provisionGHLSubaccount(email: string, tier: string, userId: strin
 
     if (ghlResponse.ok) {
       const ghlData = await ghlResponse.json();
-      console.log(`🔧 GHL subaccount created for ${email}:`, ghlData.account_id);
-      
+      console.log(
+        `🔧 GHL subaccount created for ${email}:`,
+        ghlData.account_id,
+      );
+
       // Store GHL account info
       if (supabaseAdmin) {
-        await supabaseAdmin
-          .from('user_crm_accounts')
-          .insert({
-            user_id: userId,
-            ghl_account_id: ghlData.account_id,
-            tier: tier,
-            status: 'active',
-            created_at: new Date().toISOString(),
-          });
+        await supabaseAdmin.from("user_crm_accounts").insert({
+          user_id: userId,
+          ghl_account_id: ghlData.account_id,
+          tier: tier,
+          status: "active",
+          created_at: new Date().toISOString(),
+        });
       }
     }
-
   } catch (error) {
     console.error("❌ GHL provisioning failed:", error);
     // Continue without failing - can be retried later
@@ -383,50 +426,50 @@ Expect contact from ryan@saintvision.ai
   try {
     // Send email via your email service (implement with actual service)
     console.log(`📧 Welcome email sent to ${email} for ${tier} tier`);
-    
+
     // Store email log
     if (supabaseAdmin) {
-      await supabaseAdmin
-        .from('email_logs')
-        .insert({
-          recipient: email,
-          subject: template.subject,
-          tier: tier,
-          type: 'welcome',
-          sent_at: new Date().toISOString(),
-        });
+      await supabaseAdmin.from("email_logs").insert({
+        recipient: email,
+        subject: template.subject,
+        tier: tier,
+        type: "welcome",
+        sent_at: new Date().toISOString(),
+      });
     }
-
   } catch (error) {
     console.error("❌ Welcome email failed:", error);
   }
 }
 
 // 💬 SLACK NOTIFICATION
-async function sendSlackNotification(email: string, tier: string, price: string) {
+async function sendSlackNotification(
+  email: string,
+  tier: string,
+  price: string,
+) {
   const tierEmojis = {
-    unlimited: '💬',
-    core: '🧠', 
-    pro: '⚡',
-    fullPro: '👑',
-    custom: '🧬',
+    unlimited: "💬",
+    core: "🧠",
+    pro: "⚡",
+    fullPro: "👑",
+    custom: "🧬",
   };
 
-  const emoji = tierEmojis[tier as keyof typeof tierEmojis] || '🎯';
+  const emoji = tierEmojis[tier as keyof typeof tierEmojis] || "🎯";
   const message = `${emoji} New ${tier} client: ${email} | $${price}/mo | Payment confirmed ✅`;
 
   try {
     // Send to Slack (implement with actual webhook)
     console.log(`💬 Slack notification: ${message}`);
-    
+
     if (process.env.SLACK_WEBHOOK_URL) {
       await fetch(process.env.SLACK_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: message }),
       });
     }
-
   } catch (error) {
     console.error("❌ Slack notification failed:", error);
   }
@@ -437,31 +480,30 @@ async function triggerOnboardingSequence(userId: string, tier: string) {
   try {
     // Schedule onboarding tasks
     const onboardingTasks = {
-      unlimited: ['dashboard_walkthrough', 'companion_setup'],
-      core: ['crm_setup', 'chrome_extension', 'partner_panel'],
-      pro: ['webhook_training', 'admin_access', 'slack_integration'],
-      fullPro: ['branding_submission', 'subdomain_setup', 'client_onboarding'],
-      custom: ['strategy_call', 'ip_consultation', 'dev_kickoff'],
+      unlimited: ["dashboard_walkthrough", "companion_setup"],
+      core: ["crm_setup", "chrome_extension", "partner_panel"],
+      pro: ["webhook_training", "admin_access", "slack_integration"],
+      fullPro: ["branding_submission", "subdomain_setup", "client_onboarding"],
+      custom: ["strategy_call", "ip_consultation", "dev_kickoff"],
     };
 
     const tasks = onboardingTasks[tier as keyof typeof onboardingTasks] || [];
 
     for (const task of tasks) {
       if (supabaseAdmin) {
-        await supabaseAdmin
-          .from('onboarding_tasks')
-          .insert({
-            user_id: userId,
-            task: task,
-            tier: tier,
-            status: 'pending',
-            created_at: new Date().toISOString(),
-          });
+        await supabaseAdmin.from("onboarding_tasks").insert({
+          user_id: userId,
+          task: task,
+          tier: tier,
+          status: "pending",
+          created_at: new Date().toISOString(),
+        });
       }
     }
 
-    console.log(`🚀 Onboarding sequence triggered for ${tier}: ${tasks.join(', ')}`);
-
+    console.log(
+      `🚀 Onboarding sequence triggered for ${tier}: ${tasks.join(", ")}`,
+    );
   } catch (error) {
     console.error("❌ Onboarding sequence failed:", error);
   }
@@ -474,7 +516,9 @@ async function handleSubscriptionChange(subscription: Stripe.Subscription) {
 }
 
 // Handle subscription cancellations
-async function handleSubscriptionCancellation(subscription: Stripe.Subscription) {
+async function handleSubscriptionCancellation(
+  subscription: Stripe.Subscription,
+) {
   console.log(`❌ Subscription cancelled: ${subscription.id}`);
   // Downgrade user, disable features, etc.
 }

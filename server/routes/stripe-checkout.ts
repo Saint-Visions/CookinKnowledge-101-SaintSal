@@ -1,6 +1,6 @@
 import express from "express";
 import Stripe from "stripe";
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 
 const router = express.Router();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
@@ -8,24 +8,28 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 });
 
 // Initialize Supabase admin client only if environment variables are available
-const supabaseAdmin = process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY
-  ? createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
-  : null;
+const supabaseAdmin =
+  process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY
+    ? createClient(
+        process.env.SUPABASE_URL,
+        process.env.SUPABASE_SERVICE_ROLE_KEY,
+      )
+    : null;
 
 // 💸 SAINTSAL™ STRIPE PRICE IDS - LIVE PRODUCTION VALUES
 const STRIPE_PRICE_IDS = {
-  unlimited: 'price_1RINIMFZsXxBWnjQEYxlyUIy', // $27/month - LIVE ID
-  core: 'price_1RLChzFZsXxBWnj0VcveVdDf',     // $97/month - LIVE ID
-  pro: 'price_1IRNqvFZsXxBWnj0RlB9d1cP',      // $297/month - LIVE ID
-  fullPro: 'price_1IRg90FZsXxBWnj0H3PHnVc6',  // $497/month - LIVE ID
-  custom: 'price_1Rh5yFZsXxBWnj0w6p9KY0j',   // $1500/month - LIVE ID
+  unlimited: "price_1RINIMFZsXxBWnjQEYxlyUIy", // $27/month - LIVE ID
+  core: "price_1RLChzFZsXxBWnj0VcveVdDf", // $97/month - LIVE ID
+  pro: "price_1IRNqvFZsXxBWnj0RlB9d1cP", // $297/month - LIVE ID
+  fullPro: "price_1IRg90FZsXxBWnj0H3PHnVc6", // $497/month - LIVE ID
+  custom: "price_1Rh5yFZsXxBWnj0w6p9KY0j", // $1500/month - LIVE ID
 };
 
 // 🧠 TIER CONFIGURATION WITH EXACT LOGIC
 const TIER_CONFIG = {
   unlimited: {
-    role: 'unlimited',
-    plan: 'Unlimited GPT Access',
+    role: "unlimited",
+    plan: "Unlimited GPT Access",
     price: 27,
     features: {
       enableGPT: true,
@@ -37,11 +41,11 @@ const TIER_CONFIG = {
       enableWebhooks: false,
       enableAdminDash: false,
       enablePartnerTech: false,
-    }
+    },
   },
   core: {
-    role: 'core',
-    plan: 'Core Tools',
+    role: "core",
+    plan: "Core Tools",
     price: 97,
     features: {
       enableGPT: true,
@@ -54,11 +58,11 @@ const TIER_CONFIG = {
       enableWebhooks: false,
       enableAdminDash: false,
       enableWhiteLabel: false,
-    }
+    },
   },
   pro: {
-    role: 'pro',
-    plan: 'Pro Suite',
+    role: "pro",
+    plan: "Pro Suite",
     price: 297,
     features: {
       enableGPT: true,
@@ -72,11 +76,11 @@ const TIER_CONFIG = {
       enableTwilio: true,
       enableSlackAlerts: true,
       enableWhiteLabel: false,
-    }
+    },
   },
   fullPro: {
-    role: 'white_label',
-    plan: 'Full White-Label',
+    role: "white_label",
+    plan: "Full White-Label",
     price: 497,
     features: {
       enableGPT: true,
@@ -92,11 +96,11 @@ const TIER_CONFIG = {
       enableWhiteLabel: true,
       enableMultiCRM: true,
       ghlSubaccounts: 10,
-    }
+    },
   },
   custom: {
-    role: 'custom',
-    plan: 'Custom Enterprise',
+    role: "custom",
+    plan: "Custom Enterprise",
     price: 1500,
     features: {
       enableGPT: true,
@@ -114,9 +118,9 @@ const TIER_CONFIG = {
       enableOnboarding: true,
       enableDevPriority: true,
       customDomain: true,
-      ghlSubaccounts: 'unlimited',
-    }
-  }
+      ghlSubaccounts: "unlimited",
+    },
+  },
 };
 
 // 🔐 CREATE CHECKOUT SESSION
@@ -133,7 +137,9 @@ router.post("/create-checkout-session", async (req, res) => {
     const priceId = STRIPE_PRICE_IDS[tier as keyof typeof STRIPE_PRICE_IDS];
 
     if (!priceId) {
-      return res.status(400).json({ error: "Price ID not configured for tier" });
+      return res
+        .status(400)
+        .json({ error: "Price ID not configured for tier" });
     }
 
     // 🎯 CREATE STRIPE CHECKOUT SESSION
@@ -150,8 +156,8 @@ router.post("/create-checkout-session", async (req, res) => {
       success_url: `${process.env.FRONTEND_URL}/dashboard?upgrade=success&tier=${tier}&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.FRONTEND_URL}/pricing?upgrade=cancelled`,
       metadata: {
-        userId: userId || '',
-        supabaseId: supabaseId || '',
+        userId: userId || "",
+        supabaseId: supabaseId || "",
         targetRole: config.role,
         plan: config.plan,
         tier: tier,
@@ -170,7 +176,6 @@ router.post("/create-checkout-session", async (req, res) => {
       sessionId: session.id,
       url: session.url,
     });
-
   } catch (error) {
     console.error("❌ Stripe checkout error:", error);
     res.status(500).json({ error: "Failed to create checkout session" });
@@ -183,7 +188,8 @@ router.post("/upgrade-subscription", async (req, res) => {
     const { customerId, newTier, userId } = req.body;
 
     const config = TIER_CONFIG[newTier as keyof typeof TIER_CONFIG];
-    const newPriceId = STRIPE_PRICE_IDS[newTier as keyof typeof STRIPE_PRICE_IDS];
+    const newPriceId =
+      STRIPE_PRICE_IDS[newTier as keyof typeof STRIPE_PRICE_IDS];
 
     if (!config || !newPriceId) {
       return res.status(400).json({ error: "Invalid tier for upgrade" });
@@ -192,7 +198,7 @@ router.post("/upgrade-subscription", async (req, res) => {
     // Get customer's current subscription
     const subscriptions = await stripe.subscriptions.list({
       customer: customerId,
-      status: 'active',
+      status: "active",
       limit: 1,
     });
 
@@ -204,16 +210,18 @@ router.post("/upgrade-subscription", async (req, res) => {
 
     // Update subscription to new price
     await stripe.subscriptions.update(subscription.id, {
-      items: [{
-        id: subscription.items.data[0].id,
-        price: newPriceId,
-      }],
+      items: [
+        {
+          id: subscription.items.data[0].id,
+          price: newPriceId,
+        },
+      ],
       metadata: {
         userId: userId,
         targetRole: config.role,
         plan: config.plan,
         tier: newTier,
-        upgradeType: 'tier_change',
+        upgradeType: "tier_change",
       },
     });
 
@@ -225,7 +233,6 @@ router.post("/upgrade-subscription", async (req, res) => {
     });
 
     res.json({ success: true, message: "Subscription upgraded successfully" });
-
   } catch (error) {
     console.error("❌ Subscription upgrade error:", error);
     res.status(500).json({ error: "Failed to upgrade subscription" });
@@ -240,14 +247,13 @@ router.get("/customer/:customerId", async (req, res) => {
     const customer = await stripe.customers.retrieve(customerId);
     const subscriptions = await stripe.subscriptions.list({
       customer: customerId,
-      status: 'active',
+      status: "active",
     });
 
     res.json({
       customer,
       subscriptions: subscriptions.data,
     });
-
   } catch (error) {
     console.error("❌ Customer retrieval error:", error);
     res.status(500).json({ error: "Failed to retrieve customer info" });

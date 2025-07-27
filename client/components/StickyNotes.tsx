@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { 
-  ArrowLeft, 
-  Plus, 
-  Search, 
-  Filter, 
+import {
+  ArrowLeft,
+  Plus,
+  Search,
+  Filter,
   Archive,
   Trash2,
   Edit3,
@@ -17,7 +17,7 @@ import {
   Clock,
   Tag,
   Mic,
-  FileText
+  FileText,
 } from "lucide-react";
 
 interface Note {
@@ -47,17 +47,17 @@ export function StickyNotes() {
     { color: "#f87171", name: "Red" },
     { color: "#a78bfa", name: "Purple" },
     { color: "#fb7185", name: "Pink" },
-    { color: "#fbbf24", name: "Gold" }
+    { color: "#fbbf24", name: "Gold" },
   ];
 
   // Load notes from localStorage on mount
   useEffect(() => {
-    const savedNotes = localStorage.getItem('stickyNotes');
+    const savedNotes = localStorage.getItem("stickyNotes");
     if (savedNotes) {
       const parsedNotes = JSON.parse(savedNotes).map((note: any) => ({
         ...note,
         createdAt: new Date(note.createdAt),
-        updatedAt: new Date(note.updatedAt)
+        updatedAt: new Date(note.updatedAt),
       }));
       setNotes(parsedNotes);
     }
@@ -65,7 +65,7 @@ export function StickyNotes() {
 
   // Save notes to localStorage whenever notes change
   useEffect(() => {
-    localStorage.setItem('stickyNotes', JSON.stringify(notes));
+    localStorage.setItem("stickyNotes", JSON.stringify(notes));
   }, [notes]);
 
   const createNote = () => {
@@ -76,41 +76,49 @@ export function StickyNotes() {
       title: newNote.title || "Untitled",
       content: newNote.content,
       color: selectedColor,
-      tags: newNote.tags.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0),
+      tags: newNote.tags
+        .split(",")
+        .map((tag) => tag.trim())
+        .filter((tag) => tag.length > 0),
       createdAt: new Date(),
       updatedAt: new Date(),
-      isArchived: false
+      isArchived: false,
     };
 
-    setNotes(prev => [note, ...prev]);
+    setNotes((prev) => [note, ...prev]);
     setNewNote({ title: "", content: "", tags: "" });
   };
 
   const updateNote = (id: string, updates: Partial<Note>) => {
-    setNotes(prev => prev.map(note => 
-      note.id === id 
-        ? { ...note, ...updates, updatedAt: new Date() }
-        : note
-    ));
+    setNotes((prev) =>
+      prev.map((note) =>
+        note.id === id ? { ...note, ...updates, updatedAt: new Date() } : note,
+      ),
+    );
     setEditingNote(null);
   };
 
   const deleteNote = (id: string) => {
-    setNotes(prev => prev.filter(note => note.id !== id));
+    setNotes((prev) => prev.filter((note) => note.id !== id));
   };
 
   const toggleArchive = (id: string) => {
-    setNotes(prev => prev.map(note => 
-      note.id === id 
-        ? { ...note, isArchived: !note.isArchived, updatedAt: new Date() }
-        : note
-    ));
+    setNotes((prev) =>
+      prev.map((note) =>
+        note.id === id
+          ? { ...note, isArchived: !note.isArchived, updatedAt: new Date() }
+          : note,
+      ),
+    );
   };
 
-  const filteredNotes = notes.filter(note => {
-    const matchesSearch = note.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         note.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         note.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+  const filteredNotes = notes.filter((note) => {
+    const matchesSearch =
+      note.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      note.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      note.tags.some((tag) =>
+        tag.toLowerCase().includes(searchTerm.toLowerCase()),
+      );
     const matchesArchive = showArchived ? note.isArchived : !note.isArchived;
     return matchesSearch && matchesArchive;
   });
@@ -122,11 +130,12 @@ export function StickyNotes() {
       "Daily goals and priorities",
       "Follow-up tasks from today's calls",
       "Creative brainstorming session",
-      "Personal development objectives"
+      "Personal development objectives",
     ];
-    
-    const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
-    setNewNote(prev => ({ ...prev, title: randomSuggestion }));
+
+    const randomSuggestion =
+      suggestions[Math.floor(Math.random() * suggestions.length)];
+    setNewNote((prev) => ({ ...prev, title: randomSuggestion }));
   };
 
   return (
@@ -138,7 +147,7 @@ export function StickyNotes() {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => navigate('/tools')}
+              onClick={() => navigate("/tools")}
               className="border-[hsl(var(--gold))]/30 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -150,11 +159,13 @@ export function StickyNotes() {
               </div>
               <div>
                 <h1 className="text-xl font-bold">Sticky Notes AI</h1>
-                <p className="text-sm text-gray-400">Intelligent note-taking with AI suggestions</p>
+                <p className="text-sm text-gray-400">
+                  Intelligent note-taking with AI suggestions
+                </p>
               </div>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-3">
             <div className="relative">
               <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -170,10 +181,14 @@ export function StickyNotes() {
               variant="outline"
               size="sm"
               onClick={() => setShowArchived(!showArchived)}
-              className={showArchived ? "bg-[hsl(var(--gold))]/20 text-[hsl(var(--gold))]" : ""}
+              className={
+                showArchived
+                  ? "bg-[hsl(var(--gold))]/20 text-[hsl(var(--gold))]"
+                  : ""
+              }
             >
               <Archive className="w-4 h-4 mr-2" />
-              {showArchived ? 'Show Active' : 'Show Archived'}
+              {showArchived ? "Show Active" : "Show Archived"}
             </Button>
           </div>
         </div>
@@ -186,32 +201,38 @@ export function StickyNotes() {
             <Plus className="w-5 h-5 text-[hsl(var(--gold))]" />
             Create New Note
           </h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <input
               type="text"
               placeholder="Note title..."
               value={newNote.title}
-              onChange={(e) => setNewNote(prev => ({ ...prev, title: e.target.value }))}
+              onChange={(e) =>
+                setNewNote((prev) => ({ ...prev, title: e.target.value }))
+              }
               className="bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:ring-2 focus:ring-[hsl(var(--gold))] focus:border-transparent"
             />
             <input
               type="text"
               placeholder="Tags (comma separated)..."
               value={newNote.tags}
-              onChange={(e) => setNewNote(prev => ({ ...prev, tags: e.target.value }))}
+              onChange={(e) =>
+                setNewNote((prev) => ({ ...prev, tags: e.target.value }))
+              }
               className="bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:ring-2 focus:ring-[hsl(var(--gold))] focus:border-transparent"
             />
           </div>
-          
+
           <textarea
             placeholder="Write your note content..."
             value={newNote.content}
-            onChange={(e) => setNewNote(prev => ({ ...prev, content: e.target.value }))}
+            onChange={(e) =>
+              setNewNote((prev) => ({ ...prev, content: e.target.value }))
+            }
             className="w-full h-24 bg-gray-800 border border-gray-700 rounded-lg p-4 text-white placeholder-gray-400 resize-none focus:ring-2 focus:ring-[hsl(var(--gold))] focus:border-transparent mb-4"
             rows={3}
           />
-          
+
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="text-sm text-gray-400">Color:</span>
@@ -220,14 +241,16 @@ export function StickyNotes() {
                   key={colorOption.color}
                   onClick={() => setSelectedColor(colorOption.color)}
                   className={`w-6 h-6 rounded-full border-2 ${
-                    selectedColor === colorOption.color ? 'border-white' : 'border-gray-600'
+                    selectedColor === colorOption.color
+                      ? "border-white"
+                      : "border-gray-600"
                   }`}
                   style={{ backgroundColor: colorOption.color }}
                   title={colorOption.name}
                 />
               ))}
             </div>
-            
+
             <div className="flex items-center gap-2">
               <Button
                 variant="outline"
@@ -256,20 +279,27 @@ export function StickyNotes() {
             <div
               key={note.id}
               className="group relative p-4 rounded-xl border border-gray-700 transition-all duration-200 hover:scale-[1.02] hover:shadow-xl"
-              style={{ backgroundColor: note.color + '20', borderColor: note.color + '40' }}
+              style={{
+                backgroundColor: note.color + "20",
+                borderColor: note.color + "40",
+              }}
             >
               {editingNote === note.id ? (
                 <div className="space-y-3">
                   <input
                     type="text"
                     defaultValue={note.title}
-                    onBlur={(e) => updateNote(note.id, { title: e.target.value })}
+                    onBlur={(e) =>
+                      updateNote(note.id, { title: e.target.value })
+                    }
                     className="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm"
                     autoFocus
                   />
                   <textarea
                     defaultValue={note.content}
-                    onBlur={(e) => updateNote(note.id, { content: e.target.value })}
+                    onBlur={(e) =>
+                      updateNote(note.id, { content: e.target.value })
+                    }
                     className="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm resize-none"
                     rows={4}
                   />
@@ -285,7 +315,9 @@ export function StickyNotes() {
               ) : (
                 <>
                   <div className="flex items-start justify-between mb-3">
-                    <h4 className="font-semibold text-white text-sm line-clamp-2">{note.title}</h4>
+                    <h4 className="font-semibold text-white text-sm line-clamp-2">
+                      {note.title}
+                    </h4>
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity flex gap-1">
                       <button
                         onClick={() => setEditingNote(note.id)}
@@ -307,9 +339,11 @@ export function StickyNotes() {
                       </button>
                     </div>
                   </div>
-                  
-                  <p className="text-gray-300 text-sm mb-3 line-clamp-4">{note.content}</p>
-                  
+
+                  <p className="text-gray-300 text-sm mb-3 line-clamp-4">
+                    {note.content}
+                  </p>
+
                   {note.tags.length > 0 && (
                     <div className="flex flex-wrap gap-1 mb-3">
                       {note.tags.map((tag, index) => (
@@ -322,7 +356,7 @@ export function StickyNotes() {
                       ))}
                     </div>
                   )}
-                  
+
                   <div className="flex items-center justify-between text-xs text-gray-400">
                     <div className="flex items-center gap-1">
                       <Clock className="w-3 h-3" />
@@ -344,12 +378,12 @@ export function StickyNotes() {
               <StickyNote className="w-12 h-12 text-gray-600" />
             </div>
             <h4 className="text-xl font-semibold mb-2">
-              {showArchived ? 'No archived notes' : 'No notes yet'}
+              {showArchived ? "No archived notes" : "No notes yet"}
             </h4>
             <p className="text-gray-400 mb-6">
-              {showArchived 
-                ? 'Archive some notes to see them here' 
-                : 'Create your first note to get started'}
+              {showArchived
+                ? "Archive some notes to see them here"
+                : "Create your first note to get started"}
             </p>
           </div>
         )}

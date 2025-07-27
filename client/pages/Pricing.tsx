@@ -40,7 +40,8 @@ export default function Pricing() {
       tier: "free",
       price: isYearly ? "$0" : "$0",
       period: "/month",
-      description: "Perfect for exploring SaintSal™ capabilities and getting a taste of the magic",
+      description:
+        "Perfect for exploring SaintSal™ capabilities and getting a taste of the magic",
       features: [
         "2 GPT-4o messages (trial)",
         "No memory, no save history",
@@ -52,7 +53,7 @@ export default function Pricing() {
       buttonText: "Start Free",
       color: "white",
       popular: false,
-      action: () => window.location.href = '/signup'
+      action: () => (window.location.href = "/signup"),
     },
     {
       name: "Unlimited",
@@ -61,7 +62,8 @@ export default function Pricing() {
       tier: "unlimited",
       price: isYearly ? "$270" : "$27",
       period: isYearly ? "/year" : "/month",
-      description: "Where the magic starts flowing - unlimited conversations with SaintSal™",
+      description:
+        "Where the magic starts flowing - unlimited conversations with SaintSal™",
       features: [
         "Unlimited GPT-4o messaging",
         "Access to chat history & memory",
@@ -75,32 +77,38 @@ export default function Pricing() {
       color: "blue",
       popular: false,
       action: async () => {
-        console.log('🚀 UNLIMITED BUTTON CLICKED - LOADING STRIPE');
+        console.log("🚀 UNLIMITED BUTTON CLICKED - LOADING STRIPE");
         try {
-          const { loadStripe } = await import('@stripe/stripe-js');
-          const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
+          const { loadStripe } = await import("@stripe/stripe-js");
+          const stripe = await loadStripe(
+            "pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv",
+          );
 
           if (stripe) {
-            console.log('✅ STRIPE LOADED - REDIRECTING TO CHECKOUT');
+            console.log("✅ STRIPE LOADED - REDIRECTING TO CHECKOUT");
             const { error } = await stripe.redirectToCheckout({
-              lineItems: [{ price: 'price_1RINIMFZsXxBWnjQEYxlyUIy', quantity: 1 }],
-              mode: 'subscription',
-              successUrl: window.location.origin + '/?upgraded=unlimited&signin=true',
-              cancelUrl: window.location.origin + '/pricing',
+              lineItems: [
+                { price: "price_1RINIMFZsXxBWnjQEYxlyUIy", quantity: 1 },
+              ],
+              mode: "subscription",
+              successUrl:
+                window.location.origin + "/?upgraded=unlimited&signin=true",
+              cancelUrl: window.location.origin + "/pricing",
             });
 
             if (error) {
-              console.error('Stripe error:', error);
-              alert('Payment error: ' + error.message);
+              console.error("Stripe error:", error);
+              alert("Payment error: " + error.message);
             }
           }
         } catch (error) {
-          console.error('Failed to load Stripe:', error);
+          console.error("Failed to load Stripe:", error);
           // Fallback to email if Stripe fails
-          window.location.href = 'mailto:ryan@saintvisiongroup.com?subject=Unlimited Plan ($27/month)&body=I want to subscribe to the Unlimited plan for $27/month. Please send me the payment link!';
+          window.location.href =
+            "mailto:ryan@saintvisiongroup.com?subject=Unlimited Plan ($27/month)&body=I want to subscribe to the Unlimited plan for $27/month. Please send me the payment link!";
         }
         setLoading(null);
-      }
+      },
     },
     {
       name: "Core Tools",
@@ -109,7 +117,8 @@ export default function Pricing() {
       tier: "core",
       price: isYearly ? "$970" : "$97",
       period: isYearly ? "/year" : "/month",
-      description: "WHERE ALL THE MAGIC UNLOCKS! Your complete business AI companion",
+      description:
+        "WHERE ALL THE MAGIC UNLOCKS! Your complete business AI companion",
       features: [
         "Everything in Unlimited",
         "CRM Access via GHL integration",
@@ -125,32 +134,38 @@ export default function Pricing() {
       popular: true,
       highlight: "Most businesses choose this plan",
       action: async () => {
-        console.log('🔥 CORE TOOLS BUTTON CLICKED - LOADING STRIPE');
+        console.log("🔥 CORE TOOLS BUTTON CLICKED - LOADING STRIPE");
         try {
-          const { loadStripe } = await import('@stripe/stripe-js');
-          const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
+          const { loadStripe } = await import("@stripe/stripe-js");
+          const stripe = await loadStripe(
+            "pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv",
+          );
 
           if (stripe) {
-            console.log('✅ STRIPE LOADED - REDIRECTING TO CHECKOUT');
+            console.log("✅ STRIPE LOADED - REDIRECTING TO CHECKOUT");
             const { error } = await stripe.redirectToCheckout({
-              lineItems: [{ price: 'price_1RLChrFZsXxBWnjQVcrcVeDf', quantity: 1 }],
-              mode: 'subscription',
-              successUrl: window.location.origin + '/?upgraded=core&signin=true',
-              cancelUrl: window.location.origin + '/pricing',
+              lineItems: [
+                { price: "price_1RLChrFZsXxBWnjQVcrcVeDf", quantity: 1 },
+              ],
+              mode: "subscription",
+              successUrl:
+                window.location.origin + "/?upgraded=core&signin=true",
+              cancelUrl: window.location.origin + "/pricing",
             });
 
             if (error) {
-              console.error('Stripe error:', error);
-              alert('Payment error: ' + error.message);
+              console.error("Stripe error:", error);
+              alert("Payment error: " + error.message);
             }
           }
         } catch (error) {
-          console.error('Failed to load Stripe:', error);
+          console.error("Failed to load Stripe:", error);
           // Fallback to email if Stripe fails
-          window.location.href = 'mailto:ryan@saintvisiongroup.com?subject=Core Tools Plan ($97/month)&body=I want to subscribe to the Core Tools plan for $97/month. Please send me the payment link immediately!';
+          window.location.href =
+            "mailto:ryan@saintvisiongroup.com?subject=Core Tools Plan ($97/month)&body=I want to subscribe to the Core Tools plan for $97/month. Please send me the payment link immediately!";
         }
         setLoading(null);
-      }
+      },
     },
     {
       name: "Pro Suite",
@@ -159,7 +174,8 @@ export default function Pricing() {
       tier: "pro",
       price: isYearly ? "$2970" : "$297",
       period: isYearly ? "/year" : "/month",
-      description: "For teams ready to dominate markets with enterprise-grade AI automation",
+      description:
+        "For teams ready to dominate markets with enterprise-grade AI automation",
       features: [
         "Everything in Core Tools",
         "Admin Dashboards & Analytics",
@@ -174,32 +190,37 @@ export default function Pricing() {
       color: "purple",
       popular: false,
       action: async () => {
-        console.log('⚡ PRO SUITE BUTTON CLICKED - LOADING STRIPE');
+        console.log("⚡ PRO SUITE BUTTON CLICKED - LOADING STRIPE");
         try {
-          const { loadStripe } = await import('@stripe/stripe-js');
-          const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
+          const { loadStripe } = await import("@stripe/stripe-js");
+          const stripe = await loadStripe(
+            "pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv",
+          );
 
           if (stripe) {
-            console.log('✅ STRIPE LOADED - REDIRECTING TO CHECKOUT');
+            console.log("✅ STRIPE LOADED - REDIRECTING TO CHECKOUT");
             const { error } = await stripe.redirectToCheckout({
-              lineItems: [{ price: 'price_1RINQ3FZsXxBWnjQQAJ8mxzg', quantity: 1 }],
-              mode: 'subscription',
-              successUrl: window.location.origin + '/?upgraded=pro&signin=true',
-              cancelUrl: window.location.origin + '/pricing',
+              lineItems: [
+                { price: "price_1RINQ3FZsXxBWnjQQAJ8mxzg", quantity: 1 },
+              ],
+              mode: "subscription",
+              successUrl: window.location.origin + "/?upgraded=pro&signin=true",
+              cancelUrl: window.location.origin + "/pricing",
             });
 
             if (error) {
-              console.error('Stripe error:', error);
-              alert('Payment error: ' + error.message);
+              console.error("Stripe error:", error);
+              alert("Payment error: " + error.message);
             }
           }
         } catch (error) {
-          console.error('Failed to load Stripe:', error);
+          console.error("Failed to load Stripe:", error);
           // Fallback to email if Stripe fails
-          window.location.href = 'mailto:ryan@saintvisiongroup.com?subject=Pro Suite Plan ($297/month)&body=I want to subscribe to the Pro Suite plan for $297/month. Please send me the payment link now!';
+          window.location.href =
+            "mailto:ryan@saintvisiongroup.com?subject=Pro Suite Plan ($297/month)&body=I want to subscribe to the Pro Suite plan for $297/month. Please send me the payment link now!";
         }
         setLoading(null);
-      }
+      },
     },
     {
       name: "Full White-Label",
@@ -208,7 +229,8 @@ export default function Pricing() {
       tier: "fullPro",
       price: isYearly ? "$4970" : "$497",
       period: isYearly ? "/year" : "/month",
-      description: "Your own branded SaintVisionAI empire - build and scale your AI business",
+      description:
+        "Your own branded SaintVisionAI empire - build and scale your AI business",
       features: [
         "Everything in Pro Suite",
         "10 GHL Subaccounts (white-labeled)",
@@ -223,32 +245,38 @@ export default function Pricing() {
       color: "green",
       popular: false,
       action: async () => {
-        console.log('👑 WHITE LABEL BUTTON CLICKED - LOADING STRIPE');
+        console.log("👑 WHITE LABEL BUTTON CLICKED - LOADING STRIPE");
         try {
-          const { loadStripe } = await import('@stripe/stripe-js');
-          const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
+          const { loadStripe } = await import("@stripe/stripe-js");
+          const stripe = await loadStripe(
+            "pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv",
+          );
 
           if (stripe) {
-            console.log('✅ STRIPE LOADED - REDIRECTING TO CHECKOUT');
+            console.log("✅ STRIPE LOADED - REDIRECTING TO CHECKOUT");
             const { error } = await stripe.redirectToCheckout({
-              lineItems: [{ price: 'price_1RIggOFZsXxBWnjQH3PWncV6', quantity: 1 }],
-              mode: 'subscription',
-              successUrl: window.location.origin + '/?upgraded=white_label&signin=true',
-              cancelUrl: window.location.origin + '/pricing',
+              lineItems: [
+                { price: "price_1RIggOFZsXxBWnjQH3PWncV6", quantity: 1 },
+              ],
+              mode: "subscription",
+              successUrl:
+                window.location.origin + "/?upgraded=white_label&signin=true",
+              cancelUrl: window.location.origin + "/pricing",
             });
 
             if (error) {
-              console.error('Stripe error:', error);
-              alert('Payment error: ' + error.message);
+              console.error("Stripe error:", error);
+              alert("Payment error: " + error.message);
             }
           }
         } catch (error) {
-          console.error('Failed to load Stripe:', error);
+          console.error("Failed to load Stripe:", error);
           // Fallback to email if Stripe fails
-          window.location.href = 'mailto:ryan@saintvisiongroup.com?subject=White Label Plan ($497/month)&body=I want to subscribe to the Full White-Label plan for $497/month. Please send me the payment link and setup details!';
+          window.location.href =
+            "mailto:ryan@saintvisiongroup.com?subject=White Label Plan ($497/month)&body=I want to subscribe to the Full White-Label plan for $497/month. Please send me the payment link and setup details!";
         }
         setLoading(null);
-      }
+      },
     },
     {
       name: "Custom Enterprise",
@@ -257,7 +285,8 @@ export default function Pricing() {
       tier: "custom",
       price: "$1500",
       period: "/month",
-      description: "$1500 deposit for fully custom solutions, enterprise onboarding & white-glove service",
+      description:
+        "$1500 deposit for fully custom solutions, enterprise onboarding & white-glove service",
       features: [
         "Everything in White Label",
         "Full enterprise onboarding program",
@@ -272,32 +301,38 @@ export default function Pricing() {
       color: "red",
       popular: false,
       action: async () => {
-        console.log('🚀 CUSTOM ENTERPRISE BUTTON CLICKED - LOADING STRIPE');
+        console.log("🚀 CUSTOM ENTERPRISE BUTTON CLICKED - LOADING STRIPE");
         try {
-          const { loadStripe } = await import('@stripe/stripe-js');
-          const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
+          const { loadStripe } = await import("@stripe/stripe-js");
+          const stripe = await loadStripe(
+            "pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv",
+          );
 
           if (stripe) {
-            console.log('✅ STRIPE LOADED - REDIRECTING TO CHECKOUT');
+            console.log("✅ STRIPE LOADED - REDIRECTING TO CHECKOUT");
             const { error } = await stripe.redirectToCheckout({
-              lineItems: [{ price: 'price_1RIh5yFZsXxBWnjQw0p9KYOj', quantity: 1 }],
-              mode: 'subscription',
-              successUrl: window.location.origin + '/?upgraded=custom&signin=true',
-              cancelUrl: window.location.origin + '/pricing',
+              lineItems: [
+                { price: "price_1RIh5yFZsXxBWnjQw0p9KYOj", quantity: 1 },
+              ],
+              mode: "subscription",
+              successUrl:
+                window.location.origin + "/?upgraded=custom&signin=true",
+              cancelUrl: window.location.origin + "/pricing",
             });
 
             if (error) {
-              console.error('Stripe error:', error);
-              alert('Payment error: ' + error.message);
+              console.error("Stripe error:", error);
+              alert("Payment error: " + error.message);
             }
           }
         } catch (error) {
-          console.error('Failed to load Stripe:', error);
+          console.error("Failed to load Stripe:", error);
           // Fallback to email if Stripe fails
-          window.location.href = 'mailto:ryan@saintvisiongroup.com?subject=Custom Enterprise Plan ($1500/month)&body=I want to subscribe to the Custom Enterprise plan for $1500/month. Please contact me immediately to start the onboarding process!';
+          window.location.href =
+            "mailto:ryan@saintvisiongroup.com?subject=Custom Enterprise Plan ($1500/month)&body=I want to subscribe to the Custom Enterprise plan for $1500/month. Please contact me immediately to start the onboarding process!";
         }
         setLoading(null);
-      }
+      },
     },
   ];
 
@@ -307,7 +342,8 @@ export default function Pricing() {
     icon: Shield,
     price: "+$47",
     period: "/month",
-    description: "🔥 Enterprise route monitoring & optimization that's generated $8,947+ for existing clients",
+    description:
+      "🔥 Enterprise route monitoring & optimization that's generated $8,947+ for existing clients",
     features: [
       "🎯 Add to any existing plan tier",
       "Real-time website monitoring & alerts",
@@ -324,7 +360,8 @@ export default function Pricing() {
   };
 
   const getCardStyles = (color: string, popular: boolean) => {
-    const baseStyles = "relative transition-all duration-500 hover:scale-105 cursor-pointer";
+    const baseStyles =
+      "relative transition-all duration-500 hover:scale-105 cursor-pointer";
 
     if (popular) {
       return `${baseStyles} scale-105 bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 shadow-[0_0_40px_rgba(255,215,0,0.8)] border border-yellow-400/60 hover:shadow-[0_0_60px_rgba(255,215,0,1)]`;
@@ -350,13 +387,20 @@ export default function Pricing() {
 
   const getIconColor = (color: string) => {
     switch (color) {
-      case "white": return "text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]";
-      case "blue": return "text-cyan-400 drop-shadow-[0_0_10px_rgba(0,255,255,0.8)]";
-      case "purple": return "text-purple-400 drop-shadow-[0_0_10px_rgba(168,85,247,0.8)]";
-      case "green": return "text-green-400 drop-shadow-[0_0_10px_rgba(34,197,94,0.8)]";
-      case "red": return "text-red-400 drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]";
-      case "audit": return "text-pink-400 drop-shadow-[0_0_10px_rgba(255,20,147,0.8)]";
-      default: return "text-gray-400";
+      case "white":
+        return "text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]";
+      case "blue":
+        return "text-cyan-400 drop-shadow-[0_0_10px_rgba(0,255,255,0.8)]";
+      case "purple":
+        return "text-purple-400 drop-shadow-[0_0_10px_rgba(168,85,247,0.8)]";
+      case "green":
+        return "text-green-400 drop-shadow-[0_0_10px_rgba(34,197,94,0.8)]";
+      case "red":
+        return "text-red-400 drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]";
+      case "audit":
+        return "text-pink-400 drop-shadow-[0_0_10px_rgba(255,20,147,0.8)]";
+      default:
+        return "text-gray-400";
     }
   };
 
@@ -386,7 +430,11 @@ export default function Pricing() {
   return (
     <div
       className="min-h-screen bg-black text-white font-light"
-      style={{ backgroundColor: "#090909", fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+      style={{
+        backgroundColor: "#090909",
+        fontFamily:
+          "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      }}
     >
       {/* Header */}
       <GlobalHeader />
@@ -411,24 +459,30 @@ export default function Pricing() {
 
           {/* Billing Toggle */}
           <div className="flex items-center justify-center gap-4 mb-12">
-            <span className={`text-sm font-medium ${!isYearly ? "text-white" : "text-white/60"}`}>
+            <span
+              className={`text-sm font-medium ${!isYearly ? "text-white" : "text-white/60"}`}
+            >
               Monthly
             </span>
             <button
               onClick={() => setIsYearly(!isYearly)}
               className={`relative w-12 h-6 rounded-full transition-all duration-300 ${
-                isYearly 
-                  ? "bg-gradient-to-r from-yellow-400 to-yellow-600 shadow-[0_0_20px_rgba(255,215,0,0.8)]" 
+                isYearly
+                  ? "bg-gradient-to-r from-yellow-400 to-yellow-600 shadow-[0_0_20px_rgba(255,215,0,0.8)]"
                   : "bg-gray-600"
               }`}
             >
               <div
                 className={`absolute w-4 h-4 bg-white rounded-full top-1 transition-all duration-300 ${
-                  isYearly ? "translate-x-7 shadow-[0_0_10px_rgba(255,255,255,0.8)]" : "translate-x-1"
+                  isYearly
+                    ? "translate-x-7 shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+                    : "translate-x-1"
                 }`}
               />
             </button>
-            <span className={`text-sm font-medium ${isYearly ? "text-white" : "text-white/60"}`}>
+            <span
+              className={`text-sm font-medium ${isYearly ? "text-white" : "text-white/60"}`}
+            >
               Yearly
             </span>
             {isYearly && (
@@ -478,7 +532,9 @@ export default function Pricing() {
                   </span>
                   <span className="text-white/60">{plan.period}</span>
                 </div>
-                <p className="text-sm text-white/70 mt-3 leading-relaxed">{plan.description}</p>
+                <p className="text-sm text-white/70 mt-3 leading-relaxed">
+                  {plan.description}
+                </p>
                 {plan.highlight && (
                   <p className="text-xs text-yellow-400 mt-2 font-medium animate-pulse">
                     {plan.highlight}
@@ -491,7 +547,9 @@ export default function Pricing() {
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <Check className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5 drop-shadow-[0_0_5px_rgba(34,197,94,0.8)]" />
-                      <span className="text-white/80 text-sm leading-relaxed">{feature}</span>
+                      <span className="text-white/80 text-sm leading-relaxed">
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -499,7 +557,9 @@ export default function Pricing() {
                 <button
                   className={`w-full py-3 px-4 rounded-xl font-bold text-sm ${getButtonStyles(plan.color, plan.popular)}`}
                   onClick={() => {
-                    console.log(`🔥 BUTTON CLICKED: ${plan.name} - ${plan.tier}`);
+                    console.log(
+                      `🔥 BUTTON CLICKED: ${plan.name} - ${plan.tier}`,
+                    );
                     setLoading(plan.tier);
                     plan.action();
                   }}
@@ -569,7 +629,9 @@ export default function Pricing() {
                   {auditAddOn.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <Check className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5 drop-shadow-[0_0_5px_rgba(34,197,94,0.8)]" />
-                      <span className="text-white/80 text-sm leading-relaxed">{feature}</span>
+                      <span className="text-white/80 text-sm leading-relaxed">
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -577,8 +639,10 @@ export default function Pricing() {
                 <button
                   className={`w-full py-3 px-4 rounded-xl font-bold text-sm ${getButtonStyles(auditAddOn.color, false)}`}
                   onClick={() => {
-                    console.log('Route Intelligence Add-On triggered');
-                    alert('Route Intelligence Add-On - Contact sales@saintvision.ai for setup');
+                    console.log("Route Intelligence Add-On triggered");
+                    alert(
+                      "Route Intelligence Add-On - Contact sales@saintvision.ai for setup",
+                    );
                   }}
                 >
                   {auditAddOn.buttonText}
@@ -596,13 +660,14 @@ export default function Pricing() {
               🎤 SaintSal™ Voice Support
             </h2>
             <p className="text-white/60">
-              Talk directly to SaintSal with voice recognition and live support calls
+              Talk directly to SaintSal with voice recognition and live support
+              calls
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <VoiceInterface
-              onVoiceMessage={(message) => console.log('Voice input:', message)}
+              onVoiceMessage={(message) => console.log("Voice input:", message)}
             />
           </div>
         </div>
@@ -622,14 +687,18 @@ export default function Pricing() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 px-8 py-3 rounded-xl font-bold shadow-[0_0_20px_rgba(255,215,0,0.6)] hover:shadow-[0_0_30px_rgba(255,215,0,0.9)] transform hover:scale-105 transition-all duration-300"
-                  onClick={() => window.location.href = "mailto:enterprise@saintvision.ai"}
+                  onClick={() =>
+                    (window.location.href = "mailto:enterprise@saintvision.ai")
+                  }
                 >
                   <Calendar className="w-4 h-4 mr-2 inline" />
                   Schedule a Call
                 </button>
                 <button
                   className="border border-white/30 text-white hover:bg-white/5 px-8 py-3 rounded-xl font-bold transition-all duration-300 hover:border-white/60"
-                  onClick={() => window.location.href = "mailto:sales@saintvision.ai"}
+                  onClick={() =>
+                    (window.location.href = "mailto:sales@saintvision.ai")
+                  }
                 >
                   <MessageSquare className="w-4 h-4 mr-2 inline" />
                   Chat with Sales

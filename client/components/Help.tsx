@@ -21,7 +21,7 @@ import {
   Star,
   ArrowRight,
   CheckCircle,
-  Rocket
+  Rocket,
 } from "lucide-react";
 
 interface HelpProps {
@@ -38,8 +38,8 @@ const helpCategories = [
       "Quick Setup Guide",
       "Your First SaintSal Conversation",
       "Understanding HACP™ Technology",
-      "Account Setup & Preferences"
-    ]
+      "Account Setup & Preferences",
+    ],
   },
   {
     title: "Features & Tools",
@@ -50,8 +50,8 @@ const helpCategories = [
       "WarRoom Productivity Suite",
       "AI Tools & Automation",
       "CRM Integration Guide",
-      "Advanced Search Features"
-    ]
+      "Advanced Search Features",
+    ],
   },
   {
     title: "Billing & Plans",
@@ -62,8 +62,8 @@ const helpCategories = [
       "Plan Comparison & Upgrades",
       "Billing & Payment Methods",
       "Enterprise Licensing",
-      "Refund & Cancellation Policy"
-    ]
+      "Refund & Cancellation Policy",
+    ],
   },
   {
     title: "Security & Privacy",
@@ -74,8 +74,8 @@ const helpCategories = [
       "Data Protection & GDPR",
       "Security Best Practices",
       "API Keys & Authentication",
-      "Compliance Documentation"
-    ]
+      "Compliance Documentation",
+    ],
   },
   {
     title: "API & Integration",
@@ -86,8 +86,8 @@ const helpCategories = [
       "API Documentation",
       "Webhook Setup Guide",
       "Third-party Integrations",
-      "Developer Resources"
-    ]
+      "Developer Resources",
+    ],
   },
   {
     title: "Troubleshooting",
@@ -98,9 +98,9 @@ const helpCategories = [
       "Common Issues & Solutions",
       "Performance Optimization",
       "Browser Compatibility",
-      "System Status & Updates"
-    ]
-  }
+      "System Status & Updates",
+    ],
+  },
 ];
 
 const supportOptions = [
@@ -110,7 +110,7 @@ const supportOptions = [
     icon: MessageCircle,
     color: "text-cyan-400",
     action: "Start Chat",
-    availability: "24/7 Available"
+    availability: "24/7 Available",
   },
   {
     title: "Video Tutorials",
@@ -118,7 +118,7 @@ const supportOptions = [
     icon: Video,
     color: "text-blue-400",
     action: "Watch Now",
-    availability: "Self-Paced Learning"
+    availability: "Self-Paced Learning",
   },
   {
     title: "Email Support",
@@ -126,7 +126,7 @@ const supportOptions = [
     icon: Mail,
     color: "text-green-400",
     action: "Send Email",
-    availability: "24hr Response"
+    availability: "24hr Response",
   },
   {
     title: "Priority Support",
@@ -134,15 +134,21 @@ const supportOptions = [
     icon: Phone,
     color: "text-[hsl(var(--gold))]",
     action: "Call Now",
-    availability: "Business Hours"
-  }
+    availability: "Business Hours",
+  },
 ];
 
 export function Help({ className }: HelpProps) {
   return (
-    <div className={`min-h-screen ${className}`} style={{ backgroundColor: '#000000' }}>
+    <div
+      className={`min-h-screen ${className}`}
+      style={{ backgroundColor: "#000000" }}
+    >
       {/* Header */}
-      <div className="sticky top-0 z-50 border-b border-border/30 px-6 py-4" style={{ backgroundColor: '#000000' }}>
+      <div
+        className="sticky top-0 z-50 border-b border-border/30 px-6 py-4"
+        style={{ backgroundColor: "#000000" }}
+      >
         <div className="flex items-center justify-between">
           {/* Left: Logos */}
           <div className="flex items-center gap-6">
@@ -161,28 +167,49 @@ export function Help({ className }: HelpProps) {
 
           {/* Center: Navigation */}
           <nav className="flex items-center gap-1">
-            <Link to="/" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+            <Link
+              to="/"
+              className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+            >
               Home
             </Link>
-            <Link to="/search" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+            <Link
+              to="/search"
+              className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+            >
               Search
             </Link>
-            <Link to="/warroom" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+            <Link
+              to="/warroom"
+              className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+            >
               WarRoom
             </Link>
-            <Link to="/tools" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+            <Link
+              to="/tools"
+              className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+            >
               Tools
             </Link>
-            <Link to="/legal" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+            <Link
+              to="/legal"
+              className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+            >
               Legal
             </Link>
-            <Link to="/why" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+            <Link
+              to="/why"
+              className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+            >
               Why
             </Link>
             <div className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium">
               Help
             </div>
-            <Link to="/partnertech" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]/80">
+            <Link
+              to="/partnertech"
+              className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]/80"
+            >
               PartnerTech.ai
             </Link>
           </nav>
@@ -207,10 +234,11 @@ export function Help({ className }: HelpProps) {
             How Can We <span className="text-cyan-400">Help</span> You?
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Get instant answers, watch tutorials, or connect with our expert support team. 
-            We're here to ensure your success with Saint Vision AI.
+            Get instant answers, watch tutorials, or connect with our expert
+            support team. We're here to ensure your success with Saint Vision
+            AI.
           </p>
-          
+
           {/* Quick Search */}
           <div className="max-w-2xl mx-auto">
             <div className="flex items-center gap-4 p-4 border-2 border-cyan-400 rounded-xl bg-muted/5 focus-within:border-blue-400 focus-within:shadow-[0_0_20px_rgba(34,211,238,0.3)] transition-all">
@@ -220,7 +248,10 @@ export function Help({ className }: HelpProps) {
                 placeholder="Search for help articles, guides, or common questions..."
                 className="flex-1 bg-transparent border-0 outline-none text-foreground placeholder:text-muted-foreground text-lg"
               />
-              <Button size="lg" className="bg-cyan-400 hover:bg-cyan-300 text-black rounded-lg px-6">
+              <Button
+                size="lg"
+                className="bg-cyan-400 hover:bg-cyan-300 text-black rounded-lg px-6"
+              >
                 Search
               </Button>
             </div>
@@ -240,13 +271,19 @@ export function Help({ className }: HelpProps) {
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-muted/20 to-muted/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <Icon className={`w-8 h-8 ${option.color}`} />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{option.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{option.description}</p>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                    {option.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                    {option.description}
+                  </p>
                   <div className="space-y-2">
                     <Button variant="outline" size="sm" className="w-full">
                       {option.action}
                     </Button>
-                    <div className="text-xs text-muted-foreground">{option.availability}</div>
+                    <div className="text-xs text-muted-foreground">
+                      {option.availability}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -274,10 +311,14 @@ export function Help({ className }: HelpProps) {
                   className="group p-6 rounded-2xl bg-muted/5 border border-border/30 hover:border-border/60 transition-all duration-300 cursor-pointer"
                 >
                   <div className="mb-6">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.color} bg-opacity-10 flex items-center justify-center mb-4`}>
+                    <div
+                      className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.color} bg-opacity-10 flex items-center justify-center mb-4`}
+                    >
                       <Icon className={`w-6 h-6 ${category.iconColor}`} />
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-3">{category.title}</h3>
+                    <h3 className="text-xl font-bold text-foreground mb-3">
+                      {category.title}
+                    </h3>
                   </div>
 
                   <div className="space-y-3">
@@ -288,7 +329,9 @@ export function Help({ className }: HelpProps) {
                       >
                         <div className="flex items-center gap-3">
                           <FileText className="w-4 h-4 text-muted-foreground" />
-                          <span className="text-sm text-foreground">{article}</span>
+                          <span className="text-sm text-foreground">
+                            {article}
+                          </span>
                         </div>
                         <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -296,7 +339,11 @@ export function Help({ className }: HelpProps) {
                   </div>
 
                   <div className="mt-6 pt-4 border-t border-border/30">
-                    <Button variant="ghost" size="sm" className="w-full justify-between text-sm">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="w-full justify-between text-sm"
+                    >
                       View All Articles
                       <ArrowRight className="w-4 h-4" />
                     </Button>
@@ -314,31 +361,47 @@ export function Help({ className }: HelpProps) {
               Still Need <span className="text-[hsl(var(--gold))]">Help</span>?
             </h3>
             <p className="text-lg text-muted-foreground">
-              Our expert support team is standing by to assist you with any questions or technical issues.
+              Our expert support team is standing by to assist you with any
+              questions or technical issues.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="text-center">
               <Headphones className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
-              <h4 className="font-semibold text-foreground mb-2">24/7 Live Support</h4>
-              <p className="text-sm text-muted-foreground mb-4">Instant chat with our AI-powered support team</p>
-              <Button size="sm" className="bg-cyan-400 hover:bg-cyan-300 text-black">
+              <h4 className="font-semibold text-foreground mb-2">
+                24/7 Live Support
+              </h4>
+              <p className="text-sm text-muted-foreground mb-4">
+                Instant chat with our AI-powered support team
+              </p>
+              <Button
+                size="sm"
+                className="bg-cyan-400 hover:bg-cyan-300 text-black"
+              >
                 Start Chat
               </Button>
             </div>
             <div className="text-center">
               <Users className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-              <h4 className="font-semibold text-foreground mb-2">Expert Consultation</h4>
-              <p className="text-sm text-muted-foreground mb-4">Schedule a call with our technical specialists</p>
+              <h4 className="font-semibold text-foreground mb-2">
+                Expert Consultation
+              </h4>
+              <p className="text-sm text-muted-foreground mb-4">
+                Schedule a call with our technical specialists
+              </p>
               <Button variant="outline" size="sm">
                 Book Meeting
               </Button>
             </div>
             <div className="text-center">
               <Globe className="w-12 h-12 text-green-400 mx-auto mb-4" />
-              <h4 className="font-semibold text-foreground mb-2">Community Forum</h4>
-              <p className="text-sm text-muted-foreground mb-4">Connect with other users and share solutions</p>
+              <h4 className="font-semibold text-foreground mb-2">
+                Community Forum
+              </h4>
+              <p className="text-sm text-muted-foreground mb-4">
+                Connect with other users and share solutions
+              </p>
               <Button variant="outline" size="sm">
                 Join Forum
               </Button>
@@ -370,7 +433,9 @@ export function Help({ className }: HelpProps) {
       <footer className="border-t border-border/30 p-8">
         <div className="flex items-center justify-center text-sm text-muted-foreground">
           <span>Powered by</span>
-          <span className="text-[hsl(var(--gold))] font-medium mx-2">SAINTSAL GOTTA GUY</span>
+          <span className="text-[hsl(var(--gold))] font-medium mx-2">
+            SAINTSAL GOTTA GUY
+          </span>
           <Sparkles className="w-4 h-4 text-[hsl(var(--gold))]" />
           <span className="mx-3">•</span>
           <span className="text-cyan-400">Always Here When You Need Us</span>

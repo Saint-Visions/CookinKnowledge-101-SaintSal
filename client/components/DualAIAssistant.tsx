@@ -1,7 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
-import { getSupersalOnboardingMessage, triggerPlanActions } from "@/lib/supersal/planOnboarding";
+import {
+  getSupersalOnboardingMessage,
+  triggerPlanActions,
+} from "@/lib/supersal/planOnboarding";
 import {
   Users,
   ArrowUp,
@@ -50,14 +53,17 @@ export function DualAIAssistant({
 
   // 🧠 PLAN-BASED SUPERSAL ONBOARDING
   const getInitialMessage = () => {
-    const onboardingMessage = getSupersalOnboardingMessage(userTier, isFirstTimeUser);
+    const onboardingMessage = getSupersalOnboardingMessage(
+      userTier,
+      isFirstTimeUser,
+    );
     return {
       role: "assistant" as const,
       content: onboardingMessage.content,
       timestamp: new Date(),
       provider: "azure" as const,
       mode: "companion" as const,
-      actions: onboardingMessage.actions
+      actions: onboardingMessage.actions,
     };
   };
 
@@ -163,13 +169,13 @@ export function DualAIAssistant({
     // Add confirmation message
     const actionMessage: Message = {
       role: "assistant",
-      content: `✅ ${action.replace('_', ' ')} initiated! Let me know if you need help with anything else.`,
+      content: `✅ ${action.replace("_", " ")} initiated! Let me know if you need help with anything else.`,
       timestamp: new Date(),
       provider: "azure",
       mode: "companion",
     };
 
-    setMessages(prev => [...prev, actionMessage]);
+    setMessages((prev) => [...prev, actionMessage]);
   };
 
   if (!isOpen) return null;
@@ -309,7 +315,9 @@ export function DualAIAssistant({
                             <Button
                               key={actionIndex}
                               size="sm"
-                              onClick={() => handleAction(action.action, action.url)}
+                              onClick={() =>
+                                handleAction(action.action, action.url)
+                              }
                               className="bg-[hsl(var(--gold))]/20 hover:bg-[hsl(var(--gold))]/30 text-[hsl(var(--gold))] border border-[hsl(var(--gold))]/40 hover:border-[hsl(var(--gold))]/60 text-xs px-3 py-1 transition-all duration-200"
                             >
                               {action.label}

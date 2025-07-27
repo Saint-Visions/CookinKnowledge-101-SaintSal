@@ -1,44 +1,47 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Button } from './ui/button';
-import { Card, CardContent } from './ui/card';
-import { Mic, MicOff, Phone, PhoneCall, Volume2 } from 'lucide-react';
-import { useAuth } from '../hooks/useAuth';
+import React, { useState, useRef, useEffect } from "react";
+import { Button } from "./ui/button";
+import { Card, CardContent } from "./ui/card";
+import { Mic, MicOff, Phone, PhoneCall, Volume2 } from "lucide-react";
+import { useAuth } from "../hooks/useAuth";
 
 interface VoiceInterfaceProps {
   onVoiceMessage?: (message: string) => void;
 }
 
-export default function VoiceInterface({ onVoiceMessage }: VoiceInterfaceProps) {
+export default function VoiceInterface({
+  onVoiceMessage,
+}: VoiceInterfaceProps) {
   const [isListening, setIsListening] = useState(false);
   const [isCallActive, setIsCallActive] = useState(false);
-  const [transcript, setTranscript] = useState('');
+  const [transcript, setTranscript] = useState("");
   const [isSupported, setIsSupported] = useState(false);
   const { user, userTier } = useAuth();
-  
+
   const recognitionRef = useRef<SpeechRecognition | null>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
 
   useEffect(() => {
     // Check if speech recognition is supported
-    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+    if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
       setIsSupported(true);
-      
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      const SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
       recognitionRef.current = new SpeechRecognition();
-      
+
       if (recognitionRef.current) {
         recognitionRef.current.continuous = true;
         recognitionRef.current.interimResults = true;
-        recognitionRef.current.lang = 'en-US';
+        recognitionRef.current.lang = "en-US";
 
         recognitionRef.current.onresult = (event) => {
-          let finalTranscript = '';
+          let finalTranscript = "";
           for (let i = event.resultIndex; i < event.results.length; i++) {
             if (event.results[i].isFinal) {
               finalTranscript += event.results[i][0].transcript;
             }
           }
-          
+
           if (finalTranscript) {
             setTranscript(finalTranscript);
             onVoiceMessage?.(finalTranscript);
@@ -46,7 +49,7 @@ export default function VoiceInterface({ onVoiceMessage }: VoiceInterfaceProps) 
         };
 
         recognitionRef.current.onerror = (event) => {
-          console.error('Speech recognition error:', event.error);
+          console.error("Speech recognition error:", event.error);
           setIsListening(false);
         };
 
@@ -66,60 +69,59 @@ export default function VoiceInterface({ onVoiceMessage }: VoiceInterfaceProps) 
     } else {
       recognitionRef.current.start();
       setIsListening(true);
-      setTranscript('');
+      setTranscript("");
     }
   };
 
   // 📞 TWILIO VOICE CALL INTEGRATION
   const initiateVoiceCall = async () => {
     if (!user?.email) {
-      alert('Please sign in to use voice calls');
+      alert("Please sign in to use voice calls");
       return;
     }
 
-    if (userTier === 'free' || userTier === 'unlimited') {
-      alert('Voice calls available for Core Tools ($97) and higher plans');
+    if (userTier === "free" || userTier === "unlimited") {
+      alert("Voice calls available for Core Tools ($97) and higher plans");
       return;
     }
 
     try {
       setIsCallActive(true);
-      console.log('🎤 INITIATING VOICE CALL FOR:', user.email, userTier);
+      console.log("🎤 INITIATING VOICE CALL FOR:", user.email, userTier);
 
       // Call your Twilio endpoint
-      const response = await fetch('/api/voice/initiate-call', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/voice/initiate-call", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           userEmail: user.email,
           userTier: userTier,
-          callType: 'saintsal_support'
-        })
+          callType: "saintsal_support",
+        }),
       });
 
       const data = await response.json();
-      
+
       if (data.success) {
-        console.log('✅ Voice call initiated:', data.callSid);
+        console.log("✅ Voice call initiated:", data.callSid);
       } else {
-        throw new Error(data.error || 'Call failed');
+        throw new Error(data.error || "Call failed");
       }
-      
     } catch (error) {
-      console.error('❌ Voice call error:', error);
-      alert('Voice call failed. Please try again or contact support.');
+      console.error("❌ Voice call error:", error);
+      alert("Voice call failed. Please try again or contact support.");
       setIsCallActive(false);
     }
   };
 
   const endCall = () => {
     setIsCallActive(false);
-    console.log('📞 Call ended');
+    console.log("📞 Call ended");
   };
 
   // Text-to-speech for SaintSal responses
   const speakResponse = (text: string) => {
-    if ('speechSynthesis' in window) {
+    if ("speechSynthesis" in window) {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.rate = 0.9;
       utterance.pitch = 0.8;
@@ -132,7 +134,9 @@ export default function VoiceInterface({ onVoiceMessage }: VoiceInterfaceProps) 
     return (
       <Card className="bg-gray-900 border-gray-700">
         <CardContent className="p-4 text-center">
-          <p className="text-gray-400">Voice features not supported in this browser</p>
+          <p className="text-gray-400">
+            Voice features not supported in this browser
+          </p>
         </CardContent>
       </Card>
     );
@@ -157,8 +161,8 @@ export default function VoiceInterface({ onVoiceMessage }: VoiceInterfaceProps) 
             <h4 className="text-sm font-medium text-white">Voice Input</h4>
             <Button
               onClick={toggleListening}
-              variant={isListening ? 'destructive' : 'default'}
-              className={`w-full ${isListening ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600'}`}
+              variant={isListening ? "destructive" : "default"}
+              className={`w-full ${isListening ? "bg-red-500 hover:bg-red-600" : "bg-blue-500 hover:bg-blue-600"}`}
               disabled={!isSupported}
             >
               {isListening ? (
@@ -186,8 +190,8 @@ export default function VoiceInterface({ onVoiceMessage }: VoiceInterfaceProps) 
             <h4 className="text-sm font-medium text-white">Voice Support</h4>
             <Button
               onClick={isCallActive ? endCall : initiateVoiceCall}
-              variant={isCallActive ? 'destructive' : 'default'}
-              className={`w-full ${isCallActive ? 'bg-red-500 hover:bg-red-600' : 'bg-green-500 hover:bg-green-600'}`}
+              variant={isCallActive ? "destructive" : "default"}
+              className={`w-full ${isCallActive ? "bg-red-500 hover:bg-red-600" : "bg-green-500 hover:bg-green-600"}`}
               disabled={!user}
             >
               {isCallActive ? (
@@ -204,10 +208,9 @@ export default function VoiceInterface({ onVoiceMessage }: VoiceInterfaceProps) 
             </Button>
 
             <div className="text-xs text-gray-400 text-center">
-              {userTier === 'free' || userTier === 'unlimited' 
-                ? 'Voice calls available with Core Tools ($97)+'
-                : 'Direct line to SaintSal support team'
-              }
+              {userTier === "free" || userTier === "unlimited"
+                ? "Voice calls available with Core Tools ($97)+"
+                : "Direct line to SaintSal support team"}
             </div>
           </div>
         </div>

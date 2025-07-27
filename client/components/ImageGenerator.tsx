@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { 
-  ArrowLeft, 
-  Download, 
-  Share, 
-  Sparkles, 
+import {
+  ArrowLeft,
+  Download,
+  Share,
+  Sparkles,
   Image as ImageIcon,
   Loader2,
   RefreshCw,
   Settings,
   Palette,
-  Zap
+  Zap,
 } from "lucide-react";
 
 export function ImageGenerator() {
@@ -22,8 +22,16 @@ export function ImageGenerator() {
   const [selectedStyle, setSelectedStyle] = useState("realistic");
 
   const styles = [
-    { id: "realistic", name: "Realistic", description: "Photo-realistic images" },
-    { id: "artistic", name: "Artistic", description: "Creative and artistic style" },
+    {
+      id: "realistic",
+      name: "Realistic",
+      description: "Photo-realistic images",
+    },
+    {
+      id: "artistic",
+      name: "Artistic",
+      description: "Creative and artistic style",
+    },
     { id: "cartoon", name: "Cartoon", description: "Fun cartoon style" },
     { id: "abstract", name: "Abstract", description: "Abstract and modern" },
   ];
@@ -34,36 +42,36 @@ export function ImageGenerator() {
     "Modern logo design with geometric shapes",
     "Cozy coffee shop interior with warm lighting",
     "Abstract background for presentation slides",
-    "Product mockup on clean white background"
+    "Product mockup on clean white background",
   ];
 
   const generateImage = async () => {
     if (!prompt.trim() || isGenerating) return;
 
     setIsGenerating(true);
-    
+
     try {
       // Simulate AI image generation
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+
       // Generate placeholder images (in real implementation, call AI service)
       const newImages = [
         `https://picsum.photos/512/512?random=${Date.now()}`,
         `https://picsum.photos/512/512?random=${Date.now() + 1}`,
         `https://picsum.photos/512/512?random=${Date.now() + 2}`,
-        `https://picsum.photos/512/512?random=${Date.now() + 3}`
+        `https://picsum.photos/512/512?random=${Date.now() + 3}`,
       ];
-      
+
       setGeneratedImages(newImages);
     } catch (error) {
-      console.error('Image generation failed:', error);
+      console.error("Image generation failed:", error);
     } finally {
       setIsGenerating(false);
     }
   };
 
   const downloadImage = (imageUrl: string, index: number) => {
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = imageUrl;
     link.download = `generated-image-${index + 1}.jpg`;
     link.click();
@@ -78,7 +86,7 @@ export function ImageGenerator() {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => navigate('/tools')}
+              onClick={() => navigate("/tools")}
               className="border-[hsl(var(--gold))]/30 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -90,7 +98,9 @@ export function ImageGenerator() {
               </div>
               <div>
                 <h1 className="text-xl font-bold">AI Image Generator</h1>
-                <p className="text-sm text-gray-400">Create stunning visuals with AI</p>
+                <p className="text-sm text-gray-400">
+                  Create stunning visuals with AI
+                </p>
               </div>
             </div>
           </div>
@@ -113,7 +123,7 @@ export function ImageGenerator() {
                 <Sparkles className="w-5 h-5 text-[hsl(var(--gold))]" />
                 Create Your Image
               </h3>
-              
+
               <textarea
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
@@ -124,7 +134,9 @@ export function ImageGenerator() {
 
               {/* Style Selection */}
               <div className="mt-4">
-                <label className="text-sm font-medium text-gray-300 mb-2 block">Style</label>
+                <label className="text-sm font-medium text-gray-300 mb-2 block">
+                  Style
+                </label>
                 <div className="grid grid-cols-2 gap-2">
                   {styles.map((style) => (
                     <button
@@ -132,12 +144,14 @@ export function ImageGenerator() {
                       onClick={() => setSelectedStyle(style.id)}
                       className={`p-3 rounded-lg border text-left transition-all ${
                         selectedStyle === style.id
-                          ? 'border-[hsl(var(--gold))] bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]'
-                          : 'border-gray-700 bg-gray-800 text-gray-300 hover:border-gray-600'
+                          ? "border-[hsl(var(--gold))] bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]"
+                          : "border-gray-700 bg-gray-800 text-gray-300 hover:border-gray-600"
                       }`}
                     >
                       <div className="font-medium text-sm">{style.name}</div>
-                      <div className="text-xs opacity-70">{style.description}</div>
+                      <div className="text-xs opacity-70">
+                        {style.description}
+                      </div>
                     </button>
                   ))}
                 </div>
@@ -195,52 +209,56 @@ export function ImageGenerator() {
                   <div className="w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
                     <ImageIcon className="w-12 h-12 text-gray-600" />
                   </div>
-                  <h4 className="text-xl font-semibold mb-2">No images generated yet</h4>
-                  <p className="text-gray-400 mb-6">Enter a prompt and click "Generate Images" to start creating</p>
+                  <h4 className="text-xl font-semibold mb-2">
+                    No images generated yet
+                  </h4>
+                  <p className="text-gray-400 mb-6">
+                    Enter a prompt and click "Generate Images" to start creating
+                  </p>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {isGenerating ? (
-                    // Loading placeholders
-                    Array.from({ length: 4 }).map((_, index) => (
-                      <div
-                        key={index}
-                        className="aspect-square bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center"
-                      >
-                        <div className="text-center">
-                          <Loader2 className="w-8 h-8 text-[hsl(var(--gold))] animate-spin mx-auto mb-2" />
-                          <p className="text-sm text-gray-400">Generating...</p>
+                  {isGenerating
+                    ? // Loading placeholders
+                      Array.from({ length: 4 }).map((_, index) => (
+                        <div
+                          key={index}
+                          className="aspect-square bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center"
+                        >
+                          <div className="text-center">
+                            <Loader2 className="w-8 h-8 text-[hsl(var(--gold))] animate-spin mx-auto mb-2" />
+                            <p className="text-sm text-gray-400">
+                              Generating...
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    ))
-                  ) : (
-                    // Generated images
-                    generatedImages.map((imageUrl, index) => (
-                      <div key={index} className="group relative">
-                        <img
-                          src={imageUrl}
-                          alt={`Generated image ${index + 1}`}
-                          className="w-full aspect-square object-cover rounded-xl border border-gray-700"
-                        />
-                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center gap-2">
-                          <Button
-                            size="sm"
-                            onClick={() => downloadImage(imageUrl, index)}
-                            className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black"
-                          >
-                            <Download className="w-4 h-4" />
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="border-white text-white hover:bg-white hover:text-black"
-                          >
-                            <Share className="w-4 h-4" />
-                          </Button>
+                      ))
+                    : // Generated images
+                      generatedImages.map((imageUrl, index) => (
+                        <div key={index} className="group relative">
+                          <img
+                            src={imageUrl}
+                            alt={`Generated image ${index + 1}`}
+                            className="w-full aspect-square object-cover rounded-xl border border-gray-700"
+                          />
+                          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center gap-2">
+                            <Button
+                              size="sm"
+                              onClick={() => downloadImage(imageUrl, index)}
+                              className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black"
+                            >
+                              <Download className="w-4 h-4" />
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="border-white text-white hover:bg-white hover:text-black"
+                            >
+                              <Share className="w-4 h-4" />
+                            </Button>
+                          </div>
                         </div>
-                      </div>
-                    ))
-                  )}
+                      ))}
                 </div>
               )}
             </div>
