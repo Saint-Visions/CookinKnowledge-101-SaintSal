@@ -113,6 +113,8 @@ router.post("/search", async (req, res) => {
   try {
     const { query, context, userContext } = req.body;
 
+    console.log("Search request with API key:", OPENAI_CONFIG.apiKey?.substring(0, 20) + "...");
+
     // Use custom prompt for Supersal™ training
     const systemPrompt = `${SUPERSAL_TRAINING.clientMode.personality}
 
