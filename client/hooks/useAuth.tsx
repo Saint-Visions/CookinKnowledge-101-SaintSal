@@ -1,13 +1,17 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { User, Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
+import { getFeatureAccess, getFreeMessageLimit, getUpgradePrompt } from '@/utils/pricingTiers'
 
 interface AuthContextType {
   user: User | null
   session: Session | null
   loading: boolean
-  userTier: 'free' | 'premium' | 'enterprise'
+  userTier: 'free' | 'unlimited' | 'core' | 'pro' | 'fullPro' | 'custom'
+  messageCount: number
   hasAccess: (feature: string) => boolean
+  incrementMessageCount: () => boolean
+  getUpgradeMessage: (feature: string) => string
   signIn: (email: string, password: string) => Promise<{ error?: any }>
   signUp: (email: string, password: string, name: string) => Promise<{ error?: any }>
   signOut: () => Promise<void>
@@ -21,7 +25,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [session, setSession] = useState<Session | null>(null)
   const [loading, setLoading] = useState(true)
-  const [userTier, setUserTier] = useState<'free' | 'premium' | 'enterprise'>('free')
+  const [userTier, setUserTier] = useState<'free' | 'unlimited' | 'core' | 'pro' | 'fullPro' | 'custom'>('free')
+  const [messageCount, setMessageCount] = useState(0)
 
   useEffect(() => {
     // Get initial session
@@ -31,6 +36,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       // Extract tier from user metadata or default to free
       const tier = session?.user?.user_metadata?.subscription_tier || 'free'
       setUserTier(tier)
+      // Load message count from localStorage for free users
+      if (tier === 'free' && session?.user?.id) {
+        const savedCount = localStorage.getItem(`messageCount_${session.user.id}`) || '0'
+        setMessageCount(parseInt(savedCount))
+      }
       setLoading(false)
     })
 
@@ -42,6 +52,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         // Extract tier from user metadata or default to free
         const tier = session?.user?.user_metadata?.subscription_tier || 'free'
         setUserTier(tier)
+        // Load message count from localStorage for free users
+        if (tier === 'free' && session?.user?.id) {
+          const savedCount = localStorage.getItem(`messageCount_${session.user.id}`) || '0'
+          setMessageCount(parseInt(savedCount))
+        }
         setLoading(false)
 
         // Note: Redirect will be handled by components, not here
@@ -77,21 +92,33 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signOut = async () => {
     await supabase.auth.signOut()
-    setUserTier('free') // Reset tier on logout
+    setUserTier('free')
+    setMessageCount(0)
   }
 
   // Access control function based on tier
   const hasAccess = (feature: string): boolean => {
-    const featureMap: Record<string, string[]> = {
-      'workspace': ['premium', 'enterprise'],
-      'companion': ['premium', 'enterprise'],
-      'export': ['enterprise'],
-      'import': ['enterprise'],
-      'crm': ['premium', 'enterprise'],
-      'audit': ['enterprise']
-    }
+    const accessMap = getFeatureAccess(userTier)
+    return accessMap[feature]?.includes(userTier) || false
+  }
 
-    return featureMap[feature]?.includes(userTier) || false
+  // Increment message count for free users - returns true if limit exceeded
+  const incrementMessageCount = (): boolean => {
+    if (userTier !== 'free') return false
+    
+    const newCount = messageCount + 1
+    setMessageCount(newCount)
+    
+    if (user?.id) {
+      localStorage.setItem(`messageCount_${user.id}`, newCount.toString())
+    }
+    
+    return newCount >= getFreeMessageLimit()
+  }
+
+  // Get upgrade message for specific feature
+  const getUpgradeMessage = (feature: string): string => {
+    return getUpgradePrompt(userTier, feature)
   }
 
   const signInWithGoogle = async () => {
@@ -122,7 +149,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     session,
     loading,
     userTier,
+    messageCount,
     hasAccess,
+    incrementMessageCount,
+    getUpgradeMessage,
     signIn,
     signUp,
     signOut,
