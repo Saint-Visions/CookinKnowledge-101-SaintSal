@@ -86,7 +86,16 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
               <p className="text-sm text-gray-400 hidden sm:block">Enterprise AI Assistant</p>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => navigate("/warroom")}
+              className="flex items-center gap-2 border-[hsl(var(--gold))]/30 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span className="hidden sm:inline">WarRoom</span>
+            </Button>
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fd2505f01d3b4483fbcd78c42450432d0?format=webp&width=120"
               alt="Cookin' Knowledge"
