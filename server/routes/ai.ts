@@ -168,6 +168,8 @@ You have comprehensive knowledge about SaintVision AI products, pricing, feature
     const hasConversionOpportunity =
       /upgrade|premium|enterprise|pricing|plan|features/i.test(query);
 
+    console.log("Sending successful response:", response_text?.substring(0, 50) + "...");
+
     res.json({
       provider: "openai",
       type: "search",
