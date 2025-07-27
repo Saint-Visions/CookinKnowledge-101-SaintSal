@@ -359,7 +359,10 @@ export function WarRoom({ className }: WarRoomProps) {
                     ? "bg-primary/10 text-primary border border-primary/20"
                     : "hover:bg-sidebar-accent/50 text-sidebar-foreground/70 hover:text-sidebar-foreground"
                 }`}
-                onClick={item.onClick}
+                onClick={() => {
+                  console.log('Navigation clicked:', item.label);
+                  item.onClick();
+                }}
               >
                 <Icon className={`w-5 h-5 flex-shrink-0 ${item.color}`} />
                 {leftPanelOpen && (
@@ -693,7 +696,7 @@ export function WarRoom({ className }: WarRoomProps) {
           {/* Compact Status */}
           <div className="text-center mt-2">
             <div className="text-xs text-muted-foreground/60">
-              <span className="text-cyan-400">Dual companion</span> ready ���
+              <span className="text-cyan-400">Dual companion</span> ready •
               <span className="text-blue-400"> Azure-powered</span> •
               <span className="text-[hsl(var(--gold))]">Production-grade</span>{" "}
               operations
