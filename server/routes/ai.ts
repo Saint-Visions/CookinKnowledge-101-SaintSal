@@ -299,6 +299,38 @@ router.post("/chat", async (req, res) => {
   }
 });
 
+// Quick Test Endpoint
+router.get("/test", async (req, res) => {
+  try {
+    console.log("Testing with API key:", OPENAI_CONFIG.apiKey?.substring(0, 20) + "...");
+
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${OPENAI_CONFIG.apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: "Hello" }],
+        max_tokens: 50,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Test API error:", response.status, errorText);
+      return res.json({ success: false, error: errorText });
+    }
+
+    const data = await response.json();
+    res.json({ success: true, response: data.choices[0].message.content });
+  } catch (error) {
+    console.error("Test error:", error);
+    res.json({ success: false, error: error.message });
+  }
+});
+
 // AI Health Check
 router.get("/health", async (req, res) => {
   const health = {
