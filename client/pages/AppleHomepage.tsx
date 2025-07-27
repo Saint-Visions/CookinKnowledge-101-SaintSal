@@ -239,29 +239,32 @@ export default function AppleHomepage() {
         </div>
       </section>
 
-      {/* Partner Ecosystem - Super Clean */}
-      <section className="relative z-10 py-32">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-light mb-16 text-white">Partner Ecosystem</h2>
+      {/* Partner Ecosystem - Apple Style */}
+      <section className="relative z-10 py-24">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-light mb-6 text-white">Partner Ecosystem</h2>
+            <p className="text-xl text-white/60 max-w-2xl mx-auto">Integrated solutions across industries</p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             {ecosystemPartners.map((partner, index) => (
               <div key={index} className="text-center">
-                <div className="text-2xl mb-4">{partner.icon}</div>
-                <h3 className="text-sm font-medium text-white mb-2">{partner.name}</h3>
-                <p className="text-xs text-white/50">{partner.description}</p>
+                <div className="text-3xl mb-6">{partner.icon}</div>
+                <h3 className="text-lg font-medium text-white mb-3">{partner.name}</h3>
+                <p className="text-sm text-white/60">{partner.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Join The Movement - Super Clean */}
-      <section className="relative z-10 py-32">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-light mb-8 text-white">Join The Movement</h2>
-          <p className="text-lg text-white/70 mb-12 leading-relaxed">
-            Patent-protected technology. Enterprise-proven results.
+      {/* Join The Movement - Apple Style */}
+      <section className="relative z-10 py-24">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-5xl font-light mb-8 text-white">Join The Movement</h2>
+          <p className="text-xl text-white/70 mb-16 leading-relaxed max-w-2xl mx-auto">
+            We're building the future of human-AI collaboration with patent-protected technology and enterprise-proven results.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
