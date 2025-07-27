@@ -9,9 +9,11 @@ interface AuthContextType {
   loading: boolean
   userTier: 'free' | 'unlimited' | 'core' | 'pro' | 'fullPro' | 'custom'
   messageCount: number
+  features: Record<string, boolean>
   hasAccess: (feature: string) => boolean
   incrementMessageCount: () => boolean
   getUpgradeMessage: (feature: string) => string
+  refreshUserData: () => Promise<void>
   signIn: (email: string, password: string) => Promise<{ error?: any }>
   signUp: (email: string, password: string, name: string) => Promise<{ error?: any }>
   signOut: () => Promise<void>
@@ -27,15 +29,41 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true)
   const [userTier, setUserTier] = useState<'free' | 'unlimited' | 'core' | 'pro' | 'fullPro' | 'custom'>('free')
   const [messageCount, setMessageCount] = useState(0)
+  const [features, setFeatures] = useState<Record<string, boolean>>({})
+
+  // 🔐 EXTRACT USER DATA HELPER
+  const extractUserData = (session: Session | null) => {
+    if (!session?.user) return { tier: 'free', features: {} }
+    
+    const userData = session.user.user_metadata || {}
+    
+    // Extract tier from multiple possible sources (Stripe webhook updates this)
+    const tier = userData.tier || userData.subscription_tier || 'free'
+    
+    // Extract features from user metadata (set by Stripe webhook)
+    const userFeatures = userData.features || {}
+    
+    console.log('🔐 User data extracted:', { 
+      email: session.user.email, 
+      tier, 
+      features: Object.keys(userFeatures),
+      plan: userData.plan,
+      billingStatus: userData.billingStatus 
+    })
+    
+    return { tier, features: userFeatures }
+  }
 
   useEffect(() => {
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session)
       setUser(session?.user ?? null)
-      // Extract tier from user metadata or default to free
-      const tier = session?.user?.user_metadata?.subscription_tier || 'free'
+      
+      const { tier, features: userFeatures } = extractUserData(session)
       setUserTier(tier)
+      setFeatures(userFeatures)
+      
       // Load message count from localStorage for free users
       if (tier === 'free' && session?.user?.id) {
         const savedCount = localStorage.getItem(`messageCount_${session.user.id}`) || '0'
@@ -49,9 +77,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       async (event, session) => {
         setSession(session)
         setUser(session?.user ?? null)
-        // Extract tier from user metadata or default to free
-        const tier = session?.user?.user_metadata?.subscription_tier || 'free'
+        
+        const { tier, features: userFeatures } = extractUserData(session)
         setUserTier(tier)
+        setFeatures(userFeatures)
+        
         // Load message count from localStorage for free users
         if (tier === 'free' && session?.user?.id) {
           const savedCount = localStorage.getItem(`messageCount_${session.user.id}`) || '0'
@@ -59,9 +89,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
         setLoading(false)
 
-        // Note: Redirect will be handled by components, not here
+        // Log authentication events
         if (event === 'SIGNED_IN') {
-          console.log('User signed in:', session?.user?.email, 'Tier:', tier)
+          console.log('🚀 User signed in:', session?.user?.email, 'Tier:', tier)
+        } else if (event === 'TOKEN_REFRESHED') {
+          console.log('🔄 Token refreshed, checking for tier updates')
         }
       }
     )
@@ -84,6 +116,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       options: {
         data: {
           full_name: name,
+          tier: 'free',
+          plan: 'Free Trial',
+          billingStatus: 'trial',
+          features: {
+            enableGPT: false, // Limited to 2 messages
+            messageCap: 2,
+            enableCompanionMode: false,
+            enableCRM: false,
+          }
         },
       },
     })
@@ -94,15 +135,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     await supabase.auth.signOut()
     setUserTier('free')
     setMessageCount(0)
+    setFeatures({})
   }
 
-  // Access control function based on tier
+  // 🧠 ACCESS CONTROL - TIER + FEATURE FLAG BASED
   const hasAccess = (feature: string): boolean => {
+    // Check if feature is explicitly enabled in user features
+    if (features[feature] !== undefined) {
+      return features[feature]
+    }
+    
+    // Fallback to tier-based access
     const accessMap = getFeatureAccess(userTier)
     return accessMap[feature]?.includes(userTier) || false
   }
 
-  // Increment message count for free users - returns true if limit exceeded
+  // 📊 MESSAGE COUNTING FOR FREE USERS
   const incrementMessageCount = (): boolean => {
     if (userTier !== 'free') return false
     
@@ -116,11 +164,33 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return newCount >= getFreeMessageLimit()
   }
 
-  // Get upgrade message for specific feature
+  // 💬 UPGRADE PROMPTS
   const getUpgradeMessage = (feature: string): string => {
     return getUpgradePrompt(userTier, feature)
   }
 
+  // 🔄 REFRESH USER DATA (Called after successful payments)
+  const refreshUserData = async () => {
+    try {
+      const { data: { user }, error } = await supabase.auth.getUser()
+      if (error) throw error
+      
+      if (user) {
+        const { tier, features: userFeatures } = extractUserData({ user } as Session)
+        setUserTier(tier)
+        setFeatures(userFeatures)
+        console.log('🔄 User data refreshed after payment:', { 
+          tier, 
+          features: Object.keys(userFeatures),
+          plan: user.user_metadata?.plan 
+        })
+      }
+    } catch (error) {
+      console.error('❌ Failed to refresh user data:', error)
+    }
+  }
+
+  // 🔐 OAUTH PROVIDERS
   const signInWithGoogle = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
@@ -150,9 +220,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     loading,
     userTier,
     messageCount,
+    features,
     hasAccess,
     incrementMessageCount,
     getUpgradeMessage,
+    refreshUserData,
     signIn,
     signUp,
     signOut,
