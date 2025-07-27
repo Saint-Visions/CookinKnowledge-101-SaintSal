@@ -21,58 +21,44 @@ export const stripePriceIds = {
   custom: 'price_1QQcustom1500',    // $1500/month
 };
 
-export async function createCheckoutSession(tier: string, userEmail?: string) {
+export async function createCheckoutSession(tier: string, userEmail?: string, userId?: string, supabaseId?: string) {
   try {
-    const priceId = stripePriceIds[tier as keyof typeof stripePriceIds];
-    
-    if (!priceId) {
-      throw new Error(`No price ID found for tier: ${tier}`);
-    }
-
-    // Call backend to create checkout session
-    const response = await fetch('/api/create-checkout', {
+    // Call our backend to create checkout session
+    const response = await fetch('/api/stripe/create-checkout-session', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        priceId,
         tier,
-        email: userEmail,
-        successUrl: `${window.location.origin}/dashboard?upgrade=success&tier=${tier}`,
-        cancelUrl: `${window.location.origin}/pricing?upgrade=cancelled`,
+        userEmail,
+        userId,
+        supabaseId,
       }),
     });
 
-    const session = await response.json();
-    
+    const data = await response.json();
+
     if (!response.ok) {
-      throw new Error(session.error || 'Failed to create checkout session');
+      throw new Error(data.error || 'Failed to create checkout session');
     }
 
-    // Redirect to Stripe Checkout
-    const stripe = await stripePromise;
-    if (!stripe) {
-      throw new Error('Stripe failed to load');
-    }
-
-    const { error } = await stripe.redirectToCheckout({
-      sessionId: session.sessionId,
-    });
-
-    if (error) {
-      throw error;
+    // Redirect to Stripe Checkout URL
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      throw new Error('No checkout URL received');
     }
 
   } catch (error) {
     console.error('Checkout error:', error);
-    
+
     // Fallback to direct contact for custom tier
     if (tier === 'custom') {
-      window.location.href = 'mailto:enterprise@saintvision.ai?subject=Custom Enterprise Plan';
+      window.location.href = 'mailto:enterprise@saintvision.ai?subject=Custom Enterprise Plan&body=I am interested in the Custom Enterprise plan for $1500/month. Please contact me to discuss onboarding and custom implementation.';
       return;
     }
-    
+
     throw error;
   }
 }
