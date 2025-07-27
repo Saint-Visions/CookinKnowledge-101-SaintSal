@@ -392,9 +392,35 @@ export default function Pricing() {
                 </ul>
 
                 <Button
-                  className={`w-full ${getButtonStyles(plan.color, plan.popular)}`}
+                  className={`w-full ${getButtonStyles(plan.color, plan.popular)} cursor-pointer`}
                   size="lg"
-                  onClick={() => plan.tier === 'free' ? window.location.href = '/signup' : handleUpgrade(plan.tier)}
+                  onClick={() => {
+                    console.log(`🔥 BUTTON CLICKED: ${plan.tier}`);
+
+                    if (plan.tier === 'free') {
+                      window.location.href = '/signup';
+                      return;
+                    }
+
+                    if (plan.tier === 'custom') {
+                      window.location.href = 'mailto:enterprise@saintvision.ai?subject=Custom Enterprise Plan';
+                      return;
+                    }
+
+                    // Direct Stripe links
+                    const links = {
+                      unlimited: 'https://buy.stripe.com/9AQ02D1oT9vW8sM6op',
+                      core: 'https://buy.stripe.com/fZe5mX7Hh3bi2cw4gi',
+                      pro: 'https://buy.stripe.com/aEU8yb6Dd9vW5kE28c',
+                      fullPro: 'https://buy.stripe.com/dR6g1B4z515q4gA9AE'
+                    };
+
+                    const link = links[plan.tier as keyof typeof links];
+                    if (link) {
+                      console.log(`💳 REDIRECTING TO: ${link}`);
+                      window.location.href = link;
+                    }
+                  }}
                   disabled={loading === plan.tier}
                 >
                   {loading === plan.tier ? (
