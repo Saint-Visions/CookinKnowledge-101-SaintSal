@@ -34,6 +34,7 @@ import { ImageGenerator } from "./components/ImageGenerator";
 import { StickyNotes } from "./components/StickyNotes";
 import { EmailAssistant } from "./components/EmailAssistant";
 import { VideoStudio } from "./components/VideoStudio";
+import { CodeAcademy } from "./components/CodeAcademy";
 import { AuthProvider } from "./hooks/useAuth";
 
 const queryClient = new QueryClient();
