@@ -16,16 +16,7 @@ export function Splash({ className }: SplashProps) {
   }, []);
 
   return (
-    <div
-      className={`min-h-screen relative overflow-hidden ${className}`}
-      style={{
-        backgroundColor: "#000000",
-        backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F7293aa1ac5704767ac0379fb96ae58b4?format=webp&width=800')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}
-    >
+    <div className={`min-h-screen bg-black text-white relative overflow-hidden ${className}`}>
       {/* Clean Header */}
       <div className="absolute top-0 left-0 right-0 z-20 p-6">
         <div className="flex items-center justify-between">
