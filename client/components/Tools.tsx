@@ -338,6 +338,11 @@ export function Tools({ className }: ToolsProps) {
           ))}
         </div>
 
+        {/* System Health Monitor */}
+        <div className="mt-16">
+          <SystemHealth />
+        </div>
+
         {/* Bottom CTA */}
         <div className="text-center mt-20 p-8 rounded-3xl bg-gradient-to-br from-muted/10 to-muted/5 border border-border/30">
           <h3 className="text-2xl font-bold text-foreground mb-4">
