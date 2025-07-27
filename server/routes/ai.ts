@@ -147,6 +147,12 @@ You have comprehensive knowledge about SaintVision AI products, pricing, feature
 
     const data = await response.json();
 
+    // Check if response is valid
+    if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+      console.error("Invalid OpenAI response:", data);
+      return res.status(500).json({ error: "Invalid AI response" });
+    }
+
     // Check for conversion opportunities
     const response_text = data.choices[0].message.content;
     const hasConversionOpportunity =
