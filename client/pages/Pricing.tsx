@@ -33,11 +33,17 @@ export default function Pricing() {
   const [loading, setLoading] = useState<string | null>(null);
   const { user } = useAuth();
 
-  // 🔥 SIMPLE STRIPE CHECKOUT - NO COMPLEX ERROR HANDLING
+  // 🔥 SIMPLE STRIPE CHECKOUT - IMMEDIATE DEBUG
   const handleTierUpgrade = async (tier: string) => {
-    if (loading) return;
+    console.log(`🚀🚀🚀 BUTTON CLICKED FOR TIER: ${tier}`);
+    alert(`DEBUG: Button clicked for ${tier} tier!`);
 
-    console.log(`🚀 STRIPE CHECKOUT FOR: ${tier}`);
+    if (loading) {
+      console.log('⚠️ Already loading, returning');
+      return;
+    }
+
+    console.log(`💳 STARTING STRIPE CHECKOUT FOR: ${tier}`);
     setLoading(tier);
 
     // Handle custom tier
