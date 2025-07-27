@@ -385,15 +385,17 @@ Expect contact from ryan@saintvision.ai
     console.log(`📧 Welcome email sent to ${email} for ${tier} tier`);
     
     // Store email log
-    await supabaseAdmin
-      .from('email_logs')
-      .insert({
-        recipient: email,
-        subject: template.subject,
-        tier: tier,
-        type: 'welcome',
-        sent_at: new Date().toISOString(),
-      });
+    if (supabaseAdmin) {
+      await supabaseAdmin
+        .from('email_logs')
+        .insert({
+          recipient: email,
+          subject: template.subject,
+          tier: tier,
+          type: 'welcome',
+          sent_at: new Date().toISOString(),
+        });
+    }
 
   } catch (error) {
     console.error("❌ Welcome email failed:", error);
@@ -471,13 +473,13 @@ async function handleSubscriptionChange(subscription: Stripe.Subscription) {
 
 // Handle subscription cancellations
 async function handleSubscriptionCancellation(subscription: Stripe.Subscription) {
-  console.log(`❌ Subscription cancelled: ${subscription.id}`);
+  console.log(`��� Subscription cancelled: ${subscription.id}`);
   // Downgrade user, disable features, etc.
 }
 
 // Handle payment failures
 async function handlePaymentFailure(invoice: Stripe.Invoice) {
-  console.log(`💳 Payment failed: ${invoice.id}`);
+  console.log(`��� Payment failed: ${invoice.id}`);
   // Send dunning emails, temporary suspension, etc.
 }
 
