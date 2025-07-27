@@ -168,7 +168,7 @@ export default function AppleHomepage() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link to="/warroom">
-              <Button size="lg" className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 px-8 py-4 text-lg font-semibold shadow-2xl shadow-yellow-400/20">
+              <Button size="lg" className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 px-8 py-4 text-lg font-semibold">
                 Explore SaintSal™
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
