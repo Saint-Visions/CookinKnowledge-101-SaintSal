@@ -37,5 +37,9 @@ export function createServer() {
   // Route Auditing Service - Token-based premium feature
   app.use("/api/audit-service", auditServiceRoutes);
 
+  // 💸 SAINTSAL™ STRIPE PAYMENT SYSTEM - THE MONEY MAKER!
+  app.use("/api/stripe", stripeCheckoutRoutes);
+  app.use("/api/stripe", stripeWebhookRoutes);
+
   return app;
 }
