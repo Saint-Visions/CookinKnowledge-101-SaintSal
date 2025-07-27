@@ -144,7 +144,7 @@ export default function AppleHomepage() {
 
           {/* SaintSal Subheadline */}
           <div className="mb-8">
-            <p className="text-xl md:text-2xl text-yellow-400/90 font-medium italic tracking-wide">
+            <p className="text-xl md:text-2xl text-blue-400/90 font-medium italic tracking-wide">
               Powered by SaintSal™ • Where AI meets intuition 😉
             </p>
           </div>
