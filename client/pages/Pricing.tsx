@@ -185,7 +185,7 @@ export default function Pricing() {
       popular: false,
       action: () => {
         console.log('🚀 CUSTOM ENTERPRISE BUTTON CLICKED - REDIRECTING TO EMAIL');
-        window.location.href = 'mailto:ryan@saintvision.ai?subject=Custom Enterprise Plan ($1500/month)&body=I want to subscribe to the Custom Enterprise plan for $1500/month. Please contact me immediately to start the onboarding process!';
+        window.location.href = 'mailto:ryan@saintvisiongroup.com?subject=Custom Enterprise Plan ($1500/month)&body=I want to subscribe to the Custom Enterprise plan for $1500/month. Please contact me immediately to start the onboarding process!';
         setLoading(null);
       }
     },
