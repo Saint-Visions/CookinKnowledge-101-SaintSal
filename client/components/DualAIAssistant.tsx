@@ -150,6 +150,28 @@ export function DualAIAssistant({
     }
   };
 
+  // 🎯 HANDLE PLAN-BASED ACTION BUTTONS
+  const handleAction = (action: string, url?: string) => {
+    console.log(`🎯 Supersal action triggered: ${action}`);
+
+    if (url) {
+      window.location.href = url;
+    } else {
+      triggerPlanActions(action, userTier);
+    }
+
+    // Add confirmation message
+    const actionMessage: Message = {
+      role: "assistant",
+      content: `✅ ${action.replace('_', ' ')} initiated! Let me know if you need help with anything else.`,
+      timestamp: new Date(),
+      provider: "azure",
+      mode: "companion",
+    };
+
+    setMessages(prev => [...prev, actionMessage]);
+  };
+
   if (!isOpen) return null;
 
   return (
