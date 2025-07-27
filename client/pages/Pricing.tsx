@@ -104,7 +104,7 @@ export default function Pricing() {
       highlight: "Most businesses choose this plan",
       action: () => {
         console.log('🔥 CORE TOOLS BUTTON CLICKED - REDIRECTING TO EMAIL');
-        window.location.href = 'mailto:ryan@saintvision.ai?subject=Core Tools Plan ($97/month)&body=I want to subscribe to the Core Tools plan for $97/month. Please send me the payment link immediately!';
+        window.location.href = 'mailto:ryan@saintvisiongroup.com?subject=Core Tools Plan ($97/month)&body=I want to subscribe to the Core Tools plan for $97/month. Please send me the payment link immediately!';
         setLoading(null);
       }
     },
