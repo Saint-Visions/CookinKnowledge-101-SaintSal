@@ -76,7 +76,9 @@ export default function Pricing() {
       popular: false,
       action: () => {
         console.log('🔥 UNLIMITED BUTTON CLICKED - REDIRECTING TO STRIPE');
-        window.location.href = 'https://buy.stripe.com/4gw8AdeNM4dC9wQ4gi';
+        // Create checkout session with proper return URLs
+        const checkoutUrl = `https://buy.stripe.com/4gw8AdeNM4dC9wQ4gi?success_url=${encodeURIComponent(window.location.origin + '/?upgraded=unlimited&signin=true')}&cancel_url=${encodeURIComponent(window.location.origin + '/pricing')}`;
+        window.location.href = checkoutUrl;
       }
     },
     {
