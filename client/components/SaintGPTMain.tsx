@@ -26,9 +26,10 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
   const [messages, setMessages] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSend = async () => {
-    if (message.trim() && !isLoading) {
-      const userMessage = message.trim();
+  const handleSend = async (customMessage?: string) => {
+    const messageToSend = customMessage || message;
+    if (messageToSend.trim() && !isLoading) {
+      const userMessage = messageToSend.trim();
       setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
       setMessage("");
       setIsLoading(true);
