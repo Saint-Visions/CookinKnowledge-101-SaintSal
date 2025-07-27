@@ -176,8 +176,7 @@ export default function AppleHomepage() {
             </Link>
             <Button
               size="lg"
-              variant="outline"
-              className="border-yellow-400/50 text-yellow-400 hover:bg-yellow-400/10 hover:border-yellow-400 px-8 py-4 text-lg backdrop-blur-sm"
+              className="bg-gradient-to-r from-green-400 to-green-300 text-black hover:from-green-300 hover:to-green-200 px-8 py-4 text-lg font-semibold shadow-[0_0_20px_rgba(34,197,94,0.4)] hover:shadow-[0_0_30px_rgba(34,197,94,0.6)] transition-all border-0"
               onClick={() => {
                 const whyUsSection = document.querySelector('section:nth-of-type(2)');
                 whyUsSection?.scrollIntoView({ behavior: 'smooth' });
