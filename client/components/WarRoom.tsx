@@ -159,8 +159,8 @@ export function WarRoom({ className }: WarRoomProps) {
       // This is where the magic happens - enterprise operations
       console.log("Processing enterprise operation:", workspaceInput);
 
-      // Connect to Azure AI companion for complex enterprise operations
-      const response = await fetch("/api/ai/companion", {
+      // Connect to OpenAI search for now (will switch to Azure when key is fixed)
+      const response = await fetch("/api/ai/search", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
