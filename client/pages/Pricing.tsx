@@ -74,9 +74,31 @@ export default function Pricing() {
       buttonText: "Get Unlimited",
       color: "blue",
       popular: false,
-      action: () => {
-        console.log('🚀 UNLIMITED BUTTON CLICKED - REDIRECTING TO STRIPE');
-        window.location.href = 'mailto:ryan@saintvisiongroup.com?subject=Unlimited Plan ($27/month)&body=I want to subscribe to the Unlimited plan for $27/month. Please send me the payment link!';
+      action: async () => {
+        console.log('🚀 UNLIMITED BUTTON CLICKED - LOADING STRIPE');
+        try {
+          const { loadStripe } = await import('@stripe/stripe-js');
+          const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
+
+          if (stripe) {
+            console.log('✅ STRIPE LOADED - REDIRECTING TO CHECKOUT');
+            const { error } = await stripe.redirectToCheckout({
+              lineItems: [{ price: 'price_1RINIMFZsXxBWnjQEYxlyUIy', quantity: 1 }],
+              mode: 'subscription',
+              successUrl: window.location.origin + '/?upgraded=unlimited&signin=true',
+              cancelUrl: window.location.origin + '/pricing',
+            });
+
+            if (error) {
+              console.error('Stripe error:', error);
+              alert('Payment error: ' + error.message);
+            }
+          }
+        } catch (error) {
+          console.error('Failed to load Stripe:', error);
+          // Fallback to email if Stripe fails
+          window.location.href = 'mailto:ryan@saintvisiongroup.com?subject=Unlimited Plan ($27/month)&body=I want to subscribe to the Unlimited plan for $27/month. Please send me the payment link!';
+        }
         setLoading(null);
       }
     },
