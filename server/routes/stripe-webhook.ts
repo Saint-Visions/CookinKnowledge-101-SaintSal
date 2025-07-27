@@ -447,15 +447,17 @@ async function triggerOnboardingSequence(userId: string, tier: string) {
     const tasks = onboardingTasks[tier as keyof typeof onboardingTasks] || [];
 
     for (const task of tasks) {
-      await supabaseAdmin
-        .from('onboarding_tasks')
-        .insert({
-          user_id: userId,
-          task: task,
-          tier: tier,
-          status: 'pending',
-          created_at: new Date().toISOString(),
-        });
+      if (supabaseAdmin) {
+        await supabaseAdmin
+          .from('onboarding_tasks')
+          .insert({
+            user_id: userId,
+            task: task,
+            tier: tier,
+            status: 'pending',
+            created_at: new Date().toISOString(),
+          });
+      }
     }
 
     console.log(`🚀 Onboarding sequence triggered for ${tier}: ${tasks.join(', ')}`);
@@ -473,13 +475,13 @@ async function handleSubscriptionChange(subscription: Stripe.Subscription) {
 
 // Handle subscription cancellations
 async function handleSubscriptionCancellation(subscription: Stripe.Subscription) {
-  console.log(`��� Subscription cancelled: ${subscription.id}`);
+  console.log(`❌ Subscription cancelled: ${subscription.id}`);
   // Downgrade user, disable features, etc.
 }
 
 // Handle payment failures
 async function handlePaymentFailure(invoice: Stripe.Invoice) {
-  console.log(`��� Payment failed: ${invoice.id}`);
+  console.log(`💳 Payment failed: ${invoice.id}`);
   // Send dunning emails, temporary suspension, etc.
 }
 
