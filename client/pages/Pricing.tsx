@@ -105,7 +105,7 @@ export default function Pricing() {
       action: () => {
         alert('🔥 CORE TOOLS BUTTON WORKS! This will redirect to Stripe checkout for $97/month');
         console.log('✅ CORE TOOLS BUTTON CLICKED AND WORKING!');
-        // For now, show working alert - will replace with Stripe once confirmed working
+        setLoading(null); // Clear loading state
       }
     },
     {
