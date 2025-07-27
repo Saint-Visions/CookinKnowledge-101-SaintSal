@@ -266,15 +266,17 @@ async function provisionGHLSubaccount(email: string, tier: string, userId: strin
       console.log(`🔧 GHL subaccount created for ${email}:`, ghlData.account_id);
       
       // Store GHL account info
-      await supabaseAdmin
-        .from('user_crm_accounts')
-        .insert({
-          user_id: userId,
-          ghl_account_id: ghlData.account_id,
-          tier: tier,
-          status: 'active',
-          created_at: new Date().toISOString(),
-        });
+      if (supabaseAdmin) {
+        await supabaseAdmin
+          .from('user_crm_accounts')
+          .insert({
+            user_id: userId,
+            ghl_account_id: ghlData.account_id,
+            tier: tier,
+            status: 'active',
+            created_at: new Date().toISOString(),
+          });
+      }
     }
 
   } catch (error) {
