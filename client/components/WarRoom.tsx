@@ -159,13 +159,15 @@ export function WarRoom({ className }: WarRoomProps) {
       // This is where the magic happens - enterprise operations
       console.log("Processing enterprise operation:", workspaceInput);
 
-      // TODO: Connect to your backend API
-      const response = await fetch("/api/warroom/execute", {
+      // Connect to Azure AI companion for complex enterprise operations
+      const response = await fetch("/api/ai/companion", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          operation: workspaceInput,
-          context: { userId: "enterprise", mode: "production" }
+          message: workspaceInput,
+          context: "warroom-enterprise",
+          userContext: { role: "admin", internal: true, mode: "production" },
+          domain: "universal"
         })
       });
 
