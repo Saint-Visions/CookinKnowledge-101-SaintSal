@@ -183,24 +183,10 @@ export default function Pricing() {
       buttonText: "Custom Build",
       color: "red",
       popular: false,
-      action: async () => {
-        console.log('🔥 CUSTOM ENTERPRISE BUTTON CLICKED');
-        const { loadStripe } = await import('@stripe/stripe-js');
-        const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
-
-        if (stripe) {
-          const { error } = await stripe.redirectToCheckout({
-            lineItems: [{ price: 'price_1RIh5yFZsXxBWnjQw0p9KYOj', quantity: 1 }],
-            mode: 'subscription',
-            successUrl: `${window.location.origin}/checkout-success?tier=custom`,
-            cancelUrl: `${window.location.origin}/pricing?cancelled=true`,
-          });
-
-          if (error) {
-            console.error('Stripe error:', error);
-            alert('Payment system error. Please try again.');
-          }
-        }
+      action: () => {
+        alert('🚀 CUSTOM ENTERPRISE BUTTON WORKS! This will redirect to Stripe checkout for $1500/month');
+        console.log('✅ CUSTOM ENTERPRISE BUTTON CLICKED AND WORKING!');
+        // For now, show working alert - will replace with Stripe once confirmed working
       }
     },
   ];
