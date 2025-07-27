@@ -10,7 +10,7 @@ export interface OnboardingMessage {
 }
 
 // 🧠 SUPERSAL PLAN DETECTION & ONBOARDING
-export function getSupersal​​ ​Onboarding​Message(userTier: string, isFirstTime: boolean = false): OnboardingMessage {
+export function getSupersalOnboardingMessage(userTier: string, isFirstTime: boolean = false): OnboardingMessage {
   const features = getUserFeatures(userTier);
   
   if (isFirstTime) {
