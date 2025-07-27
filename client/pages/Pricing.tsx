@@ -198,9 +198,24 @@ export default function Pricing() {
       buttonText: "Build Empire",
       color: "green",
       popular: false,
-      action: () => {
+      action: async () => {
         console.log('🔥 WHITE LABEL BUTTON CLICKED');
-        window.open('https://buy.stripe.com/dR6g1B4z515q4gA9AE', '_blank');
+        const { loadStripe } = await import('@stripe/stripe-js');
+        const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
+
+        if (stripe) {
+          const { error } = await stripe.redirectToCheckout({
+            lineItems: [{ price: 'price_1RIggOFZsXxBWnjQH3PWncV6', quantity: 1 }],
+            mode: 'subscription',
+            successUrl: `${window.location.origin}/checkout-success?tier=fullPro`,
+            cancelUrl: `${window.location.origin}/pricing?cancelled=true`,
+          });
+
+          if (error) {
+            console.error('Stripe error:', error);
+            alert('Payment system error. Please try again.');
+          }
+        }
       }
     },
     {
