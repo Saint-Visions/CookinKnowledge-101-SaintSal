@@ -77,6 +77,7 @@ const App = () => (
           <Route path="/email-assistant" element={<EmailAssistant />} />
           <Route path="/video-studio" element={<VideoStudio />} />
           <Route path="/code-academy" element={<CodeAcademy />} />
+          <Route path="/ai-tools-suite" element={<AIToolsSuite />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
           </Routes>
