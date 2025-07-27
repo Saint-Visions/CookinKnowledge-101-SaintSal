@@ -19,8 +19,8 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { GlobalHeader } from "../components/GlobalHeader";
-import { GlobalFooter } from "../components/GlobalFooter";
+import GlobalHeader from "../components/GlobalHeader";
+import GlobalFooter from "../components/GlobalFooter";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
