@@ -131,7 +131,7 @@ export default function Pricing() {
       popular: false,
       action: () => {
         console.log('⚡ PRO SUITE BUTTON CLICKED - REDIRECTING TO EMAIL');
-        window.location.href = 'mailto:ryan@saintvision.ai?subject=Pro Suite Plan ($297/month)&body=I want to subscribe to the Pro Suite plan for $297/month. Please send me the payment link now!';
+        window.location.href = 'mailto:ryan@saintvisiongroup.com?subject=Pro Suite Plan ($297/month)&body=I want to subscribe to the Pro Suite plan for $297/month. Please send me the payment link now!';
         setLoading(null);
       }
     },
