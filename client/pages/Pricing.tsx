@@ -153,7 +153,10 @@ export default function Pricing() {
       buttonText: "Build Empire",
       color: "green",
       popular: false,
-      action: () => window.location.href = 'https://buy.stripe.com/dR6g1B4z515q4gA9AE'
+      action: () => {
+        console.log('🔥 WHITE LABEL BUTTON CLICKED');
+        window.open('https://buy.stripe.com/dR6g1B4z515q4gA9AE', '_blank');
+      }
     },
     {
       name: "Custom Enterprise",
