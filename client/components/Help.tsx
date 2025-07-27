@@ -182,7 +182,7 @@ export function Help({ className }: HelpProps) {
             <div className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium">
               Help
             </div>
-            <Link to="#" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]/80">
+            <Link to="/partnertech" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]/80">
               PartnerTech.ai
             </Link>
           </nav>
