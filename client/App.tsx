@@ -30,6 +30,10 @@ import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import { PartnerTech } from "./components/PartnerTech";
 import { CRM } from "./components/CRM";
+import { ImageGenerator } from "./components/ImageGenerator";
+import { StickyNotes } from "./components/StickyNotes";
+import { EmailAssistant } from "./components/EmailAssistant";
+import { VideoStudio } from "./components/VideoStudio";
 import { AuthProvider } from "./hooks/useAuth";
 
 const queryClient = new QueryClient();
