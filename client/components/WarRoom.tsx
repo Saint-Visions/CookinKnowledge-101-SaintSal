@@ -157,15 +157,20 @@ export function WarRoom({ className }: WarRoomProps) {
     setIsProcessing(true);
 
     try {
+      // Add user message to workspace
+      const userMessage = workspaceInput.trim();
+      setWorkspaceMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+      setWorkspaceInput("");
+
       // This is where the magic happens - enterprise operations
-      console.log("Processing enterprise operation:", workspaceInput);
+      console.log("Processing enterprise operation:", userMessage);
 
       // Connect to OpenAI search for now (will switch to Azure when key is fixed)
       const response = await fetch("/api/ai/search", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          query: workspaceInput,
+          query: userMessage,
           context: "warroom-enterprise",
           userContext: { role: "admin", internal: true, mode: "production" }
         })
@@ -173,12 +178,12 @@ export function WarRoom({ className }: WarRoomProps) {
 
       if (response.ok) {
         const result = await response.json();
-        console.log("Azure AI Companion response:", result);
-        // TODO: Display AI response in workspace interface
-        alert(`Supersal™ Companion: ${result.response}`);
+        console.log("AI Companion response:", result);
+        // Add AI response to workspace messages
+        setWorkspaceMessages(prev => [...prev, { role: 'assistant', content: result.response }]);
+      } else {
+        setWorkspaceMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' }]);
       }
-
-      setWorkspaceInput("");
     } catch (error) {
       console.error("Workspace operation failed:", error);
     } finally {
