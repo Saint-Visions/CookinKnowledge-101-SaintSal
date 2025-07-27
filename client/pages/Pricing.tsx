@@ -74,9 +74,24 @@ export default function Pricing() {
       buttonText: "Get Unlimited",
       color: "blue",
       popular: false,
-      action: () => {
+      action: async () => {
         console.log('🔥 UNLIMITED BUTTON CLICKED');
-        window.location.href = `https://checkout.stripe.com/pay/cs_test_a1${btoa('price_1RINIMFZsXxBWnjQEYxlyUIy')}`;
+        const { loadStripe } = await import('@stripe/stripe-js');
+        const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
+
+        if (stripe) {
+          const { error } = await stripe.redirectToCheckout({
+            lineItems: [{ price: 'price_1RINIMFZsXxBWnjQEYxlyUIy', quantity: 1 }],
+            mode: 'subscription',
+            successUrl: `${window.location.origin}/checkout-success?tier=unlimited`,
+            cancelUrl: `${window.location.origin}/pricing?cancelled=true`,
+          });
+
+          if (error) {
+            console.error('Stripe error:', error);
+            alert('Payment system error. Please try again.');
+          }
+        }
       }
     },
     {
