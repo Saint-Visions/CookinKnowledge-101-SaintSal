@@ -359,6 +359,79 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
             </div>
           </div>
 
+          {/* Messages Display Area */}
+          <div className="flex-1 p-4 lg:p-6 overflow-y-auto">
+            <div className="max-w-4xl mx-auto">
+              {messages.length === 0 ? (
+                <div className="text-center py-8">
+                  <div className="w-16 h-16 bg-[hsl(var(--gold))]/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fdbc34a0fdf4849459b0ed2678312de82?format=webp&width=80"
+                      alt="SaintSal"
+                      className="w-8 h-8 object-contain"
+                    />
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Start a conversation with Supersal™
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {messages.map((message, index) => (
+                    <div
+                      key={index}
+                      className={`flex gap-3 ${
+                        message.role === 'user' ? 'justify-end' : 'justify-start'
+                      }`}
+                    >
+                      {message.role === 'assistant' && (
+                        <div className="w-8 h-8 bg-[hsl(var(--gold))]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <img
+                            src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fdbc34a0fdf4849459b0ed2678312de82?format=webp&width=80"
+                            alt="SaintSal"
+                            className="w-5 h-5 object-contain"
+                          />
+                        </div>
+                      )}
+                      <div
+                        className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+                          message.role === 'user'
+                            ? 'bg-[hsl(var(--gold))] text-black'
+                            : 'bg-muted text-foreground'
+                        }`}
+                      >
+                        <p className="text-sm">{message.content}</p>
+                      </div>
+                      {message.role === 'user' && (
+                        <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <User className="w-5 h-5 text-blue-400" />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                  {isLoading && (
+                    <div className="flex gap-3 justify-start">
+                      <div className="w-8 h-8 bg-[hsl(var(--gold))]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <img
+                          src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fdbc34a0fdf4849459b0ed2678312de82?format=webp&width=80"
+                          alt="SaintSal"
+                          className="w-5 h-5 object-contain"
+                        />
+                      </div>
+                      <div className="bg-muted px-4 py-2 rounded-lg">
+                        <div className="flex items-center gap-1">
+                          <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" />
+                          <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
+                          <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+
           {/* Input Area */}
           <div className="border-t border-border/30 p-4 lg:p-6">
             <div className="max-w-4xl mx-auto">
