@@ -33,11 +33,11 @@ export default function Pricing() {
   const [loading, setLoading] = useState<string | null>(null);
   const { user } = useAuth();
 
-  // 💳 PROPER UPGRADE FLOW - "CLICK TO CONVERSION"
+  // 💳 BULLETPROOF BUTTON CLICK HANDLER
   const handleUpgrade = async (tier: string) => {
     if (loading) return;
 
-    console.log(`🚀 UPGRADING TO: ${tier}`);
+    console.log(`���� BUTTON CLICKED - UPGRADING TO: ${tier}`);
     setLoading(tier);
 
     // Handle custom tier
@@ -47,7 +47,7 @@ export default function Pricing() {
       return;
     }
 
-    // Price IDs mapping
+    // Price IDs mapping - EXACTLY FROM planUtils.ts
     const priceIds = {
       unlimited: 'price_1RINIMFZsXxBWnjQEYxlyUIy', // $27
       core: 'price_1RLChzFZsXxBWnj0VcveVdDf',     // $97
@@ -58,25 +58,26 @@ export default function Pricing() {
     const priceId = priceIds[tier as keyof typeof priceIds];
 
     if (!priceId) {
-      console.error('No price ID for tier:', tier);
-      alert(`Price not configured for ${tier} tier`);
+      console.error('❌ NO PRICE ID FOR TIER:', tier);
+      alert(`Error: Price not configured for ${tier} tier`);
       setLoading(null);
       return;
     }
 
     try {
-      // ✅ STEP 1: Frontend Calls Upgrade Handler
-      console.log('🎯 Creating checkout session for tier:', tier);
-      const session = await createCheckoutSession(priceId);
+      console.log(`💳 CALLING STRIPE WITH PRICE ID: ${priceId}`);
 
-      // ✅ STEP 2: Redirect to Stripe Checkout
-      console.log('✅ Redirecting to Stripe checkout:', session.url);
-      window.location.href = session.url;
+      // Call the checkout function - it will handle the redirect
+      await createCheckoutSession(priceId);
+
+      // This won't be reached because createCheckoutSession redirects
 
     } catch (error) {
-      console.error('❌ UPGRADE ERROR:', error);
-      alert(`Upgrade failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      console.error('❌ STRIPE CHECKOUT FAILED:', error);
       setLoading(null);
+
+      // Show user-friendly error
+      alert(`Payment system error: ${error instanceof Error ? error.message : 'Please try again or contact support'}`);
     }
   };
 
