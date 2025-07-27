@@ -6,6 +6,8 @@ import ghlRoutes from "./routes/ghl";
 import aiRoutes from "./routes/ai";
 import embeddingsRoutes from "./routes/embeddings";
 import auditServiceRoutes from "./routes/audit-service";
+import stripeCheckoutRoutes from "./routes/stripe-checkout";
+import stripeWebhookRoutes from "./routes/stripe-webhook";
 
 export function createServer() {
   const app = express();
