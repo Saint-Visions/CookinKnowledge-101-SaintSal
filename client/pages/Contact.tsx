@@ -19,6 +19,8 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { GlobalHeader } from "../components/GlobalHeader";
+import { GlobalFooter } from "../components/GlobalFooter";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -57,25 +59,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
-      {/* Header */}
-      <div className="border-b border-gray-800 p-6">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <Shield className="w-8 h-8 text-yellow-400" />
-            <span className="text-xl font-bold">SaintVisionAI</span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <Badge className="bg-red-500 text-white animate-pulse">
-              🔥 $47 Special Offer
-            </Badge>
-            <Link to="/pricing">
-              <Button className="bg-yellow-400 text-black hover:bg-yellow-500">
-                View Pricing
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </div>
+      <GlobalHeader />
 
       {/* Hero */}
       <div className="text-center py-20 px-6">
@@ -321,15 +305,7 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Footer */}
-      <div className="border-t border-gray-800 p-6">
-        <div className="max-w-7xl mx-auto text-center text-gray-400">
-          <p>
-            © 2024 SaintVisionAI. All rights reserved. • Powered by SaintSal AI
-            • Route Auditing Service
-          </p>
-        </div>
-      </div>
+      <GlobalFooter />
     </div>
   );
 }
