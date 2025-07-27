@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/hooks/useAuth";
+import { getSupersalOnboardingMessage, triggerPlanActions } from "@/lib/supersal/planOnboarding";
 import {
   Users,
   ArrowUp,
@@ -21,6 +23,11 @@ interface Message {
   timestamp: Date;
   provider?: "openai" | "azure";
   mode?: "client" | "companion";
+  actions?: Array<{
+    label: string;
+    action: string;
+    url?: string;
+  }>;
 }
 
 interface DualAIAssistantProps {
@@ -30,6 +37,7 @@ interface DualAIAssistantProps {
     role?: "user" | "admin";
     plan?: "free" | "pro" | "enterprise";
   };
+  isFirstTimeUser?: boolean;
 }
 
 export function DualAIAssistant({
