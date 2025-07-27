@@ -140,14 +140,8 @@ export default function About() {
         </div>
       </div>
 
-      {/* Footer */}
-      <div className="border-t border-gray-800 p-6">
-        <div className="max-w-7xl mx-auto text-center text-gray-400">
-          <p>
-            © 2024 SaintVisionAI. All rights reserved. • Powered by SaintSal AI
-          </p>
-        </div>
-      </div>
+      {/* Global Footer */}
+      <GlobalFooter />
     </div>
   );
 }
