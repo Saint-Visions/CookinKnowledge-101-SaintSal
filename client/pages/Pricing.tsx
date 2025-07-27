@@ -74,24 +74,9 @@ export default function Pricing() {
       buttonText: "Get Unlimited",
       color: "blue",
       popular: false,
-      action: async () => {
-        console.log('🔥 UNLIMITED BUTTON CLICKED');
-        const { loadStripe } = await import('@stripe/stripe-js');
-        const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
-
-        if (stripe) {
-          const { error } = await stripe.redirectToCheckout({
-            lineItems: [{ price: 'price_1RINIMFZsXxBWnjQEYxlyUIy', quantity: 1 }],
-            mode: 'subscription',
-            successUrl: `${window.location.origin}/checkout-success?tier=unlimited`,
-            cancelUrl: `${window.location.origin}/pricing?cancelled=true`,
-          });
-
-          if (error) {
-            console.error('Stripe error:', error);
-            alert('Payment system error. Please try again.');
-          }
-        }
+      action: () => {
+        console.log('🔥 UNLIMITED BUTTON CLICKED - REDIRECTING TO STRIPE');
+        window.location.href = 'https://buy.stripe.com/4gw8AdeNM4dC9wQ4gi';
       }
     },
     {
@@ -615,7 +600,7 @@ export default function Pricing() {
                 <Shield className="w-8 h-8 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
               </div>
               <h3 className="font-semibold text-white mb-2">
-                HACP�� Technology
+                HACP™ Technology
               </h3>
               <p className="text-sm text-white/60">
                 Patented Human-AI Connection Protocol
