@@ -233,11 +233,25 @@ You have access to internal SOPs, technical documentation, and can assist with c
       },
     );
 
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Azure API error:", response.status, errorText);
+      return res.status(500).json({ error: "Azure API failed" });
+    }
+
     const data = await response.json();
+
+    // Check if response is valid
+    if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+      console.error("Invalid Azure response:", data);
+      return res.status(500).json({ error: "Invalid Azure response" });
+    }
 
     // Check for escalation triggers
     const shouldEscalate =
       /urgent|critical|escalate|high.value|enterprise.client/i.test(message);
+
+    console.log("Azure companion response:", data.choices[0].message.content?.substring(0, 50) + "...");
 
     res.json({
       provider: "azure",
