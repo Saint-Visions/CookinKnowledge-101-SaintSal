@@ -265,7 +265,7 @@ export default function AppleHomepage() {
               <div className="text-xs text-white/60">Military Grade</div>
             </div>
             <div className="p-6">
-              <Shield className="w-8 h-8 text-blue-500 mx-auto mb-4" />
+              <Shield className="w-8 h-8 text-white mx-auto mb-4" />
               <div className="text-sm font-semibold text-white mb-2">SOC 2</div>
               <div className="text-xs text-white/60">Compliant</div>
             </div>
