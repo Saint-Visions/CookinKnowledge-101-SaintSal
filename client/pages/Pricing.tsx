@@ -508,6 +508,24 @@ export default function Pricing() {
           </div>
         </div>
 
+        {/* Voice Interface Section */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-light mb-4 text-white">
+              🎤 SaintSal™ Voice Support
+            </h2>
+            <p className="text-white/60">
+              Talk directly to SaintSal with voice recognition and live support calls
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <VoiceInterface
+              onVoiceMessage={(message) => console.log('Voice input:', message)}
+            />
+          </div>
+        </div>
+
         {/* Need Something Custom Section */}
         <div className="text-center">
           <Card className="bg-gradient-to-r from-gray-900/40 to-black/60 border-yellow-400/30 max-w-2xl mx-auto">
