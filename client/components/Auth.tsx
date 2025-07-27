@@ -68,7 +68,7 @@ export function Auth({ className }: AuthProps) {
   return (
     <div
       className={`min-h-screen relative overflow-hidden ${className}`}
-      style={{ backgroundColor: "#000000" }}
+      style={{ backgroundColor: "#0f0f0f" }}
     >
       {/* Background Image - Fixed */}
       <div
