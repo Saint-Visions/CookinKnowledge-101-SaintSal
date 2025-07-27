@@ -110,12 +110,19 @@ export const TOOL_REGISTRY: Record<string, ToolDefinition> = {
   'ai-tools-suite': {
     id: 'ai-tools-suite',
     name: 'AI Tools Suite',
-    route: '/tools',
-    component: 'Tools',
+    route: '/ai-tools-suite',
+    component: 'AIToolsSuite',
     category: 'AI Productivity',
     status: 'active',
-    dependencies: ['tool-registry'],
-    validation: async () => true // Tools page always works
+    dependencies: ['productivity-packages', 'package-manager'],
+    validation: async () => {
+      try {
+        const response = await fetch('/ai-tools-suite');
+        return response.ok;
+      } catch {
+        return false;
+      }
+    }
   },
   'svg-launchpad': {
     id: 'svg-launchpad',
