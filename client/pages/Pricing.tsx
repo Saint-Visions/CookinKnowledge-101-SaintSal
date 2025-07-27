@@ -222,9 +222,31 @@ export default function Pricing() {
       buttonText: "Build Empire",
       color: "green",
       popular: false,
-      action: () => {
-        console.log('👑 WHITE LABEL BUTTON CLICKED - REDIRECTING TO EMAIL');
-        window.location.href = 'mailto:ryan@saintvisiongroup.com?subject=White Label Plan ($497/month)&body=I want to subscribe to the Full White-Label plan for $497/month. Please send me the payment link and setup details!';
+      action: async () => {
+        console.log('👑 WHITE LABEL BUTTON CLICKED - LOADING STRIPE');
+        try {
+          const { loadStripe } = await import('@stripe/stripe-js');
+          const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
+
+          if (stripe) {
+            console.log('✅ STRIPE LOADED - REDIRECTING TO CHECKOUT');
+            const { error } = await stripe.redirectToCheckout({
+              lineItems: [{ price: 'price_1RIggOFZsXxBWnjQH3PWncV6', quantity: 1 }],
+              mode: 'subscription',
+              successUrl: window.location.origin + '/?upgraded=white_label&signin=true',
+              cancelUrl: window.location.origin + '/pricing',
+            });
+
+            if (error) {
+              console.error('Stripe error:', error);
+              alert('Payment error: ' + error.message);
+            }
+          }
+        } catch (error) {
+          console.error('Failed to load Stripe:', error);
+          // Fallback to email if Stripe fails
+          window.location.href = 'mailto:ryan@saintvisiongroup.com?subject=White Label Plan ($497/month)&body=I want to subscribe to the Full White-Label plan for $497/month. Please send me the payment link and setup details!';
+        }
         setLoading(null);
       }
     },
