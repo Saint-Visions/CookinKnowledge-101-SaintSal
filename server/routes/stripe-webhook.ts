@@ -99,6 +99,11 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
 
 // 🔐 UPGRADE SUPABASE ROLE AND USER METADATA
 async function upgradeSupabaseRole(supabaseId: string, targetRole: string, metadata: any) {
+  if (!supabaseAdmin) {
+    console.log("⚠️ Supabase admin not configured - skipping role upgrade in development");
+    return;
+  }
+
   try {
     // Update user role
     const { error: roleError } = await supabaseAdmin.auth.admin.updateUserById(supabaseId, {
