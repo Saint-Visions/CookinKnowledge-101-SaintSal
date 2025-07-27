@@ -108,43 +108,19 @@ export function Splash({ className }: SplashProps) {
       {/* Main Content */}
       <div className="relative z-10 min-h-screen flex items-center justify-center">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          {/* Logo Animation */}
+          {/* Clean Brand Section */}
           <div
-            className={`mb-12 transition-all duration-2000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            className={`mb-16 transition-all duration-2000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
-            <div className="relative inline-block">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F62f2dc3414ab48ea8b95074999a49f4e?format=webp&width=800"
-                alt="SaintSal™"
-                className="w-56 h-56 object-contain mx-auto mb-8 drop-shadow-[0_0_80px_rgba(255,215,0,1)] relative z-10"
-                style={{
-                  filter:
-                    "drop-shadow(0 0 60px rgba(255,215,0,0.6)) drop-shadow(0 0 20px rgba(255,215,0,0.7)) brightness(1.1) contrast(1.05)",
-                  animation: "brain-bounce 3s ease-in-out infinite",
-                }}
-              />
-              {/* Floating Orbital Elements */}
-              <div className="absolute inset-0 w-48 h-48 -m-8">
-                <div
-                  className="absolute w-2 h-2 bg-[hsl(var(--gold))] rounded-full opacity-60 animate-orbital-1"
-                  style={{ top: "10%", left: "50%" }}
-                />
-                <div
-                  className="absolute w-1.5 h-1.5 bg-[hsl(var(--gold))] rounded-full opacity-50 animate-orbital-2"
-                  style={{ top: "30%", right: "15%" }}
-                />
-                <div
-                  className="absolute w-2.5 h-2.5 bg-[hsl(var(--gold))] rounded-full opacity-70 animate-orbital-3"
-                  style={{ bottom: "20%", left: "20%" }}
-                />
-                <div
-                  className="absolute w-1 h-1 bg-[hsl(var(--gold))] rounded-full opacity-40 animate-orbital-4"
-                  style={{ top: "60%", right: "30%" }}
-                />
-                <div
-                  className="absolute w-3 h-3 bg-[hsl(var(--gold))] rounded-full opacity-30 animate-orbital-5"
-                  style={{ top: "45%", left: "5%" }}
-                />
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-[hsl(var(--gold))]/20 to-yellow-400/10 rounded-3xl border border-[hsl(var(--gold))]/30 mb-8">
+                <span className="text-4xl font-bold text-[hsl(var(--gold))]">S</span>
+              </div>
+              <div className="text-lg text-cyan-400 font-light mb-2">
+                SaintSal™ AI Platform
+              </div>
+              <div className="text-sm text-muted-foreground max-w-md mx-auto">
+                Next generation artificial intelligence
               </div>
             </div>
           </div>
