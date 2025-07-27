@@ -164,10 +164,9 @@ export function WarRoom({ className }: WarRoomProps) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          message: workspaceInput,
+          query: workspaceInput,
           context: "warroom-enterprise",
-          userContext: { role: "admin", internal: true, mode: "production" },
-          domain: "universal"
+          userContext: { role: "admin", internal: true, mode: "production" }
         })
       });
 
