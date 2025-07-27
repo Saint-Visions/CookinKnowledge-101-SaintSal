@@ -282,14 +282,14 @@ export function Auth({ className }: AuthProps) {
           <div className="mt-8 text-center">
             <div className="flex items-center justify-center gap-6 text-sm">
               <Link
-                to="/legal"
+                to="/contact"
                 className="text-muted-foreground hover:text-cyan-400 transition-colors"
               >
                 Privacy Policy
               </Link>
               <span className="text-muted-foreground">•</span>
               <Link
-                to="/help"
+                to="/contact"
                 className="text-muted-foreground hover:text-cyan-400 transition-colors"
               >
                 Support
