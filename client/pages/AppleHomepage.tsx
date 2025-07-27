@@ -137,7 +137,7 @@ export default function AppleHomepage() {
               The Future of
             </span>
             <br />
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent font-semibold">
+            <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-semibold">
               Enterprise AI
             </span>
           </h1>
