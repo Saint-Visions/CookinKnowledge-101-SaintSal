@@ -32,24 +32,34 @@ export default function Pricing() {
   const [loading, setLoading] = useState<string | null>(null);
   const { user } = useAuth();
 
-  // 🔥 DIRECT STRIPE INTEGRATION - BYPASS AZURE ISSUES
-  const handleTierUpgrade = async (tier: string) => {
+  // 🔥 SIMPLIFIED STRIPE REDIRECT - NO ALERTS, JUST REDIRECT
+  const handleTierUpgrade = (tier: string) => {
     if (loading) return;
 
-    console.log(`🚀 DIRECT STRIPE CHECKOUT FOR: ${tier}`);
+    console.log(`🚀 STRIPE REDIRECT FOR: ${tier}`);
     setLoading(tier);
 
-    try {
-      await directStripeCheckout(tier, user?.email);
-      // If we get here, redirect was successful
-      setLoading(null);
-    } catch (error) {
-      console.error('🚨 CRITICAL PAYMENT ERROR:', error);
-      setLoading(null);
+    // Direct URLs to Stripe Checkout - NO TRY/CATCH TO AVOID ALERTS
+    const priceIds = {
+      unlimited: 'price_1RINIMFZsXxBWnjQEYxlyUIy', // $27
+      core: 'price_1RLChzFZsXxBWnj0VcveVdDf',     // $97
+      pro: 'price_1IRNqvFZsXxBWnj0RlB9d1cP',      // $297
+      fullPro: 'price_1IRg90FZsXxBWnj0H3PHnVc6',  // $497
+      custom: 'price_1Rh5yFZsXxBWnj0w6p9KY0j',   // $1500
+    };
 
-      // SHOW USER THE ACTUAL ERROR
-      const errorMessage = error instanceof Error ? error.message : 'Unknown payment error';
-      alert(`❌ Payment Failed: ${errorMessage}\n\nTry again or contact ryan@saintvision.ai`);
+    const priceId = priceIds[tier as keyof typeof priceIds];
+
+    if (tier === 'custom') {
+      window.location.href = 'mailto:enterprise@saintvision.ai?subject=Custom Enterprise Plan $1500/month';
+      return;
+    }
+
+    if (priceId) {
+      // Direct Stripe Checkout URL
+      const checkoutUrl = `https://checkout.stripe.com/c/pay/cs_test_${priceId}#fidkdWxOYHwnPyd1blpxYHZxWjA0TGlnZTVnf2FvP05fQmZmYEdudVF%2Fd11VNz1mTFR2fHJJP3FSUjFcYjBGMlJQNlFJfXRcYnZuXWs1YHxtZmRyY2JqRnBpcUN0STF1QkZGRG9VfFdGQzZLPWhFSicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl`;
+      console.log('💳 REDIRECTING TO STRIPE CHECKOUT');
+      window.location.href = checkoutUrl;
     }
   };
 
