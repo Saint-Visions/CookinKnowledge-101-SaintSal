@@ -159,6 +159,11 @@ export const getFeatureAccess = (userTier: string) => {
   return accessMap;
 };
 
+// Get free message limit for trial users
+export const getFreeMessageLimit = (): number => {
+  return pricingTiers.free.limitations.chatLimit;
+};
+
 // Get upgrade prompt based on current tier and requested feature
 export const getUpgradePrompt = (currentTier: string, requestedFeature: string) => {
   if (currentTier === 'free') {
