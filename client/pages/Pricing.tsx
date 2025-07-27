@@ -25,7 +25,7 @@ import { Link } from "react-router-dom";
 import GlobalHeader from "../components/GlobalHeader";
 import GlobalFooter from "../components/GlobalFooter";
 import { useAuth } from "../hooks/useAuth";
-import { loadStripe } from '@stripe/stripe-js';
+import { createCheckoutSession } from '../lib/stripe/createCheckoutSession';
 import VoiceInterface from "../components/VoiceInterface";
 
 export default function Pricing() {
@@ -33,21 +33,21 @@ export default function Pricing() {
   const [loading, setLoading] = useState<string | null>(null);
   const { user } = useAuth();
 
-  // 🔥 EMERGENCY FIX - DIRECT STRIPE CHECKOUT
-  const handleTierUpgrade = async (tier: string) => {
+  // 💳 PROPER UPGRADE FLOW - "CLICK TO CONVERSION"
+  const handleUpgrade = async (tier: string) => {
     if (loading) return;
 
-    console.log(`🚀 STRIPE CHECKOUT FOR: ${tier}`);
+    console.log(`🚀 UPGRADING TO: ${tier}`);
     setLoading(tier);
 
     // Handle custom tier
     if (tier === 'custom') {
-      window.location.href = 'mailto:enterprise@saintvision.ai?subject=Custom Enterprise Plan $1500/month';
+      window.location.href = 'mailto:enterprise@saintvision.ai?subject=Custom Enterprise Plan $1500/month&body=I am interested in the Custom Enterprise plan. Please contact me to discuss onboarding and implementation.';
       setLoading(null);
       return;
     }
 
-    // Price IDs
+    // Price IDs mapping
     const priceIds = {
       unlimited: 'price_1RINIMFZsXxBWnjQEYxlyUIy', // $27
       core: 'price_1RLChzFZsXxBWnj0VcveVdDf',     // $97
@@ -59,56 +59,25 @@ export default function Pricing() {
 
     if (!priceId) {
       console.error('No price ID for tier:', tier);
+      alert(`Price not configured for ${tier} tier`);
       setLoading(null);
       return;
     }
 
-    // BULLETPROOF STRIPE CHECKOUT - DIRECT PAYMENT LINKS
-    console.log('💳 CREATING STRIPE CHECKOUT FOR:', tier, priceId);
-
     try {
-      const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
+      // ✅ STEP 1: Frontend Calls Upgrade Handler
+      console.log('🎯 Creating checkout session for tier:', tier);
+      const session = await createCheckoutSession(priceId);
 
-      if (!stripe) {
-        // FALLBACK: Direct Stripe payment links
-        const directLinks = {
-          unlimited: 'https://buy.stripe.com/test_6oE7sz8Xf9vW2cw7ss',
-          core: 'https://buy.stripe.com/test_aEU3cjdhs6jK0487st',
-          pro: 'https://buy.stripe.com/test_bIY28f5L3eCe148eUV',
-          fullPro: 'https://buy.stripe.com/test_3cs5krbdocM88sM9AD',
-        };
-
-        const link = directLinks[tier as keyof typeof directLinks];
-        if (link) {
-          console.log('🔗 USING DIRECT STRIPE LINK');
-          window.location.href = link;
-          return;
-        }
-      }
-
-      console.log('✅ STRIPE LOADED, REDIRECTING TO CHECKOUT');
-
-      const { error } = await stripe.redirectToCheckout({
-        lineItems: [{ price: priceId, quantity: 1 }],
-        mode: 'subscription',
-        successUrl: `${window.location.origin}/dashboard?upgrade=success&tier=${tier}`,
-        cancelUrl: `${window.location.origin}/pricing?upgrade=cancelled`,
-        customerEmail: user?.email || undefined,
-      });
-
-      if (error) {
-        console.error('❌ STRIPE REDIRECT ERROR:', error);
-        // EMERGENCY FALLBACK: Direct contact
-        window.location.href = `mailto:ryan@saintvision.ai?subject=Payment Issue - ${tier} Plan&body=I tried to upgrade to ${tier} but the payment failed. Please help!`;
-      }
+      // ✅ STEP 2: Redirect to Stripe Checkout
+      console.log('✅ Redirecting to Stripe checkout:', session.url);
+      window.location.href = session.url;
 
     } catch (error) {
-      console.error('❌ STRIPE LOAD ERROR:', error);
-      // EMERGENCY FALLBACK: Direct contact
-      window.location.href = `mailto:ryan@saintvision.ai?subject=Payment Issue - ${tier} Plan&body=I tried to upgrade to ${tier} but Stripe failed to load. Please help!`;
+      console.error('❌ UPGRADE ERROR:', error);
+      alert(`Upgrade failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      setLoading(null);
     }
-
-    setLoading(null);
   };
 
   const plans = [
@@ -445,7 +414,7 @@ export default function Pricing() {
                 <Button
                   className={`w-full ${getButtonStyles(plan.color, plan.popular)}`}
                   size="lg"
-                  onClick={() => plan.tier === 'free' ? window.location.href = '/signup' : handleTierUpgrade(plan.tier)}
+                  onClick={() => plan.tier === 'free' ? window.location.href = '/signup' : handleUpgrade(plan.tier)}
                   disabled={loading === plan.tier}
                 >
                   {loading === plan.tier ? (
