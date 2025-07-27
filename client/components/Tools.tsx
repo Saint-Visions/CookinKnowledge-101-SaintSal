@@ -177,55 +177,55 @@ export function Tools({ className }: ToolsProps) {
   const handleToolClick = (toolName: string) => {
     switch (toolName) {
       case 'SaintSalGPT 4.1':
-        navigate('/search');
+        navigate('/search'); // Working AI search page
         break;
       case 'Sticky Notes AI':
-        navigate('/warroom');
+        navigate('/warroom'); // Working productivity workspace
         break;
       case 'AI Tools Suite':
-        navigate('/warroom');
+        navigate('/tools'); // Stay on tools page to see all tools
         break;
       case 'Data Analytics':
-        navigate('/dashboard');
+        navigate('/dashboard'); // Working dashboard with analytics
         break;
       case 'Image Generator':
-        alert('Image Generator launching soon! Join our Discord for updates.');
+        navigate('/tools'); // Keep on tools page, feature coming soon
         break;
       case 'SVG Launchpad':
-        alert('SVG Launchpad coming soon! Stay tuned for updates.');
+        navigate('/tools'); // Keep on tools page, feature coming soon
         break;
       case 'Video Studio':
-        alert('Video Studio in development! Contact support for early access.');
+        navigate('/tools'); // Keep on tools page, feature coming soon
         break;
       case 'Design Studio':
-        alert('Design Studio launching soon! Check back for updates.');
+        navigate('/tools'); // Keep on tools page, feature coming soon
         break;
       case 'My Business':
-        navigate('/dashboard');
+        navigate('/dashboard'); // Working business dashboard
         break;
       case 'PartnerTech.ai CRM':
-        navigate('/crm');
+        navigate('/partnertech'); // Working CRM page (corrected route)
         break;
       case 'Smart Scheduler':
-        alert('Smart Scheduler coming soon! Join waitlist for early access.');
+        navigate('/warroom'); // Use WarRoom for scheduling workflows
         break;
       case 'Email Assistant':
-        alert('Email Assistant in development! Contact us for enterprise access.');
+        navigate('/contact'); // Contact page for email assistance
         break;
       case 'SVT Institute of AI':
-        navigate('/institute');
+        navigate('/institute'); // Working institute page
         break;
       case 'Code Academy':
-        alert('Code Academy launching Q2 2025! Join our community for updates.');
+        navigate('/institute'); // Route to institute for learning
         break;
       case 'Skill Tracker':
-        alert('Skill Tracker coming soon! Follow us for development updates.');
+        navigate('/dashboard'); // Use dashboard for progress tracking
         break;
       case 'Progress Analytics':
-        navigate('/dashboard');
+        navigate('/dashboard'); // Working dashboard with analytics
         break;
       default:
-        alert('Tool launching soon! Contact support for more information.');
+        navigate('/contact'); // Route to contact for support
     }
   };
 
