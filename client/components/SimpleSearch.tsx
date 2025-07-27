@@ -67,11 +67,38 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
   const [isListening, setIsListening] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
   const [selectedModel, setSelectedModel] = useState("GPT-4 Turbo");
+  const [messages, setMessages] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSend = () => {
-    if (searchQuery.trim()) {
-      // Handle sending message
+  const handleSend = async () => {
+    if (searchQuery.trim() && !isLoading) {
+      const userMessage = searchQuery.trim();
+      setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
       setSearchQuery("");
+      setIsLoading(true);
+
+      try {
+        const response = await fetch('/api/ai/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: userMessage,
+            model: selectedModel,
+            context: 'business-companion'
+          })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setMessages(prev => [...prev, { role: 'assistant', content: data.response }]);
+        } else {
+          setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' }]);
+        }
+      } catch (error) {
+        setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' }]);
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -245,7 +272,7 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                         </div>
                         <div className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
                           <div className="text-sm font-medium text-foreground">
-                            ⚙️ Settings
+                            ⚙�� Settings
                           </div>
                           <div className="text-xs text-muted-foreground">
                             Customize your experience
