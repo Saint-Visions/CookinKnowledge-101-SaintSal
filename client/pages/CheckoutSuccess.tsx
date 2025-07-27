@@ -19,7 +19,7 @@ export default function CheckoutSuccess() {
     // Refresh user data to get updated tier
     const refreshUserData = async () => {
       try {
-        await refreshUser();
+        await refreshUserData();
         setLoading(false);
       } catch (error) {
         console.error('Failed to refresh user data:', error);
