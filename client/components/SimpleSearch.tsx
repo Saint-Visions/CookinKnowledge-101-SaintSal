@@ -338,20 +338,7 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
           {/* Messages Display Area */}
           <div className="flex-1 p-4 lg:p-6 overflow-y-auto">
             <div className="max-w-4xl mx-auto">
-              {messages.length === 0 ? (
-                <div className="text-center py-8">
-                  <div className="w-16 h-16 bg-[hsl(var(--gold))]/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fdbc34a0fdf4849459b0ed2678312de82?format=webp&width=80"
-                      alt="SaintSal"
-                      className="w-8 h-8 object-contain"
-                    />
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Start a conversation with Supersal™
-                  </p>
-                </div>
-              ) : (
+              {messages.length > 0 && (
                 <div className="space-y-4">
                   {messages.map((message, index) => (
                     <div
