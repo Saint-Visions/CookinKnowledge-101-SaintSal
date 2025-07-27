@@ -76,7 +76,7 @@ export default function Pricing() {
       popular: false,
       action: () => {
         console.log('🔥 UNLIMITED BUTTON CLICKED');
-        window.open('https://buy.stripe.com/test_6oE7sz8Xf9vW2cw7ss', '_blank');
+        window.location.href = `https://checkout.stripe.com/pay/cs_test_a1${btoa('price_1RINIMFZsXxBWnjQEYxlyUIy')}`;
       }
     },
     {
