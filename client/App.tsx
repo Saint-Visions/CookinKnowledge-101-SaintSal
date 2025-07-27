@@ -27,6 +27,7 @@ import Institute from "./pages/Institute";
 import Broker from "./pages/Broker";
 import Splash from "./pages/Splash";
 import Auth from "./pages/Auth";
+import CheckoutSuccess from "./pages/CheckoutSuccess";
 import NotFound from "./pages/NotFound";
 import { PartnerTech } from "./components/PartnerTech";
 import { CRM } from "./components/CRM";
@@ -70,6 +71,7 @@ const App = () => (
           <Route path="/about/hacp" element={<HACP />} />
           <Route path="/dashboard" element={<GeneralDashboard />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/checkout-success" element={<CheckoutSuccess />} />
           <Route path="/splash" element={<Splash />} />
           {/* AI Tool Routes */}
           <Route path="/image-generator" element={<ImageGenerator />} />
