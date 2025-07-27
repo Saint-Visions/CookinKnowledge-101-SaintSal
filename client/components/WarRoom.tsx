@@ -69,7 +69,7 @@ export function WarRoom({ className }: WarRoomProps) {
   const navigate = useNavigate();
   const [leftPanelOpen, setLeftPanelOpen] = useState(true);
   const [rightPanelOpen, setRightPanelOpen] = useState(false);
-  const { user, loading: authLoading, signOut, userTier, hasAccess } = useAuth();
+  const { user, loading: authLoading, signOut, userTier, hasAccess, incrementMessageCount, getUpgradeMessage } = useAuth();
   const [crmMaximized, setCrmMaximized] = useState(false);
   const [workspaceInput, setWorkspaceInput] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
@@ -105,11 +105,26 @@ export function WarRoom({ className }: WarRoomProps) {
     if (!hasAccess('companion')) {
       const errorMessage = {
         role: "assistant" as const,
-        content: `Companion requires Premium tier. Current: ${userTier}. Visit /pricing to upgrade.`,
+        content: getUpgradeMessage('companion'),
         timestamp: new Date(),
       };
       setCompanionMessages((prev) => [...prev, errorMessage]);
       return;
+    }
+
+    // Check message limit for free users in companion
+    if (userTier === 'free') {
+      const limitExceeded = incrementMessageCount();
+      if (limitExceeded) {
+        const limitMessage = {
+          role: "assistant" as const,
+          content: `Free trial complete! You've used your 2 messages. Upgrade to Unlimited ($27) for unlimited companion access.`,
+          timestamp: new Date(),
+        };
+        setCompanionMessages((prev) => [...prev, limitMessage]);
+        setTimeout(() => navigate('/pricing'), 2000);
+        return;
+      }
     }
 
     const userMessage = {
@@ -169,9 +184,22 @@ export function WarRoom({ className }: WarRoomProps) {
     if (!hasAccess('workspace')) {
       setWorkspaceMessages(prev => [...prev, {
         role: 'assistant',
-        content: `Access denied. Workspace features require ${hasAccess('companion') ? 'Enterprise' : 'Premium'} tier. Current tier: ${userTier}. Visit /pricing to upgrade.`
+        content: getUpgradeMessage('workspace')
       }]);
       return;
+    }
+
+    // Check message limit for free users
+    if (userTier === 'free') {
+      const limitExceeded = incrementMessageCount();
+      if (limitExceeded) {
+        setWorkspaceMessages(prev => [...prev, {
+          role: 'assistant',
+          content: `Free trial complete! You've used your 2 messages. Upgrade to Unlimited ($27) for unlimited messaging. Visit /pricing to continue.`
+        }]);
+        setTimeout(() => navigate('/pricing'), 2000);
+        return;
+      }
     }
 
     setIsProcessing(true);
