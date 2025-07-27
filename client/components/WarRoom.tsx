@@ -67,7 +67,7 @@ const rightPanelItems = [
 
 export function WarRoom({ className }: WarRoomProps) {
   const navigate = useNavigate();
-  const [leftPanelOpen, setLeftPanelOpen] = useState(false);
+  const [leftPanelOpen, setLeftPanelOpen] = useState(true);
   const [rightPanelOpen, setRightPanelOpen] = useState(false);
   const { user, loading: authLoading, signOut } = useAuth();
   const [crmMaximized, setCrmMaximized] = useState(false);
