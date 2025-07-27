@@ -124,13 +124,6 @@ export default function AppleHomepage() {
       {/* Hero Section */}
       <section className="relative z-10 min-h-screen flex items-center justify-center">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          {/* Patent Badge */}
-          <div className="mb-8">
-            <Badge className="bg-white/10 text-white backdrop-blur-sm px-6 py-2 border-0">
-              🛡️ Protected by U.S. Patent No. 10,290,222
-            </Badge>
-          </div>
-
           {/* Main Headline */}
           <h1 className="text-7xl md:text-8xl font-light tracking-tight mb-6 leading-none">
             <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
@@ -174,7 +167,7 @@ export default function AppleHomepage() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link to="/warroom">
               <Button size="lg" className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 px-8 py-4 text-lg font-semibold shadow-2xl shadow-yellow-400/20">
                 Explore SaintSal™
@@ -185,6 +178,13 @@ export default function AppleHomepage() {
               <Play className="w-5 h-5 mr-2" />
               Watch Demo
             </Button>
+          </div>
+
+          {/* Patent Badge - Moved Below Buttons */}
+          <div className="mb-8">
+            <Badge className="bg-white/10 text-white backdrop-blur-sm px-6 py-2 border-0">
+              🛡️ Protected by U.S. Patent No. 10,290,222
+            </Badge>
           </div>
         </div>
       </section>
@@ -201,7 +201,7 @@ export default function AppleHomepage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {whyUsPoints.map((point, index) => (
-              <Card key={index} className="bg-gray-700/30 backdrop-blur-sm hover:bg-gray-700/50 transition-all duration-300 shadow-lg border-0">
+              <Card key={index} className="backdrop-blur-sm transition-all duration-300 shadow-lg border-0">
                 <CardContent className="p-8 text-center">
                   <div className="flex justify-center mb-6">
                     <div className="p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-2xl">
