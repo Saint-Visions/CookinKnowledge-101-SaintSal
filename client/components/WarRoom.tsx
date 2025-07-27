@@ -193,7 +193,7 @@ export function WarRoom({ className }: WarRoomProps) {
       label: "Settings",
       active: false,
       color: "text-slate-400",
-      onClick: () => navigate("/tools"),
+      onClick: () => navigate("/auth"),
     },
     {
       icon: Home,
