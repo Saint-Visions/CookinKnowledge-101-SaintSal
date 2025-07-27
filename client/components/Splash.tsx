@@ -44,9 +44,9 @@ export function Splash({ className }: SplashProps) {
       style={{
         backgroundColor: "#000000",
         backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F7293aa1ac5704767ac0379fb96ae58b4?format=webp&width=800')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
       }}
     >
       {/* Subtle Header */}
@@ -301,7 +301,7 @@ export function Splash({ className }: SplashProps) {
             className={`transition-all duration-2000 delay-2500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
-              <Link to="/search">
+              <Link to="/warroom">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-[hsl(var(--gold))] to-yellow-400 hover:from-yellow-400 hover:to-[hsl(var(--gold))] text-black font-bold text-2xl px-12 py-4 rounded-2xl shadow-[0_0_50px_rgba(255,215,0,0.8)] hover:shadow-[0_0_70px_rgba(255,215,0,1)] transition-all duration-500 transform hover:scale-105 relative"
