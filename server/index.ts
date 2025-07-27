@@ -42,5 +42,8 @@ export function createServer() {
   app.use("/api/stripe", stripeCheckoutRoutes);
   app.use("/api/stripe", stripeWebhookRoutes);
 
+  // 🎤 SAINTSAL™ VOICE SYSTEM - TWILIO INTEGRATION
+  app.use("/api/voice", voiceRoutes);
+
   return app;
 }
