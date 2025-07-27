@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { GlobalHeader } from "./GlobalHeader";
+import { GlobalFooter } from "./GlobalFooter";
 import {
   Card,
   CardContent,
