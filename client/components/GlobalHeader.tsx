@@ -1,7 +1,7 @@
-import React from "react";
-import { Button } from "./ui/button";
-import { Crown } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import React from 'react';
+import { Button } from './ui/button';
+import { Crown } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function GlobalHeader() {
   const location = useLocation();
@@ -17,59 +17,54 @@ export default function GlobalHeader() {
               className="w-10 h-10 object-contain"
             />
             <div>
-              <span className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
                 SaintVisionAI™
               </span>
-              <div className="text-xs text-white/60 uppercase tracking-wider">
-                COOKIN' KNOWLEDGE
-              </div>
+              <div className="text-xs text-white/60 uppercase tracking-wider">COOKIN' KNOWLEDGE</div>
             </div>
           </Link>
-
+          
           <div className="hidden md:flex items-center gap-8 text-sm">
-            <Link
-              to="/"
-              className={`transition-colors ${location.pathname === "/" ? "text-white font-medium" : "text-white/80 hover:text-white"}`}
+            <Link 
+              to="/" 
+              className={`transition-colors ${location.pathname === '/' ? 'text-white font-medium' : 'text-white/80 hover:text-white'}`}
             >
               Home
             </Link>
-            <Link
-              to="/warroom"
-              className={`transition-colors ${location.pathname === "/warroom" ? "text-yellow-400 font-medium" : "text-white/80 hover:text-white"}`}
+            <Link 
+              to="/warroom" 
+              className={`transition-colors ${location.pathname === '/warroom' ? 'text-yellow-400 font-medium' : 'text-white/80 hover:text-white'}`}
             >
               WarRoom
             </Link>
-            <Link
-              to="/why"
-              className={`transition-colors ${location.pathname === "/why" ? "text-yellow-400 font-medium" : "text-white/80 hover:text-white"}`}
+            <Link 
+              to="/why" 
+              className={`transition-colors ${location.pathname === '/why' ? 'text-yellow-400 font-medium' : 'text-white/80 hover:text-white'}`}
             >
               Why Us
             </Link>
-            <Link
-              to="/institute"
-              className={`transition-colors ${location.pathname === "/institute" ? "text-yellow-400 font-medium" : "text-white/80 hover:text-white"}`}
+            <Link 
+              to="/institute" 
+              className={`transition-colors ${location.pathname === '/institute' ? 'text-yellow-400 font-medium' : 'text-white/80 hover:text-white'}`}
             >
               Institute
             </Link>
-            <Link
-              to="/pricing"
-              className={`transition-colors ${location.pathname === "/pricing" ? "text-yellow-400 font-medium" : "text-white/80 hover:text-white"}`}
+            <Link 
+              to="/pricing" 
+              className={`transition-colors ${location.pathname === '/pricing' ? 'text-yellow-400 font-medium' : 'text-white/80 hover:text-white'}`}
             >
               Pricing
             </Link>
-            <Link
-              to="/contact"
-              className={`transition-colors ${location.pathname === "/contact" ? "text-yellow-400 font-medium" : "text-white/80 hover:text-white"}`}
+            <Link 
+              to="/contact" 
+              className={`transition-colors ${location.pathname === '/contact' ? 'text-yellow-400 font-medium' : 'text-white/80 hover:text-white'}`}
             >
               Contact
             </Link>
           </div>
 
           <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              className="text-white/80 hover:text-white border-white/20 hover:bg-white/5"
-            >
+            <Button variant="ghost" className="text-white/80 hover:text-white border-white/20 hover:bg-white/5">
               Sign In
             </Button>
             <Button className="bg-white text-black hover:bg-white/90 font-semibold">
