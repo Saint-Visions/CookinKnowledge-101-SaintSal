@@ -69,7 +69,7 @@ export function WarRoom({ className }: WarRoomProps) {
   const navigate = useNavigate();
   const [leftPanelOpen, setLeftPanelOpen] = useState(true);
   const [rightPanelOpen, setRightPanelOpen] = useState(false);
-  const { user, loading: authLoading, signOut } = useAuth();
+  const { user, loading: authLoading, signOut, userTier, hasAccess } = useAuth();
   const [crmMaximized, setCrmMaximized] = useState(false);
   const [workspaceInput, setWorkspaceInput] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
@@ -100,6 +100,17 @@ export function WarRoom({ className }: WarRoomProps) {
 
   const sendCompanionMessage = async (message: string) => {
     if (!message.trim() || companionLoading) return;
+
+    // COMPANION ROUTE GUARD - Block companion access for free users
+    if (!hasAccess('companion')) {
+      const errorMessage = {
+        role: "assistant" as const,
+        content: `Companion requires Premium tier. Current: ${userTier}. Visit /pricing to upgrade.`,
+        timestamp: new Date(),
+      };
+      setCompanionMessages((prev) => [...prev, errorMessage]);
+      return;
+    }
 
     const userMessage = {
       role: "user" as const,
@@ -154,6 +165,15 @@ export function WarRoom({ className }: WarRoomProps) {
   const processWorkspaceInput = async () => {
     if (!workspaceInput.trim() || isProcessing) return;
 
+    // ENTERPRISE ROUTE GUARD - Block workspace access for free users
+    if (!hasAccess('workspace')) {
+      setWorkspaceMessages(prev => [...prev, {
+        role: 'assistant',
+        content: `Access denied. Workspace features require ${hasAccess('companion') ? 'Enterprise' : 'Premium'} tier. Current tier: ${userTier}. Visit /pricing to upgrade.`
+      }]);
+      return;
+    }
+
     setIsProcessing(true);
 
     try {
@@ -205,7 +225,14 @@ export function WarRoom({ className }: WarRoomProps) {
       label: "My Companion",
       active: false,
       color: "text-[hsl(var(--neon))]",
-      onClick: () => setCompanionOpen(true),
+      onClick: () => {
+        if (!hasAccess('companion')) {
+          alert(`Companion requires Premium tier. Current: ${userTier}. Visit /pricing to upgrade.`);
+          navigate('/pricing');
+          return;
+        }
+        setCompanionOpen(true);
+      },
     },
     {
       icon: Building2,
@@ -254,14 +281,28 @@ export function WarRoom({ className }: WarRoomProps) {
       label: "PartnerTech.ai CRM",
       active: false,
       color: "text-teal-400",
-      onClick: () => navigate("/crm"),
+      onClick: () => {
+        if (!hasAccess('crm')) {
+          alert(`CRM requires Premium tier. Current: ${userTier}. Visit /pricing to upgrade.`);
+          navigate('/pricing');
+          return;
+        }
+        navigate("/crm");
+      },
     },
     {
       icon: Shield,
       label: "Route Intelligence",
       active: false,
       color: "text-yellow-400",
-      onClick: () => navigate("/audit-service"),
+      onClick: () => {
+        if (!hasAccess('audit')) {
+          alert(`Route Intelligence requires Enterprise tier. Current: ${userTier}. Visit /pricing to upgrade.`);
+          navigate('/pricing');
+          return;
+        }
+        navigate("/audit-service");
+      },
     },
     {
       icon: Palette,
@@ -519,7 +560,14 @@ export function WarRoom({ className }: WarRoomProps) {
                 variant="outline"
                 size="sm"
                 className="w-full justify-start"
-                onClick={() => console.log('Export functionality coming soon')}
+                onClick={() => {
+                  if (!hasAccess('export')) {
+                    alert(`Export requires Enterprise tier. Current: ${userTier}. Visit /pricing to upgrade.`);
+                    navigate('/pricing');
+                    return;
+                  }
+                  console.log('Export functionality coming soon');
+                }}
               >
                 <Download className="w-4 h-4 mr-2" />
                 Export Data
@@ -528,7 +576,14 @@ export function WarRoom({ className }: WarRoomProps) {
                 variant="outline"
                 size="sm"
                 className="w-full justify-start"
-                onClick={() => console.log('Import functionality coming soon')}
+                onClick={() => {
+                  if (!hasAccess('import')) {
+                    alert(`Import requires Enterprise tier. Current: ${userTier}. Visit /pricing to upgrade.`);
+                    navigate('/pricing');
+                    return;
+                  }
+                  console.log('Import functionality coming soon');
+                }}
               >
                 <Upload className="w-4 h-4 mr-2" />
                 Import
@@ -702,8 +757,9 @@ export function WarRoom({ className }: WarRoomProps) {
               <Button
                 size="sm"
                 onClick={processWorkspaceInput}
-                disabled={!workspaceInput.trim() || isProcessing}
+                disabled={!workspaceInput.trim() || isProcessing || !hasAccess('workspace')}
                 className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black rounded-lg px-4 shadow-[0_0_15px_rgba(255,215,0,0.4)] disabled:opacity-50"
+                title={!hasAccess('workspace') ? `Workspace requires ${hasAccess('companion') ? 'Enterprise' : 'Premium'} tier` : ''}
               >
                 {isProcessing ? (
                   <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
