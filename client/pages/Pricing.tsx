@@ -158,7 +158,7 @@ export default function Pricing() {
       popular: false,
       action: () => {
         console.log('👑 WHITE LABEL BUTTON CLICKED - REDIRECTING TO EMAIL');
-        window.location.href = 'mailto:ryan@saintvision.ai?subject=White Label Plan ($497/month)&body=I want to subscribe to the Full White-Label plan for $497/month. Please send me the payment link and setup details!';
+        window.location.href = 'mailto:ryan@saintvisiongroup.com?subject=White Label Plan ($497/month)&body=I want to subscribe to the Full White-Label plan for $497/month. Please send me the payment link and setup details!';
         setLoading(null);
       }
     },
