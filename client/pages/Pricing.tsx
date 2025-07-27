@@ -25,7 +25,7 @@ import { Link } from "react-router-dom";
 import GlobalHeader from "../components/GlobalHeader";
 import GlobalFooter from "../components/GlobalFooter";
 import { useAuth } from "../hooks/useAuth";
-import { handleUpgrade } from "../utils/stripeService";
+import { directStripeCheckout } from "../utils/directStripeCheckout";
 
 export default function Pricing() {
   const [isYearly, setIsYearly] = useState(false);
