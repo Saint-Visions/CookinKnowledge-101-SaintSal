@@ -327,7 +327,7 @@ export function Auth({ className }: AuthProps) {
               <span className="text-muted-foreground">•</span>
               <Link
                 to="/contact"
-                className="text-muted-foreground hover:text-cyan-400 transition-colors"
+                className="text-muted-foreground hover:text-[hsl(var(--gold))] transition-colors"
               >
                 Support
               </Link>
