@@ -262,7 +262,12 @@ export function Auth({ className }: AuthProps) {
                 disabled={loading}
                 className="w-full bg-gradient-to-r from-[hsl(var(--gold))] to-yellow-400 hover:from-yellow-400 hover:to-[hsl(var(--gold))] text-black font-bold py-3 rounded-xl shadow-[0_0_15px_rgba(255,215,0,0.4)] hover:shadow-[0_0_20px_rgba(255,215,0,0.5)] transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSignUp ? (
+                {loading ? (
+                  <>
+                    <div className="w-5 h-5 mr-2 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+                    {isSignUp ? "Creating Account..." : "Signing In..."}
+                  </>
+                ) : isSignUp ? (
                   <>
                     <Brain className="w-5 h-5 mr-2" />
                     Create Account
