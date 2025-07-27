@@ -189,8 +189,84 @@ export default function AppleHomepage() {
         </div>
       </section>
 
-      {/* Minimal spacing for scroll continuation */}
-      <div className="h-screen"></div>
+      {/* Why Us Section - Super Clean */}
+      <section className="relative z-10 py-32">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-light mb-16 text-white">Why SaintVisionAI</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {whyUsPoints.map((point, index) => (
+              <div key={index} className="text-center">
+                <div className="mb-6">
+                  <point.icon className="w-8 h-8 text-white mx-auto" />
+                </div>
+                <h3 className="text-lg font-medium mb-3 text-white">{point.title}</h3>
+                <p className="text-white/60 text-sm leading-relaxed">{point.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Elite Technology - Super Clean */}
+      <section className="relative z-10 py-32">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-light mb-16 text-white">Technology Stack</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {eliteTech.map((tech, index) => (
+              <div key={index} className="text-center">
+                <div className="mb-6">
+                  <tech.icon className="w-8 h-8 text-purple-400 mx-auto" />
+                </div>
+                <h3 className="text-lg font-medium mb-3 text-white">{tech.title}</h3>
+                <p className="text-white/60 text-sm">{tech.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partner Ecosystem - Super Clean */}
+      <section className="relative z-10 py-32">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-light mb-16 text-white">Partner Ecosystem</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {ecosystemPartners.map((partner, index) => (
+              <div key={index} className="text-center">
+                <div className="text-2xl mb-4">{partner.icon}</div>
+                <h3 className="text-sm font-medium text-white mb-2">{partner.name}</h3>
+                <p className="text-xs text-white/50">{partner.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Join The Movement - Super Clean */}
+      <section className="relative z-10 py-32">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-light mb-8 text-white">Join The Movement</h2>
+          <p className="text-lg text-white/70 mb-12 leading-relaxed">
+            Patent-protected technology. Enterprise-proven results.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/pricing">
+              <Button size="lg" className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 px-8 py-4 text-lg font-semibold">
+                View Pricing
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button size="lg" variant="outline" className="border-white/30 text-white hover:text-yellow-400 px-8 py-4 text-lg">
+                Contact Sales
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <GlobalFooter />
