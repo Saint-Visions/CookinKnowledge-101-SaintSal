@@ -101,7 +101,10 @@ export default function Pricing() {
       color: "white",
       popular: true,
       highlight: "Most businesses choose this plan",
-      action: () => window.location.href = 'https://buy.stripe.com/fZe5mX7Hh3bi2cw4gi'
+      action: () => {
+        console.log('🔥 CORE TOOLS BUTTON CLICKED');
+        window.open('https://buy.stripe.com/fZe5mX7Hh3bi2cw4gi', '_blank');
+      }
     },
     {
       name: "Pro Suite",
