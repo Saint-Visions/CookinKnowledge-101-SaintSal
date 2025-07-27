@@ -1,8 +1,8 @@
 import { loadStripe } from '@stripe/stripe-js';
 import { pricingTiers } from './pricingTiers';
 
-// Initialize Stripe
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || 'pk_test_your_stripe_publishable_key_here');
+// 💸 INITIALIZE STRIPE WITH LIVE CREDENTIALS
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || 'pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
 
 export interface CheckoutData {
   priceId: string;
