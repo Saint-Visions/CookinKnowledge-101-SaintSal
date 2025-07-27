@@ -237,8 +237,8 @@ export default function AppleHomepage() {
               <Card key={index} className="bg-gray-800/30 backdrop-blur-sm group hover:bg-gray-800/50 transition-all duration-500 shadow-lg border-0">
                 <CardContent className="p-8">
                   <div className="flex items-center justify-between mb-6">
-                    <div className="p-3 bg-gradient-to-r from-white/20 to-white/30 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                      <tech.icon className="w-6 h-6 text-white" />
+                    <div className="p-3 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                      <tech.icon className="w-6 h-6 text-purple-400" />
                     </div>
                     <Badge className="bg-white/10 text-white border-0">
                       {tech.status}
