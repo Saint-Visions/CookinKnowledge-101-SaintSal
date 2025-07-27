@@ -69,7 +69,7 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
   };
 
   return (
-    <div className={`flex-1 flex flex-col ${className}`} style={{ backgroundColor: '#0f0f0f' }}>
+    <div className={`flex-1 flex flex-col ${className}`} style={{ backgroundColor: '#0f0f0f', fontFamily: 'Inter Tight, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
       {/* Header */}
       <div className="border-b border-gray-800 px-4 lg:px-6 py-4" style={{ backgroundColor: '#0f0f0f' }}>
         <div className="flex items-center justify-between">
