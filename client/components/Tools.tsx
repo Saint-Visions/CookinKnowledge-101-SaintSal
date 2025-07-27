@@ -263,10 +263,10 @@ export function Tools({ className }: ToolsProps) {
             <div className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium">
               Tools
             </div>
-            <Link to="#" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+            <Link to="/help" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
               Help
             </Link>
-            <Link to="#" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]/80">
+            <Link to="/partnertech" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]/80">
               PartnerTech.ai
             </Link>
           </nav>
