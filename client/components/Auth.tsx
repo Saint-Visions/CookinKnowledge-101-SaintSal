@@ -33,7 +33,15 @@ export function Auth({ className }: AuthProps) {
     password: "",
   });
 
-  const { signIn, signUp, signInWithGoogle, signInWithGitHub } = useAuth();
+  const { signIn, signUp, signInWithGoogle, signInWithGitHub, user } = useAuth();
+  const navigate = useNavigate();
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (user) {
+      navigate('/warroom');
+    }
+  }, [user, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
