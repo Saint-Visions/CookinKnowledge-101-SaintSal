@@ -301,6 +301,23 @@ export function DualAIAssistant({
                       <p className="text-sm leading-relaxed">
                         {message.content}
                       </p>
+
+                      {/* 🎯 PLAN-BASED ACTION BUTTONS */}
+                      {message.actions && message.actions.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mt-3">
+                          {message.actions.map((action, actionIndex) => (
+                            <Button
+                              key={actionIndex}
+                              size="sm"
+                              onClick={() => handleAction(action.action, action.url)}
+                              className="bg-[hsl(var(--gold))]/20 hover:bg-[hsl(var(--gold))]/30 text-[hsl(var(--gold))] border border-[hsl(var(--gold))]/40 hover:border-[hsl(var(--gold))]/60 text-xs px-3 py-1 transition-all duration-200"
+                            >
+                              {action.label}
+                            </Button>
+                          ))}
+                        </div>
+                      )}
+
                       <div className="flex items-center justify-between mt-1">
                         <p className="text-xs text-[hsl(var(--gold))]/50">
                           {message.timestamp.toLocaleTimeString([], {
