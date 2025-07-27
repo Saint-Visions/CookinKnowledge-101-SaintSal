@@ -89,7 +89,7 @@ export default function AppleHomepage() {
     {
       name: "SVTLegal.ai",
       description: "Legal technology and compliance automation", 
-      icon: "⚖️",
+      icon: "��️",
       color: "from-red-500 to-rose-600"
     },
     {
@@ -101,7 +101,7 @@ export default function AppleHomepage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white overflow-hidden">
+    <div className="min-h-screen bg-gray-800 text-white overflow-hidden">
       {/* Parallax Background */}
       <div
         className="fixed inset-0 z-0"
