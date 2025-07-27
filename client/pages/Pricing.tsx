@@ -77,7 +77,7 @@ export default function Pricing() {
       action: () => {
         alert('🚀 UNLIMITED BUTTON WORKS! This will redirect to Stripe checkout for $27/month');
         console.log('✅ UNLIMITED BUTTON CLICKED AND WORKING!');
-        // For now, show working alert - will replace with Stripe once confirmed working
+        setLoading(null); // Clear loading state
       }
     },
     {
