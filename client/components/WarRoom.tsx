@@ -195,14 +195,28 @@ export function WarRoom({ className }: WarRoomProps) {
     }
   };
 
-  // Simplified navigation - Core essentials only
+  // Full navigation - NEVER TOUCH AGAIN
   const leftPanelItems = [
     {
       icon: Home,
-      label: "Dashboard",
+      label: "Main Dashboard",
       active: false,
       color: "text-[hsl(var(--gold))]",
       onClick: () => navigate("/"),
+    },
+    {
+      icon: Users,
+      label: "My Companion",
+      active: false,
+      color: "text-[hsl(var(--neon))]",
+      onClick: () => setCompanionOpen(true),
+    },
+    {
+      icon: Building2,
+      label: "My Business",
+      active: false,
+      color: "text-green-400",
+      onClick: () => navigate("/dashboard"),
     },
     {
       icon: FileText,
@@ -212,32 +226,67 @@ export function WarRoom({ className }: WarRoomProps) {
       onClick: () => navigate("/search"),
     },
     {
-      icon: Users,
-      label: "My Companion",
+      icon: Wrench,
+      label: "AI Tools",
       active: false,
-      color: "text-[hsl(var(--neon))]",
-      onClick: () => {
-        if (!hasAccess('companion')) {
-          alert(`Companion requires Premium tier. Current: ${userTier}. Visit /pricing to upgrade.`);
-          navigate('/pricing');
-          return;
-        }
-        setCompanionOpen(true);
-      },
+      color: "text-purple-400",
+      onClick: () => navigate("/tools"),
+    },
+    {
+      icon: ImageIcon,
+      label: "Image Generator",
+      active: false,
+      color: "text-pink-400",
+      onClick: () => navigate("/tools"),
+    },
+    {
+      icon: Rocket,
+      label: "SVG Launchpad",
+      active: false,
+      color: "text-orange-400",
+      onClick: () => navigate("/broker"),
     },
     {
       icon: MessageSquare,
-      label: "Sticky Notes",
+      label: "Feedback & Help",
       active: false,
-      color: "text-green-400",
-      onClick: () => console.log('Sticky Notes coming soon'),
+      color: "text-white",
+      onClick: () => navigate("/help"),
+    },
+    {
+      icon: Users,
+      label: "PartnerTech.ai CRM",
+      active: false,
+      color: "text-teal-400",
+      onClick: () => navigate("/crm"),
+    },
+    {
+      icon: Shield,
+      label: "Route Intelligence",
+      active: false,
+      color: "text-yellow-400",
+      onClick: () => navigate("/audit-service"),
+    },
+    {
+      icon: Palette,
+      label: "SVT Institute",
+      active: false,
+      color: "text-violet-400",
+      onClick: () => navigate("/institute"),
     },
     {
       icon: TrendingUp,
-      label: "Upgrade",
+      label: "Upgrade Tier",
       active: false,
       color: "text-emerald-400",
       onClick: () => navigate("/pricing"),
+    },
+    {
+      icon: User,
+      label: "My Account",
+      active: false,
+      color: "text-gray-300",
+      onClick: signOut,
     },
     {
       icon: LogOut,
