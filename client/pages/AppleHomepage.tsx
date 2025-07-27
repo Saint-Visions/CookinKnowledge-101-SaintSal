@@ -202,8 +202,8 @@ export default function AppleHomepage() {
               <Card key={index} className="bg-gray-800/30 backdrop-blur-sm hover:bg-gray-800/50 transition-all duration-300 shadow-lg border-0">
                 <CardContent className="p-8 text-center">
                   <div className="flex justify-center mb-6">
-                    <div className="p-4 bg-gradient-to-r from-white/20 to-white/30 rounded-2xl">
-                      <point.icon className="w-8 h-8 text-white" />
+                    <div className="p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-2xl">
+                      <point.icon className="w-8 h-8 text-cyan-400" />
                     </div>
                   </div>
                   <h3 className="text-xl font-semibold mb-4 text-white">{point.title}</h3>
