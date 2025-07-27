@@ -183,32 +183,9 @@ export default function Pricing() {
       buttonText: "Custom Build",
       color: "red",
       popular: false,
-      action: async () => {
-        console.log('🚀 CUSTOM ENTERPRISE BUTTON CLICKED - LOADING STRIPE');
-        try {
-          const { loadStripe } = await import('@stripe/stripe-js');
-          const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
-
-          if (stripe) {
-            console.log('✅ STRIPE LOADED - REDIRECTING TO CHECKOUT');
-            const { error } = await stripe.redirectToCheckout({
-              lineItems: [{ price: 'price_1RIh5yFZsXxBWnjQw0p9KYOj', quantity: 1 }],
-              mode: 'subscription',
-              successUrl: window.location.origin + '/?upgraded=custom',
-              cancelUrl: window.location.origin + '/pricing',
-            });
-
-            if (error) {
-              console.error('Stripe error:', error);
-              alert('Payment error: ' + error.message);
-            }
-          } else {
-            alert('Unable to load payment system. Please try again.');
-          }
-        } catch (error) {
-          console.error('Failed to load Stripe:', error);
-          alert('Payment system unavailable. Please contact support.');
-        }
+      action: () => {
+        console.log('🚀 CUSTOM ENTERPRISE BUTTON CLICKED - REDIRECTING TO EMAIL');
+        window.location.href = 'mailto:ryan@saintvision.ai?subject=Custom Enterprise Plan ($1500/month)&body=I want to subscribe to the Custom Enterprise plan for $1500/month. Please contact me immediately to start the onboarding process!';
         setLoading(null);
       }
     },
