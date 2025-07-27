@@ -125,7 +125,7 @@ You have comprehensive knowledge about SaintVision AI products, pricing, feature
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${OPENAI_CONFIG.searchKey}`,
+        Authorization: `Bearer ${OPENAI_CONFIG.apiKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
