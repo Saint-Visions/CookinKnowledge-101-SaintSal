@@ -281,6 +281,17 @@ export default function Pricing() {
       {/* Header */}
       <GlobalHeader />
 
+      {/* DEBUG: Test Payment Button */}
+      <div className="fixed top-4 right-4 z-50">
+        <Button
+          onClick={() => handleTierUpgrade('pro')}
+          className="bg-red-500 hover:bg-red-600 text-white"
+          disabled={loading === 'pro'}
+        >
+          {loading === 'pro' ? 'Testing...' : '🚨 TEST PRO PAYMENT'}
+        </Button>
+      </div>
+
       {/* Hero Section */}
       <div className="text-center py-20 px-6 pt-32">
         <div className="max-w-4xl mx-auto">
