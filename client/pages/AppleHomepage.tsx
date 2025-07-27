@@ -298,7 +298,7 @@ export default function AppleHomepage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {ecosystemPartners.map((partner, index) => (
-              <Card key={index} className="bg-gray-800/30 backdrop-blur-sm hover:bg-gray-800/50 transition-all duration-300 group shadow-lg border-0">
+              <Card key={index} className="bg-gray-700/30 backdrop-blur-sm hover:bg-gray-700/50 transition-all duration-300 group shadow-lg border-0">
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl mb-4">{partner.icon}</div>
                   <h3 className="font-semibold text-white mb-2">{partner.name}</h3>
