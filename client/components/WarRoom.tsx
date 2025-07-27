@@ -501,6 +501,7 @@ export function WarRoom({ className }: WarRoomProps) {
                 variant="outline"
                 size="sm"
                 className="w-full justify-start"
+                onClick={() => setWorkspaceMessages([])}
               >
                 <Plus className="w-4 h-4 mr-2" />
                 New Task
@@ -509,6 +510,7 @@ export function WarRoom({ className }: WarRoomProps) {
                 variant="outline"
                 size="sm"
                 className="w-full justify-start"
+                onClick={() => console.log('Export functionality coming soon')}
               >
                 <Download className="w-4 h-4 mr-2" />
                 Export Data
@@ -517,6 +519,7 @@ export function WarRoom({ className }: WarRoomProps) {
                 variant="outline"
                 size="sm"
                 className="w-full justify-start"
+                onClick={() => console.log('Import functionality coming soon')}
               >
                 <Upload className="w-4 h-4 mr-2" />
                 Import
@@ -690,7 +693,7 @@ export function WarRoom({ className }: WarRoomProps) {
           {/* Compact Status */}
           <div className="text-center mt-2">
             <div className="text-xs text-muted-foreground/60">
-              <span className="text-cyan-400">Dual companion</span> ready •
+              <span className="text-cyan-400">Dual companion</span> ready ���
               <span className="text-blue-400"> Azure-powered</span> •
               <span className="text-[hsl(var(--gold))]">Production-grade</span>{" "}
               operations
