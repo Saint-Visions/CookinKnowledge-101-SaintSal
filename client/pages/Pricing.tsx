@@ -63,27 +63,49 @@ export default function Pricing() {
       return;
     }
 
-    // Load Stripe and redirect
-    const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
+    // BULLETPROOF STRIPE CHECKOUT - DIRECT PAYMENT LINKS
+    console.log('💳 CREATING STRIPE CHECKOUT FOR:', tier, priceId);
 
-    if (!stripe) {
-      console.error('❌ STRIPE FAILED TO LOAD');
-      setLoading(null);
-      return;
-    }
+    try {
+      const stripe = await loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
 
-    console.log('💳 REDIRECTING TO STRIPE FOR:', tier, priceId);
+      if (!stripe) {
+        // FALLBACK: Direct Stripe payment links
+        const directLinks = {
+          unlimited: 'https://buy.stripe.com/test_6oE7sz8Xf9vW2cw7ss',
+          core: 'https://buy.stripe.com/test_aEU3cjdhs6jK0487st',
+          pro: 'https://buy.stripe.com/test_bIY28f5L3eCe148eUV',
+          fullPro: 'https://buy.stripe.com/test_3cs5krbdocM88sM9AD',
+        };
 
-    const { error } = await stripe.redirectToCheckout({
-      lineItems: [{ price: priceId, quantity: 1 }],
-      mode: 'subscription',
-      successUrl: `${window.location.origin}/dashboard?upgrade=success&tier=${tier}`,
-      cancelUrl: `${window.location.origin}/pricing?upgrade=cancelled`,
-      customerEmail: user?.email,
-    });
+        const link = directLinks[tier as keyof typeof directLinks];
+        if (link) {
+          console.log('🔗 USING DIRECT STRIPE LINK');
+          window.location.href = link;
+          return;
+        }
+      }
 
-    if (error) {
-      console.error('❌ STRIPE REDIRECT ERROR:', error);
+      console.log('✅ STRIPE LOADED, REDIRECTING TO CHECKOUT');
+
+      const { error } = await stripe.redirectToCheckout({
+        lineItems: [{ price: priceId, quantity: 1 }],
+        mode: 'subscription',
+        successUrl: `${window.location.origin}/dashboard?upgrade=success&tier=${tier}`,
+        cancelUrl: `${window.location.origin}/pricing?upgrade=cancelled`,
+        customerEmail: user?.email || undefined,
+      });
+
+      if (error) {
+        console.error('❌ STRIPE REDIRECT ERROR:', error);
+        // EMERGENCY FALLBACK: Direct contact
+        window.location.href = `mailto:ryan@saintvision.ai?subject=Payment Issue - ${tier} Plan&body=I tried to upgrade to ${tier} but the payment failed. Please help!`;
+      }
+
+    } catch (error) {
+      console.error('❌ STRIPE LOAD ERROR:', error);
+      // EMERGENCY FALLBACK: Direct contact
+      window.location.href = `mailto:ryan@saintvision.ai?subject=Payment Issue - ${tier} Plan&body=I tried to upgrade to ${tier} but Stripe failed to load. Please help!`;
     }
 
     setLoading(null);
