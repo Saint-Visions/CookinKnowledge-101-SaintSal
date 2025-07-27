@@ -75,6 +75,7 @@ const App = () => (
           <Route path="/sticky-notes" element={<StickyNotes />} />
           <Route path="/email-assistant" element={<EmailAssistant />} />
           <Route path="/video-studio" element={<VideoStudio />} />
+          <Route path="/code-academy" element={<CodeAcademy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
           </Routes>
