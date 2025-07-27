@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Button } from "../components/ui/button";
-import { Card, CardContent } from "../components/ui/card";
-import { Badge } from "../components/ui/badge";
-import {
-  Shield,
-  Zap,
-  Crown,
-  ArrowRight,
+import React, { useEffect, useState } from 'react';
+import { Button } from '../components/ui/button';
+import { Card, CardContent } from '../components/ui/card';
+import { Badge } from '../components/ui/badge';
+import { 
+  Shield, 
+  Zap, 
+  Crown, 
+  ArrowRight, 
   CheckCircle,
   Lock,
   Award,
@@ -19,40 +19,37 @@ import {
   FileText,
   TrendingUp,
   Star,
-  Play,
-} from "lucide-react";
-import { Link } from "react-router-dom";
-import GlobalHeader from "../components/GlobalHeader";
-import GlobalFooter from "../components/GlobalFooter";
+  Play
+} from 'lucide-react';
+import { Link } from 'react-router-dom';
+import GlobalHeader from '../components/GlobalHeader';
+import GlobalFooter from '../components/GlobalFooter';
 
 export default function AppleHomepage() {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const whyUsPoints = [
     {
       icon: Award,
       title: "Patent Protected Technology",
-      description:
-        "HACP™ U.S. Patent No. 10,290,222 - The only legally protected AI collaboration protocol in the industry",
+      description: "HACP™ U.S. Patent No. 10,290,222 - The only legally protected AI collaboration protocol in the industry"
     },
     {
-      icon: TrendingUp,
+      icon: TrendingUp, 
       title: "Proven Revenue Generation",
-      description:
-        "$8,947+ generated for clients through our Route Intelligence platform with 47+ satisfied customers",
+      description: "$8,947+ generated for clients through our Route Intelligence platform with 47+ satisfied customers"
     },
     {
       icon: Shield,
       title: "Enterprise Security First",
-      description:
-        "SOC 2 compliant, AES-256 encryption, faith-aligned values with transparent data practices",
-    },
+      description: "SOC 2 compliant, AES-256 encryption, faith-aligned values with transparent data practices"
+    }
   ];
 
   const eliteTech = [
@@ -60,20 +57,20 @@ export default function AppleHomepage() {
       icon: Crown,
       title: "SaintSal™ AI",
       description: "HACP™-powered companion with advanced reasoning",
-      status: "Enterprise",
+      status: "Enterprise"
     },
     {
       icon: Cpu,
-      title: "Route Intelligence",
+      title: "Route Intelligence", 
       description: "Real-time website monitoring & optimization",
-      status: "+$47 Add-On",
+      status: "+$47 Add-On"
     },
     {
       icon: Users,
       title: "PartnerTech.ai",
       description: "Integrated CRM with AI-powered insights",
-      status: "Platform",
-    },
+      status: "Platform"
+    }
   ];
 
   const ecosystemPartners = [
@@ -81,26 +78,26 @@ export default function AppleHomepage() {
       name: "Athena Legacy Care",
       description: "AI-powered legacy system modernization",
       icon: "🏛️",
-      color: "from-purple-500 to-purple-600",
+      color: "from-purple-500 to-purple-600"
     },
     {
-      name: "EbyTech Finance",
+      name: "EbyTech Finance", 
       description: "Advanced financial technology solutions",
-      icon: "💎",
-      color: "from-green-500 to-emerald-600",
+      icon: "💎", 
+      color: "from-green-500 to-emerald-600"
     },
     {
       name: "SVTLegal.ai",
-      description: "Legal technology and compliance automation",
+      description: "Legal technology and compliance automation", 
       icon: "⚖️",
-      color: "from-red-500 to-rose-600",
+      color: "from-red-500 to-rose-600"
     },
     {
       name: "SBVG Institute",
       description: "Research and development excellence",
       icon: "🎓",
-      color: "from-yellow-500 to-orange-600",
-    },
+      color: "from-yellow-500 to-orange-600"
+    }
   ];
 
   return (
@@ -110,11 +107,11 @@ export default function AppleHomepage() {
         className="fixed inset-0 z-0"
         style={{
           backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F446d6f0fa2c34f478f99f49fc6ba7f85?format=webp&width=800')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
           transform: `translateY(${scrollY * 0.5}px)`,
-          filter: "brightness(0.6)",
+          filter: 'brightness(0.6)'
         }}
       />
 
@@ -154,12 +151,8 @@ export default function AppleHomepage() {
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-            HACP™ technology powers the world's most advanced AI collaboration
-            platform.
-            <span className="text-white">
-              {" "}
-              Patent-protected. Enterprise-proven. Faith-aligned.
-            </span>
+            HACP™ technology powers the world's most advanced AI collaboration platform. 
+            <span className="text-white"> Patent-protected. Enterprise-proven. Faith-aligned.</span>
           </p>
 
           {/* Trusted Tech Stack */}
@@ -182,18 +175,11 @@ export default function AppleHomepage() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 px-8 py-4 text-lg font-semibold shadow-2xl shadow-yellow-400/20"
-            >
+            <Button size="lg" className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 px-8 py-4 text-lg font-semibold shadow-2xl shadow-yellow-400/20">
               Explore SaintSal™
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-yellow-400/50 text-yellow-400 hover:bg-yellow-400/10 hover:border-yellow-400 px-8 py-4 text-lg backdrop-blur-sm"
-            >
+            <Button size="lg" variant="outline" className="border-yellow-400/50 text-yellow-400 hover:bg-yellow-400/10 hover:border-yellow-400 px-8 py-4 text-lg backdrop-blur-sm">
               <Play className="w-5 h-5 mr-2" />
               Watch Demo
             </Button>
@@ -207,29 +193,21 @@ export default function AppleHomepage() {
           <div className="text-center mb-20">
             <h2 className="text-5xl font-light mb-6">Why SaintVisionAI</h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              The only platform combining patent-protected technology, proven
-              results, and enterprise-grade security
+              The only platform combining patent-protected technology, proven results, and enterprise-grade security
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {whyUsPoints.map((point, index) => (
-              <Card
-                key={index}
-                className="bg-gray-800/30 backdrop-blur-sm hover:bg-gray-800/50 transition-all duration-300 shadow-lg border-0"
-              >
+              <Card key={index} className="bg-gray-800/30 backdrop-blur-sm hover:bg-gray-800/50 transition-all duration-300 shadow-lg border-0">
                 <CardContent className="p-8 text-center">
                   <div className="flex justify-center mb-6">
-                    <div className="p-4 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-2xl">
-                      <point.icon className="w-8 h-8 text-yellow-400" />
+                    <div className="p-4 bg-gradient-to-r from-white/20 to-white/30 rounded-2xl">
+                      <point.icon className="w-8 h-8 text-white" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 text-white">
-                    {point.title}
-                  </h3>
-                  <p className="text-white/70 leading-relaxed">
-                    {point.description}
-                  </p>
+                  <h3 className="text-xl font-semibold mb-4 text-white">{point.title}</h3>
+                  <p className="text-white/70 leading-relaxed">{point.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -237,10 +215,7 @@ export default function AppleHomepage() {
 
           <div className="text-center mt-12">
             <Link to="/why">
-              <Button
-                variant="outline"
-                className="border-white/30 text-white hover:bg-white/5 backdrop-blur-sm"
-              >
+              <Button variant="outline" className="border-white/30 text-white hover:bg-white/5 backdrop-blur-sm">
                 Learn More About Our Approach
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
@@ -254,17 +229,12 @@ export default function AppleHomepage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-light mb-6">Elite Technology Stack</h2>
-            <p className="text-xl text-white/70">
-              HACP™-powered solutions for enterprise excellence
-            </p>
+            <p className="text-xl text-white/70">HACP™-powered solutions for enterprise excellence</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {eliteTech.map((tech, index) => (
-              <Card
-                key={index}
-                className="bg-gray-800/30 backdrop-blur-sm group hover:bg-gray-800/50 transition-all duration-500 shadow-lg border-0"
-              >
+              <Card key={index} className="bg-gray-800/30 backdrop-blur-sm group hover:bg-gray-800/50 transition-all duration-500 shadow-lg border-0">
                 <CardContent className="p-8">
                   <div className="flex items-center justify-between mb-6">
                     <div className="p-3 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-xl group-hover:scale-110 transition-transform duration-300">
@@ -274,9 +244,7 @@ export default function AppleHomepage() {
                       {tech.status}
                     </Badge>
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-white">
-                    {tech.title}
-                  </h3>
+                  <h3 className="text-xl font-semibold mb-3 text-white">{tech.title}</h3>
                   <p className="text-white/70">{tech.description}</p>
                 </CardContent>
               </Card>
@@ -289,13 +257,11 @@ export default function AppleHomepage() {
       <section className="relative z-10 py-32 bg-gray-900/40 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-5xl font-light mb-12">Security & Trust</h2>
-
+          
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
             <div className="p-6">
               <Lock className="w-8 h-8 text-white mx-auto mb-4" />
-              <div className="text-sm font-semibold text-white mb-2">
-                AES-256
-              </div>
+              <div className="text-sm font-semibold text-white mb-2">AES-256</div>
               <div className="text-xs text-white/60">Military Grade</div>
             </div>
             <div className="p-6">
@@ -305,23 +271,19 @@ export default function AppleHomepage() {
             </div>
             <div className="p-6">
               <Award className="w-8 h-8 text-white mx-auto mb-4" />
-              <div className="text-sm font-semibold text-white mb-2">
-                Patent
-              </div>
+              <div className="text-sm font-semibold text-white mb-2">Patent</div>
               <div className="text-xs text-white/60">Protected</div>
             </div>
             <div className="p-6">
               <Building2 className="w-8 h-8 text-blue-500 mx-auto mb-4" />
-              <div className="text-sm font-semibold text-white mb-2">
-                Delaware
-              </div>
+              <div className="text-sm font-semibold text-white mb-2">Delaware</div>
               <div className="text-xs text-white/60">LLC Structure</div>
             </div>
           </div>
 
           <p className="text-white/70 max-w-3xl mx-auto">
-            Built on faith-aligned principles with complete transparency. We
-            protect your data, respect your time, and serve your purpose.
+            Built on faith-aligned principles with complete transparency. 
+            We protect your data, respect your time, and serve your purpose.
           </p>
         </div>
       </section>
@@ -331,26 +293,17 @@ export default function AppleHomepage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-light mb-6">Partner Ecosystem</h2>
-            <p className="text-xl text-white/70">
-              Integrated solutions across industries
-            </p>
+            <p className="text-xl text-white/70">Integrated solutions across industries</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {ecosystemPartners.map((partner, index) => (
-              <Card
-                key={index}
-                className="bg-gray-800/30 backdrop-blur-sm hover:bg-gray-800/50 transition-all duration-300 group shadow-lg border-0"
-              >
+              <Card key={index} className="bg-gray-800/30 backdrop-blur-sm hover:bg-gray-800/50 transition-all duration-300 group shadow-lg border-0">
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl mb-4">{partner.icon}</div>
-                  <h3 className="font-semibold text-white mb-2">
-                    {partner.name}
-                  </h3>
+                  <h3 className="font-semibold text-white mb-2">{partner.name}</h3>
                   <p className="text-sm text-white/60">{partner.description}</p>
-                  <div
-                    className={`mt-4 h-1 bg-gradient-to-r ${partner.color} rounded-full`}
-                  ></div>
+                  <div className={`mt-4 h-1 bg-gradient-to-r ${partner.color} rounded-full`}></div>
                 </CardContent>
               </Card>
             ))}
@@ -363,27 +316,19 @@ export default function AppleHomepage() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-5xl font-light mb-8">Join The Movement</h2>
           <p className="text-xl text-white/80 mb-12 leading-relaxed">
-            We're building the future of human-AI collaboration.
-            Patent-protected technology, faith-aligned values, and
-            enterprise-proven results.
+            We're building the future of human-AI collaboration. 
+            Patent-protected technology, faith-aligned values, and enterprise-proven results.
           </p>
-
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/pricing">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 px-8 py-4 text-lg font-semibold shadow-2xl shadow-yellow-400/30"
-              >
+              <Button size="lg" className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 px-8 py-4 text-lg font-semibold shadow-2xl shadow-yellow-400/30">
                 View Platform Pricing
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
             <Link to="/contact">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-yellow-400/50 text-yellow-400 hover:bg-yellow-400/10 hover:border-yellow-400 px-8 py-4 text-lg backdrop-blur-sm"
-              >
+              <Button size="lg" variant="outline" className="border-yellow-400/50 text-yellow-400 hover:bg-yellow-400/10 hover:border-yellow-400 px-8 py-4 text-lg backdrop-blur-sm">
                 Schedule Enterprise Demo
               </Button>
             </Link>
