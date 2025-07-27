@@ -127,7 +127,10 @@ export default function Pricing() {
       buttonText: "Go Pro",
       color: "purple",
       popular: false,
-      action: () => window.location.href = 'https://buy.stripe.com/aEU8yb6Dd9vW5kE28c'
+      action: () => {
+        console.log('🔥 PRO SUITE BUTTON CLICKED');
+        window.open('https://buy.stripe.com/aEU8yb6Dd9vW5kE28c', '_blank');
+      }
     },
     {
       name: "Full White-Label",
