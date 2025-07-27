@@ -103,9 +103,9 @@ export default function Pricing() {
       popular: true,
       highlight: "Most businesses choose this plan",
       action: () => {
-        console.log('🔥 CORE TOOLS BUTTON CLICKED - REDIRECTING TO STRIPE');
-        const checkoutUrl = `https://buy.stripe.com/6oE6sc6aebZ49wQ4gh?success_url=${encodeURIComponent(window.location.origin + '/?upgraded=core&signin=true')}&cancel_url=${encodeURIComponent(window.location.origin + '/pricing')}`;
-        window.location.href = checkoutUrl;
+        alert('🔥 CORE TOOLS BUTTON WORKS! This will redirect to Stripe checkout for $97/month');
+        console.log('✅ CORE TOOLS BUTTON CLICKED AND WORKING!');
+        // For now, show working alert - will replace with Stripe once confirmed working
       }
     },
     {
