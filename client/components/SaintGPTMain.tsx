@@ -23,6 +23,7 @@ const suggestions = [
 ];
 
 export function SaintGPTMain({ className }: SaintGPTMainProps) {
+  const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const [isListening, setIsListening] = useState(false);
   const [messages, setMessages] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
