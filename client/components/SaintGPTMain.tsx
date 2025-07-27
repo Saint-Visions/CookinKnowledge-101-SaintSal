@@ -180,54 +180,54 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
             </div>
           </div>
         )}
+      </div>
 
-        {/* Input Area */}
-        <div className="border-t border-gray-800 p-4 lg:p-6" style={{ backgroundColor: '#0f0f0f' }}>
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              <div className="flex items-end gap-2 lg:gap-3 p-3 lg:p-4 border border-gray-700 rounded-2xl bg-gray-900 focus-within:ring-2 focus-within:ring-[hsl(var(--gold))] focus-within:border-[hsl(var(--gold))] transition-all">
+      {/* Input Area - Always visible */}
+      <div className="border-t border-gray-800 p-4 lg:p-6" style={{ backgroundColor: '#0f0f0f' }}>
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            <div className="flex items-end gap-2 lg:gap-3 p-3 lg:p-4 border border-gray-700 rounded-2xl bg-gray-900 focus-within:ring-2 focus-within:ring-[hsl(var(--gold))] focus-within:border-[hsl(var(--gold))] transition-all">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="flex-shrink-0 hidden sm:flex"
+              >
+                <Paperclip className="w-4 h-4" />
+              </Button>
+
+              <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Ask SaintGPT anything about your business..."
+                className="flex-1 bg-transparent border-0 resize-none outline-none text-white placeholder:text-gray-400 min-h-[20px] max-h-32 text-sm lg:text-base"
+                rows={1}
+              />
+
+              <div className="flex items-center gap-1 lg:gap-2 flex-shrink-0">
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="flex-shrink-0 hidden sm:flex"
+                  onClick={() => setIsListening(!isListening)}
+                  className={`hidden sm:flex ${isListening ? "text-red-500" : ""}`}
                 >
-                  <Paperclip className="w-4 h-4" />
+                  {isListening ? <Square className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
                 </Button>
 
-                <textarea
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Ask SaintGPT anything about your business..."
-                  className="flex-1 bg-transparent border-0 resize-none outline-none text-white placeholder:text-gray-400 min-h-[20px] max-h-32 text-sm lg:text-base"
-                  rows={1}
-                />
-
-                <div className="flex items-center gap-1 lg:gap-2 flex-shrink-0">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setIsListening(!isListening)}
-                    className={`hidden sm:flex ${isListening ? "text-red-500" : ""}`}
-                  >
-                    {isListening ? <Square className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
-                  </Button>
-
-                  <Button
-                    size="sm"
-                    onClick={handleSend}
-                    disabled={!message.trim() || isLoading}
-                    className="rounded-xl bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black"
-                  >
-                    <ArrowUp className="w-4 h-4" />
-                  </Button>
-                </div>
+                <Button
+                  size="sm"
+                  onClick={handleSend}
+                  disabled={!message.trim() || isLoading}
+                  className="rounded-xl bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black"
+                >
+                  <ArrowUp className="w-4 h-4" />
+                </Button>
               </div>
             </div>
+          </div>
 
-            <div className="text-xs text-center text-gray-500 mt-3 px-4">
-              SaintGPT can make mistakes. Check important information and verify business decisions.
-            </div>
+          <div className="text-xs text-center text-gray-500 mt-3 px-4">
+            SaintGPT can make mistakes. Check important information and verify business decisions.
           </div>
         </div>
       </div>
