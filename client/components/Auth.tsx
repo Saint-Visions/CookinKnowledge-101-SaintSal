@@ -120,7 +120,14 @@ export function Auth({ className }: AuthProps) {
                 type="button"
                 variant="outline"
                 className="w-full bg-white hover:bg-gray-50 text-black border-gray-300 transition-all"
-                onClick={signInWithGoogle}
+                onClick={async () => {
+                  console.log('Google OAuth attempt started...');
+                  const result = await signInWithGoogle();
+                  if (result.error) {
+                    console.error('Google OAuth failed:', result.error);
+                    setError('Google authentication failed: ' + result.error.message);
+                  }
+                }}
                 disabled={loading}
               >
                 <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24">
@@ -338,7 +345,7 @@ export function Auth({ className }: AuthProps) {
               >
                 Support
               </Link>
-              <span className="text-muted-foreground">��</span>
+              <span className="text-muted-foreground">•</span>
               <Link
                 to="/"
                 className="text-muted-foreground hover:text-[hsl(var(--gold))] transition-colors"
