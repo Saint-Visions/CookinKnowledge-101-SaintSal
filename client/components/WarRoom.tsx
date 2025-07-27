@@ -211,14 +211,21 @@ export function WarRoom({ className }: WarRoomProps) {
     }
   };
 
-  // Navigation items - Fixed routes and no blue colors
+  // Simplified navigation - Core essentials only
   const leftPanelItems = [
     {
       icon: Home,
-      label: "Main Dashboard",
+      label: "Dashboard",
       active: false,
       color: "text-[hsl(var(--gold))]",
       onClick: () => navigate("/"),
+    },
+    {
+      icon: FileText,
+      label: "SaintGPT Search",
+      active: false,
+      color: "text-yellow-400",
+      onClick: () => navigate("/search"),
     },
     {
       icon: Users,
@@ -235,95 +242,18 @@ export function WarRoom({ className }: WarRoomProps) {
       },
     },
     {
-      icon: Building2,
-      label: "My Business",
+      icon: MessageSquare,
+      label: "Sticky Notes",
       active: false,
       color: "text-green-400",
-      onClick: () => navigate("/dashboard"),
-    },
-    {
-      icon: FileText,
-      label: "SaintGPT Search",
-      active: false,
-      color: "text-yellow-400",
-      onClick: () => navigate("/search"),
-    },
-    {
-      icon: Wrench,
-      label: "AI Tools",
-      active: false,
-      color: "text-purple-400",
-      onClick: () => navigate("/tools"),
-    },
-    {
-      icon: ImageIcon,
-      label: "Image Generator",
-      active: false,
-      color: "text-pink-400",
-      onClick: () => navigate("/tools"),
-    },
-    {
-      icon: Rocket,
-      label: "SVG Launchpad",
-      active: false,
-      color: "text-orange-400",
-      onClick: () => navigate("/broker"),
-    },
-    {
-      icon: MessageSquare,
-      label: "Feedback & Help",
-      active: false,
-      color: "text-white",
-      onClick: () => navigate("/help"),
-    },
-    {
-      icon: Users,
-      label: "PartnerTech.ai CRM",
-      active: false,
-      color: "text-teal-400",
-      onClick: () => {
-        if (!hasAccess('crm')) {
-          alert(`CRM requires Premium tier. Current: ${userTier}. Visit /pricing to upgrade.`);
-          navigate('/pricing');
-          return;
-        }
-        navigate("/crm");
-      },
-    },
-    {
-      icon: Shield,
-      label: "Route Intelligence",
-      active: false,
-      color: "text-yellow-400",
-      onClick: () => {
-        if (!hasAccess('audit')) {
-          alert(`Route Intelligence requires Enterprise tier. Current: ${userTier}. Visit /pricing to upgrade.`);
-          navigate('/pricing');
-          return;
-        }
-        navigate("/audit-service");
-      },
-    },
-    {
-      icon: Palette,
-      label: "SVT Institute",
-      active: false,
-      color: "text-violet-400",
-      onClick: () => navigate("/institute"),
+      onClick: () => console.log('Sticky Notes coming soon'),
     },
     {
       icon: TrendingUp,
-      label: "Upgrade Tier",
+      label: "Upgrade",
       active: false,
       color: "text-emerald-400",
       onClick: () => navigate("/pricing"),
-    },
-    {
-      icon: User,
-      label: "My Account",
-      active: false,
-      color: "text-gray-300",
-      onClick: signOut,
     },
     {
       icon: LogOut,
