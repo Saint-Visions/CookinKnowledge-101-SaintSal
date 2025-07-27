@@ -37,17 +37,11 @@ export default function GlobalHeader() {
             >
               WarRoom
             </Link>
-            <Link 
-              to="/why" 
-              className={`transition-colors ${location.pathname === '/why' ? 'text-yellow-400 font-medium' : 'text-white/80 hover:text-white'}`}
+            <Link
+              to="/about"
+              className={`transition-colors ${location.pathname === '/about' ? 'text-yellow-400 font-medium' : 'text-white/80 hover:text-white'}`}
             >
-              Why Us
-            </Link>
-            <Link 
-              to="/institute" 
-              className={`transition-colors ${location.pathname === '/institute' ? 'text-yellow-400 font-medium' : 'text-white/80 hover:text-white'}`}
-            >
-              Institute
+              About
             </Link>
             <Link 
               to="/pricing" 
