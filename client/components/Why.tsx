@@ -15,7 +15,7 @@ import {
   CheckCircle,
   Star,
   Award,
-  Building2
+  Building2,
 } from "lucide-react";
 
 interface WhyProps {
@@ -24,14 +24,17 @@ interface WhyProps {
 
 export function Why({ className }: WhyProps) {
   return (
-    <div className={`min-h-screen ${className}`} style={{ backgroundColor: '#000000' }}>
+    <div
+      className={`min-h-screen ${className}`}
+      style={{ backgroundColor: "#000000" }}
+    >
       {/* Hero Section with Fixed Background */}
       <div className="relative min-h-screen overflow-hidden">
         {/* Background Image - Fixed */}
         <div
           className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-60"
           style={{
-            backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fa182b43f5461483aaa39c44d7e7d1628?format=webp&width=800')`
+            backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fa182b43f5461483aaa39c44d7e7d1628?format=webp&width=800')`,
           }}
         />
 
@@ -39,7 +42,10 @@ export function Why({ className }: WhyProps) {
         <div className="fixed inset-0 bg-gradient-to-br from-black/40 via-black/30 to-black/50" />
 
         {/* Header */}
-        <div className="relative z-10 border-b border-border/30 px-6 py-4" style={{ backgroundColor: 'rgba(0,0,0,0.9)' }}>
+        <div
+          className="relative z-10 border-b border-border/30 px-6 py-4"
+          style={{ backgroundColor: "rgba(0,0,0,0.9)" }}
+        >
           <div className="flex items-center justify-between">
             {/* Left: Logos */}
             <div className="flex items-center gap-6">
@@ -58,28 +64,49 @@ export function Why({ className }: WhyProps) {
 
             {/* Center: Navigation */}
             <nav className="flex items-center gap-1">
-              <Link to="/" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+              <Link
+                to="/"
+                className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+              >
                 Home
               </Link>
-              <Link to="/search" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+              <Link
+                to="/search"
+                className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+              >
                 Search
               </Link>
-              <Link to="/warroom" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+              <Link
+                to="/warroom"
+                className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+              >
                 WarRoom
               </Link>
-              <Link to="/tools" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+              <Link
+                to="/tools"
+                className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+              >
                 Tools
               </Link>
-              <Link to="/legal" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+              <Link
+                to="/legal"
+                className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+              >
                 Legal
               </Link>
               <div className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium">
                 Why
               </div>
-              <Link to="/help" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
+              <Link
+                to="/help"
+                className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
+              >
                 Help
               </Link>
-              <Link to="#" className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]/80">
+              <Link
+                to="#"
+                className="px-4 py-2 rounded-lg hover:bg-muted/20 transition-colors text-sm font-medium text-[hsl(var(--gold))] hover:text-[hsl(var(--gold))]/80"
+              >
                 PartnerTech.ai
               </Link>
             </nav>
@@ -104,11 +131,14 @@ export function Why({ className }: WhyProps) {
               <h1 className="text-7xl font-bold text-foreground mb-6 leading-tight">
                 What Separates
                 <br />
-                <span className="text-[hsl(var(--gold))] drop-shadow-[0_0_25px_rgba(255,215,0,0.5)]">SaintVision AI™</span>
+                <span className="text-[hsl(var(--gold))] drop-shadow-[0_0_25px_rgba(255,215,0,0.5)]">
+                  SaintVision AI™
+                </span>
               </h1>
               <p className="text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
-                We're not just building AI. We're building the future of human potential, 
-                where technology serves purpose and intelligence serves the heart.
+                We're not just building AI. We're building the future of human
+                potential, where technology serves purpose and intelligence
+                serves the heart.
               </p>
             </div>
 
@@ -130,7 +160,10 @@ export function Why({ className }: WhyProps) {
             </div>
 
             <div className="flex items-center justify-center gap-4">
-              <Button size="lg" className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-semibold text-lg px-8 py-3 shadow-[0_0_30px_rgba(255,215,0,0.6)] hover:shadow-[0_0_40px_rgba(255,215,0,0.8)] transition-all">
+              <Button
+                size="lg"
+                className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-semibold text-lg px-8 py-3 shadow-[0_0_30px_rgba(255,215,0,0.6)] hover:shadow-[0_0_40px_rgba(255,215,0,0.8)] transition-all"
+              >
                 <Rocket className="w-5 h-5 mr-2" />
                 Experience the Difference
               </Button>
@@ -144,15 +177,22 @@ export function Why({ className }: WhyProps) {
       </div>
 
       {/* What Makes Us Different Section */}
-      <div className="relative z-10 py-24" style={{ backgroundColor: '#000000' }}>
+      <div
+        className="relative z-10 py-24"
+        style={{ backgroundColor: "#000000" }}
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold text-foreground mb-6">
-              We're Doing <span className="text-[hsl(var(--gold))] drop-shadow-[0_0_25px_rgba(255,215,0,0.8)]">Great Things</span>
+              We're Doing{" "}
+              <span className="text-[hsl(var(--gold))] drop-shadow-[0_0_25px_rgba(255,215,0,0.8)]">
+                Great Things
+              </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              To Change Lives. Every breakthrough, every innovation, every line of code is written 
-              with one purpose: empowering human potential through divine wisdom and cutting-edge technology.
+              To Change Lives. Every breakthrough, every innovation, every line
+              of code is written with one purpose: empowering human potential
+              through divine wisdom and cutting-edge technology.
             </p>
           </div>
 
@@ -163,10 +203,14 @@ export function Why({ className }: WhyProps) {
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[hsl(var(--gold))]/20 to-[hsl(var(--gold))]/10 flex items-center justify-center mb-4">
                   <Brain className="w-8 h-8 text-[hsl(var(--gold))]" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Patented HACP™ Technology</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  Patented HACP™ Technology
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Our Human-AI Connection Protocol (U.S. Patent 10,290,222) is the only AI system that truly adapts 
-                  to human emotion and escalates intelligently. This isn't just AI—it's emotional intelligence.
+                  Our Human-AI Connection Protocol (U.S. Patent 10,290,222) is
+                  the only AI system that truly adapts to human emotion and
+                  escalates intelligently. This isn't just AI—it's emotional
+                  intelligence.
                 </p>
               </div>
               <div className="text-sm text-[hsl(var(--gold))] font-medium group-hover:translate-x-1 transition-transform">
@@ -180,10 +224,13 @@ export function Why({ className }: WhyProps) {
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-400/10 flex items-center justify-center mb-4">
                   <Heart className="w-8 h-8 text-cyan-400" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Faith-Guided Innovation</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  Faith-Guided Innovation
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Technology with purpose. Every feature we build is guided by principles of service, 
-                  integrity, and genuine care for human flourishing. AI that serves, not exploits.
+                  Technology with purpose. Every feature we build is guided by
+                  principles of service, integrity, and genuine care for human
+                  flourishing. AI that serves, not exploits.
                 </p>
               </div>
               <div className="text-sm text-cyan-400 font-medium group-hover:translate-x-1 transition-transform">
@@ -197,10 +244,13 @@ export function Why({ className }: WhyProps) {
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400/20 to-indigo-400/10 flex items-center justify-center mb-4">
                   <Shield className="w-8 h-8 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Enterprise-Grade Security</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  Enterprise-Grade Security
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  GDPR, CCPA, SOC 2 compliant with AES-256 encryption. Delaware LP structure with 
-                  separated IP holding for maximum protection and investor confidence.
+                  GDPR, CCPA, SOC 2 compliant with AES-256 encryption. Delaware
+                  LP structure with separated IP holding for maximum protection
+                  and investor confidence.
                 </p>
               </div>
               <div className="text-sm text-blue-400 font-medium group-hover:translate-x-1 transition-transform">
@@ -214,10 +264,13 @@ export function Why({ className }: WhyProps) {
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-400/20 to-emerald-400/10 flex items-center justify-center mb-4">
                   <Zap className="w-8 h-8 text-green-400" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Adaptive Intelligence</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  Adaptive Intelligence
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  SaintSal doesn't just respond—it learns, adapts, and grows with you. 
-                  Real-time emotional calibration ensures every interaction feels personal and meaningful.
+                  SaintSal doesn't just respond—it learns, adapts, and grows
+                  with you. Real-time emotional calibration ensures every
+                  interaction feels personal and meaningful.
                 </p>
               </div>
               <div className="text-sm text-green-400 font-medium group-hover:translate-x-1 transition-transform">
@@ -231,10 +284,13 @@ export function Why({ className }: WhyProps) {
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400/20 to-violet-400/10 flex items-center justify-center mb-4">
                   <Globe className="w-8 h-8 text-purple-400" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Global Impact Focus</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  Global Impact Focus
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  From healthcare to education, from enterprise to personal growth—our AI ecosystems 
-                  are deployed where they matter most, changing lives at scale.
+                  From healthcare to education, from enterprise to personal
+                  growth—our AI ecosystems are deployed where they matter most,
+                  changing lives at scale.
                 </p>
               </div>
               <div className="text-sm text-purple-400 font-medium group-hover:translate-x-1 transition-transform">
@@ -248,10 +304,13 @@ export function Why({ className }: WhyProps) {
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400/20 to-red-400/10 flex items-center justify-center mb-4">
                   <Users className="w-8 h-8 text-orange-400" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Human-Centered Design</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  Human-Centered Design
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Every interface, every interaction, every algorithm is designed with human dignity at its core. 
-                  Technology that enhances humanity, not replaces it.
+                  Every interface, every interaction, every algorithm is
+                  designed with human dignity at its core. Technology that
+                  enhances humanity, not replaces it.
                 </p>
               </div>
               <div className="text-sm text-orange-400 font-medium group-hover:translate-x-1 transition-transform">
@@ -263,20 +322,30 @@ export function Why({ className }: WhyProps) {
           {/* Stats Section */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-20">
             <div className="text-center">
-              <div className="text-4xl font-bold text-[hsl(var(--gold))] mb-2 drop-shadow-[0_0_20px_rgba(255,215,0,0.9)]">$75M+</div>
-              <div className="text-sm text-muted-foreground">Patent Portfolio Value</div>
+              <div className="text-4xl font-bold text-[hsl(var(--gold))] mb-2 drop-shadow-[0_0_20px_rgba(255,215,0,0.9)]">
+                $75M+
+              </div>
+              <div className="text-sm text-muted-foreground">
+                Patent Portfolio Value
+              </div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-cyan-400 mb-2">99.9%</div>
-              <div className="text-sm text-muted-foreground">Uptime Guarantee</div>
+              <div className="text-sm text-muted-foreground">
+                Uptime Guarantee
+              </div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-400 mb-2">25+</div>
-              <div className="text-sm text-muted-foreground">AI Tools & Features</div>
+              <div className="text-sm text-muted-foreground">
+                AI Tools & Features
+              </div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-green-400 mb-2">100%</div>
-              <div className="text-sm text-muted-foreground">Purpose-Driven</div>
+              <div className="text-sm text-muted-foreground">
+                Purpose-Driven
+              </div>
             </div>
           </div>
 
@@ -287,42 +356,66 @@ export function Why({ className }: WhyProps) {
                 <span className="text-cyan-400">Effortlessly</span> Powerful
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Complex AI technology made simple. Our interfaces are designed for humans, not engineers.
+                Complex AI technology made simple. Our interfaces are designed
+                for humans, not engineers.
               </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-foreground mb-6">One-Click AI Deployment</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-6">
+                  One-Click AI Deployment
+                </h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
                     <CheckCircle className="w-6 h-6 text-cyan-400 mt-1 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-foreground mb-2">Instant Setup</h4>
-                      <p className="text-muted-foreground">Deploy enterprise-grade AI in under 5 minutes. No technical expertise required.</p>
+                      <h4 className="font-semibold text-foreground mb-2">
+                        Instant Setup
+                      </h4>
+                      <p className="text-muted-foreground">
+                        Deploy enterprise-grade AI in under 5 minutes. No
+                        technical expertise required.
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <CheckCircle className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-foreground mb-2">Intuitive Interface</h4>
-                      <p className="text-muted-foreground">Natural conversation flows that feel like talking to your smartest colleague.</p>
+                      <h4 className="font-semibold text-foreground mb-2">
+                        Intuitive Interface
+                      </h4>
+                      <p className="text-muted-foreground">
+                        Natural conversation flows that feel like talking to
+                        your smartest colleague.
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <CheckCircle className="w-6 h-6 text-green-400 mt-1 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-foreground mb-2">Zero Learning Curve</h4>
-                      <p className="text-muted-foreground">Start getting value immediately. Our AI adapts to you, not the other way around.</p>
+                      <h4 className="font-semibold text-foreground mb-2">
+                        Zero Learning Curve
+                      </h4>
+                      <p className="text-muted-foreground">
+                        Start getting value immediately. Our AI adapts to you,
+                        not the other way around.
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="bg-gradient-to-br from-cyan-400/10 to-blue-400/10 rounded-2xl p-8 border border-cyan-400/20">
                 <div className="text-center">
-                  <div className="text-6xl font-bold text-cyan-400 mb-4">5min</div>
-                  <div className="text-lg text-foreground mb-2">Average Setup Time</div>
-                  <div className="text-sm text-muted-foreground">From zero to AI-powered in minutes</div>
+                  <div className="text-6xl font-bold text-cyan-400 mb-4">
+                    5min
+                  </div>
+                  <div className="text-lg text-foreground mb-2">
+                    Average Setup Time
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    From zero to AI-powered in minutes
+                  </div>
                 </div>
               </div>
             </div>
@@ -332,10 +425,14 @@ export function Why({ className }: WhyProps) {
           <div className="mb-20">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-foreground mb-6">
-                <span className="text-[hsl(var(--gold))]">Enterprise-Grade</span> Technology Stack
+                <span className="text-[hsl(var(--gold))]">
+                  Enterprise-Grade
+                </span>{" "}
+                Technology Stack
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Built on Azure Cognitive Services with patented HACP™ protocol and military-grade security.
+                Built on Azure Cognitive Services with patented HACP™ protocol
+                and military-grade security.
               </p>
             </div>
 
@@ -343,22 +440,37 @@ export function Why({ className }: WhyProps) {
               <div className="text-center p-6 rounded-xl bg-gradient-to-br from-blue-400/10 to-indigo-400/10 border border-blue-400/20">
                 <Brain className="w-12 h-12 text-blue-400 mx-auto mb-4" />
                 <h4 className="font-bold text-foreground mb-2">Azure AI</h4>
-                <p className="text-sm text-muted-foreground">Microsoft's enterprise AI infrastructure powers our cognitive engine</p>
+                <p className="text-sm text-muted-foreground">
+                  Microsoft's enterprise AI infrastructure powers our cognitive
+                  engine
+                </p>
               </div>
               <div className="text-center p-6 rounded-xl bg-gradient-to-br from-[hsl(var(--gold))]/10 to-yellow-400/10 border border-[hsl(var(--gold))]/20">
                 <Shield className="w-12 h-12 text-[hsl(var(--gold))] mx-auto mb-4" />
-                <h4 className="font-bold text-foreground mb-2">HACP™ Protocol</h4>
-                <p className="text-sm text-muted-foreground">Patented adaptive escalation technology (US 10,290,222)</p>
+                <h4 className="font-bold text-foreground mb-2">
+                  HACP™ Protocol
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Patented adaptive escalation technology (US 10,290,222)
+                </p>
               </div>
               <div className="text-center p-6 rounded-xl bg-gradient-to-br from-cyan-400/10 to-teal-400/10 border border-cyan-400/20">
                 <Zap className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
-                <h4 className="font-bold text-foreground mb-2">Real-Time Sync</h4>
-                <p className="text-sm text-muted-foreground">Millisecond response times with global edge deployment</p>
+                <h4 className="font-bold text-foreground mb-2">
+                  Real-Time Sync
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Millisecond response times with global edge deployment
+                </p>
               </div>
               <div className="text-center p-6 rounded-xl bg-gradient-to-br from-green-400/10 to-emerald-400/10 border border-green-400/20">
                 <Target className="w-12 h-12 text-green-400 mx-auto mb-4" />
-                <h4 className="font-bold text-foreground mb-2">Multi-Modal AI</h4>
-                <p className="text-sm text-muted-foreground">Text, voice, image, and gesture recognition in one platform</p>
+                <h4 className="font-bold text-foreground mb-2">
+                  Multi-Modal AI
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Text, voice, image, and gesture recognition in one platform
+                </p>
               </div>
             </div>
 
@@ -411,7 +523,8 @@ export function Why({ className }: WhyProps) {
                 Real-World <span className="text-green-400">Applications</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                See how Saint Vision AI transforms industries and changes lives across healthcare, education, and enterprise.
+                See how Saint Vision AI transforms industries and changes lives
+                across healthcare, education, and enterprise.
               </p>
             </div>
 
@@ -421,32 +534,47 @@ export function Why({ className }: WhyProps) {
                 <div>
                   <div className="flex items-center gap-3 mb-4">
                     <Heart className="w-8 h-8 text-red-400" />
-                    <h3 className="text-2xl font-bold text-foreground">Healthcare & Therapy</h3>
+                    <h3 className="text-2xl font-bold text-foreground">
+                      Healthcare & Therapy
+                    </h3>
                   </div>
                   <p className="text-muted-foreground mb-6">
-                    Athena.ai revolutionizes patient care with adaptive therapy protocols and emotional intelligence
-                    that helps stroke patients, ADHD management, and autism support programs.
+                    Athena.ai revolutionizes patient care with adaptive therapy
+                    protocols and emotional intelligence that helps stroke
+                    patients, ADHD management, and autism support programs.
                   </p>
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-green-400" />
-                      <span className="text-foreground">40% faster recovery rates in stroke rehabilitation</span>
+                      <span className="text-foreground">
+                        40% faster recovery rates in stroke rehabilitation
+                      </span>
                     </div>
                     <div className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-blue-400" />
-                      <span className="text-foreground">85% patient engagement improvement</span>
+                      <span className="text-foreground">
+                        85% patient engagement improvement
+                      </span>
                     </div>
                     <div className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-cyan-400" />
-                      <span className="text-foreground">HIPAA-compliant with family integration</span>
+                      <span className="text-foreground">
+                        HIPAA-compliant with family integration
+                      </span>
                     </div>
                   </div>
                 </div>
                 <div className="bg-gradient-to-br from-red-400/10 to-pink-400/10 rounded-2xl p-8 border border-red-400/20">
                   <div className="text-center">
-                    <div className="text-5xl font-bold text-red-400 mb-2">95%</div>
-                    <div className="text-lg text-foreground mb-2">Patient Satisfaction</div>
-                    <div className="text-sm text-muted-foreground">Athena.ai therapy programs</div>
+                    <div className="text-5xl font-bold text-red-400 mb-2">
+                      95%
+                    </div>
+                    <div className="text-lg text-foreground mb-2">
+                      Patient Satisfaction
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Athena.ai therapy programs
+                    </div>
                   </div>
                 </div>
               </div>
@@ -455,32 +583,47 @@ export function Why({ className }: WhyProps) {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="bg-gradient-to-br from-blue-400/10 to-indigo-400/10 rounded-2xl p-8 border border-blue-400/20 lg:order-1">
                   <div className="text-center">
-                    <div className="text-5xl font-bold text-blue-400 mb-2">300%</div>
-                    <div className="text-lg text-foreground mb-2">ROI Increase</div>
-                    <div className="text-sm text-muted-foreground">Enterprise implementations</div>
+                    <div className="text-5xl font-bold text-blue-400 mb-2">
+                      300%
+                    </div>
+                    <div className="text-lg text-foreground mb-2">
+                      ROI Increase
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Enterprise implementations
+                    </div>
                   </div>
                 </div>
                 <div className="lg:order-2">
                   <div className="flex items-center gap-3 mb-4">
                     <Building2 className="w-8 h-8 text-blue-400" />
-                    <h3 className="text-2xl font-bold text-foreground">Enterprise Operations</h3>
+                    <h3 className="text-2xl font-bold text-foreground">
+                      Enterprise Operations
+                    </h3>
                   </div>
                   <p className="text-muted-foreground mb-6">
-                    PartnerTech.ai and our WarRoom platform streamline business operations, automate workflows,
-                    and provide intelligent insights that drive growth and efficiency.
+                    PartnerTech.ai and our WarRoom platform streamline business
+                    operations, automate workflows, and provide intelligent
+                    insights that drive growth and efficiency.
                   </p>
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-purple-400" />
-                      <span className="text-foreground">Automated CRM routing and lead qualification</span>
+                      <span className="text-foreground">
+                        Automated CRM routing and lead qualification
+                      </span>
                     </div>
                     <div className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-orange-400" />
-                      <span className="text-foreground">Real-time business intelligence dashboards</span>
+                      <span className="text-foreground">
+                        Real-time business intelligence dashboards
+                      </span>
                     </div>
                     <div className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-teal-400" />
-                      <span className="text-foreground">24/7 AI-powered customer support</span>
+                      <span className="text-foreground">
+                        24/7 AI-powered customer support
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -491,32 +634,47 @@ export function Why({ className }: WhyProps) {
                 <div>
                   <div className="flex items-center gap-3 mb-4">
                     <Brain className="w-8 h-8 text-purple-400" />
-                    <h3 className="text-2xl font-bold text-foreground">Education & Training</h3>
+                    <h3 className="text-2xl font-bold text-foreground">
+                      Education & Training
+                    </h3>
                   </div>
                   <p className="text-muted-foreground mb-6">
-                    SVTTeach.ai transforms learning with adaptive curricula that scale from individual tutoring
-                    to enterprise training programs, all powered by our HACP™ escalation protocol.
+                    SVTTeach.ai transforms learning with adaptive curricula that
+                    scale from individual tutoring to enterprise training
+                    programs, all powered by our HACP™ escalation protocol.
                   </p>
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-yellow-400" />
-                      <span className="text-foreground">Personalized learning paths for every student</span>
+                      <span className="text-foreground">
+                        Personalized learning paths for every student
+                      </span>
                     </div>
                     <div className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-green-400" />
-                      <span className="text-foreground">Real-time progress tracking and insights</span>
+                      <span className="text-foreground">
+                        Real-time progress tracking and insights
+                      </span>
                     </div>
                     <div className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-indigo-400" />
-                      <span className="text-foreground">Scalable from 1 to 10,000+ learners</span>
+                      <span className="text-foreground">
+                        Scalable from 1 to 10,000+ learners
+                      </span>
                     </div>
                   </div>
                 </div>
                 <div className="bg-gradient-to-br from-purple-400/10 to-violet-400/10 rounded-2xl p-8 border border-purple-400/20">
                   <div className="text-center">
-                    <div className="text-5xl font-bold text-purple-400 mb-2">67%</div>
-                    <div className="text-lg text-foreground mb-2">Learning Speed</div>
-                    <div className="text-sm text-muted-foreground">Improvement vs traditional methods</div>
+                    <div className="text-5xl font-bold text-purple-400 mb-2">
+                      67%
+                    </div>
+                    <div className="text-lg text-foreground mb-2">
+                      Learning Speed
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Improvement vs traditional methods
+                    </div>
                   </div>
                 </div>
               </div>
@@ -529,11 +687,15 @@ export function Why({ className }: WhyProps) {
               Ready to Experience the Difference?
             </h3>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join thousands of organizations who've discovered what happens when AI meets purpose,
-              when technology serves the heart, and when innovation changes lives.
+              Join thousands of organizations who've discovered what happens
+              when AI meets purpose, when technology serves the heart, and when
+              innovation changes lives.
             </p>
             <div className="flex items-center justify-center gap-4">
-              <Button size="lg" className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-semibold shadow-[0_0_25px_rgba(255,215,0,0.7)] hover:shadow-[0_0_35px_rgba(255,215,0,0.9)] transition-all">
+              <Button
+                size="lg"
+                className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-semibold shadow-[0_0_25px_rgba(255,215,0,0.7)] hover:shadow-[0_0_35px_rgba(255,215,0,0.9)] transition-all"
+              >
                 <Rocket className="w-5 h-5 mr-2" />
                 Start Your Journey
               </Button>
@@ -550,10 +712,14 @@ export function Why({ className }: WhyProps) {
       <footer className="border-t border-border/30 p-8">
         <div className="flex items-center justify-center text-sm text-muted-foreground">
           <span>Powered by</span>
-          <span className="text-[hsl(var(--gold))] font-medium mx-2">SAINTSAL GOTTA GUY</span>
+          <span className="text-[hsl(var(--gold))] font-medium mx-2">
+            SAINTSAL GOTTA GUY
+          </span>
           <Sparkles className="w-4 h-4 text-[hsl(var(--gold))]" />
           <span className="mx-3">•</span>
-          <span className="text-cyan-400">Changing Lives Through Purpose-Driven AI</span>
+          <span className="text-cyan-400">
+            Changing Lives Through Purpose-Driven AI
+          </span>
         </div>
       </footer>
     </div>

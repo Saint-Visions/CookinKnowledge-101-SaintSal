@@ -12,7 +12,7 @@ import {
   Clock,
   ExternalLink,
   Bell,
-  Sparkles
+  Sparkles,
 } from "lucide-react";
 
 interface DashboardMainProps {
@@ -25,7 +25,9 @@ export function DashboardMain({ className }: DashboardMainProps) {
       {/* Header */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-8 gap-4">
         <div className="flex items-center gap-4">
-          <h1 className="text-xl lg:text-2xl font-bold text-foreground">Enterprise Command Center</h1>
+          <h1 className="text-xl lg:text-2xl font-bold text-foreground">
+            Enterprise Command Center
+          </h1>
           <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded uppercase tracking-wider font-medium">
             GET BUSY
           </span>
@@ -57,8 +59,12 @@ export function DashboardMain({ className }: DashboardMainProps) {
           <Card className="bg-card">
             <CardHeader>
               <div className="flex items-center justify-between">
-                <CardTitle className="text-lg font-semibold">⚡ Quick Actions</CardTitle>
-                <span className="text-sm text-muted-foreground">Explore complete your business efficiently</span>
+                <CardTitle className="text-lg font-semibold">
+                  ⚡ Quick Actions
+                </CardTitle>
+                <span className="text-sm text-muted-foreground">
+                  Explore complete your business efficiently
+                </span>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -71,7 +77,9 @@ export function DashboardMain({ className }: DashboardMainProps) {
                       </div>
                       <div>
                         <h3 className="font-medium">New Project</h3>
-                        <p className="text-sm text-muted-foreground">Create or import project</p>
+                        <p className="text-sm text-muted-foreground">
+                          Create or import project
+                        </p>
                       </div>
                     </div>
                   </CardContent>
@@ -85,7 +93,9 @@ export function DashboardMain({ className }: DashboardMainProps) {
                       </div>
                       <div>
                         <h3 className="font-medium">Book Meeting</h3>
-                        <p className="text-sm text-muted-foreground">Schedule consultation</p>
+                        <p className="text-sm text-muted-foreground">
+                          Schedule consultation
+                        </p>
                       </div>
                     </div>
                   </CardContent>
@@ -100,7 +110,9 @@ export function DashboardMain({ className }: DashboardMainProps) {
                         </div>
                         <div>
                           <h3 className="font-medium">SaintGPT 4.1</h3>
-                          <p className="text-sm text-muted-foreground">AI Assistant</p>
+                          <p className="text-sm text-muted-foreground">
+                            AI Assistant
+                          </p>
                         </div>
                       </div>
                     </CardContent>
@@ -114,15 +126,17 @@ export function DashboardMain({ className }: DashboardMainProps) {
                     <span className="text-red-400 text-sm">🚨</span>
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm font-medium">**Enterprise Command Center Active** Welcome to your AI powered business central room.</p>
+                    <p className="text-sm font-medium">
+                      **Enterprise Command Center Active** Welcome to your AI
+                      powered business central room.
+                    </p>
                     <p className="text-sm text-muted-foreground mt-1">
-                      I can analyze your pipeline, draft contracts sequences, and execute GHL workflows. What can I help you accomplish?
+                      I can analyze your pipeline, draft contracts sequences,
+                      and execute GHL workflows. What can I help you accomplish?
                     </p>
                   </div>
                 </div>
               </div>
-
-
             </CardContent>
           </Card>
         </div>
@@ -133,7 +147,9 @@ export function DashboardMain({ className }: DashboardMainProps) {
           <Card className="bg-card">
             <CardHeader>
               <div className="flex items-center justify-between">
-                <CardTitle className="text-sm font-medium">📈 Pipeline Overview</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  📈 Pipeline Overview
+                </CardTitle>
                 <Button variant="ghost" size="sm">
                   <ExternalLink className="w-4 h-4" />
                 </Button>
@@ -143,11 +159,15 @@ export function DashboardMain({ className }: DashboardMainProps) {
               <div className="space-y-4">
                 <div>
                   <div className="text-2xl font-bold text-primary">$57500</div>
-                  <div className="text-sm text-muted-foreground">Current pipeline</div>
+                  <div className="text-sm text-muted-foreground">
+                    Current pipeline
+                  </div>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">$24.6k</span>
+                    <span className="text-sm text-muted-foreground">
+                      $24.6k
+                    </span>
                     <span className="text-sm font-medium">12</span>
                   </div>
                   <div className="flex justify-between items-center">
@@ -162,7 +182,9 @@ export function DashboardMain({ className }: DashboardMainProps) {
           {/* GHL Quick Access */}
           <Card className="bg-card">
             <CardHeader>
-              <CardTitle className="text-sm font-medium">⚡ GHL Quick Access</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                ⚡ GHL Quick Access
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               <div className="flex items-center gap-3 p-2 rounded hover:bg-secondary/50 cursor-pointer">
@@ -191,13 +213,19 @@ export function DashboardMain({ className }: DashboardMainProps) {
           {/* Recent Activity */}
           <Card className="bg-card">
             <CardHeader>
-              <CardTitle className="text-sm font-medium">🔄 Recent Activity</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                🔄 Recent Activity
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-center py-8">
                 <Clock className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
-                <p className="text-sm text-muted-foreground">No recent activity</p>
-                <p className="text-xs text-muted-foreground mt-1">Start working to see updates</p>
+                <p className="text-sm text-muted-foreground">
+                  No recent activity
+                </p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Start working to see updates
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -211,8 +239,14 @@ export function DashboardMain({ className }: DashboardMainProps) {
             API Saint Gotthardt 🔥
           </div>
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <span>Add more options within GHL WorkFlows or leverage strategic</span>
-            <Button variant="ghost" size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+            <span>
+              Add more options within GHL WorkFlows or leverage strategic
+            </span>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+            >
               ⚡
             </Button>
           </div>

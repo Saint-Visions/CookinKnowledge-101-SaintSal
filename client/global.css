@@ -141,7 +141,8 @@
 }
 
 @keyframes twinkle {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.2;
     transform: scale(0.8);
   }
@@ -175,7 +176,8 @@
 }
 
 @keyframes soft-glow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.1;
     transform: scale(0.8);
     filter: blur(0.4px);
@@ -188,42 +190,85 @@
 }
 
 @keyframes orbital-1 {
-  0% { transform: rotate(0deg) translateX(80px) rotate(0deg); opacity: 0.4; }
-  100% { transform: rotate(360deg) translateX(80px) rotate(-360deg); opacity: 0.8; }
+  0% {
+    transform: rotate(0deg) translateX(80px) rotate(0deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: rotate(360deg) translateX(80px) rotate(-360deg);
+    opacity: 0.8;
+  }
 }
 
 @keyframes orbital-2 {
-  0% { transform: rotate(0deg) translateX(95px) rotate(0deg); opacity: 0.3; }
-  100% { transform: rotate(-360deg) translateX(95px) rotate(360deg); opacity: 0.6; }
+  0% {
+    transform: rotate(0deg) translateX(95px) rotate(0deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: rotate(-360deg) translateX(95px) rotate(360deg);
+    opacity: 0.6;
+  }
 }
 
 @keyframes orbital-3 {
-  0% { transform: rotate(0deg) translateX(110px) rotate(0deg); opacity: 0.5; }
-  100% { transform: rotate(360deg) translateX(110px) rotate(-360deg); opacity: 0.9; }
+  0% {
+    transform: rotate(0deg) translateX(110px) rotate(0deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotate(360deg) translateX(110px) rotate(-360deg);
+    opacity: 0.9;
+  }
 }
 
 @keyframes orbital-4 {
-  0% { transform: rotate(0deg) translateX(65px) rotate(0deg); opacity: 0.2; }
-  100% { transform: rotate(-360deg) translateX(65px) rotate(360deg); opacity: 0.5; }
+  0% {
+    transform: rotate(0deg) translateX(65px) rotate(0deg);
+    opacity: 0.2;
+  }
+  100% {
+    transform: rotate(-360deg) translateX(65px) rotate(360deg);
+    opacity: 0.5;
+  }
 }
 
 @keyframes orbital-5 {
-  0% { transform: rotate(0deg) translateX(125px) rotate(0deg); opacity: 0.6; }
-  100% { transform: rotate(360deg) translateX(125px) rotate(-360deg); opacity: 0.3; }
+  0% {
+    transform: rotate(0deg) translateX(125px) rotate(0deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: rotate(360deg) translateX(125px) rotate(-360deg);
+    opacity: 0.3;
+  }
 }
 
-.animate-orbital-1 { animation: orbital-1 20s infinite linear; }
-.animate-orbital-2 { animation: orbital-2 25s infinite linear reverse; }
-.animate-orbital-3 { animation: orbital-3 18s infinite linear; }
-.animate-orbital-4 { animation: orbital-4 30s infinite linear reverse; }
-.animate-orbital-5 { animation: orbital-5 22s infinite linear; }
+.animate-orbital-1 {
+  animation: orbital-1 20s infinite linear;
+}
+.animate-orbital-2 {
+  animation: orbital-2 25s infinite linear reverse;
+}
+.animate-orbital-3 {
+  animation: orbital-3 18s infinite linear;
+}
+.animate-orbital-4 {
+  animation: orbital-4 30s infinite linear reverse;
+}
+.animate-orbital-5 {
+  animation: orbital-5 22s infinite linear;
+}
 
 @keyframes hero-glow {
   0% {
-    filter: drop-shadow(0 0 80px rgba(255,215,0,0.8)) drop-shadow(0 0 40px rgba(255,215,0,0.9)) brightness(1.1) contrast(1.05);
+    filter: drop-shadow(0 0 80px rgba(255, 215, 0, 0.8))
+      drop-shadow(0 0 40px rgba(255, 215, 0, 0.9)) brightness(1.1)
+      contrast(1.05);
   }
   100% {
-    filter: drop-shadow(0 0 120px rgba(255,215,0,1)) drop-shadow(0 0 60px rgba(255,215,0,1)) brightness(1.3) contrast(1.15);
+    filter: drop-shadow(0 0 120px rgba(255, 215, 0, 1))
+      drop-shadow(0 0 60px rgba(255, 215, 0, 1)) brightness(1.3) contrast(1.15);
   }
 }
 
@@ -266,7 +311,8 @@
 }
 
 @keyframes brain-bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -276,9 +322,9 @@
 
 @keyframes character-glow {
   0% {
-    filter: drop-shadow(0 0 20px rgba(255,215,0,0.2)) brightness(1.05);
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.2)) brightness(1.05);
   }
   100% {
-    filter: drop-shadow(0 0 40px rgba(255,215,0,0.4)) brightness(1.15);
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.4)) brightness(1.15);
   }
 }

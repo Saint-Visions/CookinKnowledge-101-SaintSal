@@ -113,7 +113,10 @@ router.post("/search", async (req, res) => {
   try {
     const { query, context, userContext } = req.body;
 
-    console.log("Search request with API key:", OPENAI_CONFIG.apiKey?.substring(0, 20) + "...");
+    console.log(
+      "Search request with API key:",
+      OPENAI_CONFIG.apiKey?.substring(0, 20) + "...",
+    );
 
     // Use custom prompt for Supersal™ training
     const systemPrompt = `${SUPERSAL_TRAINING.clientMode.personality}
@@ -168,7 +171,10 @@ You have comprehensive knowledge about SaintVision AI products, pricing, feature
     const hasConversionOpportunity =
       /upgrade|premium|enterprise|pricing|plan|features/i.test(query);
 
-    console.log("Sending successful response:", response_text?.substring(0, 50) + "...");
+    console.log(
+      "Sending successful response:",
+      response_text?.substring(0, 50) + "...",
+    );
 
     res.json({
       provider: "openai",
@@ -251,7 +257,10 @@ You have access to internal SOPs, technical documentation, and can assist with c
     const shouldEscalate =
       /urgent|critical|escalate|high.value|enterprise.client/i.test(message);
 
-    console.log("Azure companion response:", data.choices[0].message.content?.substring(0, 50) + "...");
+    console.log(
+      "Azure companion response:",
+      data.choices[0].message.content?.substring(0, 50) + "...",
+    );
 
     res.json({
       provider: "azure",
@@ -321,13 +330,19 @@ router.post("/chat", async (req, res) => {
 
 // Simple ping test
 router.get("/ping", (req, res) => {
-  res.json({ status: "AI routes working", timestamp: new Date().toISOString() });
+  res.json({
+    status: "AI routes working",
+    timestamp: new Date().toISOString(),
+  });
 });
 
 // Quick Test Endpoint
 router.get("/test", async (req, res) => {
   try {
-    console.log("Testing with API key:", OPENAI_CONFIG.apiKey?.substring(0, 20) + "...");
+    console.log(
+      "Testing with API key:",
+      OPENAI_CONFIG.apiKey?.substring(0, 20) + "...",
+    );
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",

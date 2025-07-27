@@ -33,13 +33,14 @@ export function Auth({ className }: AuthProps) {
     password: "",
   });
 
-  const { signIn, signUp, signInWithGoogle, signInWithGitHub, user } = useAuth();
+  const { signIn, signUp, signInWithGoogle, signInWithGitHub, user } =
+    useAuth();
   const navigate = useNavigate();
 
   // Redirect if already logged in
   useEffect(() => {
     if (user) {
-      navigate('/warroom');
+      navigate("/warroom");
     }
   }, [user, navigate]);
 
@@ -60,7 +61,7 @@ export function Auth({ className }: AuthProps) {
         setError(result.error.message || "An error occurred");
       } else {
         // Success! Navigate to WarRoom
-        navigate('/warroom');
+        navigate("/warroom");
       }
     } catch (err) {
       setError("An unexpected error occurred");
@@ -132,11 +133,13 @@ export function Auth({ className }: AuthProps) {
                 variant="outline"
                 className="w-full bg-white hover:bg-gray-50 text-black border-gray-300 transition-all"
                 onClick={async () => {
-                  console.log('Google OAuth attempt started...');
+                  console.log("Google OAuth attempt started...");
                   const result = await signInWithGoogle();
                   if (result.error) {
-                    console.error('Google OAuth failed:', result.error);
-                    setError('Google authentication failed: ' + result.error.message);
+                    console.error("Google OAuth failed:", result.error);
+                    setError(
+                      "Google authentication failed: " + result.error.message,
+                    );
                   }
                 }}
                 disabled={loading}
@@ -167,11 +170,13 @@ export function Auth({ className }: AuthProps) {
                 variant="outline"
                 className="w-full bg-gray-900 hover:bg-gray-800 text-white border-gray-700 transition-all"
                 onClick={async () => {
-                  console.log('GitHub OAuth attempt started...');
+                  console.log("GitHub OAuth attempt started...");
                   const result = await signInWithGitHub();
                   if (result.error) {
-                    console.error('GitHub OAuth failed:', result.error);
-                    setError('GitHub authentication failed: ' + result.error.message);
+                    console.error("GitHub OAuth failed:", result.error);
+                    setError(
+                      "GitHub authentication failed: " + result.error.message,
+                    );
                   }
                 }}
                 disabled={loading}

@@ -93,13 +93,11 @@ const apiTests = {
 ### 🤖 RECOMMENDED AI AUDIT TOOLS:
 
 1. **Azure API Management** (Perfect for your stack)
-
    - Built-in AI monitoring
    - Automatic scaling
    - Security scanning
 
 2. **Postman AI Assistant**
-
    - Generates tests automatically
    - Monitors API health
    - Suggests optimizations

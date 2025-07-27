@@ -7,26 +7,26 @@ export default function GlobalFooter() {
       { name: "WarRoom", href: "/warroom" },
       { name: "Pricing", href: "/pricing" },
       { name: "Enterprise", href: "/enterprise" },
-      { name: "API", href: "/api" }
+      { name: "API", href: "/api" },
     ],
     Company: [
       { name: "About", href: "/about" },
       { name: "Careers", href: "/careers" },
       { name: "Contact", href: "/contact" },
-      { name: "Blog", href: "/blog" }
+      { name: "Blog", href: "/blog" },
     ],
     Resources: [
       { name: "Documentation", href: "/docs" },
       { name: "Help Center", href: "/help" },
       { name: "Community", href: "/community" },
-      { name: "Status", href: "/status" }
+      { name: "Status", href: "/status" },
     ],
     Legal: [
       { name: "Privacy Policy", href: "/privacy" },
       { name: "Terms of Service", href: "/terms" },
       { name: "Cookie Policy", href: "/cookies" },
-      { name: "Patent Info", href: "/patent" }
-    ]
+      { name: "Patent Info", href: "/patent" },
+    ],
   };
 
   return (
@@ -47,7 +47,8 @@ export default function GlobalFooter() {
               </span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed mb-3">
-              The future of enterprise AI collaboration. Patent-protected technology, faith-aligned values.
+              The future of enterprise AI collaboration. Patent-protected
+              technology, faith-aligned values.
             </p>
             <div className="text-xs text-white/40">
               © 2025 Saint Vision Group LLC
@@ -129,7 +130,9 @@ export default function GlobalFooter() {
             {/* Powered By - Moved Up */}
             <div className="text-center">
               <p className="text-sm text-white/50">
-                Powered by <span className="text-yellow-400 font-medium">SaintSal™</span> • Where AI meets intuition
+                Powered by{" "}
+                <span className="text-yellow-400 font-medium">SaintSal™</span>{" "}
+                • Where AI meets intuition
               </p>
             </div>
 
@@ -138,7 +141,10 @@ export default function GlobalFooter() {
               <span>Protected by U.S. Patent No. 10,290,222</span>
               <div className="w-1 h-1 bg-green-400 rounded-full animate-pulse shadow-[0_0_4px_rgba(34,197,94,0.8)]"></div>
               <span>SOC 2 Compliant</span>
-              <div className="w-1 h-1 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_4px_rgba(34,211,238,0.8)]" style={{animationDelay: '0.5s'}}></div>
+              <div
+                className="w-1 h-1 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_4px_rgba(34,211,238,0.8)]"
+                style={{ animationDelay: "0.5s" }}
+              ></div>
               <span>GDPR Ready</span>
             </div>
 

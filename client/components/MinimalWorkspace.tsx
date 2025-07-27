@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { 
-  Search, 
-  Plus, 
+import {
+  Search,
+  Plus,
   Sparkles,
   Menu,
   X,
   ArrowRight,
   Zap,
-  Target
+  Target,
 } from "lucide-react";
 
 interface MinimalWorkspaceProps {
@@ -19,7 +19,7 @@ interface MinimalWorkspaceProps {
 const quickActions = [
   { label: "New Project", icon: Plus, link: "#" },
   { label: "SaintGPT", icon: Sparkles, link: "/saintgpt" },
-  { label: "Search", icon: Search, link: "#" }
+  { label: "Search", icon: Search, link: "#" },
 ];
 
 export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
@@ -27,7 +27,10 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className={`min-h-screen relative ${className}`} style={{ backgroundColor: '#000000' }}>
+    <div
+      className={`min-h-screen relative ${className}`}
+      style={{ backgroundColor: "#000000" }}
+    >
       {/* Fixed Background Logo */}
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-40 overflow-hidden">
         <div className="relative">
@@ -50,9 +53,11 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
       </Button>
 
       {/* Minimal Sidebar */}
-      <div className={`fixed left-0 top-0 h-full w-16 bg-sidebar-background/80 backdrop-blur-xl border-r border-sidebar-border/30 z-40 transition-transform duration-300 ${
-        sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-      }`}>
+      <div
+        className={`fixed left-0 top-0 h-full w-16 bg-sidebar-background/80 backdrop-blur-xl border-r border-sidebar-border/30 z-40 transition-transform duration-300 ${
+          sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+        }`}
+      >
         <div className="flex flex-col items-center py-6 space-y-6">
           {/* Logo */}
           <div className="w-10 h-10 flex items-center justify-center">
@@ -72,23 +77,21 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
                   <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
                 </div>
               );
-              
-              return action.link.startsWith('/') ? (
+
+              return action.link.startsWith("/") ? (
                 <Link key={index} to={action.link}>
                   {content}
                 </Link>
               ) : (
-                <div key={index}>
-                  {content}
-                </div>
+                <div key={index}>{content}</div>
               );
             })}
           </div>
 
           {/* Bottom Logo */}
           <div className="mt-auto">
-            <img 
-              src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fa37d8696bc844d9197d6f71555c9f346?format=webp&width=40" 
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fa37d8696bc844d9197d6f71555c9f346?format=webp&width=40"
               alt="Sv. Cookin' Knowledge"
               className="w-8 h-8 opacity-60"
             />
@@ -116,15 +119,19 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
                   </h1>
                   <h2 className="text-2xl lg:text-3xl font-bold">
                     <span className="text-[hsl(var(--gold))]">Saint</span>
-                    <span className="text-[hsl(var(--neon))] font-extrabold">Vision</span>
+                    <span className="text-[hsl(var(--neon))] font-extrabold">
+                      Vision
+                    </span>
                     <span className="text-foreground">AI?</span>
                   </h2>
                 </div>
               </div>
-              
+
               <div className="hidden lg:flex items-center gap-2 text-sm text-muted-foreground">
                 <div className="w-2 h-2 bg-[hsl(var(--neon-green))] rounded-full animate-pulse"></div>
-                <span className="text-[hsl(var(--neon-green))]">Enterprise Ready</span>
+                <span className="text-[hsl(var(--neon-green))]">
+                  Enterprise Ready
+                </span>
               </div>
             </div>
 
@@ -133,25 +140,35 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
               <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-12">
                   <p className="text-lg lg:text-xl text-muted-foreground mb-8 leading-relaxed">
-                    Because your business deserves AI that actually 
-                    <span className="text-[hsl(var(--neon))] font-semibold"> makes sense</span> — not 
-                    another confusing ChatGPT clone
+                    Because your business deserves AI that actually
+                    <span className="text-[hsl(var(--neon))] font-semibold">
+                      {" "}
+                      makes sense
+                    </span>{" "}
+                    — not another confusing ChatGPT clone
                   </p>
-                  
+
                   <div className="flex flex-wrap justify-center gap-6 mb-8">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-[hsl(var(--neon-green))] rounded-full"></div>
-                      <span className="text-sm text-muted-foreground">No Learning Curve</span>
+                      <span className="text-sm text-muted-foreground">
+                        No Learning Curve
+                      </span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-[hsl(var(--neon-blue))] rounded-full"></div>
                       <span className="text-sm text-muted-foreground">
-                        <span className="text-[hsl(var(--neon-blue))]">Instant</span> Results
+                        <span className="text-[hsl(var(--neon-blue))]">
+                          Instant
+                        </span>{" "}
+                        Results
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="text-sm text-muted-foreground">Built For You</span>
+                      <span className="text-sm text-muted-foreground">
+                        Built For You
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -167,7 +184,7 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
                       placeholder="What can I help you accomplish today?"
                       className="flex-1 bg-transparent border-0 outline-none text-lg text-foreground placeholder:text-muted-foreground"
                     />
-                    <Button 
+                    <Button
                       className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 rounded-xl"
                       size="sm"
                     >
@@ -188,7 +205,11 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
                         </span>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Your <span className="text-[hsl(var(--neon))]">intelligent</span> business companion
+                        Your{" "}
+                        <span className="text-[hsl(var(--neon))]">
+                          intelligent
+                        </span>{" "}
+                        business companion
                       </p>
                     </div>
                   </Link>
@@ -196,20 +217,30 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
                   <div className="p-6 rounded-xl bg-muted/10 border border-border/30 hover:border-border/50 cursor-pointer transition-all duration-300 group">
                     <div className="flex items-center gap-3 mb-3">
                       <Plus className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                      <span className="font-semibold text-foreground">New Project</span>
+                      <span className="font-semibold text-foreground">
+                        New Project
+                      </span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Start something <span className="text-[hsl(var(--gold))]">extraordinary</span>
+                      Start something{" "}
+                      <span className="text-[hsl(var(--gold))]">
+                        extraordinary
+                      </span>
                     </p>
                   </div>
 
                   <div className="p-6 rounded-xl bg-muted/10 border border-border/30 hover:border-border/50 cursor-pointer transition-all duration-300 group">
                     <div className="flex items-center gap-3 mb-3">
                       <Zap className="w-5 h-5 text-muted-foreground group-hover:text-[hsl(var(--neon))] transition-colors" />
-                      <span className="font-semibold text-foreground">Quick Actions</span>
+                      <span className="font-semibold text-foreground">
+                        Quick Actions
+                      </span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      <span className="text-[hsl(var(--neon))]">Lightning fast</span> productivity
+                      <span className="text-[hsl(var(--neon))]">
+                        Lightning fast
+                      </span>{" "}
+                      productivity
                     </p>
                   </div>
                 </div>
@@ -229,15 +260,19 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
         {/* Footer */}
         <div className="mt-auto p-6 text-center">
           <div className="text-xs text-muted-foreground">
-            Powered by <span className="text-primary">Cookin' Knowledge</span> • 
-            <span className="text-[hsl(var(--neon))]"> API Saint Gotthardt</span> 🔥
+            Powered by <span className="text-primary">Cookin' Knowledge</span> •
+            <span className="text-[hsl(var(--neon))]">
+              {" "}
+              API Saint Gotthardt
+            </span>{" "}
+            🔥
           </div>
         </div>
       </div>
 
       {/* Overlay for mobile */}
       {sidebarOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-background/80 backdrop-blur-sm z-30 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />

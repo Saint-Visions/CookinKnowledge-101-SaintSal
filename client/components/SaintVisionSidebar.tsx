@@ -1,21 +1,21 @@
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
-import { 
-  Crown, 
-  Building2, 
-  StickyNote, 
-  Wrench, 
-  ImageIcon, 
-  Rocket, 
-  MessageSquare, 
-  Users, 
-  Shield, 
-  TrendingUp, 
+import {
+  Crown,
+  Building2,
+  StickyNote,
+  Wrench,
+  ImageIcon,
+  Rocket,
+  MessageSquare,
+  Users,
+  Shield,
+  TrendingUp,
   Palette,
   User,
   Sparkles,
   Target,
-  Zap
+  Zap,
 } from "lucide-react";
 
 interface SaintVisionSidebarProps {
@@ -26,74 +26,79 @@ const sidebarItems = [
   {
     icon: User,
     label: "My Companion",
-    hasNotification: true
+    hasNotification: true,
   },
   {
     icon: Building2,
     label: "My Business",
-    hasNotification: true
+    hasNotification: true,
   },
   {
     icon: StickyNote,
     label: "Sticky Notes",
-    hasNotification: true
+    hasNotification: true,
   },
   {
     icon: Sparkles,
     label: "SaintGPT 4.1",
     hasNotification: false,
-    link: "/saintgpt"
+    link: "/saintgpt",
   },
   {
     icon: Wrench,
     label: "AI Tools",
-    hasNotification: true
+    hasNotification: true,
   },
   {
     icon: ImageIcon,
     label: "Image Generator",
-    hasNotification: true
+    hasNotification: true,
   },
   {
     icon: Rocket,
     label: "SVP Launched",
-    hasNotification: false
+    hasNotification: false,
   },
   {
     icon: MessageSquare,
     label: "Feedback & Help",
-    hasNotification: true
+    hasNotification: true,
   },
   {
     icon: Users,
     label: "PartnerTech.ai CRM",
-    hasNotification: false
+    hasNotification: false,
   },
   {
     icon: Shield,
     label: "Client Portal",
-    hasNotification: true
+    hasNotification: true,
   },
   {
     icon: TrendingUp,
     label: "Upgrade Tier",
-    hasNotification: false
+    hasNotification: false,
   },
   {
     icon: Palette,
     label: "SVT Institute of AI β ⭐ ⭐",
-    hasNotification: false
+    hasNotification: false,
   },
   {
     icon: User,
     label: "My Account",
-    hasNotification: false
-  }
+    hasNotification: false,
+  },
 ];
 
 export function SaintVisionSidebar({ className }: SaintVisionSidebarProps) {
   return (
-    <div className={cn("w-80 lg:w-80 md:w-64 bg-sidebar-background border-r border-sidebar-border/50 flex flex-col", className)}>
+    <div
+      className={cn(
+        "w-80 lg:w-80 md:w-64 bg-sidebar-background border-r border-sidebar-border/50 flex flex-col",
+        className,
+      )}
+    >
       {/* Header */}
       <div className="p-6 border-b border-sidebar-border/30">
         <div className="flex items-center gap-3 mb-6">
@@ -101,11 +106,15 @@ export function SaintVisionSidebar({ className }: SaintVisionSidebarProps) {
             <Target className="w-6 h-6 text-primary-foreground" />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-sidebar-foreground">SaintVisionAI™</h1>
-            <p className="text-xs text-primary uppercase tracking-wider font-medium">COSMIC KNOWLEDGE</p>
+            <h1 className="text-lg font-bold text-sidebar-foreground">
+              SaintVisionAI™
+            </h1>
+            <p className="text-xs text-primary uppercase tracking-wider font-medium">
+              COSMIC KNOWLEDGE
+            </p>
           </div>
         </div>
-        
+
         <div className="text-xs bg-primary/10 text-primary px-3 py-2 rounded-lg uppercase tracking-wider font-medium text-center">
           Enterprise Command Center
         </div>
@@ -130,15 +139,13 @@ export function SaintVisionSidebar({ className }: SaintVisionSidebarProps) {
               )}
             </div>
           );
-          
+
           return item.link ? (
             <Link key={index} to={item.link}>
               {content}
             </Link>
           ) : (
-            <div key={index}>
-              {content}
-            </div>
+            <div key={index}>{content}</div>
           );
         })}
       </div>
@@ -161,7 +168,7 @@ export function SaintVisionSidebar({ className }: SaintVisionSidebarProps) {
             </div>
           </div>
         </div>
-        
+
         <div className="text-center mt-4">
           <div className="text-xs text-muted-foreground">
             AP Saint Gotthardt 🔥

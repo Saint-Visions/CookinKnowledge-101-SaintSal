@@ -146,11 +146,9 @@ router.post("/audit", validateToken, async (req, res) => {
       poweredBy: "SaintSal AI & SaintVisionAI Route Intelligence",
     });
   } catch (error) {
-    res
-      .status(400)
-      .json({
-        error: error instanceof z.ZodError ? error.errors : "Audit failed",
-      });
+    res.status(400).json({
+      error: error instanceof z.ZodError ? error.errors : "Audit failed",
+    });
   }
 });
 
