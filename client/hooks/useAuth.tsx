@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import { User, Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
 import { getFeatureAccess, getFreeMessageLimit, getUpgradePrompt } from '@/utils/pricingTiers'
+import { getUserFeatures } from '@/lib/auth/planUtils'
 
 interface AuthContextType {
   user: User | null
@@ -31,26 +32,30 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [messageCount, setMessageCount] = useState(0)
   const [features, setFeatures] = useState<Record<string, boolean>>({})
 
-  // 🔐 EXTRACT USER DATA HELPER
+  // 🔐 EXTRACT USER DATA HELPER WITH PLAN LOGIC
   const extractUserData = (session: Session | null) => {
     if (!session?.user) return { tier: 'free', features: {} }
-    
+
     const userData = session.user.user_metadata || {}
-    
+
     // Extract tier from multiple possible sources (Stripe webhook updates this)
-    const tier = userData.tier || userData.subscription_tier || 'free'
-    
-    // Extract features from user metadata (set by Stripe webhook)
-    const userFeatures = userData.features || {}
-    
-    console.log('🔐 User data extracted:', { 
-      email: session.user.email, 
-      tier, 
-      features: Object.keys(userFeatures),
+    const tier = userData.tier || userData.subscription_tier || userData.plan || 'free'
+
+    // 🎯 USE PLAN UTILS FOR CONSISTENT FEATURE MAPPING
+    const planFeatures = getUserFeatures(tier)
+
+    // Merge with any custom features from user metadata
+    const userFeatures = { ...planFeatures, ...(userData.features || {}) }
+
+    console.log('🔐 User data extracted with planUtils:', {
+      email: session.user.email,
+      tier,
+      planFeatures,
+      finalFeatures: Object.keys(userFeatures),
       plan: userData.plan,
-      billingStatus: userData.billingStatus 
+      billingStatus: userData.billingStatus
     })
-    
+
     return { tier, features: userFeatures }
   }
 
