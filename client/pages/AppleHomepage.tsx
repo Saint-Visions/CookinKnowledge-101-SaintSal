@@ -102,21 +102,20 @@ export default function AppleHomepage() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
-      {/* Parallax Background */}
+      {/* Parallax Background - Fixed Throughout Scroll */}
       <div
         className="fixed inset-0 z-0"
         style={{
           backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F446d6f0fa2c34f478f99f49fc6ba7f85?format=webp&width=800')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center 30%',
+          backgroundPosition: 'center 35%',
           backgroundAttachment: 'fixed',
-          transform: `translateY(${scrollY * 0.5}px)`,
-          filter: 'brightness(0.6)'
+          filter: 'brightness(0.7)'
         }}
       />
 
-      {/* Charcoal Overlay */}
-      <div className="fixed inset-0 z-0 bg-gray-900/20 backdrop-blur-[0.3px]" />
+      {/* Clean Overlay */}
+      <div className="fixed inset-0 z-0 bg-black/30" />
 
       {/* Navigation */}
       <GlobalHeader />
