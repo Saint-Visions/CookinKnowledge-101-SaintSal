@@ -34,10 +34,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setSession(session)
         setUser(session?.user ?? null)
         setLoading(false)
-        
+
+        // Note: Redirect will be handled by components, not here
         if (event === 'SIGNED_IN') {
-          // Redirect to WarRoom after successful login
-          window.location.href = '/warroom'
+          console.log('User signed in:', session?.user?.email)
         }
       }
     )
