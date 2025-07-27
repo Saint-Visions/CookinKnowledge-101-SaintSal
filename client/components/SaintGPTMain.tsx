@@ -118,7 +118,13 @@ export function SaintGPTMain({ className }: SaintGPTMainProps) {
                     key={index}
                     variant="outline"
                     className="p-3 lg:p-4 h-auto text-left justify-start hover:bg-gray-800 border-gray-700 text-gray-300"
-                    onClick={() => setMessage(suggestion)}
+                    onClick={() => {
+                      setMessage(suggestion);
+                      // Auto-send after setting message
+                      setTimeout(() => {
+                        handleSend();
+                      }, 100);
+                    }}
                   >
                     <div>
                       <div className="font-medium text-xs lg:text-sm">{suggestion}</div>
