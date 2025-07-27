@@ -234,7 +234,7 @@ export default function AppleHomepage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {eliteTech.map((tech, index) => (
-              <Card key={index} className="bg-gray-800/30 backdrop-blur-sm group hover:bg-gray-800/50 transition-all duration-500 shadow-lg border-0">
+              <Card key={index} className="bg-gray-700/30 backdrop-blur-sm group hover:bg-gray-700/50 transition-all duration-500 shadow-lg border-0">
                 <CardContent className="p-8">
                   <div className="flex items-center justify-between mb-6">
                     <div className="p-3 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-xl group-hover:scale-110 transition-transform duration-300">
