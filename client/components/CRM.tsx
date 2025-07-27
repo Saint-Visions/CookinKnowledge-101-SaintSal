@@ -30,6 +30,7 @@ interface CRMProps {
 
 export function CRM({ className }: CRMProps) {
   const [sidebarOpen, setSidebarOpen] = useState(true); // Default open on desktop
+  const [isLoading, setIsLoading] = useState(true); // Track iframe loading state
 
   return (
     <div
