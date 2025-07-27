@@ -103,7 +103,7 @@ export default function Pricing() {
       highlight: "Most businesses choose this plan",
       action: () => {
         console.log('🔥 CORE TOOLS BUTTON CLICKED');
-        window.open('https://buy.stripe.com/fZe5mX7Hh3bi2cw4gi', '_blank');
+        window.open('https://buy.stripe.com/test_aEU3cjdhs6jK0487st', '_blank');
       }
     },
     {
