@@ -129,7 +129,7 @@ export default function Pricing() {
       popular: false,
       action: () => {
         console.log('🔥 PRO SUITE BUTTON CLICKED');
-        window.open('https://buy.stripe.com/aEU8yb6Dd9vW5kE28c', '_blank');
+        window.open('https://buy.stripe.com/test_bIY28f5L3eCe148eUV', '_blank');
       }
     },
     {
