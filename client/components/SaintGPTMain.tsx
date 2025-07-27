@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { 
-  Send, 
-  Paperclip, 
-  Mic, 
-  Square, 
+import {
+  Send,
+  Paperclip,
+  Mic,
+  Square,
   Sparkles,
-  ArrowUp
+  ArrowUp,
+  ArrowLeft
 } from "lucide-react";
 
 interface SaintGPTMainProps {
