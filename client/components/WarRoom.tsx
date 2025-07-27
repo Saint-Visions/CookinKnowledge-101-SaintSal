@@ -696,14 +696,14 @@ export function WarRoom({ className }: WarRoomProps) {
 
             <div className="flex items-center gap-2 flex-shrink-0">
               <Button variant="ghost" size="sm">
-                <Mic className="w-4 h-4 text-cyan-400" />
+                <Mic className="w-4 h-4 text-[hsl(var(--neon))]" />
               </Button>
 
               <Button
                 size="sm"
                 onClick={processWorkspaceInput}
                 disabled={!workspaceInput.trim() || isProcessing}
-                className="bg-cyan-400 hover:bg-cyan-300 text-black rounded-lg px-4 shadow-[0_0_15px_rgba(34,211,238,0.4)] disabled:opacity-50"
+                className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black rounded-lg px-4 shadow-[0_0_15px_rgba(255,215,0,0.4)] disabled:opacity-50"
               >
                 {isProcessing ? (
                   <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
