@@ -175,59 +175,9 @@ const toolCategories = [
 export function Tools({ className }: ToolsProps) {
   const navigate = useNavigate();
 
-  const handleToolClick = (toolName: string) => {
-    switch (toolName) {
-      case 'SaintSalGPT 4.1':
-        navigate('/search'); // Working AI search page
-        break;
-      case 'Sticky Notes AI':
-        navigate('/sticky-notes'); // Working sticky notes tool
-        break;
-      case 'AI Tools Suite':
-        navigate('/tools'); // Stay on tools page to see all tools
-        break;
-      case 'Data Analytics':
-        navigate('/dashboard'); // Working dashboard with analytics
-        break;
-      case 'Image Generator':
-        navigate('/image-generator'); // Working image generation tool
-        break;
-      case 'SVG Launchpad':
-        navigate('/broker'); // Working SVG broker page
-        break;
-      case 'Video Studio':
-        alert('🎬 Video Studio\n\nProfessional video creation coming soon!\n\n• AI-powered editing\n• Template library\n• Voice synthesis\n• Auto-subtitles');
-        break;
-      case 'Design Studio':
-        alert('🎨 Design Studio\n\nProfessional design tools coming soon!\n\n• Template library\n• Brand management\n• Asset generation\n• Collaboration tools');
-        break;
-      case 'My Business':
-        navigate('/dashboard'); // Working business dashboard
-        break;
-      case 'PartnerTech.ai CRM':
-        navigate('/crm'); // Working CRM page
-        break;
-      case 'Smart Scheduler':
-        navigate('/warroom'); // Use WarRoom for scheduling workflows
-        break;
-      case 'Email Assistant':
-        navigate('/email-assistant'); // Working email assistant tool
-        break;
-      case 'SVT Institute of AI':
-        navigate('/institute'); // Working institute page
-        break;
-      case 'Code Academy':
-        navigate('/institute'); // Route to institute for learning
-        break;
-      case 'Skill Tracker':
-        alert('📊 Skill Tracker\n\nProfessional development tracking coming soon!\n\n• Progress monitoring\n• Skill assessments\n• Learning paths\n• Certification tracking');
-        break;
-      case 'Progress Analytics':
-        navigate('/dashboard'); // Working dashboard with analytics
-        break;
-      default:
-        navigate('/contact'); // Route to contact for support
-    }
+  // Use validation-based tool click handler
+  const handleToolClick = async (toolName: string) => {
+    await handleSafeToolClick(toolName, navigate);
   };
 
   return (
