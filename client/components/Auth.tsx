@@ -25,16 +25,37 @@ interface AuthProps {
 export function Auth({ className }: AuthProps) {
   const [isSignUp, setIsSignUp] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const { signIn, signUp, signInWithGoogle, signInWithGitHub } = useAuth();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle auth logic here
-    console.log("Auth submit:", formData);
+    setLoading(true);
+    setError(null);
+
+    try {
+      let result;
+      if (isSignUp) {
+        result = await signUp(formData.email, formData.password, formData.name);
+      } else {
+        result = await signIn(formData.email, formData.password);
+      }
+
+      if (result.error) {
+        setError(result.error.message || "An error occurred");
+      }
+    } catch (err) {
+      setError("An unexpected error occurred");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
