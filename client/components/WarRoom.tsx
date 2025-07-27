@@ -594,14 +594,60 @@ export function WarRoom({ className }: WarRoomProps) {
         </div>
 
         {/* Main Workspace Area */}
-        <div className="flex-1 p-6 pb-20">
-          {/* Productivity Workspace Text - Fades when typing */}
-          <div
-            className={`text-center text-muted-foreground/50 mt-20 transition-all duration-500 ${workspaceInput.trim() ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}`}
-          >
-            <h2 className="text-xl font-light mb-4">Productivity Workspace</h2>
-            <p>Your collaborative workspace is ready for action</p>
-          </div>
+        <div className="flex-1 p-6 pb-20 overflow-y-auto">
+          {workspaceMessages.length === 0 ? (
+            <div
+              className={`text-center text-muted-foreground/50 mt-20 transition-all duration-500 ${workspaceInput.trim() ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}`}
+            >
+              <h2 className="text-xl font-light mb-4">Productivity Workspace</h2>
+              <p>Your collaborative workspace is ready for action</p>
+            </div>
+          ) : (
+            <div className="max-w-4xl mx-auto space-y-4 mt-6">
+              {workspaceMessages.map((message, index) => (
+                <div
+                  key={index}
+                  className={`flex gap-3 ${
+                    message.role === 'user' ? 'justify-end' : 'justify-start'
+                  }`}
+                >
+                  {message.role === 'assistant' && (
+                    <div className="w-8 h-8 bg-[hsl(var(--gold))]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Crown className="w-4 h-4 text-[hsl(var(--gold))]" />
+                    </div>
+                  )}
+                  <div
+                    className={`max-w-lg px-4 py-3 rounded-lg ${
+                      message.role === 'user'
+                        ? 'bg-cyan-400 text-black'
+                        : 'bg-muted text-foreground border border-[hsl(var(--gold))]/20'
+                    }`}
+                  >
+                    <p className="text-sm">{message.content}</p>
+                  </div>
+                  {message.role === 'user' && (
+                    <div className="w-8 h-8 bg-cyan-400/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <User className="w-4 h-4 text-cyan-400" />
+                    </div>
+                  )}
+                </div>
+              ))}
+              {isProcessing && (
+                <div className="flex gap-3 justify-start">
+                  <div className="w-8 h-8 bg-[hsl(var(--gold))]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Crown className="w-4 h-4 text-[hsl(var(--gold))]" />
+                  </div>
+                  <div className="bg-muted px-4 py-3 rounded-lg border border-[hsl(var(--gold))]/20">
+                    <div className="flex items-center gap-1">
+                      <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" />
+                      <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
+                      <div className="w-2 h-2 bg-[hsl(var(--gold))] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
