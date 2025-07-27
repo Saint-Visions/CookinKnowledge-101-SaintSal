@@ -3,6 +3,7 @@ import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { Shield, Users, Zap, Award, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import GlobalFooter from "../components/GlobalFooter";
 
 export default function About() {
   const stats = [
