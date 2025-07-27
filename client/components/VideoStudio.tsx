@@ -165,10 +165,14 @@ export function VideoStudio() {
 
               {/* Duration */}
               <div className="mb-4">
-                <label className="text-sm font-medium text-gray-300 mb-2 block">
+                <label
+                  htmlFor="duration-select"
+                  className="text-sm font-medium text-gray-300 mb-2 block"
+                >
                   Duration (seconds)
                 </label>
                 <select
+                  id="duration-select"
                   value={duration}
                   onChange={(e) => setDuration(e.target.value)}
                   className="w-full bg-gray-800 border border-gray-700 rounded-lg p-3 text-white focus:ring-2 focus:ring-[hsl(var(--gold))] focus:border-transparent"

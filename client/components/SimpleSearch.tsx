@@ -381,6 +381,7 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
             {/* Model Selector */}
             <div className="relative">
               <select
+                aria-label="Model Selector"
                 value={selectedModel}
                 onChange={(e) => setSelectedModel(e.target.value)}
                 className="bg-muted/20 border border-border/30 rounded-lg px-3 py-2 text-sm text-foreground cursor-pointer hover:bg-muted/30 transition-colors"

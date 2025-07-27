@@ -294,6 +294,8 @@ export function StickyNotes() {
                     }
                     className="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm"
                     autoFocus
+                    placeholder="Note title"
+                    title="Note title"
                   />
                   <textarea
                     defaultValue={note.content}
@@ -302,6 +304,8 @@ export function StickyNotes() {
                     }
                     className="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm resize-none"
                     rows={4}
+                    placeholder="Note content"
+                    title="Note content"
                   />
                   <Button
                     size="sm"
@@ -322,18 +326,21 @@ export function StickyNotes() {
                       <button
                         onClick={() => setEditingNote(note.id)}
                         className="p-1 hover:bg-gray-700 rounded"
+                        title="Edit note"
                       >
                         <Edit3 className="w-3 h-3 text-gray-400" />
                       </button>
                       <button
                         onClick={() => toggleArchive(note.id)}
                         className="p-1 hover:bg-gray-700 rounded"
+                        title={note.isArchived ? "Unarchive note" : "Archive note"}
                       >
                         <Archive className="w-3 h-3 text-gray-400" />
                       </button>
                       <button
                         onClick={() => deleteNote(note.id)}
                         className="p-1 hover:bg-gray-700 rounded"
+                        title="Delete note"
                       >
                         <Trash2 className="w-3 h-3 text-red-400" />
                       </button>
