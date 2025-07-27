@@ -1,52 +1,35 @@
-import { createClient } from '@supabase/supabase-js';
+import { loadStripe } from '@stripe/stripe-js';
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL || '',
-  import.meta.env.VITE_SUPABASE_ANON_KEY || ''
-);
-
-// Map price IDs to tiers
-const priceToTier = {
-  'price_1RINIMFZsXxBWnjQEYxlyUIy': 'unlimited',
-  'price_1RLChzFZsXxBWnj0VcveVdDf': 'core',
-  'price_1IRNqvFZsXxBWnj0RlB9d1cP': 'pro',
-  'price_1IRg90FZsXxBWnj0H3PHnVc6': 'fullPro',
-  'price_1Rh5yFZsXxBWnj0w6p9KY0j': 'custom',
-};
+// Initialize Stripe with live publishable key
+const stripePromise = loadStripe('pk_live_51RAfTZFZsXxBWnjQS7I98SC6Bq6PUWb8GsOB6K061FNStjfMgn2khsrSrrqDuZZrkA6vi3rOK5FthNAInW1Bhx4L00aAznwNJv');
 
 export async function createCheckoutSession(priceId: string) {
   try {
-    // Get current user
-    const { data: { user } } = await supabase.auth.getUser();
-
-    const tier = priceToTier[priceId as keyof typeof priceToTier];
-
-    if (!tier) {
-      throw new Error('Invalid price ID');
+    console.log('🚀 DIRECT STRIPE CHECKOUT:', priceId);
+    
+    const stripe = await stripePromise;
+    
+    if (!stripe) {
+      throw new Error('Stripe failed to load');
     }
 
-    // Call Netlify function
-    const res = await fetch('/.netlify/functions/stripe-checkout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        tier,
-        userEmail: user?.email,
-        userId: user?.id,
-        supabaseId: user?.id,
-      }),
+    // Direct Stripe checkout redirect - NO BACKEND NEEDED
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [{ price: priceId, quantity: 1 }],
+      mode: 'subscription',
+      successUrl: `${window.location.origin}/checkout-success?session_id={CHECKOUT_SESSION_ID}`,
+      cancelUrl: `${window.location.origin}/pricing?cancelled=true`,
     });
 
-    if (!res.ok) {
-      const errorData = await res.json();
-      throw new Error(errorData.error || `Failed to create checkout session: ${res.statusText}`);
+    if (error) {
+      throw new Error(error.message || 'Stripe checkout failed');
     }
 
-    return await res.json(); // { url: 'https://checkout.stripe.com/...' }
+    // This return won't be reached since redirect happens
+    return { url: 'redirecting...' };
+    
   } catch (error) {
-    console.error('Checkout error:', error);
+    console.error('❌ STRIPE ERROR:', error);
     throw error;
   }
 }
