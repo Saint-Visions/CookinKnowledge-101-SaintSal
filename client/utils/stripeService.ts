@@ -23,6 +23,8 @@ export const stripePriceIds = {
 
 export async function createCheckoutSession(tier: string, userEmail?: string, userId?: string, supabaseId?: string) {
   try {
+    console.log('🔥 CREATING CHECKOUT SESSION:', { tier, userEmail, userId, supabaseId });
+
     // 🚀 USE AZURE ENDPOINT - NO MORE FLY.DEV BREAKS!
     const response = await fetch('https://saintsal-webhook-core.azurewebsites.net/api/stripe/create-checkout-session', {
       method: 'POST',
@@ -37,7 +39,10 @@ export async function createCheckoutSession(tier: string, userEmail?: string, us
       }),
     });
 
+    console.log('🌐 AZURE RESPONSE STATUS:', response.status, response.statusText);
+
     const data = await response.json();
+    console.log('📊 AZURE RESPONSE DATA:', data);
 
     if (!response.ok) {
       throw new Error(data.error || 'Failed to create checkout session');
