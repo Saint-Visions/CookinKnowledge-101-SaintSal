@@ -90,6 +90,52 @@ export function Splash({ className }: SplashProps) {
         </div>
       </div>
 
+      {/* Essential Content Below Hero */}
+      <div className="relative z-10 py-20">
+        <div className="max-w-6xl mx-auto px-6">
+
+          {/* Stats Section */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-20">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-yellow-400 mb-2">$75M+</div>
+              <div className="text-sm text-white/60">Patent Value</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-400 mb-2">24K+</div>
+              <div className="text-sm text-white/60">Users Served</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-green-400 mb-2">99.9%</div>
+              <div className="text-sm text-white/60">Uptime SLA</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-purple-400 mb-2">100%</div>
+              <div className="text-sm text-white/60">Purpose-Driven</div>
+            </div>
+          </div>
+
+          {/* Quick Access Navigation */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <Link to="/pricing" className="group p-6 rounded-xl bg-white/5 border border-white/10 hover:border-purple-400/50 transition-all duration-300 text-center">
+              <div className="text-2xl mb-2">💳</div>
+              <div className="text-sm font-medium text-white">Pricing</div>
+            </Link>
+            <Link to="/warroom" className="group p-6 rounded-xl bg-white/5 border border-white/10 hover:border-blue-400/50 transition-all duration-300 text-center">
+              <div className="text-2xl mb-2">⚡</div>
+              <div className="text-sm font-medium text-white">WarRoom</div>
+            </Link>
+            <Link to="/auth" className="group p-6 rounded-xl bg-white/5 border border-white/10 hover:border-yellow-400/50 transition-all duration-300 text-center">
+              <div className="text-2xl mb-2">👤</div>
+              <div className="text-sm font-medium text-white">Sign In</div>
+            </Link>
+            <Link to="/contact" className="group p-6 rounded-xl bg-white/5 border border-white/10 hover:border-green-400/50 transition-all duration-300 text-center">
+              <div className="text-2xl mb-2">📧</div>
+              <div className="text-sm font-medium text-white">Contact</div>
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* Bottom Brand */}
       <div className="absolute bottom-0 left-0 right-0 p-4">
         <div className="flex items-center justify-center text-sm text-white/50">
