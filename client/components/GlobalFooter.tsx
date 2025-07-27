@@ -56,8 +56,8 @@ export default function GlobalFooter() {
 
           {/* Product Links */}
           <div>
-            <h3 className="text-white font-medium mb-4">Product</h3>
-            <ul className="space-y-3">
+            <h3 className="text-white font-medium mb-3">Product</h3>
+            <ul className="space-y-2">
               {footerLinks.Product.map((link, index) => (
                 <li key={index}>
                   <Link
