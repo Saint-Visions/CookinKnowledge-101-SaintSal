@@ -393,8 +393,8 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                         <p className="text-sm">{message.content}</p>
                       </div>
                       {message.role === 'user' && (
-                        <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <User className="w-5 h-5 text-blue-400" />
+                        <div className="w-8 h-8 bg-[hsl(var(--gold))]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <User className="w-5 h-5 text-[hsl(var(--gold))]" />
                         </div>
                       )}
                     </div>
