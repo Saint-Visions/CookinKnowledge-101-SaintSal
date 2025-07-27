@@ -226,6 +226,13 @@ export function WarRoom({ className }: WarRoomProps) {
       onClick: () => navigate("/search"),
     },
     {
+      icon: MessageSquare,
+      label: "Sticky Notes",
+      active: false,
+      color: "text-green-400",
+      onClick: () => console.log('Sticky Notes functionality coming soon'),
+    },
+    {
       icon: Wrench,
       label: "AI Tools",
       active: false,
