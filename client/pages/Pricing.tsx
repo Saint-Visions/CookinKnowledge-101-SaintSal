@@ -19,27 +19,46 @@ import {
   ArrowRight,
   MessageSquare,
   Calendar,
+  Loader2,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import GlobalHeader from "../components/GlobalHeader";
 import GlobalFooter from "../components/GlobalFooter";
+import { useAuth } from "../hooks/useAuth";
+import { handleUpgrade } from "../utils/stripeService";
 
 export default function Pricing() {
   const [isYearly, setIsYearly] = useState(false);
+  const [loading, setLoading] = useState<string | null>(null);
+  const { user } = useAuth();
+
+  // 🔥 STRIPE INTEGRATION - HANDLE PAYMENT UPGRADES
+  const handleTierUpgrade = async (tier: string) => {
+    if (loading) return;
+
+    setLoading(tier);
+    try {
+      await handleUpgrade(tier, user?.email);
+    } catch (error) {
+      console.error('Upgrade error:', error);
+      setLoading(null);
+    }
+  };
 
   const plans = [
     {
       name: "Free",
       subtitle: "Try the Cookin'",
       icon: MessageSquare,
+      tier: "free",
       price: isYearly ? "$0" : "$0",
       period: "/month",
       description: "Perfect for exploring SaintSal™ capabilities",
       features: [
-        "100 AI conversations/month",
-        "Dual AI system (GPT-4o + Azure)",
+        "2 GPT-4o messages (trial)",
+        "No memory, no save history",
+        "Client Mode only",
         "Community support",
-        "Standard response time",
         "Web interface only",
       ],
       buttonText: "Start Free",
@@ -50,79 +69,82 @@ export default function Pricing() {
       name: "Unlimited",
       subtitle: "Base Magic",
       icon: Zap,
+      tier: "unlimited",
       price: isYearly ? "$270" : "$27",
       period: isYearly ? "/year" : "/month",
       description: "Where the magic starts flowing",
       features: [
-        "Unlimited AI conversations",
-        "Dual AI system (GPT-4o + Azure)",
-        "CRM connection (GHL)",
+        "Unlimited GPT-4o messaging",
+        "Access to chat history",
+        "Supersal™ Companion Mode unlocked",
+        "Sticky Supersal across dashboard",
+        "Dual bot toggle",
         "Email support",
-        "Chrome extension",
-        "Standard response time",
       ],
       buttonText: "Get Unlimited",
       color: "blue",
       popular: false,
     },
     {
-      name: "Pro",
+      name: "Core Tools",
       subtitle: "Your GOTTA GUY™",
       icon: Crown,
+      tier: "core",
       price: isYearly ? "$970" : "$97",
       period: isYearly ? "/year" : "/month",
       description: "WHERE ALL THE MAGIC UNLOCKS!",
       features: [
         "Everything in Unlimited",
-        "Dual AI system (GPT-4o + Azure)",
-        "Voice & SMS integration",
-        "CRM connection (GHL)",
+        "CRM Access via GHL",
+        "Partner dashboard",
+        "Chrome Extension (basic)",
         "PartnerTech integration",
         "Priority support",
         "Custom AI memory",
-        "API access",
-        "🔥 ALL MAGIC UNLOCKED",
+        "🔥 CRM MAGIC UNLOCKED",
       ],
-      buttonText: "Unlock Magic ✨",
+      buttonText: "Unlock Core Tools ✨",
       color: "white",
       popular: true,
       highlight: "Most businesses choose this plan",
     },
     {
-      name: "Enterprise",
+      name: "Pro Suite",
       subtitle: "Scale Mode",
       icon: Building2,
+      tier: "pro",
       price: isYearly ? "$2970" : "$297",
       period: isYearly ? "/year" : "/month",
       description: "For teams ready to dominate",
       features: [
-        "Everything in Pro",
-        "Team management",
+        "Everything in Core",
+        "Admin Dashboards",
+        "Webhook Triggers (Stripe, Lead, Schedule)",
+        "Internal Escalation Routing (Slack/Twilio)",
         "Advanced analytics",
-        "Custom integrations",
-        "Dedicated support",
+        "Team management",
         "SLA guarantees",
-        "Multi-user management",
         "Priority support",
       ],
-      buttonText: "Scale Up",
+      buttonText: "Go Pro",
       color: "purple",
       popular: false,
     },
     {
-      name: "White Label Elite",
+      name: "Full White-Label",
       subtitle: "Empire Mode",
       icon: Globe,
+      tier: "fullPro",
       price: isYearly ? "$4970" : "$497",
       period: isYearly ? "/year" : "/month",
       description: "Your own branded SaintVisionAI empire",
       features: [
-        "Everything in Enterprise",
-        "Full white-label branding",
-        "Custom domain & SSL",
-        "Unlimited user accounts",
+        "Everything in Pro",
+        "10 GHL Subaccounts (white-labeled)",
+        "Custom branding",
+        "PartnerTech.ai subdomain issued",
         "Revenue sharing program",
-        "Full source code access",
+        "Multi-CRM management",
         "24/7 dedicated support",
         "Custom feature development",
       ],
@@ -131,18 +153,19 @@ export default function Pricing() {
       popular: false,
     },
     {
-      name: "Custom",
+      name: "Custom Enterprise",
       subtitle: "Ultimate",
       icon: Sparkles,
+      tier: "custom",
       price: "$1500",
       period: "/month",
       description: "$1500 deposit for custom solutions",
       features: [
         "Everything in White Label",
-        "Custom development team",
-        "Dedicated project manager",
-        "White-glove onboarding",
-        "Custom AI training",
+        "Full onboarding",
+        "Custom domain setup",
+        "Teams/Zapier/Slack integrations",
+        "Launch strategy, IP registration",
         "Enterprise contracts",
         "Revenue guarantees",
         "Full platform customization",
@@ -354,9 +377,20 @@ export default function Pricing() {
                 <Button
                   className={`w-full ${getButtonStyles(plan.color, plan.popular)}`}
                   size="lg"
+                  onClick={() => plan.tier === 'free' ? window.location.href = '/signup' : handleTierUpgrade(plan.tier)}
+                  disabled={loading === plan.tier}
                 >
-                  {plan.buttonText}
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  {loading === plan.tier ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Processing...
+                    </>
+                  ) : (
+                    <>
+                      {plan.buttonText}
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </>
+                  )}
                 </Button>
               </CardContent>
             </Card>
