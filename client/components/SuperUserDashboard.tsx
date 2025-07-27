@@ -137,7 +137,9 @@ export default function SuperUserDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white p-6">
+    <>
+      <GlobalHeader />
+      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white p-6 pt-20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -523,6 +525,8 @@ const audit = await response.json();`}</code>
           </TabsContent>
         </Tabs>
       </div>
-    </div>
+      </div>
+      <GlobalFooter />
+    </>
   );
 }
