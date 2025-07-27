@@ -303,7 +303,7 @@ export default function AppleHomepage() {
                   <div className="text-3xl mb-4">{partner.icon}</div>
                   <h3 className="font-semibold text-white mb-2">{partner.name}</h3>
                   <p className="text-sm text-white/60">{partner.description}</p>
-                  <div className="mt-4 h-1 bg-gradient-to-r from-white to-blue-500 rounded-full"></div>
+                  <div className="mt-4 h-1 bg-gradient-to-r from-gray-600 to-white rounded-full"></div>
                 </CardContent>
               </Card>
             ))}
