@@ -148,7 +148,14 @@ export function Auth({ className }: AuthProps) {
                 type="button"
                 variant="outline"
                 className="w-full bg-gray-900 hover:bg-gray-800 text-white border-gray-700 transition-all"
-                onClick={signInWithGitHub}
+                onClick={async () => {
+                  console.log('GitHub OAuth attempt started...');
+                  const result = await signInWithGitHub();
+                  if (result.error) {
+                    console.error('GitHub OAuth failed:', result.error);
+                    setError('GitHub authentication failed: ' + result.error.message);
+                  }
+                }}
                 disabled={loading}
               >
                 <Github className="w-5 h-5 mr-3" />
@@ -331,7 +338,7 @@ export function Auth({ className }: AuthProps) {
               >
                 Support
               </Link>
-              <span className="text-muted-foreground">•</span>
+              <span className="text-muted-foreground">��</span>
               <Link
                 to="/"
                 className="text-muted-foreground hover:text-[hsl(var(--gold))] transition-colors"
