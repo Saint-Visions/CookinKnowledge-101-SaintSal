@@ -84,6 +84,59 @@ export function WarRoom({ className }: WarRoomProps) {
   const [companionInput, setCompanionInput] = useState("");
   const [companionLoading, setCompanionLoading] = useState(false);
 
+  // Single function to handle companion messages
+  const sendCompanionMessage = async (message: string) => {
+    if (!message.trim() || companionLoading) return;
+
+    const userMessage = {
+      role: "user" as const,
+      content: message,
+      timestamp: new Date(),
+    };
+
+    setCompanionMessages((prev) => [...prev, userMessage]);
+    setCompanionInput("");
+    setCompanionLoading(true);
+
+    try {
+      const response = await fetch("/api/ai/search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          query: message,
+          userContext: { role: "user" },
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      const aiMessage = {
+        role: "assistant" as const,
+        content:
+          data.response ||
+          "I apologize, but I'm having trouble responding right now. Please try again.",
+        timestamp: new Date(),
+      };
+
+      setCompanionMessages((prev) => [...prev, aiMessage]);
+    } catch (error) {
+      console.error("Companion error:", error);
+      const errorMessage = {
+        role: "assistant" as const,
+        content:
+          "I'm experiencing technical difficulties. Please try again in a moment.",
+        timestamp: new Date(),
+      };
+      setCompanionMessages((prev) => [...prev, errorMessage]);
+    } finally {
+      setCompanionLoading(false);
+    }
+  };
+
   // Navigation items - now defined inside component with access to navigate
   const leftPanelItems = [
     {
