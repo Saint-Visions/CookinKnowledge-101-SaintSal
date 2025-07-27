@@ -17,7 +17,7 @@ export default function GlobalHeader() {
               className="w-10 h-10 object-contain"
             />
             <div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+              <span className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
                 SaintVisionAI™
               </span>
               <div className="text-xs text-white/60 uppercase tracking-wider">COOKIN' KNOWLEDGE</div>
