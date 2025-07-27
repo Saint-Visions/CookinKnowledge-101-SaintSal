@@ -239,7 +239,7 @@ export default function AppleHomepage() {
               <Card key={index} className="bg-gray-700/30 backdrop-blur-sm group hover:bg-gray-700/50 transition-all duration-500 shadow-lg border-0">
                 <CardContent className="p-8">
                   <div className="flex items-center justify-between mb-6">
-                    <div className="p-3 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                    <div className="p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
                       <tech.icon className="w-6 h-6 text-purple-400" />
                     </div>
                     <Badge className="bg-white/10 text-white border-0">
@@ -256,7 +256,7 @@ export default function AppleHomepage() {
       </section>
 
       {/* Security & Trust */}
-      <section className="relative z-10 py-32 bg-gray-800/40 backdrop-blur-sm">
+      <section className="relative z-10 py-32 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-5xl font-light mb-12">Security & Trust</h2>
           
@@ -300,7 +300,7 @@ export default function AppleHomepage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {ecosystemPartners.map((partner, index) => (
-              <Card key={index} className="bg-gray-700/30 backdrop-blur-sm hover:bg-gray-700/50 transition-all duration-300 group shadow-lg border-0">
+              <Card key={index} className="backdrop-blur-sm transition-all duration-300 group shadow-lg border-0">
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl mb-4">{partner.icon}</div>
                   <h3 className="font-semibold text-white mb-2">{partner.name}</h3>
@@ -314,7 +314,7 @@ export default function AppleHomepage() {
       </section>
 
       {/* The Movement */}
-      <section className="relative z-10 py-32 bg-gradient-to-r from-white/10 to-white/20 backdrop-blur-sm">
+      <section className="relative z-10 py-32 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-5xl font-light mb-8">Join The Movement</h2>
           <p className="text-xl text-white/80 mb-12 leading-relaxed">
