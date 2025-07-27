@@ -595,6 +595,13 @@ export function WarRoom({ className }: WarRoomProps) {
                 <Bell className="w-4 h-4 mr-2" />
                 Alerts
               </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => alert('TEST CLICK WORKING!')}
+              >
+                Test Click
+              </Button>
             </div>
           </div>
         </div>
