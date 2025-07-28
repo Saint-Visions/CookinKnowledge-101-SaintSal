@@ -58,11 +58,11 @@ const quickActions = [
 ];
 
 const rightPanelItems = [
-  { icon: Bell, label: "Alerts", active: false },
-  { icon: Zap, label: "Automations", active: true },
-  { icon: Settings, label: "Config", active: false },
-  { icon: Search, label: "Search", active: false },
-  { icon: Filter, label: "Filters", active: false },
+  { icon: Bell, label: "Alerts", active: false, onClick: () => alert("🔔 Alerts system coming soon! Real-time notifications for leads, tasks, and system events.") },
+  { icon: Zap, label: "Automations", active: true, onClick: () => alert("⚡ Automation center coming soon! Webhook triggers, workflow automation, and smart routing.") },
+  { icon: Settings, label: "Config", active: false, onClick: () => navigate("/dashboard") },
+  { icon: Search, label: "Search", active: false, onClick: () => navigate("/search") },
+  { icon: Filter, label: "Filters", active: false, onClick: () => alert("🔍 Advanced filters coming soon! Custom views, saved searches, and smart categorization.") },
 ];
 
 export function WarRoom({ className }: WarRoomProps) {
