@@ -536,6 +536,16 @@ export function WarRoom({ className }: WarRoomProps) {
                   <div
                     key={index}
                     className="p-3 rounded-xl bg-muted/20 hover:bg-muted/40 cursor-pointer transition-colors text-center"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      console.log("Quick action clicked:", action.label);
+                      try {
+                        action.onClick();
+                      } catch (error) {
+                        console.error("Quick action error:", error);
+                      }
+                    }}
                   >
                     <Icon className={`w-5 h-5 mx-auto mb-1 ${action.color}`} />
                     <div className="text-xs font-medium text-foreground">
