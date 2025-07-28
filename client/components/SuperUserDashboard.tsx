@@ -365,7 +365,7 @@ export default function SuperUserDashboard() {
                         Domain (optional)
                       </label>
                       <Input
-                        placeholder="https://example.com"
+                        placeholder="https://your-client-domain.com"
                         value={newTokenForm.domain}
                         onChange={(e) =>
                           setNewTokenForm((prev) => ({
