@@ -477,6 +477,16 @@ export function WarRoom({ className }: WarRoomProps) {
                     ? "bg-primary/10 text-primary border border-primary/20"
                     : "hover:bg-sidebar-accent/50 text-sidebar-foreground/70 hover:text-sidebar-foreground"
                 }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  console.log("Right panel tool clicked:", item.label);
+                  try {
+                    item.onClick();
+                  } catch (error) {
+                    console.error("Right panel tool error:", error);
+                  }
+                }}
               >
                 <Icon className="w-5 h-5 flex-shrink-0" />
                 {rightPanelOpen && (
