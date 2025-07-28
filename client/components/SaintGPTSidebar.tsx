@@ -70,6 +70,7 @@ export function SaintGPTSidebar({ className }: SaintGPTSidebarProps) {
         <Button
           className="w-full bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-black font-medium"
           size="sm"
+          onClick={() => window.location.reload()}
         >
           <Plus className="w-4 h-4 mr-2" />
           New conversation
