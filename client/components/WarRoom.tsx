@@ -51,10 +51,10 @@ interface CompanionMessage {
 }
 
 const quickActions = [
-  { icon: Users, label: "Contacts", color: "text-blue-400" },
-  { icon: Calendar, label: "Calendar", color: "text-green-400" },
-  { icon: FileText, label: "Notes", color: "text-yellow-400" },
-  { icon: Bell, label: "Reminders", color: "text-red-400" },
+  { icon: Users, label: "Contacts", color: "text-blue-400", onClick: () => navigate("/crm") },
+  { icon: Calendar, label: "Calendar", color: "text-green-400", onClick: () => alert("📅 Calendar integration coming soon! Schedule meetings, set reminders, sync with your CRM.") },
+  { icon: FileText, label: "Notes", color: "text-yellow-400", onClick: () => alert("📝 Notes system coming soon! Voice notes, text snippets, and cross-device sync.") },
+  { icon: Bell, label: "Reminders", color: "text-red-400", onClick: () => alert("⏰ Smart reminders coming soon! AI-powered task management and follow-ups.") },
 ];
 
 const rightPanelItems = [
