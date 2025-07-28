@@ -108,6 +108,7 @@ const chatHistory = [
 ];
 
 export function SimpleSearch({ className }: SimpleSearchProps) {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isListening, setIsListening] = useState(false);
