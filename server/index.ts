@@ -32,9 +32,9 @@ export function createServer() {
         embeddings: "/api/embeddings/*",
         auditService: "/api/audit-service/*",
         stripe: "/api/stripe/*",
-        voice: "/api/voice/*"
+        voice: "/api/voice/*",
       },
-      documentation: "https://saintvision.ai/docs"
+      documentation: "https://saintvision.ai/docs",
     });
   });
 

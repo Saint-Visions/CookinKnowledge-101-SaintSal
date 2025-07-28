@@ -135,7 +135,11 @@ export function SaintGPTSidebar({ className }: SaintGPTSidebarProps) {
             <div
               key={index}
               className="group flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 cursor-pointer transition-colors"
-              onClick={() => alert(`💬 Loading chat: "${chat}"\n\nThis will restore your previous conversation and continue where you left off.`)}
+              onClick={() =>
+                alert(
+                  `💬 Loading chat: "${chat}"\n\nThis will restore your previous conversation and continue where you left off.`,
+                )
+              }
             >
               <MessageSquare className="w-4 h-4 text-gray-500 flex-shrink-0" />
               <span className="text-sm text-gray-300 truncate flex-1 group-hover:text-white transition-colors">

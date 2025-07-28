@@ -51,18 +51,81 @@ interface CompanionMessage {
 }
 
 const quickActions = [
-  { icon: Users, label: "Contacts", color: "text-blue-400", onClick: () => navigate("/crm") },
-  { icon: Calendar, label: "Calendar", color: "text-green-400", onClick: () => alert("📅 Calendar integration coming soon! Schedule meetings, set reminders, sync with your CRM.") },
-  { icon: FileText, label: "Notes", color: "text-yellow-400", onClick: () => alert("📝 Notes system coming soon! Voice notes, text snippets, and cross-device sync.") },
-  { icon: Bell, label: "Reminders", color: "text-red-400", onClick: () => alert("⏰ Smart reminders coming soon! AI-powered task management and follow-ups.") },
+  {
+    icon: Users,
+    label: "Contacts",
+    color: "text-blue-400",
+    onClick: () => navigate("/crm"),
+  },
+  {
+    icon: Calendar,
+    label: "Calendar",
+    color: "text-green-400",
+    onClick: () =>
+      alert(
+        "📅 Calendar integration coming soon! Schedule meetings, set reminders, sync with your CRM.",
+      ),
+  },
+  {
+    icon: FileText,
+    label: "Notes",
+    color: "text-yellow-400",
+    onClick: () =>
+      alert(
+        "📝 Notes system coming soon! Voice notes, text snippets, and cross-device sync.",
+      ),
+  },
+  {
+    icon: Bell,
+    label: "Reminders",
+    color: "text-red-400",
+    onClick: () =>
+      alert(
+        "⏰ Smart reminders coming soon! AI-powered task management and follow-ups.",
+      ),
+  },
 ];
 
 const rightPanelItems = [
-  { icon: Bell, label: "Alerts", active: false, onClick: () => alert("🔔 Alerts system coming soon! Real-time notifications for leads, tasks, and system events.") },
-  { icon: Zap, label: "Automations", active: true, onClick: () => alert("⚡ Automation center coming soon! Webhook triggers, workflow automation, and smart routing.") },
-  { icon: Settings, label: "Config", active: false, onClick: () => navigate("/dashboard") },
-  { icon: Search, label: "Search", active: false, onClick: () => navigate("/search") },
-  { icon: Filter, label: "Filters", active: false, onClick: () => alert("🔍 Advanced filters coming soon! Custom views, saved searches, and smart categorization.") },
+  {
+    icon: Bell,
+    label: "Alerts",
+    active: false,
+    onClick: () =>
+      alert(
+        "🔔 Alerts system coming soon! Real-time notifications for leads, tasks, and system events.",
+      ),
+  },
+  {
+    icon: Zap,
+    label: "Automations",
+    active: true,
+    onClick: () =>
+      alert(
+        "⚡ Automation center coming soon! Webhook triggers, workflow automation, and smart routing.",
+      ),
+  },
+  {
+    icon: Settings,
+    label: "Config",
+    active: false,
+    onClick: () => navigate("/dashboard"),
+  },
+  {
+    icon: Search,
+    label: "Search",
+    active: false,
+    onClick: () => navigate("/search"),
+  },
+  {
+    icon: Filter,
+    label: "Filters",
+    active: false,
+    onClick: () =>
+      alert(
+        "🔍 Advanced filters coming soon! Custom views, saved searches, and smart categorization.",
+      ),
+  },
 ];
 
 export function WarRoom({ className }: WarRoomProps) {

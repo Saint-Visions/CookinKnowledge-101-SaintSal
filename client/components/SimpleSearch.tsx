@@ -356,7 +356,11 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                         </div>
                         <div
                           className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors"
-                          onClick={() => alert("🔍 Search Chat feature coming soon! Find specific conversations, messages, and AI responses across your entire chat history.")}
+                          onClick={() =>
+                            alert(
+                              "🔍 Search Chat feature coming soon! Find specific conversations, messages, and AI responses across your entire chat history.",
+                            )
+                          }
                         >
                           <div className="text-sm font-medium text-foreground">
                             🔍 Search Chat
@@ -367,7 +371,11 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                         </div>
                         <div
                           className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors"
-                          onClick={() => alert("💾 Saved Files coming soon! Access your uploaded files, documents, and AI-generated content across all sessions.")}
+                          onClick={() =>
+                            alert(
+                              "💾 Saved Files coming soon! Access your uploaded files, documents, and AI-generated content across all sessions.",
+                            )
+                          }
                         >
                           <div className="text-sm font-medium text-foreground">
                             💾 Saved Files

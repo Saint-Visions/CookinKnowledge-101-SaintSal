@@ -326,7 +326,11 @@ export function Help({ className }: HelpProps) {
                       <div
                         key={articleIndex}
                         className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/20 transition-colors cursor-pointer"
-                        onClick={() => alert(`📖 Opening help article: "${article}"\n\nThis will show detailed documentation and examples.`)}
+                        onClick={() =>
+                          alert(
+                            `📖 Opening help article: "${article}"\n\nThis will show detailed documentation and examples.`,
+                          )
+                        }
                       >
                         <div className="flex items-center gap-3">
                           <FileText className="w-4 h-4 text-muted-foreground" />
