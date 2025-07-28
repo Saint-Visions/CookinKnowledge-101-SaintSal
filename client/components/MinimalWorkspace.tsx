@@ -23,6 +23,7 @@ const quickActions = [
 ];
 
 export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -260,7 +261,7 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
         {/* Footer */}
         <div className="mt-auto p-6 text-center">
           <div className="text-xs text-muted-foreground">
-            Powered by <span className="text-primary">Cookin' Knowledge</span> •
+            Powered by <span className="text-primary">Cookin' Knowledge</span> ��
             <span className="text-[hsl(var(--neon))]">
               {" "}
               API Saint Gotthardt
