@@ -3,7 +3,7 @@ import Stripe from "stripe";
 
 const router = express.Router();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2023-10-16",
+  apiVersion: "2025-06-30.basil",
 });
 
 // Create checkout session for audit service
