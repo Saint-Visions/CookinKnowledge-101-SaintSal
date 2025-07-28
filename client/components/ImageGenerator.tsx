@@ -54,12 +54,12 @@ export function ImageGenerator() {
       // Simulate AI image generation
       await new Promise((resolve) => setTimeout(resolve, 3000));
 
-      // Generate placeholder images (in real implementation, call AI service)
+      // Generate demo images (in production, this calls our AI image service)
       const newImages = [
-        `https://picsum.photos/512/512?random=${Date.now()}`,
-        `https://picsum.photos/512/512?random=${Date.now() + 1}`,
-        `https://picsum.photos/512/512?random=${Date.now() + 2}`,
-        `https://picsum.photos/512/512?random=${Date.now() + 3}`,
+        `https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fdemo1-${Date.now()}.webp?format=webp&width=512`,
+        `https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fdemo2-${Date.now()}.webp?format=webp&width=512`,
+        `https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fdemo3-${Date.now()}.webp?format=webp&width=512`,
+        `https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fdemo4-${Date.now()}.webp?format=webp&width=512`,
       ];
 
       setGeneratedImages(newImages);
