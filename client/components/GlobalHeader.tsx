@@ -21,7 +21,7 @@ export default function GlobalHeader() {
                 SaintVisionAI™
               </span>
               <div className="text-xs text-white/60 uppercase tracking-wider">
-                COOKIN' KNOWLEDGE
+                ENTERPRISE AI
               </div>
             </div>
           </Link>
