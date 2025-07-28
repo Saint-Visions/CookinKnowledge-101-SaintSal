@@ -354,7 +354,10 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                             Customize your experience
                           </div>
                         </div>
-                        <div className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
+                        <div
+                          className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors"
+                          onClick={() => alert("🔍 Search Chat feature coming soon! Find specific conversations, messages, and AI responses across your entire chat history.")}
+                        >
                           <div className="text-sm font-medium text-foreground">
                             🔍 Search Chat
                           </div>
