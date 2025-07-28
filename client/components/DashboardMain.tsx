@@ -89,7 +89,10 @@ export function DashboardMain({ className }: DashboardMainProps) {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-secondary/50 hover:bg-secondary/70 transition-colors cursor-pointer">
+                <Card
+                  className="bg-secondary/50 hover:bg-secondary/70 transition-colors cursor-pointer"
+                  onClick={() => window.open("mailto:enterprise@saintvision.ai?subject=Enterprise Consultation&body=I'd like to schedule an enterprise consultation.", "_blank")}
+                >
                   <CardContent className="p-4">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
