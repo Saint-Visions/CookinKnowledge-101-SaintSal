@@ -20,6 +20,7 @@ interface DashboardMainProps {
 }
 
 export function DashboardMain({ className }: DashboardMainProps) {
+  const navigate = useNavigate();
   return (
     <div className={`flex-1 p-6 overflow-auto ${className}`}>
       {/* Header */}
