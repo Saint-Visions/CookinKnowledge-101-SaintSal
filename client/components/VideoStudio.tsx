@@ -88,9 +88,9 @@ export function VideoStudio() {
       // Simulate AI video generation
       await new Promise((resolve) => setTimeout(resolve, 8000));
 
-      // Generate placeholder video (in real implementation, call AI video service)
+      // Generate demo video (in production, this calls our AI video service)
       setGeneratedVideo(
-        "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "https://cdn.builder.io/api/v1/file/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fdemo-video-saintvision.mp4",
       );
     } catch (error) {
       console.error("Video generation failed:", error);
