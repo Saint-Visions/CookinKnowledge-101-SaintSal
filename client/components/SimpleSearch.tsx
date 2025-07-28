@@ -332,7 +332,10 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                         🛠️ Tools & Resources
                       </h3>
                       <div className="space-y-2">
-                        <div className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
+                        <div
+                          className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors"
+                          onClick={() => navigate("/tools")}
+                        >
                           <div className="text-sm font-medium text-foreground">
                             📁 File GPTs
                           </div>
