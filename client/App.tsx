@@ -81,6 +81,7 @@ const App = () => (
             <Route path="/video-studio" element={<VideoStudio />} />
             <Route path="/code-academy" element={<CodeAcademy />} />
             <Route path="/ai-tools-suite" element={<AIToolsSuite />} />
+            <Route path="/audit-dashboard" element={<AuditDashboard />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
