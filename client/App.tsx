@@ -28,6 +28,7 @@ import Broker from "./pages/Broker";
 import Splash from "./pages/Splash";
 import Auth from "./pages/Auth";
 import CheckoutSuccess from "./pages/CheckoutSuccess";
+import AuditDashboard from "./pages/AuditDashboard";
 import NotFound from "./pages/NotFound";
 import { PartnerTech } from "./components/PartnerTech";
 import { CRM } from "./components/CRM";
