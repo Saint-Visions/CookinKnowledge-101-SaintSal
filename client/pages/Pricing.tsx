@@ -35,13 +35,13 @@ export default function Pricing() {
   const plans = [
     {
       name: "Free",
-      subtitle: "Try the Cookin'",
+      subtitle: "Get Started",
       icon: MessageSquare,
       tier: "free",
       price: isYearly ? "$0" : "$0",
       period: "/month",
       description:
-        "Perfect for exploring SaintSal™ capabilities and getting a taste of the magic",
+        "Perfect for exploring SaintSal™ capabilities and discovering enterprise AI potential",
       features: [
         "2 GPT-4o messages (trial)",
         "No memory, no save history",
@@ -57,13 +57,13 @@ export default function Pricing() {
     },
     {
       name: "Unlimited",
-      subtitle: "Base Magic",
+      subtitle: "Core Platform",
       icon: Zap,
       tier: "unlimited",
       price: isYearly ? "$270" : "$27",
       period: isYearly ? "/year" : "/month",
       description:
-        "Where the magic starts flowing - unlimited conversations with SaintSal™",
+        "Unlimited access to SaintSal™ with advanced conversation capabilities",
       features: [
         "Unlimited GPT-4o messaging",
         "Access to chat history & memory",
@@ -112,13 +112,13 @@ export default function Pricing() {
     },
     {
       name: "Core Tools",
-      subtitle: "Your GOTTA GUY™",
+      subtitle: "Business Essential",
       icon: Crown,
       tier: "core",
       price: isYearly ? "$970" : "$97",
       period: isYearly ? "/year" : "/month",
       description:
-        "WHERE ALL THE MAGIC UNLOCKS! Your complete business AI companion",
+        "Complete business AI solution with integrated CRM and advanced features",
       features: [
         "Everything in Unlimited",
         "CRM Access via GHL integration",
@@ -127,9 +127,9 @@ export default function Pricing() {
         "PartnerTech.ai integration",
         "Priority support queue",
         "Custom AI memory bank",
-        "🔥 CRM MAGIC UNLOCKED",
+        "CRM Integration Enabled",
       ],
-      buttonText: "Unlock Core Tools ✨",
+      buttonText: "Get Core Tools",
       color: "white",
       popular: true,
       highlight: "Most businesses choose this plan",
@@ -224,13 +224,13 @@ export default function Pricing() {
     },
     {
       name: "Full White-Label",
-      subtitle: "Empire Mode",
+      subtitle: "White Label",
       icon: Globe,
       tier: "fullPro",
       price: isYearly ? "$4970" : "$497",
       period: isYearly ? "/year" : "/month",
       description:
-        "Your own branded SaintVisionAI empire - build and scale your AI business",
+        "Complete white-label SaintVisionAI solution for building your AI business",
       features: [
         "Everything in Pro Suite",
         "10 GHL Subaccounts (white-labeled)",
@@ -241,7 +241,7 @@ export default function Pricing() {
         "24/7 dedicated support channel",
         "Custom feature development queue",
       ],
-      buttonText: "Build Empire",
+      buttonText: "Get White Label",
       color: "green",
       popular: false,
       action: async () => {
