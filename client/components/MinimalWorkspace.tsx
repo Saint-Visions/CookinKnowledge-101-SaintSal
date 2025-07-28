@@ -248,7 +248,10 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
 
                 {/* CTA */}
                 <div className="text-center">
-                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-xl text-lg">
+                  <Button
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-xl text-lg"
+                    onClick={() => navigate("/warroom")}
+                  >
                     Experience The Difference
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
@@ -261,7 +264,7 @@ export function MinimalWorkspace({ className }: MinimalWorkspaceProps) {
         {/* Footer */}
         <div className="mt-auto p-6 text-center">
           <div className="text-xs text-muted-foreground">
-            Powered by <span className="text-primary">Cookin' Knowledge</span> ��
+            Powered by <span className="text-primary">Cookin' Knowledge</span> •
             <span className="text-[hsl(var(--neon))]">
               {" "}
               API Saint Gotthardt
