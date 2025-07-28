@@ -343,7 +343,10 @@ export function SimpleSearch({ className }: SimpleSearchProps) {
                             Upload and analyze files
                           </div>
                         </div>
-                        <div className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
+                        <div
+                          className="p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors"
+                          onClick={() => navigate("/dashboard")}
+                        >
                           <div className="text-sm font-medium text-foreground">
                             ⚙️ Settings
                           </div>
