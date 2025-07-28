@@ -65,7 +65,7 @@ export default function Contact() {
       <div className="text-center py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <Badge className="bg-yellow-400/20 text-yellow-400 border-yellow-400/30 mb-6">
-            🛡️ Route Auditing Service Support
+            Route Auditing Service Support
           </Badge>
 
           <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
