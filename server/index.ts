@@ -18,6 +18,26 @@ export function createServer() {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
+  // API root endpoint
+  app.get("/api", (_req, res) => {
+    res.json({
+      name: "SaintVisionAI API",
+      version: "1.0.0",
+      status: "operational",
+      endpoints: {
+        ping: "/api/ping",
+        demo: "/api/demo",
+        ai: "/api/ai/*",
+        ghl: "/api/ghl/*",
+        embeddings: "/api/embeddings/*",
+        auditService: "/api/audit-service/*",
+        stripe: "/api/stripe/*",
+        voice: "/api/voice/*"
+      },
+      documentation: "https://saintvision.ai/docs"
+    });
+  });
+
   // Example API routes
   app.get("/api/ping", (_req, res) => {
     const ping = process.env.PING_MESSAGE ?? "ping";
