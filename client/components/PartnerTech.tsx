@@ -386,6 +386,7 @@ export function PartnerTech({ className }: PartnerTechProps) {
                     <div
                       key={index}
                       className="flex items-center justify-between p-4 rounded-lg bg-black/40 hover:bg-black/60 transition-all cursor-pointer"
+                      onClick={() => alert(`📞 Opening lead details for ${lead.name}\n📧 ${lead.email}\n💰 ${lead.value}\n📅 Last contacted: ${lead.lastContact}`)}
                     >
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400 to-blue-400 flex items-center justify-center">
