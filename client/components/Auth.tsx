@@ -86,7 +86,7 @@ export function Auth({ className }: AuthProps) {
       <div
         className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-50"
         style={{
-          backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F92c010749dfe4c8da022a5b1c11b2a37?format=webp&width=800')`,
+          backgroundImage: `url('/auth-background.webp')`,
         }}
       />
 
@@ -99,7 +99,7 @@ export function Auth({ className }: AuthProps) {
           {/* Logo & Brand */}
           <div className="text-center mb-8">
             <img
-              src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fc88eaa91ad364821b51a4fc6c47320ab?format=webp&width=80"
+              src="/saintvision-logo.webp"
               alt="SaintVision Logo"
               className="w-20 h-20 object-contain mx-auto mb-4 drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]"
             />
