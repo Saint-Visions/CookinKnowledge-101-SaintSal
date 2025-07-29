@@ -24,7 +24,7 @@ export function Splash({ className }: SplashProps) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-6">
             <img
-              src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F88335b4853ee4a66a62fe88e75199bfd?format=webp&width=800"
+              src="/sv-main-logo.webp"
               alt="Sv. Logo"
               className="w-12 h-12 object-contain opacity-80"
             />

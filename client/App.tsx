@@ -50,7 +50,7 @@ const App = () => (
       <BrowserRouter>
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<AppleHomepage />} />
+            <Route path="/" element={<Splash />} />
             <Route path="/home" element={<Index />} />
             <Route path="/saintgpt" element={<SaintGPT />} />
             <Route path="/search" element={<SimpleSearch />} />
