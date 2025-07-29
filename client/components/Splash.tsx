@@ -81,7 +81,7 @@ export function Splash({ className }: SplashProps) {
                   <ArrowRight className="w-6 h-6 ml-4" />
                 </Button>
               </Link>
-              <Link to="/about">
+              <Link to="/why">
                 <Button
                   variant="outline"
                   size="lg"
