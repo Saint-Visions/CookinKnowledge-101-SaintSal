@@ -1,4 +1,5 @@
 import { Builder, builder } from '@builder.io/react';
+import React from 'react';
 
 // 🔧 HYBRID BUILDER.IO SYSTEM
 // Your app works 100% independently, Builder.io is OPTIONAL enhancement
@@ -73,17 +74,19 @@ export function useBuilderContent(modelName: string, fallback: any) {
 }
 
 // 🛡️ SAFE IMAGE LOADER
+interface BuilderImageProps {
+  builderSrc?: string;
+  localFallback: string;
+  alt: string;
+  className?: string;
+}
+
 export function BuilderImage({ 
   builderSrc, 
   localFallback, 
   alt, 
   className 
-}: {
-  builderSrc?: string;
-  localFallback: string;
-  alt: string;
-  className?: string;
-}) {
+}: BuilderImageProps) {
   const [imgSrc, setImgSrc] = React.useState(localFallback);
   
   React.useEffect(() => {
@@ -96,7 +99,7 @@ export function BuilderImage({
     }
   }, [builderSrc, localFallback]);
   
-  return <img src={imgSrc} alt={alt} className={className} />;
+  return React.createElement('img', { src: imgSrc, alt, className });
 }
 
 export default Builder;
