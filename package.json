@@ -21,6 +21,8 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@builder.io/react": "^8.2.6",
+    "@builder.io/sdk": "^6.1.2",
     "@stripe/stripe-js": "^7.6.1",
     "@supabase/supabase-js": "^2.52.1",
     "dotenv": "^17.2.0",
