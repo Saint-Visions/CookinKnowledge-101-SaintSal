@@ -406,7 +406,7 @@ export function WarRoom({ className }: WarRoomProps) {
         {/* Fixed Background Logo */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.25] overflow-hidden">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F6a4a7caae7d14837b20112e2ce9e5015?format=webp&width=300"
+            src="/cookin-knowledge.webp"
             alt="Cookin' Knowledge Background"
             className="w-[220px] h-auto object-contain"
           />
@@ -417,7 +417,7 @@ export function WarRoom({ className }: WarRoomProps) {
             {leftPanelOpen && (
               <div className="flex items-center gap-3">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fc88eaa91ad364821b51a4fc6c47320ab?format=webp&width=80"
+                  src="/saintvision-logo.webp"
                   alt="Sv."
                   className="w-8 h-8 object-contain"
                 />
@@ -904,7 +904,7 @@ export function WarRoom({ className }: WarRoomProps) {
           <div className="flex items-center justify-between p-4 border-b border-[hsl(var(--gold))]/30">
             <div className="flex items-center gap-3">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F8c7c9578e6324915bda191428ef80ec9?format=webp&width=800"
+                src="/supersal-ai.webp"
                 alt="Supersal AI"
                 className="w-10 h-10 rounded-xl object-cover shadow-[0_0_20px_rgba(255,215,0,0.5)]"
               />
@@ -1018,7 +1018,7 @@ export function WarRoom({ className }: WarRoomProps) {
           className="fixed bottom-6 right-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-[hsl(var(--gold))] to-yellow-600 hover:from-[hsl(var(--gold))]/90 hover:to-yellow-500 shadow-[0_0_30px_rgba(255,215,0,0.5)] hover:shadow-[0_0_40px_rgba(255,215,0,0.7)] transition-all duration-300 z-50 group border border-[hsl(var(--gold))]/30"
         >
           <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F8c7c9578e6324915bda191428ef80ec9?format=webp&width=800"
+            src="/supersal-ai.webp"
             alt="Supersal AI"
             className="w-10 h-10 rounded-xl object-cover group-hover:scale-110 transition-transform"
           />
