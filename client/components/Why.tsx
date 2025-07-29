@@ -50,13 +50,13 @@ export function Why({ className }: WhyProps) {
             {/* Left: Logos */}
             <div className="flex items-center gap-6">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2Fc88eaa91ad364821b51a4fc6c47320ab?format=webp&width=80"
+                src="/saintvision-logo.webp"
                 alt="SaintVision Logo"
                 className="w-10 h-10 object-contain"
               />
               <div className="h-8 w-px bg-border/30"></div>
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F2c553a9d8cf24e6eae81a4a63962c5a4%2F6a4a7caae7d14837b20112e2ce9e5015?format=webp&width=300"
+                src="/cookin-knowledge.webp"
                 alt="Cookin' Knowledge"
                 className="w-8 h-8 object-contain opacity-80"
               />
