@@ -72,7 +72,7 @@ export function Splash({ className }: SplashProps) {
             className={`transition-all duration-1000 delay-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link to="/warroom">
+              <Link to="/home">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold text-2xl px-12 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105"
