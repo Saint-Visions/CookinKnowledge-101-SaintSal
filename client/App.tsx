@@ -53,6 +53,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<SplashComponent />} />
             <Route path="/home" element={<Index />} />
+            <Route path="/apple" element={<AppleHomepage />} />
             <Route path="/saintgpt" element={<SaintGPT />} />
             <Route path="/search" element={<SimpleSearch />} />
             <Route path="/warroom" element={<WarRoom />} />
