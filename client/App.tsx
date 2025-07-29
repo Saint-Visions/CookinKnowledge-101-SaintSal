@@ -26,6 +26,7 @@ import GeneralDashboard from "./pages/GeneralDashboard";
 import Institute from "./pages/Institute";
 import Broker from "./pages/Broker";
 import Splash from "./pages/Splash";
+import { Splash as SplashComponent } from "./components/Splash";
 import Auth from "./pages/Auth";
 import CheckoutSuccess from "./pages/CheckoutSuccess";
 import AuditDashboard from "./pages/AuditDashboard";
