@@ -12,14 +12,26 @@ function isValidSupabaseConfig(url?: string, key?: string): boolean {
   if (!url || !key) return false;
   try {
     new URL(url);
-    return url.startsWith('https://') && !url.includes('your_') && !url.includes('_here') && key.length > 20 && !key.includes('your_');
+    return (
+      url.startsWith("https://") &&
+      !url.includes("your_") &&
+      !url.includes("_here") &&
+      key.length > 20 &&
+      !key.includes("your_")
+    );
   } catch {
     return false;
   }
 }
 
-const supabaseAdmin = isValidSupabaseConfig(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
-  ? createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!)
+const supabaseAdmin = isValidSupabaseConfig(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY,
+)
+  ? createClient(
+      process.env.SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    )
   : null;
 
 // 🎯 STRIPE WEBHOOK - HANDLES ALL TIER UPGRADES

@@ -12,13 +12,21 @@ const supabaseAnonKey =
 function isValidUrl(url: string): boolean {
   try {
     new URL(url);
-    return url.startsWith('https://') && !url.includes('your_') && !url.includes('_here');
+    return (
+      url.startsWith("https://") &&
+      !url.includes("your_") &&
+      !url.includes("_here")
+    );
   } catch {
     return false;
   }
 }
 
-const isValidConfig = isValidUrl(supabaseUrl) && supabaseAnonKey && supabaseAnonKey.length > 20 && !supabaseAnonKey.includes('your_');
+const isValidConfig =
+  isValidUrl(supabaseUrl) &&
+  supabaseAnonKey &&
+  supabaseAnonKey.length > 20 &&
+  !supabaseAnonKey.includes("your_");
 
 if (isValidConfig) {
   console.log("🔐 Supabase URL:", supabaseUrl);
@@ -27,7 +35,9 @@ if (isValidConfig) {
     supabaseAnonKey.substring(0, 20) + "...",
   );
 } else {
-  console.warn("⚠️ Invalid Supabase configuration detected - using fallback mode");
+  console.warn(
+    "⚠️ Invalid Supabase configuration detected - using fallback mode",
+  );
 }
 
 export const supabase = isValidConfig
